@@ -1,0 +1,116 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+
+.nav-area{
+    position:fixed;
+    width:100%;
+    nav{
+        .navbar{
+            background-color:rgba(255, 241, 241, 0.9);
+            display: flex;
+            justify-content: space-around;
+            padding:0px 20px;
+            border-bottom:3px solid rgba(255, 221, 221, 0.9);
+            .logo{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                a{
+                    padding:10px 0px;
+                    img{
+                        width:70px;
+                    }
+                }
+            }
+
+            .links{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                ul{
+                    display: flex;
+                    list-style: none;
+                    li{
+                        a{
+                            text-decoration: none;
+                            font-family: 'David Libre', serif;
+                            font-size: 18px;
+                            color:rgb(255, 143, 143);
+                            padding:10px 20px;
+                            transition: color 0.4s;
+
+                            &:hover{
+                                color:rgb(93, 0, 168);
+                                transition: color 0.4s;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .burger{
+               display: none;
+               flex-direction: column;
+               justify-content: center;
+               i{
+                color:rgb(255, 143, 143);
+                   padding:20px;
+                   border-radius: 50%;
+                   &:hover{
+                    color:rgb(93, 0, 168);
+                   }
+               }
+
+            }
+        }
+
+
+        @media screen and (max-width:790px){
+            .navbar{
+                justify-content: space-between;
+                .links{
+                   position:absolute;
+                   top:97px;
+                   right:0px;
+                   background-color:rgba(255, 241, 241, 0.9);
+                   width:70%;
+                   min-height:100vh;
+                   height:100%;
+                   border-left:3px solid rgba(255, 221, 221, 0.9);
+
+                   ul{
+                       display: block;
+                       text-align: center;
+                       li{
+                           padding:15px 0px;
+                           border-bottom:2px solid rgba(253, 235, 235, 0);
+                           a{
+                               font-size: 24px;
+                               color:rgb(255, 143, 143);
+                               &:hover{
+                                   color:rgb(93, 0, 168);
+                               }
+                            @media screen and (max-width:370px){
+                                font-size: 18px;
+                            }
+                           }
+                           &:hover{
+                               background-color: rgba(253, 235, 235, 0.9);
+                               border-bottom: 2px solid rgba(255, 221, 221, 0.9);
+                           }
+                       }
+                   }
+
+                }
+                .burger{
+                    display: flex;
+                }
+            }
+        }
+    }
+}
