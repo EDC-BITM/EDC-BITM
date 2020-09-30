@@ -1,0 +1,170 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.landing-section {
+  position: relative;
+}
+.landing-section .landing-grad {
+  z-index: 0;
+  position: absolute;
+}
+.landing-section .landing-grad img {
+  width: 250px;
+}
+.landing-section .left-grad {
+  top: 0vh;
+  left: 0vw;
+}
+.landing-section .right-grad {
+  top: 80vh;
+  right: 0vw;
+}
+.landing-section .navbar {
+  padding: 10px;
+}
+.landing-section .navbar nav {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+.landing-section .navbar nav .logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.landing-section .navbar nav .logo a {
+  text-decoration: none;
+  display: flex;
+}
+.landing-section .navbar nav .logo a .image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.landing-section .navbar nav .logo a .image img {
+  width: 50px;
+}
+.landing-section .navbar nav .logo a .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  color: #1C1C26;
+}
+.landing-section .navbar nav .link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.landing-section .navbar nav .link ul {
+  display: flex;
+  list-style: none;
+}
+.landing-section .navbar nav .link ul li {
+  padding: 0px 15px;
+}
+.landing-section .navbar nav .link ul li a {
+  text-decoration: none;
+  color: #787994;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+}
+.landing-section .navbar nav .link ul li a:hover {
+  color: #1C1C26;
+  font-weight: 300;
+}
+.landing-section .navbar nav .contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.landing-section .navbar nav .contact a {
+  text-decoration: none;
+  background: #FA3654 0% 0% no-repeat padding-box;
+  border-radius: 50px;
+  opacity: 1;
+  box-shadow: 0px 20px 45px #FA365466;
+  padding: 10px 20px;
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  border: 3px solid #FA3654;
+  transition: background-color 0.4s;
+  font-size: 16px;
+}
+.landing-section .navbar nav .contact a:hover {
+  color: #FA3654;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  transition: background-color 0.4s;
+}
+.landing-section .landing-data {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+}
+.landing-section .landing-data .text {
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.landing-section .landing-data .text h1 {
+  font-family: "ambar";
+}
+.landing-section .landing-data .text h1 span {
+  color: #FA3654;
+}
+.landing-section .landing-data .text p {
+  padding: 20px 0px;
+  color: #787994;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+.landing-section .landing-data .text div {
+  padding-top: 20px;
+}
+.landing-section .landing-data .text div a {
+  text-decoration: none;
+  background: #FA3654 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  opacity: 1;
+  box-shadow: 0px 20px 45px #FA365466;
+  padding: 10px 20px;
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  border: 3px solid #FA3654;
+  transition: background-color 0.4s;
+  font-size: 16px;
+  margin: 0px 20px;
+}
+.landing-section .landing-data .text div a:hover {
+  color: #FA3654;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  transition: background-color 0.4s;
+}
+.landing-section .landing-data .text div #al {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  color: #1C1C26;
+  border-color: #1C1C26;
+  box-shadow: 0px 20px 45px #FA365466;
+}
+.landing-section .landing-data .text div #al:hover {
+  color: #FFFFFF;
+  background-color: #3b3b50;
+}
+.landing-section .landing-data .image {
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.landing-section .landing-data .image img {
+  width: 500px;
+}
+
+/*# sourceMappingURL=index-1.css.map */

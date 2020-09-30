@@ -4,67 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDC | BIT Mesra, Ranchi</title>
 
-    <!-- fonts 
-    font-family: 'David Libre', serif;
-    font-family: 'Roboto', sans-serif;
-    -->
-    <link href="https://fonts.googleapis.com/css2?family=David+Libre&family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="temp-files/amber/Ambar Pearl Personal Use/Ambar Pearl Personal Use.ttf">
     <!-- style -->
-    <link rel="stylesheet" href="style/nav.css">
-    <link rel="stylesheet" href="style/index.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <title>EDC | BIT Mesra</title>
+    <link rel="stylesheet" href="style/index-1.css">
+    <style>
+        @font-face {
+            font-family: ambar;
+            src: url("temp-files/amber/Ambar Pearl Personal Use/Ambar Pearl Personal Use.ttf");
+        }
+    </style>
 </head>
 
 <body>
-
-    <div id="coverAll" onclick="nav()"></div>
-    <div class="nav-area">
-        <nav>
-            <div class="navbar">
+    <div class="landing-section">
+        <div class="left-grad landing-grad">
+            <img src="image/left-grad.png">
+        </div>
+        <div class="navbar">
+            <nav>
                 <div class="logo">
-                    <a href="#"><img src="image/logo.png" alt="EDC | BIT Mesra"></a>
+                    <a href="#">
+                        <div class="image">
+                            <img src="image/logo.png" alt="EDC BIT Mesra, Ranchi">
+                        </div>
+                        <div class="text">
+                            <span>Entrepreneurship Development Cell, <br> BIT Mesra</span>
+                        </div>
+                    </a>
                 </div>
-                <div class="links">
+                <div class="link">
                     <ul>
                         <li><a href="#">E-Summit</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Partners</a></li>
-                        <li><a href="#">Events</a></li>
                         <li><a href="#">Gallery</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Team</a></li>
                     </ul>
                 </div>
+                <div class="contact">
+                    <a href="#">Get in Touch!</a>
+                </div>
+            </nav>
+        </div>
+        <div class="right-grad landing-grad">
+            <img src="image/right-grad.png">
+        </div>
 
-                <div class="burger" onclick="nav()">
-                    <i class="fas fa-bars fa-2x"></i>
+        <div class="landing-data">
+            <div class="text">
+                <h1>
+                    Taking the Road Less <span>Travelled</span>
+                </h1>
+                <p>
+                    Bridging the Gap between innovation and opportunity. <br>
+                    Entrepreneurship Development Cell, BIT Mesra targets <br>
+                     fostering Entrepreneurship culture among students.
+                </p>
+                <div>
+                    <a href="#">Explore</a>
+                    <a href="#" id="al">Are you Alumni?</a>
                 </div>
             </div>
-
-        </nav>
+            <div class="image">
+                <img src="image/display.png" alt="The Entrepreneur's lifestyle">
+            </div>
+        </div>
     </div>
-
-
-    <!-- landing section -->
-    <div class="landing-section">
-       <div class="text">
-           <h1 data-aos="fade-right" data-aos-easing="ease" data-aos-delay="600">Entrepreneurship <br> Development <br> Cell</h1>
-           <p data-aos="fade-right" data-aos-easing="ease" data-aos-delay="1000">We Help you Transform <br> Your Vision into Creative Results</p>
-       </div>
-       <div class="image">
-           <img src="image/logo.png" alt="EDC | BIT Mesra, Ranchi" data-aos="zoom-out-up" data-aos-easing="ease" data-aos-delay="200">
-       </div>
-    </div>
-
-
-    <script src="script/nav.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
-
 </body>
 
 </html>
