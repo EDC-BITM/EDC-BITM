@@ -4,15 +4,29 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .landing-section {
   position: relative;
 }
 .landing-section .landing-grad {
-  z-index: 0;
+  z-index: -1;
   position: absolute;
 }
 .landing-section .landing-grad img {
   width: 250px;
+}
+@media screen and (max-width: 1300px) {
+  .landing-section .landing-grad img {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .landing-section .landing-grad img {
+    width: 150px;
+  }
 }
 .landing-section .left-grad {
   top: 0vh;
@@ -47,6 +61,11 @@
 .landing-section .navbar nav .logo a .image img {
   width: 50px;
 }
+@media screen and (max-width: 1000px) {
+  .landing-section .navbar nav .logo a .image img {
+    width: 70px;
+  }
+}
 .landing-section .navbar nav .logo a .text {
   display: flex;
   flex-direction: column;
@@ -55,6 +74,11 @@
   font-family: "Poppins", sans-serif;
   font-weight: bold;
   color: #1C1C26;
+}
+@media screen and (max-width: 1000px) {
+  .landing-section .navbar nav .logo a .text {
+    display: none;
+  }
 }
 .landing-section .navbar nav .link {
   display: flex;
@@ -78,15 +102,28 @@
   color: #1C1C26;
   font-weight: 300;
 }
+.landing-section .navbar nav .link ul #contact-extra {
+  display: none;
+}
+@media screen and (max-width: 1100px) {
+  .landing-section .navbar nav .link ul #contact-extra {
+    display: block;
+  }
+}
 .landing-section .navbar nav .contact {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+@media screen and (max-width: 1100px) {
+  .landing-section .navbar nav .contact {
+    display: none;
+  }
+}
 .landing-section .navbar nav .contact a {
   text-decoration: none;
   background: #FA3654 0% 0% no-repeat padding-box;
-  border-radius: 50px;
+  border-radius: 5px;
   opacity: 1;
   box-shadow: 0px 20px 45px #FA365466;
   padding: 10px 20px;
@@ -106,6 +143,11 @@
   display: flex;
   justify-content: center;
 }
+@media screen and (max-width: 1040px) {
+  .landing-section .landing-data {
+    flex-direction: column-reverse;
+  }
+}
 .landing-section .landing-data .text {
   padding: 0px 20px;
   display: flex;
@@ -118,29 +160,43 @@
 .landing-section .landing-data .text h1 span {
   color: #FA3654;
 }
+@media screen and (max-width: 1040px) {
+  .landing-section .landing-data .text h1 {
+    text-align: center;
+  }
+}
 .landing-section .landing-data .text p {
   padding: 20px 0px;
   color: #787994;
   font-size: 18px;
   font-family: "Poppins", sans-serif;
-  text-align: center;
+  text-align: left;
+}
+@media screen and (max-width: 1040px) {
+  .landing-section .landing-data .text p {
+    text-align: center;
+  }
 }
 .landing-section .landing-data .text div {
   padding-top: 20px;
+}
+@media screen and (max-width: 1040px) {
+  .landing-section .landing-data .text div {
+    text-align: center;
+  }
 }
 .landing-section .landing-data .text div a {
   text-decoration: none;
   background: #FA3654 0% 0% no-repeat padding-box;
   border-radius: 5px;
   opacity: 1;
-  box-shadow: 0px 20px 45px #FA365466;
-  padding: 10px 20px;
+  padding: 10px 40px;
   color: #FFFFFF;
   font-family: "Poppins", sans-serif;
   border: 3px solid #FA3654;
   transition: background-color 0.4s;
   font-size: 16px;
-  margin: 0px 20px;
+  margin: 0px 20px 0px 0px;
 }
 .landing-section .landing-data .text div a:hover {
   color: #FA3654;
@@ -151,7 +207,8 @@
   background: #FFFFFF 0% 0% no-repeat padding-box;
   color: #1C1C26;
   border-color: #1C1C26;
-  box-shadow: 0px 20px 45px #FA365466;
+  padding: 10px 12px;
+  margin: 0px 0px 0px 20px;
 }
 .landing-section .landing-data .text div #al:hover {
   color: #FFFFFF;
@@ -163,8 +220,20 @@
   flex-direction: column;
   justify-content: center;
 }
+@media screen and (max-width: 1040px) {
+  .landing-section .landing-data .image {
+    flex-direction: row;
+    padding-left: 0px;
+    padding-bottom: 20px;
+  }
+}
 .landing-section .landing-data .image img {
   width: 500px;
+}
+@media screen and (max-width: 1280px) {
+  .landing-section .landing-data .image img {
+    width: 400px;
+  }
 }
 
 /*# sourceMappingURL=index-1.css.map */
