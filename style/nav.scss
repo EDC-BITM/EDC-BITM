@@ -8,18 +8,21 @@
     -webkit-user-select:none;
 }
 
-
+html{
+    scroll-behavior: smooth;
+}
 
 .nav-area{
     position:fixed;
     width:100%;
+    z-index: 1000;
     nav{
         .navbar{
-            background-color:rgba(255, 241, 241, 0.9);
+            background-color:rgba(255, 241, 241, 0.97);
             display: flex;
             justify-content: space-around;
             padding:0px 20px;
-            border-bottom:3px solid rgba(255, 221, 221, 0.9);
+            border-bottom:3px solid rgba(255, 221, 221, 1);
             .logo{
                 display: flex;
                 flex-direction: column;
@@ -89,12 +92,12 @@
                    position:absolute;
                    top:77px;
                    right:-100vw;
-                   transition: right cubic-bezier(.6,.62,0,1.27) 0.4s;
-                   background-color:rgba(255, 241, 241, 0.9);
+                   transition: right cubic-bezier(.63,.62,.29,1.04) 0.4s;
+                   background-color:rgba(255, 241, 241, 0.97);
                    width:70%;
                    min-height:100vh;
                    height:100%;
-                   border-left:3px solid rgba(255, 221, 221, 0.9);
+                   border-left:3px solid rgba(255, 221, 221, 1);
 
                    ul{
                        display: block;
@@ -113,8 +116,8 @@
                             }
                            }
                            &:hover{
-                               background-color:rgba(255, 232, 232, 0.9);
-                               border-bottom: 2px solid rgba(255, 221, 221, 0.9);
+                               background-color:rgba(255, 232, 232, 0.97);
+                               border-bottom: 2px solid rgba(255, 221, 221, 1);
                            }
                        }
                    }
@@ -140,7 +143,7 @@
     left:0;
     display:none;
     position:fixed;
-    background-color:rgba(131, 108, 108, 0.5);
+    background-color:rgba(0, 0,0, 0.5);
     overflow:auto
 }
 
