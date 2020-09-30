@@ -79,7 +79,7 @@
     position: absolute;
     top: 77px;
     right: -100vw;
-    transition: right 0.4s;
+    transition: right cubic-bezier(0.6, 0.62, 0, 1.27) 0.4s;
     background-color: rgba(255, 241, 241, 0.9);
     width: 70%;
     min-height: 100vh;
