@@ -8,6 +8,19 @@ html {
   scroll-behavior: smooth;
 }
 
+#coverAll {
+  width: 100%;
+  height: 100%;
+  opacity: 0.95;
+  top: 0;
+  left: 0;
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+  z-index: 900;
+}
+
 .landing-section {
   position: relative;
 }
@@ -28,9 +41,32 @@ html {
     width: 150px;
   }
 }
+@media screen and (max-width: 520px) {
+  .landing-section .landing-grad img {
+    width: 120px;
+  }
+}
 .landing-section .left-grad {
   top: 0vh;
   left: 0vw;
+}
+@media screen and (max-width: 1421px) {
+  .landing-section .left-grad {
+    top: 0vh;
+    left: -1vh;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .landing-section .left-grad {
+    top: -1vh;
+    left: -1vh;
+  }
+}
+@media screen and (max-width: 800px) {
+  .landing-section .left-grad {
+    top: 100px;
+    left: -1vh;
+  }
 }
 .landing-section .right-grad {
   top: 80vh;
@@ -39,10 +75,29 @@ html {
 .landing-section .navbar {
   padding: 10px;
 }
+@media screen and (max-width: 800px) {
+  .landing-section .navbar {
+    position: fixed;
+    width: 100vw;
+    z-index: 1000;
+    padding: 0px;
+  }
+  .landing-section .navbar nav {
+    background-color: #fffffffa;
+    border-bottom: 3px solid #ff6a80;
+  }
+}
 .landing-section .navbar nav {
   padding-top: 30px;
   display: flex;
   justify-content: space-around;
+}
+@media screen and (max-width: 800px) {
+  .landing-section .navbar nav {
+    padding-top: 10px;
+    padding: 10px 20px;
+    justify-content: space-between;
+  }
 }
 .landing-section .navbar nav .logo {
   display: flex;
@@ -64,6 +119,11 @@ html {
 @media screen and (max-width: 1000px) {
   .landing-section .navbar nav .logo a .image img {
     width: 70px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .landing-section .navbar nav .logo a .image img {
+    width: 60px;
   }
 }
 .landing-section .navbar nav .logo a .text {
@@ -110,6 +170,34 @@ html {
     display: block;
   }
 }
+@media screen and (max-width: 800px) {
+  .landing-section .navbar nav .link {
+    position: absolute;
+    top: 0;
+    left: -100vw;
+    width: 60%;
+    min-height: 100vh;
+    z-index: 1000;
+    background-color: #fffffff6;
+    border-right: 5px solid #FA3654;
+    transition: left 0.4s;
+  }
+  .landing-section .navbar nav .link ul {
+    flex-direction: column;
+  }
+  .landing-section .navbar nav .link ul li {
+    padding-top: 20px;
+    text-align: center;
+    border-bottom: 5px solid rgba(255, 255, 255, 0);
+  }
+  .landing-section .navbar nav .link ul li a {
+    font-size: 24px;
+  }
+  .landing-section .navbar nav .link ul li:hover {
+    border-bottom: 5px solid #ff6a80;
+    background-color: #fff4f5;
+  }
+}
 .landing-section .navbar nav .contact {
   display: flex;
   flex-direction: column;
@@ -138,6 +226,22 @@ html {
   background: #FFFFFF 0% 0% no-repeat padding-box;
   transition: background-color 0.4s;
 }
+.landing-section .navbar nav .burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+.landing-section .navbar nav .burger i {
+  color: #ff6a80;
+}
+.landing-section .navbar nav .burger i:hover {
+  color: #787994;
+}
+@media screen and (max-width: 800px) {
+  .landing-section .navbar nav .burger {
+    display: flex;
+  }
+}
 .landing-section .landing-data {
   min-height: 80vh;
   display: flex;
@@ -146,6 +250,16 @@ html {
 @media screen and (max-width: 1040px) {
   .landing-section .landing-data {
     flex-direction: column-reverse;
+  }
+}
+@media screen and (max-width: 800px) {
+  .landing-section .landing-data {
+    min-height: 100vh;
+  }
+}
+@media screen and (max-width: 475px) {
+  .landing-section .landing-data {
+    flex-direction: column;
   }
 }
 .landing-section .landing-data .text {
@@ -177,6 +291,16 @@ html {
     text-align: center;
   }
 }
+@media screen and (max-width: 527px) {
+  .landing-section .landing-data .text p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 475px) {
+  .landing-section .landing-data .text p {
+    display: none;
+  }
+}
 .landing-section .landing-data .text div {
   padding-top: 20px;
 }
@@ -198,6 +322,12 @@ html {
   font-size: 16px;
   margin: 0px 20px 0px 0px;
 }
+@media screen and (max-width: 382px) {
+  .landing-section .landing-data .text div a {
+    display: block;
+    margin: 10px 0px 10px 0px;
+  }
+}
 .landing-section .landing-data .text div a:hover {
   color: #FA3654;
   background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -214,6 +344,11 @@ html {
   color: #FFFFFF;
   background-color: #3b3b50;
 }
+@media screen and (max-width: 382px) {
+  .landing-section .landing-data .text div #al {
+    margin: 10px 0px 10px 0px;
+  }
+}
 .landing-section .landing-data .image {
   padding-left: 50px;
   display: flex;
@@ -227,12 +362,28 @@ html {
     padding-bottom: 20px;
   }
 }
+@media screen and (max-width: 475px) {
+  .landing-section .landing-data .image {
+    padding-top: 50px;
+    display: none;
+  }
+}
 .landing-section .landing-data .image img {
   width: 500px;
 }
 @media screen and (max-width: 1280px) {
   .landing-section .landing-data .image img {
     width: 400px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .landing-section .landing-data .image img {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .landing-section .landing-data .image img {
+    width: 300px;
   }
 }
 

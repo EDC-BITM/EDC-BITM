@@ -8,6 +8,20 @@ html{
     scroll-behavior: smooth;
 }
 
+#coverAll{
+    width:100%;
+    height:100%;
+    opacity:.95;
+    top:0;
+    left:0;
+    display:none;
+    position:fixed;
+    background-color:rgba(0,0,0, 0.5);
+    overflow:auto;
+    z-index: 900;
+    
+}
+
 .landing-section {
     position: relative;
     
@@ -23,11 +37,29 @@ html{
             @media screen and (max-width:1000px){
                 width: 150px;
             }
+            @media screen and (max-width:520px){
+                width: 120px;
+            }
         }
     }
     .left-grad{
         top:0vh;
         left:0vw;
+        @media screen and (max-width:1421px){
+            top:0vh;
+            left:-1vh;
+        }
+
+        @media screen and (max-width:1300px){
+            top:-1vh;
+            left:-1vh;
+        }
+
+        @media screen and (max-width:800px){
+            top:100px;
+            left:-1vh;
+        }
+
     }
     .right-grad{
         top:80vh;
@@ -36,11 +68,26 @@ html{
     .navbar {
         padding: 10px;
 
+        @media screen and (max-width:800px){
+           position: fixed;
+           width:100vw;
+           z-index: 1000;
+           padding: 0px;
+           nav{
+               background-color:#fffffffa;
+               border-bottom: 3px solid #ff6a80;
+            //    box-shadow: 0px 20px 45px #FA365466;
+           }
+         }
         nav {
             padding-top: 30px;
             display: flex;
             justify-content: space-around;
-
+            @media screen and (max-width:800px){
+               padding-top: 10px;
+               padding:10px 20px;
+               justify-content: space-between;
+             }
             .logo {
                 display: flex;
                 flex-direction: column;
@@ -61,6 +108,9 @@ html{
                             @media screen and (max-width:1000px){
                                width: 70px;
                             }
+                            @media screen and (max-width:500px){
+                                width: 60px;
+                             }
                         }
                     }
 
@@ -113,6 +163,34 @@ html{
                         }
                     }
                 }
+
+                @media screen and (max-width:800px){
+                    position: absolute;
+                    top: 0;
+                    left: -100vw;
+                    width:60%;
+                    min-height: 100vh;
+                    z-index: 1000;
+                    background-color:#fffffff6;
+                    border-right:5px solid #FA3654;
+                    transition: left 0.4s;
+                    ul{
+                        flex-direction: column;
+                        li{
+                            padding-top:20px;
+                            text-align: center;
+                            border-bottom: 5px solid rgba(255,255,255, 0);
+                            a{
+                                font-size: 24px;
+                            }
+
+                            &:hover{
+                                border-bottom: 5px solid #ff6a80;
+                                background-color: #fff4f5;
+                            }
+                        }
+                    }
+                }
             }
 
             .contact {
@@ -144,6 +222,24 @@ html{
                     }
                 }
             }
+
+            .burger{
+                display:none;
+                flex-direction: column;
+                justify-content: center;
+                i{
+                    color:#ff6a80;
+
+                    &:hover{
+                        color:#787994;
+                    }
+                }
+
+                @media screen and (max-width:800px){
+                    display: flex;
+                }
+
+            }
         }
     }
 
@@ -154,12 +250,17 @@ html{
         @media screen and (max-width:1040px){
             flex-direction: column-reverse;
         }
+        @media screen and (max-width:800px){
+           min-height:100vh;
+        }
+        @media screen and (max-width:475px){
+            flex-direction: column;
+        }
         .text{
             padding:0px 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-
             h1{
                 font-family: 'ambar';
                 span{
@@ -180,6 +281,12 @@ html{
                 @media screen and (max-width:1040px){
                     text-align: center;
                 }
+                @media screen and (max-width:527px){
+                    font-size: 16px;
+                }
+                @media screen and (max-width:475px){
+                    display: none;
+                }
             }
 
             div{
@@ -199,6 +306,10 @@ html{
                     transition: background-color 0.4s;
                     font-size: 16px;
                     margin:0px 20px 0px 0px;
+                    @media screen and (max-width:382px){
+                        display:block;
+                        margin:10px 0px 10px 0px;
+                    }
 
                     &:hover {
                         color: #FA3654;
@@ -217,6 +328,10 @@ html{
                         color: #FFFFFF;
                         background-color: #3b3b50;
                     }
+                    @media screen and (max-width:382px){
+                        margin:10px 0px 10px 0px;
+                    }
+
                 }
             }
         }
@@ -230,10 +345,20 @@ html{
                 padding-left: 0px;
                 padding-bottom: 20px;
             }
+            @media screen and (max-width:475px){
+               padding-top: 50px;
+               display: none;
+            }
             img{
                 width:500px;
                 @media screen and (max-width:1280px){
                     width:400px;
+                }
+                @media screen and (max-width:400px){
+                    width:350px;
+                }
+                @media screen and (max-width:350px){
+                   width:300px;
                 }
             }
         }

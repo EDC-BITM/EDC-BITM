@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="temp-files/amber/Ambar Pearl Personal Use/Ambar Pearl Personal Use.ttf">
     <!-- style -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     <link rel="stylesheet" href="style/index-1.css">
     <style>
         @font-face {
@@ -21,6 +22,7 @@
 </head>
 
 <body>
+    <div id="coverAll" onclick="nav()"></div>
     <div class="landing-section">
         <div class="left-grad landing-grad">
             <img src="image/left-grad.png">
@@ -50,6 +52,9 @@
                 <div class="contact">
                     <a href="#">Get in Touch!</a>
                 </div>
+                <div class="burger" onclick="nav()">
+                    <i class="fa fa-bars fa-2x"></i>
+                </div>
             </nav>
         </div>
         <div class="right-grad landing-grad">
@@ -78,6 +83,7 @@
     </div>
 
 
+    <script src="script/nav.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
