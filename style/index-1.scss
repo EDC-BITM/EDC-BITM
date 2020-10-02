@@ -236,7 +236,7 @@ body {
 // stat section
 
 .stat-section {
-    position:relative;
+    position: relative;
     padding: 50px 10px;
     display: flex;
     justify-content: center;
@@ -273,7 +273,6 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            text-align: center;
 
             h1 {
                 font-size: 48px;
@@ -284,7 +283,6 @@ body {
 
             h3 {
                 font-family: 'Poppins', sans-serif;
-                font-weight: lighter;
                 font-size: 18px;
                 color: #787994;
             }
@@ -297,17 +295,19 @@ body {
 // about us section
 
 .about {
-    .left-about-grad{
+    .left-about-grad {
         position: absolute;
-        top:0px;
-        left:-70px;
-        
+        top: 0px;
+        left: -70px;
+
     }
-    .right-about-grad{
-        top:50vh;
-        right:-300px;
+
+    .right-about-grad {
+        top: 50vh;
+        right: -300px;
         position: absolute;
     }
+
     padding: 150px 20px 100px 20px;
     display: flex;
     justify-content: center;
@@ -328,7 +328,7 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 40%;
+        width: 30%;
 
         h1 {
             font-family: 'Poppins', sans-serif;
@@ -346,7 +346,8 @@ body {
         }
 
         .button {
-            padding-top:40px;
+            padding-top: 40px;
+
             a {
                 text-decoration: none;
                 background: #2DB58D 0% 0% no-repeat padding-box;
@@ -360,12 +361,69 @@ body {
                 font-size: 16px;
                 box-shadow: 0px 20px 45px #28BD9966;
 
-                &:hover{
+                &:hover {
                     background-color: #FFFFFF;
-                    color:#2DB58D;
+                    color: #2DB58D;
                     transition: background-color 0.4s;
                 }
             }
         }
+    }
+}
+
+
+
+
+// offerings(what we have)
+
+.offerings {
+    padding: 100px;
+
+    h1 {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 48px;
+        font-weight: 800;
+        color: #1C1C26;
+        padding-bottom: 20px;
+        padding: 50px 0px;
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 100px;
+
+        .data {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+
+            .image {
+                display: flex;
+                justify-content: center;
+                img {
+                    width: 200px;
+                    padding-bottom: 30px;
+                }
+            }
+
+            h3 {
+                font-family: 'Poppins', sans-serif;
+                font-size: 24px;
+                font-weight: 200;
+                color: #1C1C26;
+            }
+        }
+    }
+
+    p {
+        padding: 100px 250px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        color: #787994;
+
     }
 }

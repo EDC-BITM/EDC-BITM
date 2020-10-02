@@ -225,7 +225,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
 }
 .stat-section .data-container .data h1 {
   font-size: 48px;
@@ -235,7 +234,6 @@ body {
 }
 .stat-section .data-container .data h3 {
   font-family: "Poppins", sans-serif;
-  font-weight: lighter;
   font-size: 18px;
   color: #787994;
 }
@@ -269,7 +267,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 40%;
+  width: 30%;
 }
 .about .text h1 {
   font-family: "Poppins", sans-serif;
@@ -304,6 +302,51 @@ body {
   background-color: #FFFFFF;
   color: #2DB58D;
   transition: background-color 0.4s;
+}
+
+.offerings {
+  padding: 100px;
+}
+.offerings h1 {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: #1C1C26;
+  padding-bottom: 20px;
+  padding: 50px 0px;
+}
+.offerings .content {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 100px;
+}
+.offerings .content .data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+.offerings .content .data .image {
+  display: flex;
+  justify-content: center;
+}
+.offerings .content .data .image img {
+  width: 200px;
+  padding-bottom: 30px;
+}
+.offerings .content .data h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 200;
+  color: #1C1C26;
+}
+.offerings p {
+  padding: 100px 250px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  color: #787994;
 }
 
 /*# sourceMappingURL=index-1.css.map */
