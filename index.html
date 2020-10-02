@@ -8,31 +8,35 @@
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="temp-files/amber/Ambar Pearl Personal Use/Ambar Pearl Personal Use.ttf">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="temp-files/amber/Ambar Pearl Personal Use/Ambar Pearl Personal Use.ttf"> -->
     <!-- style -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="style/index-1.css">
-    <style>
+    <!-- <style>
         @font-face {
             font-family: ambar;
             src: url("temp-files/amber/Ambar Pearl Personal Use/Ambar Pearl Personal Use.ttf");
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
-    <div id="coverAll" onclick="nav()"></div>
+
+    <!-- landing section -->
     <div class="landing-section">
-        <div class="left-grad landing-grad">
-            <img src="image/left-grad.png">
+        <div class="left-grad grad">
+            <img src="image/left-grad.svg">
         </div>
         <div class="navbar">
             <nav>
                 <div class="logo" data-aos="zoom-out-right" data-aos-easing="ease" data-aos-delay="400">
                     <a href="#">
-                        <div class="image" >
-                            <img src="image/logo.png" alt="EDC BIT Mesra, Ranchi" >
+                        <div class="image">
+                            <img src="image/logo.png" alt="EDC BIT Mesra, Ranchi">
                         </div>
                         <div class="text">
                             <span>Entrepreneurship Development Cell, <br> BIT Mesra</span>
@@ -46,30 +50,26 @@
                         <li><a href="#">Events</a></li>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Team</a></li>
-                        <li><a href="#" id="contact-extra">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="contact">
                     <a href="#">Get in Touch!</a>
                 </div>
-                <div class="burger" onclick="nav()">
-                    <i class="fa fa-bars fa-2x"></i>
-                </div>
             </nav>
         </div>
-        <div class="right-grad landing-grad">
-            <img src="image/right-grad.png">
+        <div class="right-grad grad">
+            <img src="image/right-grad.svg">
         </div>
 
         <div class="landing-data">
             <div class="text">
                 <h1 data-aos="fade-up" data-aos-easing="ease" data-aos-delay="400">
-                    Taking the Road Less <span>Travelled</span>
+                    Taking the Road Less <span>Travelled <img src="image/lining.svg"></span>
                 </h1>
                 <p data-aos="fade-up" data-aos-easing="ease" data-aos-delay="600">
-                    Bridging the Gap between innovation and opportunity. <br>
-                    Entrepreneurship Development Cell, BIT Mesra targets <br>
-                     fostering Entrepreneurship culture among students.
+                    Bridging the Gap between innovation and opportunity.
+                    Entrepreneurship Development Cell, BIT Mesra targets
+                    fostering Entrepreneurship culture among students.
                 </p>
                 <div data-aos="fade-up" data-aos-easing="ease" data-aos-delay="1000">
                     <a href="#">Explore</a>
@@ -77,12 +77,60 @@
                 </div>
             </div>
             <div class="image">
-                <img src="image/display.png" alt="The Entrepreneur's lifestyle" data-aos="zoom-in" data-aos-easing="ease">
+                <img src="image/landing-image.svg" alt="The Entrepreneur's lifestyle" data-aos="zoom-in"
+                    data-aos-easing="ease">
             </div>
         </div>
     </div>
 
+    <!-- stats section -->
+    <div class="stat-section">
+        <div class="header">
+            <h1  data-aos="fade-right" data-aos-easing="ease" data-aos-delay="100">Statistics</h1>
+            <h3 data-aos="fade-right" data-aos-easing="ease" data-aos-delay="200">worth showcasing</h3>
+        </div>
+        <div class="data-container">
+            <div class="data">
+                <h1 data-aos="zoom-in" data-aos-easing="ease" data-aos-delay="210">30+</h1>
+                <h3>Startups</h3>
+            </div>
+            <div class="data">
+                <h1 data-aos="zoom-in" data-aos-easing="ease" data-aos-delay="230">60+</h1>
+                <h3>Events</h3>
+            </div>
+            <div class="data">
+                <h1 data-aos="zoom-in" data-aos-easing="ease" data-aos-delay="250">7000+</h1>
+                <h3>Footfalls</h3>
+            </div>
+            <div class="data">
+                <h1 data-aos="zoom-in" data-aos-easing="ease" data-aos-delay="270">80+</h1>
+                <h3>Members</h3>
+            </div>
+        </div>
+    </div>
 
+    <!-- about us section -->
+    <div class="about">
+        <div class="left-about-grad">
+            <img src="image/about-left-grad.svg">
+        </div>
+        <div class="right-about-grad">
+            <img src="image/about-right-grad.svg">
+        </div>
+        <div class="image">
+            <img src="image/about.svg" alt="We Are EDC members"  data-aos="zoom-in"data-aos-easing="ease">
+        </div>
+        <div class="text">
+            <h1 data-aos="fade-up"data-aos-easing="ease" data-aos-delay="100">About Us</h1>
+            <p data-aos="fade-up"data-aos-easing="ease" data-aos-delay="200">Entrepreneurship Development Cell, BIT Mesra has been provinding a platform and mentorship to the motivated students.
+                We believe that honing ones presenting skills goes a long way. We believe in imagination & innovation. We believe in 
+                creating a mark through our ideas.
+            </p>
+            <div class="button" data-aos="fade-up"data-aos-easing="ease" data-aos-delay="300">
+                <a href="#">Our Team</a>
+            </div>
+        </div>
+    </div>
     <script src="script/nav.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
