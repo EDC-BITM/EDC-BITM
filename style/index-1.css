@@ -306,6 +306,18 @@ body {
 
 .offerings {
   padding: 100px;
+  position: relative;
+}
+.offerings .bub-grad {
+  top: 50px;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  z-index: 2;
+  position: absolute;
+}
+.offerings .bub-grad img {
+  width: 900px;
 }
 .offerings h1 {
   text-align: center;
@@ -317,6 +329,7 @@ body {
   padding: 50px 0px;
 }
 .offerings .content {
+  z-index: 1;
   display: flex;
   justify-content: space-around;
   padding-top: 100px;

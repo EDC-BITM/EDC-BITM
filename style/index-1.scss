@@ -378,6 +378,18 @@ body {
 
 .offerings {
     padding: 100px;
+    position: relative;
+    .bub-grad{
+        top:50px;
+        display: flex;
+        justify-content: center;
+        width:100vw;
+        z-index: 2;
+        position: absolute;
+        img{
+            width:900px;
+        }
+    }
 
     h1 {
         text-align: center;
@@ -390,6 +402,7 @@ body {
     }
 
     .content {
+        z-index: 1;
         display: flex;
         justify-content: space-around;
         padding-top: 100px;
