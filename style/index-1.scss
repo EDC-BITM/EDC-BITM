@@ -10,6 +10,7 @@ html {
 
 body {
     overflow-x: hidden;
+    background-color: #fdfdfd;
 }
 
 
@@ -377,17 +378,19 @@ body {
 // offerings(what we have)
 
 .offerings {
-    padding: 100px;
+    padding: 20px;
     position: relative;
-    .bub-grad{
-        top:50px;
+
+    .bub-grad {
+        top: 50px;
         display: flex;
         justify-content: center;
-        width:100vw;
+        width: 100vw;
         z-index: 2;
         position: absolute;
-        img{
-            width:900px;
+
+        img {
+            width: 700px;
         }
     }
 
@@ -399,44 +402,109 @@ body {
         color: #1C1C26;
         padding-bottom: 20px;
         padding: 50px 0px;
-    }
 
-    .content {
-        z-index: 1;
-        display: flex;
-        justify-content: space-around;
-        padding-top: 100px;
+        span {
+            color: #FA3654;
+            position: relative;
 
-        .data {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-align: center;
-
-            .image {
-                display: flex;
-                justify-content: center;
-                img {
-                    width: 200px;
-                    padding-bottom: 30px;
-                }
-            }
-
-            h3 {
-                font-family: 'Poppins', sans-serif;
-                font-size: 24px;
-                font-weight: 200;
-                color: #1C1C26;
+            img {
+                position: absolute;
+                bottom:6px;
+                right: 0;
+                width: 140px;
             }
         }
     }
 
-    p {
-        padding: 100px 250px;
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        font-size: 18px;
-        color: #787994;
+    .content {
+        z-index: 1;
+        padding:100px 150px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 50px;
 
+        .data{
+            display: flex;
+            justify-content:space-around;
+            .image{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                img{
+                    width:250px;
+                }
+            }
+
+            .text{
+                display: flex;
+                flex-direction: column;
+                h3{
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 24px;
+                    font-weight: 800;
+                    color: #1C1C26;
+                    padding-bottom: 10px;
+                }
+
+                p{
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 18px;
+                    color: #787994;
+                }
+            }
+        }
+    }
+}
+
+
+.gallery{
+    padding: 100px 20px;
+    h2{
+        font-family: 'Poppins', sans-serif;
+        font-size: 36px;
+        font-weight: 500;
+        color: #1C1C26;
+        text-align: center;
+
+        span{
+            color: #FA3654;
+        }
+    }
+
+    h1{
+        font-family: 'Poppins', sans-serif;
+        font-size: 64px;
+        font-weight: 800;
+        color: #1C1C26;
+        padding-bottom: 10px;
+        text-align: center;
+        span{
+            position: relative;
+            color: #FA3654;;
+            img{
+                position: absolute;
+                bottom:0;
+                right: 0;
+                width: 250px;
+            }
+        }
+    }
+
+    .container{
+        .swiper-container {
+            width:80%;
+            padding-bottom: 50px;
+
+            .swiper-wrapper{
+                .swiper-slide{
+                    border-radius: 10px;
+                    background-position:center;
+                    background-size:cover;
+                    background-repeat: no-repeat;
+                    width: 400px;
+                    height:300px;
+                }
+            }
+        }
     }
 }

@@ -10,6 +10,7 @@ html {
 
 body {
   overflow-x: hidden;
+  background-color: #fdfdfd;
 }
 
 .landing-section {
@@ -305,7 +306,7 @@ body {
 }
 
 .offerings {
-  padding: 100px;
+  padding: 20px;
   position: relative;
 }
 .offerings .bub-grad {
@@ -317,7 +318,7 @@ body {
   position: absolute;
 }
 .offerings .bub-grad img {
-  width: 900px;
+  width: 700px;
 }
 .offerings h1 {
   text-align: center;
@@ -328,38 +329,94 @@ body {
   padding-bottom: 20px;
   padding: 50px 0px;
 }
+.offerings h1 span {
+  color: #FA3654;
+  position: relative;
+}
+.offerings h1 span img {
+  position: absolute;
+  bottom: 6px;
+  right: 0;
+  width: 140px;
+}
 .offerings .content {
   z-index: 1;
-  display: flex;
-  justify-content: space-around;
-  padding-top: 100px;
+  padding: 100px 150px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 50px;
 }
 .offerings .content .data {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
+  justify-content: space-around;
 }
 .offerings .content .data .image {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 .offerings .content .data .image img {
-  width: 200px;
-  padding-bottom: 30px;
+  width: 250px;
 }
-.offerings .content .data h3 {
+.offerings .content .data .text {
+  display: flex;
+  flex-direction: column;
+}
+.offerings .content .data .text h3 {
   font-family: "Poppins", sans-serif;
   font-size: 24px;
-  font-weight: 200;
+  font-weight: 800;
   color: #1C1C26;
+  padding-bottom: 10px;
 }
-.offerings p {
-  padding: 100px 250px;
-  text-align: center;
+.offerings .content .data .text p {
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   color: #787994;
+}
+
+.gallery {
+  padding: 100px 20px;
+}
+.gallery h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: #1C1C26;
+  text-align: center;
+}
+.gallery h2 span {
+  color: #FA3654;
+}
+.gallery h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 64px;
+  font-weight: 800;
+  color: #1C1C26;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.gallery h1 span {
+  position: relative;
+  color: #FA3654;
+}
+.gallery h1 span img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 250px;
+}
+.gallery .container .swiper-container {
+  width: 80%;
+  padding-bottom: 50px;
+}
+.gallery .container .swiper-container .swiper-wrapper .swiper-slide {
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 300px;
 }
 
 /*# sourceMappingURL=index-1.css.map */
