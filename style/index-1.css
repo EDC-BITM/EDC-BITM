@@ -473,12 +473,49 @@ body {
   grid-gap: 20px;
 }
 .events .event-container .event-box {
-  min-height: 240px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.85);
   border-radius: 20px;
   position: relative;
   overflow: hidden;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, background-color 0.2s;
+}
+.events .event-container .event-box .grad1 {
+  position: absolute;
+  top: -380px;
+  left: 80px;
+  transition: transform 0.4s, top 0.4s, left 0.4s;
+}
+.events .event-container .event-box .grad2 {
+  position: absolute;
+  top: 103px;
+}
+.events .event-container .event-box .grad3 {
+  position: absolute;
+  top: -310px;
+  left: 150px;
+  transition: transform 0.4s, top 0.4s, left 0.4s;
+}
+.events .event-container .event-box .grad4 {
+  position: absolute;
+  transform: rotate(120deg);
+  left: -160px;
+  transition: transform 0.4s, left 0.4s;
+}
+.events .event-container .event-box .grad4 img {
+  width: 300px;
+}
+.events .event-container .event-box .grad5 {
+  position: absolute;
+  transform: rotate(-65deg);
+  top: -160px;
+  left: 140px;
+  transition: transform 0.4s, top 0.4s, left 0.4s;
+}
+.events .event-container .event-box .grad6 {
+  position: absolute;
+  left: -240px;
+  top: -70px;
+  transition: top 0.4s, left 0.4s;
 }
 .events .event-container .event-box .image {
   position: absolute;
@@ -516,16 +553,52 @@ body {
   font-family: "Poppins", sans-serif;
   color: #787994;
   font-size: 14px;
+  padding-bottom: 20px;
 }
 .events .event-container .event-box .mask .long {
   font-family: "Poppins", sans-serif;
   color: #787994;
   font-size: 14px;
+  position: absolute;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  top: -200px;
   display: none;
+  transition: top 0.4s, display 0.4s;
 }
 .events .event-container .event-box:hover {
   box-shadow: 0px 20px 45px #3B3B6740;
-  transition: box-shadow 0.4s;
+  transition: box-shadow 0.4s, background-color 0.2s;
+  background-color: rgba(255, 255, 255, 0.99);
+}
+.events .event-container .event-box:hover .grad1 {
+  transform: rotate(-65deg);
+  top: -160px;
+  left: 140px;
+  transition: transform 0.4s, top 0.4s, left 0.4s;
+}
+.events .event-container .event-box:hover .grad2 {
+  left: -240px;
+  top: -70px;
+  transition: top 0.4s, left 0.4s;
+}
+.events .event-container .event-box:hover .grad3 {
+  transform: rotate(-30deg);
+  top: -40px;
+  left: 100px;
+  transition: transform 0.4s, top 0.4s, left 0.4s;
+}
+.events .event-container .event-box:hover .grad4 {
+  left: -200px;
+  transition: left 0.4s;
+}
+.events .event-container .event-box:hover .grad5 {
+  top: -380px;
+  left: 80px;
+  transition: transform 0.4s, top 0.4s, left 0.4s;
+}
+.events .event-container .event-box:hover .grad6 {
+  top: 103px;
 }
 .events .event-container .event-box:hover .mask {
   padding: 10px 20px;
@@ -543,7 +616,9 @@ body {
   display: none;
 }
 .events .event-container .event-box:hover .mask .long {
+  top: 60px;
   display: block;
+  transition: top 0.4s, display 0.4s;
 }
 
 .summit {
@@ -562,6 +637,15 @@ body {
   border-radius: 25px;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.85);
+}
+.summit .container .e-summit .grad1 {
+  position: absolute;
+  top: -690px;
+  right: -400px;
+}
+.summit .container .e-summit .grad2 {
+  position: absolute;
+  bottom: -400px;
 }
 .summit .container .e-summit .heading {
   display: flex;
