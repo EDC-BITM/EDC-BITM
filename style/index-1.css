@@ -29,9 +29,37 @@ body {
   top: -70px;
   left: -70px;
 }
+@media screen and (max-width: 1440px) {
+  .landing-section .left-grad img {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 870px) {
+  .landing-section .left-grad {
+    display: none;
+  }
+}
 .landing-section .right-grad {
   top: 80vh;
   right: -100px;
+}
+@media screen and (max-width: 1440px) {
+  .landing-section .right-grad {
+    right: -50px;
+  }
+  .landing-section .right-grad img {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 1040px) {
+  .landing-section .right-grad {
+    right: -70px;
+  }
+}
+@media screen and (max-width: 870px) {
+  .landing-section .right-grad {
+    display: none;
+  }
 }
 .landing-section .navbar {
   padding: 10px;
@@ -121,19 +149,50 @@ body {
   min-height: 80vh;
   display: flex;
   justify-content: center;
+  padding: 20px;
+}
+@media screen and (max-width: 870px) {
+  .landing-section .landing-data {
+    flex-direction: column-reverse;
+  }
 }
 .landing-section .landing-data .text {
-  flex: 1;
-  padding: 0px 50px 0px 250px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+@media screen and (max-width: 1250px) {
+  .landing-section .landing-data .text {
+    width: 500px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .landing-section .landing-data .text {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 870px) {
+  .landing-section .landing-data .text {
+    width: 100%;
+    padding: 20px 100px;
+  }
 }
 .landing-section .landing-data .text h1 {
   font-family: "Poppins", sans-serif;
   font-weight: bolder;
   font-size: 48px;
   color: #1C1C26;
+}
+@media screen and (max-width: 1050px) {
+  .landing-section .landing-data .text h1 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 870px) {
+  .landing-section .landing-data .text h1 {
+    text-align: center;
+  }
 }
 .landing-section .landing-data .text h1 span {
   color: #FA3654;
@@ -145,6 +204,11 @@ body {
   right: 0;
   width: 200px;
 }
+@media screen and (max-width: 1050px) {
+  .landing-section .landing-data .text h1 span img {
+    width: 150px;
+  }
+}
 .landing-section .landing-data .text p {
   padding: 20px 0px;
   color: #787994;
@@ -152,8 +216,18 @@ body {
   font-family: "Poppins", sans-serif;
   text-align: left;
 }
+@media screen and (max-width: 870px) {
+  .landing-section .landing-data .text p {
+    text-align: center;
+  }
+}
 .landing-section .landing-data .text div {
   padding-top: 20px;
+}
+@media screen and (max-width: 870px) {
+  .landing-section .landing-data .text div {
+    text-align: center;
+  }
 }
 .landing-section .landing-data .text div a {
   text-decoration: none;
@@ -182,19 +256,34 @@ body {
   margin: 0px 0px 0px 20px;
   box-shadow: 0px 0px 0px #FA365466;
 }
+@media screen and (max-width: 1100px) {
+  .landing-section .landing-data .text div #al {
+    margin: 0px 0px 0px 0px;
+  }
+}
 .landing-section .landing-data .text div #al:hover {
   color: #FFFFFF;
   background-color: #787994;
 }
 .landing-section .landing-data .image {
-  flex: 1;
   padding-left: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+@media screen and (max-width: 870px) {
+  .landing-section .landing-data .image {
+    flex-direction: row;
+    padding-left: 0px;
+  }
+}
 .landing-section .landing-data .image img {
   width: 500px;
+}
+@media screen and (max-width: 1100px) {
+  .landing-section .landing-data .image img {
+    width: 400px;
+  }
 }
 
 .stat-section {
@@ -202,6 +291,17 @@ body {
   padding: 50px 10px;
   display: flex;
   justify-content: center;
+}
+@media screen and (max-width: 910px) {
+  .stat-section {
+    flex-direction: column;
+    padding: 10px 10px;
+  }
+}
+@media screen and (max-width: 870px) {
+  .stat-section {
+    background-color: #eeeeee;
+  }
 }
 .stat-section .header {
   display: flex;
@@ -221,6 +321,19 @@ body {
   font-size: 18px;
   padding-left: 5px;
   color: #787994;
+}
+@media screen and (max-width: 910px) {
+  .stat-section .header {
+    padding-right: 0px;
+  }
+  .stat-section .header h1 {
+    text-align: center;
+  }
+  .stat-section .header h3 {
+    text-align: center;
+    padding-left: 0px;
+    padding-bottom: 20px;
+  }
 }
 .stat-section .data-container {
   display: flex;
@@ -245,20 +358,38 @@ body {
 }
 
 .about {
+  position: relative;
   padding: 150px 20px 100px 20px;
   display: flex;
   justify-content: center;
-  position: relative;
 }
 .about .left-about-grad {
   position: absolute;
   top: 0px;
   left: -70px;
 }
+@media screen and (max-width: 870px) {
+  .about .left-about-grad {
+    display: none;
+  }
+}
 .about .right-about-grad {
   top: 50vh;
   right: -300px;
   position: absolute;
+}
+@media screen and (max-width: 1440px) {
+  .about .right-about-grad {
+    right: -200px;
+  }
+  .about .right-about-grad img {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 870px) {
+  .about .right-about-grad {
+    display: none;
+  }
 }
 .about .image {
   display: flex;
@@ -266,21 +397,46 @@ body {
   justify-content: center;
   padding-right: 100px;
 }
+@media screen and (max-width: 1050px) {
+  .about .image {
+    padding-right: 50px;
+  }
+}
 .about .image img {
   width: 400px;
+}
+@media screen and (max-width: 870px) {
+  .about .image img {
+    width: 300px;
+  }
 }
 .about .text {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 30%;
+  width: 25%;
+}
+@media screen and (max-width: 1050px) {
+  .about .text {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 870px) {
+  .about .text {
+    width: 50%;
+  }
 }
 .about .text h1 {
   font-family: "Poppins", sans-serif;
   font-size: 48px;
   font-weight: 800;
   color: #FA3654;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
+}
+@media screen and (max-width: 1142px) {
+  .about .text h1 {
+    font-size: 36px;
+  }
 }
 .about .text h1 span {
   color: #4445ED;
@@ -289,10 +445,10 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   color: #787994;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .about .text .button {
-  padding-top: 40px;
+  padding-top: 20px;
 }
 .about .text .button a {
   text-decoration: none;
@@ -317,16 +473,10 @@ body {
   padding: 20px;
   position: relative;
 }
-.offerings .bub-grad {
-  top: 50px;
-  display: flex;
-  justify-content: center;
-  width: 100vw;
-  z-index: 2;
-  position: absolute;
-}
-.offerings .bub-grad img {
-  width: 700px;
+@media screen and (max-width: 870px) {
+  .offerings {
+    background-color: #eeeeee;
+  }
 }
 .offerings h1 {
   text-align: center;
@@ -349,10 +499,30 @@ body {
 }
 .offerings .content {
   z-index: 1;
-  padding: 100px 150px;
+  padding: 50px 150px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 50px;
+}
+@media screen and (max-width: 1400px) {
+  .offerings .content {
+    padding: 50px 100px;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .offerings .content {
+    padding: 50px 50px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .offerings .content {
+    padding: 50px 0px;
+  }
+}
+@media screen and (max-width: 870px) {
+  .offerings .content {
+    padding: 50px 20px;
+  }
 }
 .offerings .content .data {
   display: flex;
@@ -363,12 +533,27 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+@media screen and (max-width: 870px) {
+  .offerings .content .data .image {
+    display: none;
+  }
+}
 .offerings .content .data .image img {
   width: 250px;
+}
+@media screen and (max-width: 950px) {
+  .offerings .content .data .image img {
+    width: 200px;
+  }
 }
 .offerings .content .data .text {
   display: flex;
   flex-direction: column;
+}
+@media screen and (max-width: 870px) {
+  .offerings .content .data .text {
+    text-align: center;
+  }
 }
 .offerings .content .data .text h3 {
   font-family: "Poppins", sans-serif;
@@ -381,6 +566,11 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   color: #787994;
+}
+@media screen and (max-width: 870px) {
+  .offerings .content .data .text p {
+    text-align: justify;
+  }
 }
 
 .gallery {
@@ -418,6 +608,11 @@ body {
   width: 100%;
   padding: 50px;
 }
+@media screen and (max-width: 1400px) {
+  .gallery .container .swiper-container {
+    padding: 50px 0px;
+  }
+}
 .gallery .container .swiper-container .swiper-wrapper .swiper-slide {
   border-radius: 10px;
   background-position: center;
@@ -429,6 +624,11 @@ body {
 
 .events {
   padding: 100px 20px;
+}
+@media screen and (max-width: 1400px) {
+  .events {
+    display: none;
+  }
 }
 .events h1 {
   font-family: "Poppins", sans-serif;
@@ -624,6 +824,16 @@ body {
 .summit {
   padding: 50px 150px;
 }
+@media screen and (max-width: 1400px) {
+  .summit {
+    padding: 50px 100px;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .summit {
+    padding: 50px 50px;
+  }
+}
 .summit .container {
   background-size: cover;
   background-repeat: no-repeat;
@@ -643,9 +853,31 @@ body {
   top: -690px;
   right: -400px;
 }
+@media screen and (max-width: 1200px) {
+  .summit .container .e-summit .grad1 {
+    top: -700px;
+    right: -420px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .summit .container .e-summit .grad1 {
+    top: -712px;
+    right: -650px;
+  }
+}
+@media screen and (max-width: 870px) {
+  .summit .container .e-summit .grad1 {
+    display: none;
+  }
+}
 .summit .container .e-summit .grad2 {
   position: absolute;
   bottom: -400px;
+}
+@media screen and (max-width: 820px) {
+  .summit .container .e-summit .grad2 {
+    display: none;
+  }
 }
 .summit .container .e-summit .heading {
   display: flex;
@@ -663,6 +895,16 @@ body {
   color: #FA3654;
   font-size: 46px;
   font-weight: 800;
+}
+@media screen and (max-width: 880px) {
+  .summit .container .e-summit .heading .wrap h1 {
+    font-size: 42px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .summit .container .e-summit .heading .wrap h1 {
+    font-size: 36px;
+  }
 }
 .summit .container .e-summit .heading .wrap h1 span {
   color: #4445ED;
