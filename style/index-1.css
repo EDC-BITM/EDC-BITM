@@ -145,6 +145,63 @@ body {
   background: #FFFFFF 0% 0% no-repeat padding-box;
   transition: background-color 0.4s;
 }
+.landing-section .navbar nav .burger-container {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+@media screen and (max-width: 760px) {
+  .landing-section .navbar nav {
+    justify-content: space-between;
+    padding-top: 10px;
+    padding: 10px 50px;
+  }
+}
+@media screen and (max-width: 760px) and (max-width: 580px) {
+  .landing-section .navbar nav {
+    padding-top: 20px;
+    padding: 20px 20px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .landing-section .navbar nav .logo a .text {
+    display: block;
+  }
+}
+@media screen and (max-width: 760px) and (max-width: 580px) {
+  .landing-section .navbar nav .logo a .text {
+    display: none;
+  }
+}
+@media screen and (max-width: 760px) {
+  .landing-section .navbar nav .link {
+    display: none;
+  }
+}
+@media screen and (max-width: 760px) {
+  .landing-section .navbar nav .contact {
+    display: none;
+  }
+}
+@media screen and (max-width: 760px) {
+  .landing-section .navbar nav .burger-container {
+    display: flex;
+  }
+  .landing-section .navbar nav .burger-container .burger {
+    padding: 10px;
+    border-radius: 3px;
+  }
+  .landing-section .navbar nav .burger-container .burger i {
+    color: #787994;
+  }
+  .landing-section .navbar nav .burger-container .burger:hover {
+    cursor: pointer;
+    background-color: #eeeeee;
+  }
+  .landing-section .navbar nav .burger-container .burger:hover i {
+    color: #FA3654;
+  }
+}
 .landing-section .landing-data {
   min-height: 80vh;
   display: flex;
@@ -178,6 +235,16 @@ body {
     padding: 20px 100px;
   }
 }
+@media screen and (max-width: 600px) {
+  .landing-section .landing-data .text {
+    padding: 20px 20px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .landing-section .landing-data .text {
+    padding: 20px 10px;
+  }
+}
 .landing-section .landing-data .text h1 {
   font-family: "Poppins", sans-serif;
   font-weight: bolder;
@@ -192,6 +259,11 @@ body {
 @media screen and (max-width: 870px) {
   .landing-section .landing-data .text h1 {
     text-align: center;
+  }
+}
+@media screen and (max-width: 400px) {
+  .landing-section .landing-data .text h1 {
+    font-size: 32px;
   }
 }
 .landing-section .landing-data .text h1 span {
@@ -219,6 +291,11 @@ body {
 @media screen and (max-width: 870px) {
   .landing-section .landing-data .text p {
     text-align: center;
+  }
+}
+@media screen and (max-width: 400px) {
+  .landing-section .landing-data .text p {
+    font-size: 16px;
   }
 }
 .landing-section .landing-data .text div {
@@ -265,6 +342,11 @@ body {
   color: #FFFFFF;
   background-color: #787994;
 }
+@media screen and (max-width: 760px) {
+  .landing-section .landing-data .text .quick-links {
+    display: none;
+  }
+}
 .landing-section .landing-data .image {
   padding-left: 50px;
   display: flex;
@@ -283,6 +365,16 @@ body {
 @media screen and (max-width: 1100px) {
   .landing-section .landing-data .image img {
     width: 400px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .landing-section .landing-data .image img {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .landing-section .landing-data .image img {
+    width: 300px;
   }
 }
 
@@ -338,6 +430,17 @@ body {
 .stat-section .data-container {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 600px) {
+  .stat-section .data-container {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 360px) {
+  .stat-section .data-container {
+    justify-content: center;
+  }
 }
 .stat-section .data-container .data {
   padding: 0px 20px;
@@ -391,6 +494,13 @@ body {
     display: none;
   }
 }
+@media screen and (max-width: 676px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px 50px 20px;
+  }
+}
 .about .image {
   display: flex;
   flex-direction: column;
@@ -400,6 +510,11 @@ body {
 @media screen and (max-width: 1050px) {
   .about .image {
     padding-right: 50px;
+  }
+}
+@media screen and (max-width: 676px) {
+  .about .image {
+    padding-right: 0px;
   }
 }
 .about .image img {
@@ -424,6 +539,17 @@ body {
 @media screen and (max-width: 870px) {
   .about .text {
     width: 50%;
+  }
+}
+@media screen and (max-width: 676px) {
+  .about .text {
+    width: 60%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 600px) {
+  .about .text {
+    width: 90%;
   }
 }
 .about .text h1 {
@@ -478,6 +604,11 @@ body {
     background-color: #eeeeee;
   }
 }
+@media screen and (max-width: 500px) {
+  .offerings {
+    padding: 20px 10px;
+  }
+}
 .offerings h1 {
   text-align: center;
   font-family: "Poppins", sans-serif;
@@ -486,6 +617,11 @@ body {
   color: #1C1C26;
   padding-bottom: 20px;
   padding: 50px 0px;
+}
+@media screen and (max-width: 500px) {
+  .offerings h1 {
+    font-size: 36px;
+  }
 }
 .offerings h1 span {
   color: #FA3654;
@@ -496,6 +632,11 @@ body {
   bottom: 6px;
   right: 0;
   width: 140px;
+}
+@media screen and (max-width: 500px) {
+  .offerings h1 span img {
+    width: 90px;
+  }
 }
 .offerings .content {
   z-index: 1;
@@ -522,6 +663,7 @@ body {
 @media screen and (max-width: 870px) {
   .offerings .content {
     padding: 50px 20px;
+    grid-template-columns: 1fr;
   }
 }
 .offerings .content .data {
@@ -533,7 +675,12 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-@media screen and (max-width: 870px) {
+@media screen and (max-width: 666px) {
+  .offerings .content .data .image {
+    display: flex;
+  }
+}
+@media screen and (max-width: 370px) {
   .offerings .content .data .image {
     display: none;
   }
@@ -546,6 +693,11 @@ body {
     width: 200px;
   }
 }
+@media screen and (max-width: 500px) {
+  .offerings .content .data .image img {
+    width: 150px;
+  }
+}
 .offerings .content .data .text {
   display: flex;
   flex-direction: column;
@@ -553,6 +705,12 @@ body {
 @media screen and (max-width: 870px) {
   .offerings .content .data .text {
     text-align: center;
+    width: 40%;
+  }
+}
+@media screen and (max-width: 630px) {
+  .offerings .content .data .text {
+    width: 100%;
   }
 }
 .offerings .content .data .text h3 {
@@ -562,6 +720,11 @@ body {
   color: #1C1C26;
   padding-bottom: 10px;
 }
+@media screen and (max-width: 500px) {
+  .offerings .content .data .text h3 {
+    font-size: 18px;
+  }
+}
 .offerings .content .data .text p {
   font-family: "Poppins", sans-serif;
   font-size: 18px;
@@ -569,7 +732,12 @@ body {
 }
 @media screen and (max-width: 870px) {
   .offerings .content .data .text p {
-    text-align: justify;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .offerings .content .data .text p {
+    font-size: 16px;
   }
 }
 
@@ -586,6 +754,16 @@ body {
 .gallery h2 span {
   color: #FA3654;
 }
+@media screen and (max-width: 630px) {
+  .gallery h2 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 460px) {
+  .gallery h2 {
+    font-size: 18px;
+  }
+}
 .gallery h1 {
   font-family: "Poppins", sans-serif;
   font-size: 64px;
@@ -593,6 +771,26 @@ body {
   color: #1C1C26;
   padding-bottom: 10px;
   text-align: center;
+}
+@media screen and (max-width: 630px) {
+  .gallery h1 {
+    font-size: 48px;
+  }
+}
+@media screen and (max-width: 460px) {
+  .gallery h1 {
+    font-size: 42px;
+  }
+}
+@media screen and (max-width: 396px) {
+  .gallery h1 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 330px) {
+  .gallery h1 {
+    font-size: 32px;
+  }
 }
 .gallery h1 span {
   position: relative;
@@ -603,6 +801,11 @@ body {
   bottom: 0;
   right: 0;
   width: 250px;
+}
+@media screen and (max-width: 630px) {
+  .gallery h1 span img {
+    width: 180px;
+  }
 }
 .gallery .container .swiper-container {
   width: 100%;
@@ -620,6 +823,24 @@ body {
   background-repeat: no-repeat;
   width: 400px;
   height: 300px;
+}
+@media screen and (max-width: 430px) {
+  .gallery .container .swiper-container .swiper-wrapper .swiper-slide {
+    width: 380px;
+    height: 280px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .gallery .container .swiper-container .swiper-wrapper .swiper-slide {
+    width: 300px;
+    height: 200px;
+  }
+}
+@media screen and (max-width: 330px) {
+  .gallery .container .swiper-container .swiper-wrapper .swiper-slide {
+    width: 250px;
+    height: 200px;
+  }
 }
 
 .events {
@@ -834,6 +1055,11 @@ body {
     padding: 50px 50px;
   }
 }
+@media screen and (max-width: 760px) {
+  .summit {
+    padding: 50px 20px;
+  }
+}
 .summit .container {
   background-size: cover;
   background-repeat: no-repeat;
@@ -890,6 +1116,12 @@ body {
   font-size: 24px;
   font-weight: 600;
 }
+@media screen and (max-width: 670px) {
+  .summit .container .e-summit .heading .wrap p {
+    font-size: 18px;
+    color: #1C1C26;
+  }
+}
 .summit .container .e-summit .heading .wrap h1 {
   font-family: "Poppins", sans-serif;
   color: #FA3654;
@@ -906,6 +1138,16 @@ body {
     font-size: 36px;
   }
 }
+@media screen and (max-width: 670px) {
+  .summit .container .e-summit .heading .wrap h1 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 590px) {
+  .summit .container .e-summit .heading .wrap h1 {
+    font-size: 28px;
+  }
+}
 .summit .container .e-summit .heading .wrap h1 span {
   color: #4445ED;
 }
@@ -916,6 +1158,17 @@ body {
   color: #1C1C26;
   padding-bottom: 50px;
 }
+@media screen and (max-width: 670px) {
+  .summit .container .e-summit .desc p {
+    padding-bottom: 20px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 670px) and (max-width: 520px) {
+  .summit .container .e-summit .desc p {
+    text-align: left;
+  }
+}
 .summit .container .e-summit .register {
   position: absolute;
   background-color: #2DB58D;
@@ -924,10 +1177,20 @@ body {
   padding: 20px 30px;
   border-radius: 0px 0px 25px 0px;
 }
+@media screen and (max-width: 670px) {
+  .summit .container .e-summit .register {
+    padding: 10px 15px;
+  }
+}
 .summit .container .e-summit .register p {
   font-family: "Poppins", sans-serif;
   color: #f5f5f5;
   font-size: 18px;
+}
+@media screen and (max-width: 670px) {
+  .summit .container .e-summit .register p {
+    font-size: 14px;
+  }
 }
 
 /*# sourceMappingURL=index-1.css.map */
