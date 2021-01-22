@@ -1296,3 +1296,175 @@ body {
         }
     }
 }
+
+
+
+// contact-container
+
+.contact-container {
+
+    padding: 100px 150px;
+    position: relative;
+
+    @media screen and (max-width:1300px) {
+        padding: 100px 50px;
+    }
+
+    .left-about-grad {
+        position: absolute;
+        top: 0px;
+        left: -70px;
+
+        @media screen and (max-width:870px) {
+            display: none;
+        }
+    }
+
+    h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 48px;
+        font-weight: 800;
+        color: #1C1C26;
+        padding-bottom: 10px;
+        text-align: center;
+
+        span {
+            position: relative;
+            color: #FA3654;
+            ;
+
+            img {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 150px;
+            }
+        }
+    }
+
+    h3 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 500;
+        color: #787994;
+        padding-bottom: 10px;
+        text-align: center;
+
+        span {
+            position: relative;
+            color: #FA3654;
+            ;
+
+            img {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 200px;
+            }
+        }
+    }
+
+    .form {
+        padding: 50px 0px;
+        display: flex;
+        justify-content: center;
+
+        @media screen and (max-width:760px) {
+            flex-direction: column-reverse;
+        }
+
+        .contact-image {
+            @media screen and (max-width:760px) {
+                display: flex;
+                justify-content: center;
+            }
+
+            img {
+                width: 600px;
+
+                @media screen and (max-width:1300px) {
+                    width: 500px;
+                }
+
+                @media screen and (max-width:1000px) {
+                    width: 400px;
+                }
+
+                @media screen and (max-width:410px) {
+                    width: 300px;
+                }
+            }
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                input {
+                    padding: 10px 10px;
+                    min-width: 400px;
+                    margin: 10px 0px;
+                    background-color: rgba(0, 0, 0, 0);
+                    border: none;
+                    outline: none;
+                    border-bottom: 2px solid #787994;
+                    font-size: 18px;
+                    color: #787994;
+
+                    @media screen and (max-width:1000px) {
+                        min-width: 300px;
+                    }
+
+                    &:focus {
+                        border-bottom: 2px solid #4445ED;
+                    }
+                }
+
+                textarea {
+                    resize: none;
+                    min-width: 400px;
+                    min-height: 200px;
+                    padding: 10px;
+                    font-size: 18px;
+                    border: 2px solid #787878;
+                    outline: none;
+                    background-color: rgba(0, 0, 0, 0);
+                    margin: 10px 0px;
+
+                    @media screen and (max-width:1000px) {
+                        min-width: 300px;
+                    }
+                }
+
+                button {
+                    text-decoration: none;
+                    background: #4445Ed 0% 0% no-repeat padding-box;
+                    border-radius: 5px;
+                    opacity: 1;
+                    padding: 10px 40px;
+                    color: #FFFFFF;
+                    font-family: 'Poppins', sans-serif;
+                    border: 3px solid #4445ed;
+                    transition: background-color 0.4s;
+                    font-size: 16px;
+                    box-shadow: 0px 20px 45px #bdbdd4;
+                    min-width: 200px;
+
+                    &:hover {
+                        color: #4445ed;
+                        background: #FFFFFF 0% 0% no-repeat padding-box;
+                        transition: background-color 0.4s;
+                    }
+
+                }
+            }
+        }
+    }
+}
