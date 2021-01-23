@@ -840,6 +840,93 @@ body {
     width: 100px;
   }
 }
+.startup-container .people-container {
+  padding-top: 50px;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper {
+  width: 300px;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container {
+  overflow: hidden;
+  background-color: #eeeeee;
+  border-radius: 30px;
+  margin: 20px 10px;
+  transition: box-shadow 0.4s;
+  max-width: 300px;
+  font-family: "Poppins", sans-serif;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container:hover {
+  box-shadow: 0px 20px 45px #3B3B6740;
+  transition: box-shadow 0.2s;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container:hover .member .image img {
+  filter: grayscale(0);
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container:hover .member .details .name {
+  color: #FA3654;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container:hover .member .social i {
+  color: #787878;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container .member {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container .member .image {
+  padding: 30px 30px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container .member .image img {
+  width: 200px;
+  border-radius: 20px;
+  box-shadow: 0px 20px 45px #3B3B6740;
+  filter: grayscale(10);
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container .member .details {
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container .member .details .name {
+  font-size: 24px;
+  color: #787878;
+  padding: 0px 5px;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container .member .details .position {
+  font-size: 14px;
+  color: #787994;
+  font-weight: lighter;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container .member .details .batch {
+  padding-bottom: 10px;
+  font-size: 12px;
+  color: #787878;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container .member .social {
+  box-shadow: 0px -1px 14px -9px rgba(0, 0, 0, 0.75);
+  background-color: #e6e6e6;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0px;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container .member .social i {
+  font-size: 18px;
+  padding: 0px 5px;
+  color: #FA3654;
+}
+.startup-container .people-container .people-carousel .swiper-wrapper .swiper-slide .member-container .member .social i:hover {
+  color: #FA3654;
+}
 
 .gallery {
   padding: 50px 0px 100px 0px;

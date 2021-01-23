@@ -899,6 +899,124 @@ body {
         }
 
     }
+
+    .people-container {
+        padding-top: 50px;
+
+        .people-carousel {
+            .swiper-wrapper {
+                width: 300px;
+
+                .swiper-slide {
+                    display: flex;
+                    justify-content: center;
+
+                    .member-container {
+                        overflow: hidden;
+                        background-color: #eeeeee;
+                        border-radius: 30px;
+                        margin: 20px 10px;
+                        transition: box-shadow 0.4s;
+                        max-width: 300px;
+                        font-family: 'Poppins', sans-serif;
+
+                        &:hover {
+                            box-shadow: 0px 20px 45px #3B3B6740;
+                            transition: box-shadow 0.2s;
+
+                            .member {
+                                .image {
+                                    img {
+                                        filter: grayscale(0);
+                                    }
+                                }
+
+                                .details {
+                                    .name {
+                                        color: #FA3654;
+                                    }
+                                }
+
+                                .social {
+                                    i {
+                                        color: #787878;
+                                    }
+                                }
+                            }
+                        }
+
+                        .member {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            .image {
+                                padding: 30px 30px 10px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                img {
+                                    width: 200px;
+                                    border-radius: 20px;
+                                    box-shadow: 0px 20px 45px #3B3B6740;
+                                    filter: grayscale(10);
+                                }
+                            }
+
+                            .details {
+                                padding: 0px 20px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+
+                                .name {
+                                    font-size: 24px;
+                                    color: #787878;
+                                    padding: 0px 5px;
+                                }
+
+                                .position {
+                                    font-size: 14px;
+                                    color: #787994;
+                                    font-weight: lighter;
+
+                                }
+
+                                .batch {
+                                    padding-bottom: 10px;
+                                    font-size: 12px;
+                                    color: #787878;
+                                }
+
+                            }
+
+                            .social {
+                                box-shadow: 0px -1px 14px -9px rgba(0, 0, 0, 0.75);
+                                background-color: #e6e6e6;
+                                width: 100%;
+                                text-align: center;
+                                padding: 10px 0px;
+
+                                i {
+                                    font-size: 18px;
+                                    padding: 0px 5px;
+                                    color: #FA3654;
+
+                                    &:hover {
+                                        color: #FA3654;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 .gallery {
@@ -1741,7 +1859,6 @@ body {
                         font-weight: lighter;
                         padding-bottom: 10px;
                     }
-
                 }
 
                 .social {
