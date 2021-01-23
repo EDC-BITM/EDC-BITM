@@ -741,6 +741,28 @@ body {
   }
 }
 
+.startup-container {
+  padding: 100px 150px;
+}
+.startup-container h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: #1C1C26;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.startup-container h1 span {
+  position: relative;
+  color: #FA3654;
+}
+.startup-container h1 span img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 150px;
+}
+
 .gallery {
   padding: 50px 0px 100px 0px;
 }
@@ -1346,6 +1368,153 @@ body {
   color: #4445ed;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   transition: background-color 0.4s;
+}
+
+.team-container {
+  padding: 100px 0px;
+  font-family: "Poppins", sans-serif;
+}
+.team-container .left-about-grad {
+  position: absolute;
+  top: 0px;
+  left: -70px;
+}
+@media screen and (max-width: 870px) {
+  .team-container .left-about-grad {
+    display: none;
+  }
+}
+.team-container .right-about-grad {
+  top: 150vh;
+  right: -300px;
+  position: absolute;
+}
+@media screen and (max-width: 1440px) {
+  .team-container .right-about-grad {
+    right: -200px;
+  }
+  .team-container .right-about-grad img {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 870px) {
+  .team-container .right-about-grad {
+    display: none;
+  }
+}
+.team-container h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: #1C1C26;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.team-container h1 span {
+  position: relative;
+  color: #FA3654;
+}
+.team-container h1 span img {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  width: 140px;
+}
+@media screen and (max-width: 490px) {
+  .team-container h1 {
+    padding: 10px 10px;
+    font-size: 42px;
+  }
+  .team-container h1 span img {
+    width: 100px;
+  }
+}
+.team-container .teams {
+  padding: 50px 150px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 900px) {
+  .team-container .teams {
+    padding: 50px 50px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .team-container .teams {
+    padding: 50px 10px;
+  }
+}
+.team-container .teams .member-container {
+  overflow: hidden;
+  background-color: #eeeeee;
+  border-radius: 30px;
+  margin: 20px 10px;
+  transition: box-shadow 0.4s;
+}
+.team-container .teams .member-container:hover {
+  box-shadow: 0px 20px 45px #3B3B6740;
+  transition: box-shadow 0.2s;
+}
+.team-container .teams .member-container:hover .member .image img {
+  filter: grayscale(0);
+}
+.team-container .teams .member-container:hover .member .details .name {
+  color: #FA3654;
+}
+.team-container .teams .member-container:hover .member .social i {
+  color: #787878;
+}
+.team-container .teams .member-container .member {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.team-container .teams .member-container .member .image {
+  padding: 30px 30px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.team-container .teams .member-container .member .image img {
+  width: 200px;
+  border-radius: 20px;
+  box-shadow: 0px 20px 45px #3B3B6740;
+  filter: grayscale(10);
+}
+.team-container .teams .member-container .member .details {
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.team-container .teams .member-container .member .details .name {
+  font-size: 24px;
+  color: #787878;
+  padding: 0px 5px;
+}
+.team-container .teams .member-container .member .details .position {
+  font-size: 12px;
+  color: #787994;
+  font-weight: lighter;
+  padding-bottom: 10px;
+}
+.team-container .teams .member-container .member .social {
+  box-shadow: 0px -1px 14px -9px rgba(0, 0, 0, 0.75);
+  background-color: #e6e6e6;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0px;
+}
+.team-container .teams .member-container .member .social i {
+  font-size: 18px;
+  padding: 0px 5px;
+  color: #FA3654;
+}
+.team-container .teams .member-container .member .social i:hover {
+  color: #FA3654;
 }
 
 /*# sourceMappingURL=index-1.css.map */
