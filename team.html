@@ -44,8 +44,21 @@
                 <div class="contact">
                     <a href="index.html#contact">Get in Touch!</a>
                 </div>
+                <div class="mobile-nav-container">
+                    <div class="mobile-nav" id='mobile-nav'>
+                        <ul>
+                            <li><a href="#e-summit">E-Summit<img src="image/lining.svg"></a></li>
+                            <li><a href="#gallery">Gallery<img src="image/lining.svg"></a></li>
+                            <li><a href="#events">Events<img src="image/lining.svg"></a></li>
+                            <li><a href="#about">About Us<img src="image/lining.svg"></a></li>
+                            <li><a href="team.html">Team<img src="image/lining.svg"></a></li>
+                            <li><a href="#contact">Contact Us<img src="image/lining.svg"></a></li>
+                        </ul>
+
+                    </div>
+                </div>
                 <div class="burger-container" data-aos="zoom-out-left" data-aos-easing="ease" data-aos-delay="400">
-                    <div class="burger">
+                    <div class="burger" onclick="displayNav()">
                         <i class="fas fa-bars fa-2x"></i>
                     </div>
                 </div>
@@ -331,6 +344,17 @@
                 draggable: true,
             },
         });
+
+        const displayNav = () => {
+            const nav = document.getElementById('mobile-nav');
+            const burger = document.getElementById('')
+            if (nav.style.display === '' || nav.style.display === 'none') {
+                nav.style.display = 'block';
+            }
+            else {
+                nav.style.display = 'none';
+            }
+        }
     </script>
 </body>
 

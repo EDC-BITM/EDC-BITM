@@ -145,6 +145,12 @@ body {
   background: #FFFFFF 0% 0% no-repeat padding-box;
   transition: background-color 0.4s;
 }
+.landing-section .navbar nav .mobile-nav-container {
+  display: none;
+}
+.landing-section .navbar nav .mobile-nav-container .mobile-nav {
+  display: none;
+}
 .landing-section .navbar nav .burger-container {
   display: none;
   flex-direction: column;
@@ -184,12 +190,66 @@ body {
   }
 }
 @media screen and (max-width: 760px) {
+  .landing-section .navbar nav .mobile-nav-container {
+    display: block;
+    position: absolute;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    top: 100px;
+    width: 100vw;
+  }
+  .landing-section .navbar nav .mobile-nav-container .mobile-nav {
+    display: none;
+    width: 80vw;
+    background-color: rgba(255, 250, 250, 0.5);
+    backdrop-filter: blur(8px) saturate(100%) contrast(45%) brightness(130%);
+    border: 1px solid #c7c7c7;
+    box-shadow: 0px 20px 45px #3B3B6740;
+    border-radius: 30px;
+  }
+  .landing-section .navbar nav .mobile-nav-container .mobile-nav ul {
+    list-style: none;
+    width: 100%;
+    padding: 20px;
+  }
+  .landing-section .navbar nav .mobile-nav-container .mobile-nav ul li {
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px;
+  }
+  .landing-section .navbar nav .mobile-nav-container .mobile-nav ul li a {
+    font-size: 24px;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    color: #787878;
+    font-weight: bold;
+    position: relative;
+  }
+  .landing-section .navbar nav .mobile-nav-container .mobile-nav ul li a img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80px;
+    display: none;
+    transition: display 0.4s;
+  }
+  .landing-section .navbar nav .mobile-nav-container .mobile-nav ul li a:hover {
+    color: #FA3654;
+  }
+  .landing-section .navbar nav .mobile-nav-container .mobile-nav ul li a:hover img {
+    display: block;
+    transition: display 0.4s;
+  }
+}
+@media screen and (max-width: 760px) {
   .landing-section .navbar nav .burger-container {
     display: flex;
   }
   .landing-section .navbar nav .burger-container .burger {
     padding: 10px;
-    border-radius: 3px;
+    border-radius: 5px;
   }
   .landing-section .navbar nav .burger-container .burger i {
     color: #787994;
