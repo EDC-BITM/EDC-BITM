@@ -1535,4 +1535,96 @@ body {
   color: #FA3654;
 }
 
+.footer-section {
+  padding: 100px 50px;
+}
+.footer-section footer {
+  background-color: #eeeeee;
+  padding: 50px;
+  box-shadow: 0px 20px 45px #3B3B6740;
+  border-radius: 60px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.footer-section footer .logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer-section footer .logo .image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer-section footer .logo .image img {
+  width: 200px;
+}
+.footer-section footer .links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer-section footer .links a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #787994;
+  padding: 5px;
+  font-family: "Poppins", sans-serif;
+  transition: color 0.4s;
+}
+.footer-section footer .links a:hover {
+  color: #FA3654;
+  transition: color 0.4s;
+}
+.footer-section footer .social {
+  padding: 20px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.footer-section footer .social a {
+  padding: 5px;
+  color: #787994;
+}
+.footer-section footer .social a:hover {
+  color: #FA3654;
+}
+.footer-section footer .contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+.footer-section footer .contact .address {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  padding: 10px 0px;
+  color: #787994;
+}
+.footer-section footer .contact .email {
+  font-family: "Poppins", sans-serif;
+  padding: 2px 0px;
+  color: #787994;
+}
+.footer-section footer .contact .email span {
+  font-size: 18px;
+  color: #FA3654;
+  padding-right: 5px;
+}
+.footer-section footer .contact .phone {
+  font-family: "Poppins", sans-serif;
+  padding: 2px 0px;
+  color: #787994;
+}
+.footer-section footer .contact .phone span {
+  font-size: 18px;
+  color: #FA3654;
+  padding-right: 5px;
+}
+
 /*# sourceMappingURL=index-1.css.map */
