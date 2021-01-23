@@ -787,8 +787,17 @@ body {
     }
 }
 
+// startups registered
 .startup-container {
     padding: 100px 150px;
+
+    @media screen and (max-width:790px) {
+        padding: 100px 50px;
+    }
+
+    @media screen and (max-width:600px) {
+        padding: 100px 10px;
+    }
 
     h1 {
         font-family: 'Poppins', sans-serif;
@@ -810,6 +819,17 @@ body {
                 width: 150px;
             }
         }
+
+        @media screen and (max-width:500px) {
+            font-size: 36px;
+
+            span {
+                img {
+                    width: 100px;
+                }
+            }
+        }
+
     }
 }
 

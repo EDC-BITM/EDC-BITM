@@ -744,6 +744,16 @@ body {
 .startup-container {
   padding: 100px 150px;
 }
+@media screen and (max-width: 790px) {
+  .startup-container {
+    padding: 100px 50px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .startup-container {
+    padding: 100px 10px;
+  }
+}
 .startup-container h1 {
   font-family: "Poppins", sans-serif;
   font-size: 48px;
@@ -761,6 +771,14 @@ body {
   bottom: 0;
   right: 0;
   width: 150px;
+}
+@media screen and (max-width: 500px) {
+  .startup-container h1 {
+    font-size: 36px;
+  }
+  .startup-container h1 span img {
+    width: 100px;
+  }
 }
 
 .gallery {
