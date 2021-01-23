@@ -1538,6 +1538,16 @@ body {
 .footer-section {
   padding: 100px 50px;
 }
+@media screen and (max-width: 700px) {
+  .footer-section {
+    padding: 60px 20px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .footer-section {
+    padding: 60px 10px;
+  }
+}
 .footer-section footer {
   background-color: #eeeeee;
   padding: 50px;
@@ -1546,6 +1556,11 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+@media screen and (max-width: 700px) {
+  .footer-section footer {
+    border-radius: 40px;
+  }
 }
 .footer-section footer .logo {
   display: flex;
@@ -1595,6 +1610,7 @@ body {
   color: #FA3654;
 }
 .footer-section footer .contact {
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1605,6 +1621,13 @@ body {
   font-size: 24px;
   padding: 10px 0px;
   color: #787994;
+}
+@media screen and (max-width: 500px) {
+  .footer-section footer .contact .address {
+    font-size: 18px;
+    text-align: center;
+    border-top: 0.5px solid #d8d8d8;
+  }
 }
 .footer-section footer .contact .email {
   font-family: "Poppins", sans-serif;
