@@ -803,6 +803,7 @@ body {
 
 .startup-container {
   padding: 100px 150px;
+  overflow: hidden;
 }
 @media screen and (max-width: 790px) {
   .startup-container {
@@ -1033,11 +1034,6 @@ body {
 .events {
   padding: 100px 20px;
 }
-@media screen and (max-width: 1400px) {
-  .events {
-    display: none;
-  }
-}
 .events h1 {
   font-family: "Poppins", sans-serif;
   font-size: 48px;
@@ -1075,158 +1071,100 @@ body {
   width: 200px;
 }
 .events .event-container {
-  margin: 50px 150px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 150px;
+}
+@media screen and (max-width: 970px) {
+  .events .event-container {
+    padding: 50px 50px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .events .event-container {
+    padding: 50px 0px;
+  }
 }
 .events .event-container .event-box {
-  background-color: rgba(255, 255, 255, 0.85);
+  font-family: "Poppins", sans-serif;
+  margin: 20px 10px;
+  background-color: #eeeeee;
+  padding: 20px;
   border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-  transition: box-shadow 0.2s, background-color 0.2s;
-}
-.events .event-container .event-box .grad1 {
-  position: absolute;
-  top: -380px;
-  left: 80px;
-  transition: transform 0.4s, top 0.4s, left 0.4s;
-}
-.events .event-container .event-box .grad2 {
-  position: absolute;
-  top: 103px;
-}
-.events .event-container .event-box .grad3 {
-  position: absolute;
-  top: -310px;
-  left: 150px;
-  transition: transform 0.4s, top 0.4s, left 0.4s;
-}
-.events .event-container .event-box .grad4 {
-  position: absolute;
-  transform: rotate(120deg);
-  left: -160px;
-  transition: transform 0.4s, left 0.4s;
-}
-.events .event-container .event-box .grad4 img {
-  width: 300px;
-}
-.events .event-container .event-box .grad5 {
-  position: absolute;
-  transform: rotate(-65deg);
-  top: -160px;
-  left: 140px;
-  transition: transform 0.4s, top 0.4s, left 0.4s;
-}
-.events .event-container .event-box .grad6 {
-  position: absolute;
-  left: -240px;
-  top: -70px;
-  transition: top 0.4s, left 0.4s;
-}
-.events .event-container .event-box .image {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-}
-.events .event-container .event-box .image img {
-  width: 200px;
-}
-.events .event-container .event-box .mask {
-  padding: 20px 40px;
-  transition: padding 0.4s;
-}
-.events .event-container .event-box .mask .type {
-  font-family: "Poppins", sans-serif;
-  color: #2DB58D;
-  font-size: 12px;
-  font-weight: bold;
-  padding-bottom: 20px;
-  transition: padding-bottom 0.4s;
-}
-.events .event-container .event-box .mask .desc h2 {
-  font-family: "Poppins", sans-serif;
-  color: #FA3654;
-  font-size: 36px;
-  font-weight: 800;
-  transition: font-size 0.4s;
-}
-.events .event-container .event-box .mask .desc h2 span {
-  font-size: 18px;
-  color: #4445ED;
-}
-.events .event-container .event-box .mask .desc p {
-  font-family: "Poppins", sans-serif;
-  color: #787994;
-  font-size: 14px;
-  padding-bottom: 20px;
-}
-.events .event-container .event-box .mask .long {
-  font-family: "Poppins", sans-serif;
-  color: #787994;
-  font-size: 14px;
-  position: absolute;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  top: -200px;
-  display: none;
-  transition: top 0.4s, display 0.4s;
+  transition: box-shadow 0.4s;
 }
 .events .event-container .event-box:hover {
   box-shadow: 0px 20px 45px #3B3B6740;
-  transition: box-shadow 0.4s, background-color 0.2s;
-  background-color: rgba(255, 255, 255, 0.99);
-}
-.events .event-container .event-box:hover .grad1 {
-  transform: rotate(-65deg);
-  top: -160px;
-  left: 140px;
-  transition: transform 0.4s, top 0.4s, left 0.4s;
-}
-.events .event-container .event-box:hover .grad2 {
-  left: -240px;
-  top: -70px;
-  transition: top 0.4s, left 0.4s;
-}
-.events .event-container .event-box:hover .grad3 {
-  transform: rotate(-30deg);
-  top: -40px;
-  left: 100px;
-  transition: transform 0.4s, top 0.4s, left 0.4s;
-}
-.events .event-container .event-box:hover .grad4 {
-  left: -200px;
-  transition: left 0.4s;
-}
-.events .event-container .event-box:hover .grad5 {
-  top: -380px;
-  left: 80px;
-  transition: transform 0.4s, top 0.4s, left 0.4s;
-}
-.events .event-container .event-box:hover .grad6 {
-  top: 103px;
+  transition: box-shadow 0.4s;
 }
 .events .event-container .event-box:hover .mask {
-  padding: 10px 20px;
-  transition: padding 0.4s;
+  position: relative;
+  padding: 0px;
+  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.events .event-container .event-box:hover .mask .image img {
+  display: none;
 }
 .events .event-container .event-box:hover .mask .type {
-  padding-bottom: 0px;
-  transition: padding-bottom 0.4s;
+  font-size: 12px;
+  padding-top: 10px;
+  transition: font-size 0.4s padding-top 0.4s;
 }
 .events .event-container .event-box:hover .mask .desc h2 {
-  font-size: 18px;
+  font-size: 24px;
   transition: font-size 0.4s;
 }
 .events .event-container .event-box:hover .mask .desc p {
   display: none;
 }
 .events .event-container .event-box:hover .mask .long {
-  top: 60px;
   display: block;
-  transition: top 0.4s, display 0.4s;
+}
+.events .event-container .event-box .mask {
+  width: 250px;
+  height: 400px;
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.events .event-container .event-box .mask .image {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.events .event-container .event-box .mask .image img {
+  width: 150px;
+}
+.events .event-container .event-box .mask .type {
+  font-size: 14px;
+  padding-top: 30px;
+  color: #787994;
+  font-weight: bold;
+  transition: font-size 0.4s padding-top 0.4s;
+}
+.events .event-container .event-box .mask .desc h2 {
+  font-size: 32px;
+  color: #4445ED;
+  transition: font-size 0.4s;
+}
+.events .event-container .event-box .mask .desc h2 span {
+  color: #FA3654;
+}
+.events .event-container .event-box .mask .desc p {
+  color: #787878;
+}
+.events .event-container .event-box .mask .long {
+  position: absolute;
+  width: 250px;
+  display: none;
+  padding: 20px 0px;
+  color: #787994;
 }
 
 .summit {
