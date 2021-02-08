@@ -408,9 +408,7 @@
                         <p>
                             One of the major flagship events of E-Summit’20, B-Plan was an event launched to escalate a
                             person’s professional outreach and test the Entrepreneurial Panache. With a buzzing business
-                            idea in mind, the event provided individuals an opportunity to kickstart their idea. With
-                            funding provided by experienced investors,the pitch in of B-Plan was to innovate your ideas
-                            and get the right path.
+                            idea in mind, the event provided individuals an opportunity to kickstart their idea.
 
                         </p>
                     </div>
@@ -605,6 +603,10 @@
                 <p class="phone"><span><i class="fas fa-phone-alt"></i></span> 1234567890, 1234567890</p>
             </div>
         </footer>
+
+        <div id="loader">
+            <img src="./image/infinityLoader.svg" alt="Loader">
+        </div>
     </div>
 
 
@@ -626,6 +628,12 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
+
+        var loader = document.getElementById("loader");
+        window.addEventListener('load', function () {
+            loader.style.display = "none";
+        });
+
         AOS.init();
 
         var rellax = new Rellax('.rellax');
