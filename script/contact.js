@@ -19,12 +19,12 @@ document.querySelector(".contact-form").addEventListener("submit", submitForm)
 //Get values
 function submitForm(e) {
     e.preventDefault()
-    let name = document.querySelector(".name").value
-    let email = document.querySelector(".email").value
-    let number = document.querySelector(".number").value
-    let message = document.querySelector(".message").value
-    save_contact_info(name, email, number, message)
-    document.querySelector(".contact-form").reset()
+    let name = document.querySelector(".name").value;
+    let email = document.querySelector(".email").value;
+    let number = document.querySelector(".number").value;
+    let message = document.querySelector(".message").value;
+    save_contact_info(name, email, number, message);
+    document.querySelector(".contact-form").reset();
 }
 
 //save info to firebase
@@ -34,6 +34,6 @@ function save_contact_info(name, email, number, message) {
         name: name,
         email: email,
         number: number,
-        message: message
-    })
+        message: message,
+    });
 }
