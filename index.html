@@ -544,12 +544,12 @@
                 <img src="./image/contact-us.svg" alt="get in touch" data-aos="zoom-in" data-aos-easing="ease" data-aos-delay="120">
             </div>
             <div class="contact-form">
-                <form>
+                <form method="post" action="emailform.php">
                     <input class="name" type='text' placeholder='Name' name="Name" />
                     <input class="email" type='email' placeholder='Email' name="Email" />
                     <input class="number" type='number' placeholder='Contact No.' name="Contact" />
-                    <textarea class="message" placeholder="Message..." name="Message"></textarea>
-                    <button type="submit" onclick="window.location.href = 'http://edcbitmesra.in';">Submit</button>
+                    <textarea name="message" class="message" placeholder="Message..." name="Message"></textarea>
+                    <button type="submit" onclick="window.location.href = 'https://edcbitmesra.in';">Submit</button>
                 </form>
                 <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase.js"></script>
                 <script src="script/contact.js"></script>
