@@ -1693,7 +1693,8 @@ body {
 
             &:hover {
                 box-shadow: 0px 20px 45px #3B3B6740;
-                transition: box-shadow 0.2s;
+                transform: translateY(-20px);
+                transition: all 0.3s ease-in-out;
 
                 .member {
                     .image {
