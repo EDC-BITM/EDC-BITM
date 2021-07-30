@@ -1541,6 +1541,8 @@ body {
 .team-container .teams .member-container:hover {
   box-shadow: 0px 20px 45px #3B3B6740;
   transition: box-shadow 0.2s;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-in-out;
 }
 .team-container .teams .member-container:hover .member .image img {
   filter: grayscale(0);
@@ -1565,9 +1567,9 @@ body {
 }
 .team-container .teams .member-container .member .image img {
   width: 200px;
+  height: 200px;
   border-radius: 20px;
   box-shadow: 0px 20px 45px #3B3B6740;
-  filter: grayscale(10);
 }
 .team-container .teams .member-container .member .details {
   padding: 0px 20px;
