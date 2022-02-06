@@ -2,7 +2,7 @@
 
 const data = [
     {
-        "name": "ANAND SINGH",
+        "name": "Anand Singh",
         "graduated": 2016,
         "course": "B.E.(ECE)",
         "linkedin": "linkedin.com/in/anand-singh-1b12851a7",
@@ -123,7 +123,7 @@ const data = [
         "start-location": "Noida"
     },
     {
-        "name": "Chandra bhushan sharma",
+        "name": "Chandra Bhushan Sharma",
         "graduated": 2017,
         "course": "CSE",
         "linkedin": "linkedin.com/in/chandra-bhushan-sharma-0b3701a7",
@@ -134,7 +134,7 @@ const data = [
         "start-location": "Bhore , Gopalganj, bihar"
     },
     {
-        "name": "Karan bajaj",
+        "name": "Karan Bajaj",
         "graduated": 2000,
         "course": "BE in Mechanical Engineering",
         "linkedin": "linkedin.com/in/karan-bajaj-8806191",
@@ -222,7 +222,7 @@ const data = [
         "start-location": "Bangalore"
     },
     {
-        "name": "Pawan kumar rai",
+        "name": "Pawan Kumar Rai",
         "graduated": 2014,
         "course": "BE in Production Engineering",
         "linkedin": "linkedin.com/in/pawan-kumar-rai-2a437a61",
@@ -299,17 +299,6 @@ const data = [
         "start-location": "New Delhi"
     },
     {
-        "name": "Shaleen Mathur",
-        "graduated": 2009,
-        "course": "B.E in ECE",
-        "linkedin": "linkedin.com/in/mathurshaleen",
-        "photo": "",
-        "startup": "Pink Sarahna Foundation",
-        "startup-nature": "Blockchain Platform & Social Currency",
-        "startup-website": "https://www.sarahna.io",
-        "start-location": "New Delhi"
-    },
-    {
         "name": "Shantanu Singh",
         "graduated": 2000,
         "course": "B.E. in ECE",
@@ -354,18 +343,7 @@ const data = [
         "start-location": "Mumbai"
     },
     {
-        "name": "Sougata Basu",
-        "graduated": 2006,
-        "course": "EEE",
-        "linkedin": "linkedin.com/in/sougatab",
-        "photo": "",
-        "startup": "CashRich",
-        "startup-nature": "Fintech",
-        "startup-website": "https://www.cashrich.com",
-        "start-location": "Mumbai"
-    },
-    {
-        "name": "Vishal anand",
+        "name": "Vishal Anand",
         "graduated": 2018,
         "course": "B.E. ECE",
         "linkedin": "linkedin.com/in/vishal-anand-51bb49110",
@@ -441,9 +419,9 @@ for (let i = 0; i < data.length; i++) {
                     <div class="member">
                         <div class="details">
                             <h4 class="name">${data[i]['name']}</h4>
-                            <h6 class="position">${data[i]['course']},${data[i]['graduated']}</h6>
+                            <h6 class="position">${data[i]['course']}, ${data[i]['graduated']}</h6>
                             <a class="startup-link" href="${data[i]['startup-website']}">
-                                <h5 class="position-link">${data[i]['startup']},${data[i]['start-location']}</h5>
+                                <h5 class="position-link">${data[i]['startup']}, ${data[i]['start-location']}</h5>
                             </a>
                             <h5 class="position">${data[i]['startup-nature']}</h5>
                         </div>
