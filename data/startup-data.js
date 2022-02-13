@@ -4,7 +4,7 @@ const data = [
     {
         "name": "Anand Singh",
         "graduated": 2016,
-        "course": "B.E.(ECE)",
+        "course": "B.E in ECE",
         "linkedin": "linkedin.com/in/anand-singh-1b12851a7",
         "photo": "",
         "startup": "AIcharya",
@@ -48,7 +48,7 @@ const data = [
     {
         "name": "Amit Chaudhary",
         "graduated": 2009,
-        "course": "BE in IT",
+        "course": "B.E in IT",
         "linkedin": "linkedin.com/in/4daxis",
         "photo": "",
         "startup": "Lenskart",
@@ -59,7 +59,7 @@ const data = [
     {
         "name": "Anil Kumar Peri",
         "graduated": 2019,
-        "course": "BSc in Mathematics and Computing",
+        "course": "B.Sc in Mathematics and Computing",
         "linkedin": "linkedin.com/in/anilkumarperi",
         "photo": "",
         "startup": "SwiftSkill",
@@ -70,7 +70,7 @@ const data = [
     {
         "name": "Anjali",
         "graduated": 2009,
-        "course": "BE in CSE",
+        "course": "B.E in CSE",
         "linkedin": "linkedin.com/in/jsranjali",
         "photo": "",
         "startup": "In-Biot Private Limted",
@@ -81,7 +81,7 @@ const data = [
     {
         "name": "Ankit Jain",
         "graduated": 2009,
-        "course": "BE CSE",
+        "course": "B.E in CSE",
         "linkedin": "linkedin.com/in/jainankit01",
         "photo": "",
         "startup": "MyOperator",
@@ -92,7 +92,7 @@ const data = [
     {
         "name": "Arjun Goyal",
         "graduated": 2011,
-        "course": "BE in Civil",
+        "course": "B.E in Civil",
         "linkedin": "linkedin.com/in/arjungoyal",
         "photo": "",
         "startup": "Grassroots Economics, Environment & Tech Advancement Foundation",
@@ -114,7 +114,7 @@ const data = [
     {
         "name": "Ayush Agarwal",
         "graduated": 1990,
-        "course": "EEE",
+        "course": "B.E in EEE",
         "linkedin": "linkedin.com/in/ayushkumaragarwal",
         "photo": "",
         "startup": "Tanaashi Technologies Pvt Ltd",
@@ -125,7 +125,7 @@ const data = [
     {
         "name": "Chandra Bhushan Sharma",
         "graduated": 2017,
-        "course": "CSE",
+        "course": "B.E in CSE",
         "linkedin": "linkedin.com/in/chandra-bhushan-sharma-0b3701a7",
         "photo": "",
         "startup": "Meathut India pvt ltd., ursoftlab pvt ltd. , adived ecommerce",
@@ -136,7 +136,7 @@ const data = [
     {
         "name": "Karan Bajaj",
         "graduated": 2000,
-        "course": "BE in Mechanical Engineering",
+        "course": "B.E in Mechanical Engineering",
         "linkedin": "linkedin.com/in/karan-bajaj-8806191",
         "photo": "",
         "startup": "whitehat jr.",
@@ -147,7 +147,7 @@ const data = [
     {
         "name": "Karthik Reddy",
         "graduated": 2016,
-        "course": "BE in ECE",
+        "course": "B.E in ECE",
         "linkedin": "linkedin.com/in/karthikvummadi",
         "photo": "",
         "startup": "iB Hubs",
@@ -158,7 +158,7 @@ const data = [
     {
         "name": "Kumar Tanmay",
         "graduated": 2007,
-        "course": "BE in Biotechnology",
+        "course": "B.E in Biotechnology",
         "linkedin": "linkedin.com/in/ktanmay",
         "photo": "",
         "startup": "Inkredo",
@@ -213,7 +213,7 @@ const data = [
     {
         "name": "Pawan Kumar Gupta",
         "graduated": 2009,
-        "course": "UG",
+        "course": "B.E in ECE",
         "linkedin": "linkedin.com/in/pguptasloan",
         "photo": "",
         "startup": "Betterhalf.ai",
@@ -224,10 +224,10 @@ const data = [
     {
         "name": "Pawan Kumar Rai",
         "graduated": 2014,
-        "course": "BE in Production Engineering",
+        "course": "B.E in Production Engineering",
         "linkedin": "linkedin.com/in/pawan-kumar-rai-2a437a61",
         "photo": "",
-        "startup": "finshots & ditto insurance",
+        "startup": "Finshots & Ditto Insurance",
         "startup-nature": "Financial Newsletter,Insurance",
         "startup-website": "https://finshots.in/",
         "start-location": "Bengaluru"
@@ -235,7 +235,7 @@ const data = [
     {
         "name": "Piyush Priyam",
         "graduated": 2008,
-        "course": "BE in Mechanical engineering",
+        "course": "B.E in Mechanical Engineering",
         "linkedin": "linkedin.com/in/piyush-priyam",
         "photo": "",
         "startup": "PEPO",
@@ -257,7 +257,7 @@ const data = [
     {
         "name": "Pratyush Agarwal",
         "graduated": 2016,
-        "course": "UG, B.E in IT",
+        "course": "B.E in IT",
         "linkedin": "linkedin.com/in/pratsy",
         "photo": "",
         "startup": "CodeAsylums",
@@ -268,7 +268,7 @@ const data = [
     {
         "name": "Rahul Anand",
         "graduated": 2009,
-        "course": "BE/CSE",
+        "course": "B.E in CSE",
         "linkedin": "linkedin.com/in/rahul-anand-a834691a",
         "photo": "",
         "startup": "Pioneer Bfactory Consultancy & Services Private Limited",
@@ -312,7 +312,7 @@ const data = [
     {
         "name": "Shaurya Shahi",
         "graduated": 2015,
-        "course": "BE IT",
+        "course": "B.E in IT",
         "linkedin": "linkedin.com/in/shaurya-shahi",
         "photo": "",
         "startup": "HeapTree",
@@ -334,7 +334,7 @@ const data = [
     {
         "name": "Sougata Basu",
         "graduated": 2006,
-        "course": "EEE",
+        "course": "B.E in EEE",
         "linkedin": "linkedin.com/in/sougatab",
         "photo": "",
         "startup": "CashRich",
@@ -345,7 +345,7 @@ const data = [
     {
         "name": "Vishal Anand",
         "graduated": 2018,
-        "course": "B.E. ECE",
+        "course": "B.E in ECE",
         "linkedin": "linkedin.com/in/vishal-anand-51bb49110",
         "photo": "",
         "startup": "OLSO (Gearide rental pvt ltd)",
@@ -360,7 +360,7 @@ const missingData=[
     {
         "name": "Micky Midha",
         "graduated": 2009,
-        "course": "BE in CSE (UG)",
+        "course": "B.E in CSE ",
         "linkedin": "",
         "photo": "",
         "startup": "Midha Education Private Limited",
@@ -391,15 +391,15 @@ const missingData=[
         "start-location": "Gurgaon, Delhi"
     },
     {
-        "name": "VISHAL KUMAR",
+        "name": "Vishal Kumar",
         "graduated": 2009,
         "course": "B.E in ECE",
         "linkedin": "",
         "photo": "",
-        "startup": "RANCHI BAZAAR",
-        "startup-nature": "CONSUMER GOODS",
+        "startup": "Ranchi Bazaar",
+        "startup-nature": "Consumer Goods",
         "startup-website": "https://ranchi-bazaar-vivek-vastralaya.business.site/",
-        "start-location": "SATYANARAYAN MARKET, UPPER BAZAR, RANCHI"
+        "start-location": "Satyanarayan Market, Upper Bazar, Ranchi"
     }
 ]
 
