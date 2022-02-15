@@ -107,7 +107,7 @@ const data = [
         "linkedin": "linkedin.com/in/ayushkumaragarwal",
         "photo": "",
         "startup": "Tanaashi Technologies Pvt Ltd",
-        "startup-nature": "Software",
+        "startup-nature": "Enterprise Software (ERP), IIoT, Task Management and other Software Solutions",
         "startup-website": "https://tanaashi.com",
         "start-location": "Noida"
     },
