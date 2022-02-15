@@ -90,17 +90,6 @@ const data = [
         "start-location": "Delhi"
     },
     {
-        "name": "Arjun Goyal",
-        "graduated": 2011,
-        "course": "B.E in Civil",
-        "linkedin": "linkedin.com/in/arjungoyal",
-        "photo": "",
-        "startup": "Grassroots Economics, Environment & Tech Advancement Foundation",
-        "startup-nature": "Research Foundation",
-        "startup-website": "https://gf-india.com/",
-        "start-location": "New Delhi"
-    },
-    {
         "name": "Arun Kumar Gautam",
         "graduated": 2012,
         "course": "BHMCT",
@@ -121,17 +110,6 @@ const data = [
         "startup-nature": "Software",
         "startup-website": "https://tanaashi.com",
         "start-location": "Noida"
-    },
-    {
-        "name": "Chandra Bhushan Sharma",
-        "graduated": 2017,
-        "course": "B.E in CSE",
-        "linkedin": "linkedin.com/in/chandra-bhushan-sharma-0b3701a7",
-        "photo": "",
-        "startup": "Meathut India pvt ltd., ursoftlab pvt ltd. , adived ecommerce",
-        "startup-nature": "Software service/ecommerce/msme",
-        "startup-website": "http://www.meathut.in",
-        "start-location": "Bhore , Gopalganj, bihar"
     },
     {
         "name": "Karan Bajaj",
@@ -277,59 +255,15 @@ const data = [
         "start-location": "Ranchi"
     },
     {
-        "name": "Sanjit Chatterjee",
-        "graduated": 1987,
-        "course": "B Pharmacy",
-        "linkedin": "linkedin.com/in/sanjit-chatterjee-2b7557b",
-        "photo": "",
-        "startup": "Blueneck Consulting",
-        "startup-nature": "Career Consulting",
-        "startup-website": "https://www.blueneck.net",
-        "start-location": "Mumbai"
-    },
-    {
-        "name": "Shaleen Mathur",
-        "graduated": 2009,
-        "course": "B.E in ECE",
-        "linkedin": "linkedin.com/in/mathurshaleen",
-        "photo": "",
-        "startup": "Pink Sarahna Foundation",
-        "startup-nature": "Blockchain Platform & Social Currency",
-        "startup-website": "https://www.sarahna.io",
-        "start-location": "New Delhi"
-    },
-    {
-        "name": "Shantanu Singh",
-        "graduated": 2000,
-        "course": "B.E. in ECE",
-        "linkedin": "linkedin.com/in/shantanu-singh-476b541a2",
-        "photo": "",
-        "startup": "Daily Salary",
-        "startup-nature": "Technology (HR Tech / Fintech)",
-        "startup-website": "https://dailysalary.in",
-        "start-location": "Gurgaon"
-    },
-    {
         "name": "Shaurya Shahi",
         "graduated": 2015,
         "course": "B.E in IT",
         "linkedin": "linkedin.com/in/shaurya-shahi",
         "photo": "",
-        "startup": "HeapTree",
+        "startup": "Apna",
         "startup-nature": "Software",
-        "startup-website": "https://link.medium.com/af0TXWwAz8",
+        "startup-website": "https://apna.co/",
         "start-location": "Bangalore"
-    },
-    {
-        "name": "Shivam Raj",
-        "graduated": 2021,
-        "course": "B.E in CSE",
-        "linkedin": "linkedin.com/in/sh1v4mr4j",
-        "photo": "",
-        "startup": "Doorcha",
-        "startup-nature": "Consumer goods",
-        "startup-website": "https://doorcha.com",
-        "start-location": "Ranchi"
     },
     {
         "name": "Sougata Basu",
@@ -342,21 +276,41 @@ const data = [
         "startup-website": "https://www.cashrich.com",
         "start-location": "Mumbai"
     },
-    {
-        "name": "Vishal Anand",
-        "graduated": 2018,
-        "course": "B.E in ECE",
-        "linkedin": "linkedin.com/in/vishal-anand-51bb49110",
-        "photo": "",
-        "startup": "OLSO (Gearide rental pvt ltd)",
-        "startup-nature": "Rental Mrketplace",
-        "startup-website": "https://olsorental.com",
-        "start-location": "Ranchi"
-    }
 ]
+
+const container = document.getElementById("listOfStartups");
+
+// Not needed now, but present here, for future reference, when more startups are added.
+/*data.sort((a,b) => {
+    if (a.name < b.name)
+        return -1;
+    return 1;
+});*/
+
+for (let i = 0; i < data.length; i++) {
+    container.innerHTML += (`
+      <div class="member-container">
+                    <div class="member">
+                        <div class="details">
+                            <h4 class="name">${data[i]['name']}</h4>
+                            <h6 class="position">${data[i]['course']}, ${data[i]['graduated']}</h6>
+                            <a class="startup-link" href="${data[i]['startup-website']}">
+                                <h5 class="position-link">${data[i]['startup']}, ${data[i]['start-location']}</h5>
+                            </a>
+                            <h5 class="position">${data[i]['startup-nature']}</h5>
+                        </div>
+                        <div class="social">
+                            <a href="https://www.${data[i]['linkedin']}"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+      `);
+}
+
 
 // Some parts of these datas are missing.
 const missingData=[
+    // linkedin profile missing
     {
         "name": "Micky Midha",
         "graduated": 2009,
@@ -400,35 +354,83 @@ const missingData=[
         "startup-nature": "Consumer Goods",
         "startup-website": "https://ranchi-bazaar-vivek-vastralaya.business.site/",
         "start-location": "Satyanarayan Market, Upper Bazar, Ranchi"
+    },
+    // website invalid.
+    {
+        "name": "Arjun Goyal",
+        "graduated": 2011,
+        "course": "B.E in Civil",
+        "linkedin": "linkedin.com/in/arjungoyal",
+        "photo": "",
+        "startup": "Grassroots Economics, Environment & Tech Advancement Foundation",
+        "startup-nature": "Research Foundation",
+        "startup-website": "https://gf-india.com/",
+        "start-location": "New Delhi"
+    },
+    {
+        "name": "Chandra Bhushan Sharma",
+        "graduated": 2017,
+        "course": "B.E in CSE",
+        "linkedin": "linkedin.com/in/chandra-bhushan-sharma-0b3701a7",
+        "photo": "",
+        "startup": "Meathut India pvt ltd., ursoftlab pvt ltd. , adived ecommerce",
+        "startup-nature": "Software service/ecommerce/msme",
+        "startup-website": "http://www.meathut.in",
+        "start-location": "Bhore , Gopalganj, bihar"
+    },
+    {
+        "name": "Sanjit Chatterjee",
+        "graduated": 1987,
+        "course": "B Pharmacy",
+        "linkedin": "linkedin.com/in/sanjit-chatterjee-2b7557b",
+        "photo": "",
+        "startup": "Blueneck Consulting",
+        "startup-nature": "Career Consulting",
+        "startup-website": "https://www.blueneck.net",
+        "start-location": "Mumbai"
+    },
+    {
+        "name": "Shaleen Mathur",
+        "graduated": 2009,
+        "course": "B.E in ECE",
+        "linkedin": "linkedin.com/in/mathurshaleen",
+        "photo": "",
+        "startup": "Pink Sarahna Foundation",
+        "startup-nature": "Blockchain Platform & Social Currency",
+        "startup-website": "https://www.sarahna.io",
+        "start-location": "New Delhi"
+    },
+    {
+        "name": "Shantanu Singh",
+        "graduated": 2000,
+        "course": "B.E. in ECE",
+        "linkedin": "linkedin.com/in/shantanu-singh-476b541a2",
+        "photo": "",
+        "startup": "Daily Salary",
+        "startup-nature": "Technology (HR Tech / Fintech)",
+        "startup-website": "https://dailysalary.in",
+        "start-location": "Gurgaon"
+    },
+    {
+        "name": "Shivam Raj",
+        "graduated": 2021,
+        "course": "B.E in CSE",
+        "linkedin": "linkedin.com/in/sh1v4mr4j",
+        "photo": "",
+        "startup": "Doorcha",
+        "startup-nature": "Consumer goods",
+        "startup-website": "https://doorcha.com",
+        "start-location": "Ranchi"
+    },
+    {
+        "name": "Vishal Anand",
+        "graduated": 2018,
+        "course": "B.E in ECE",
+        "linkedin": "linkedin.com/in/vishal-anand-51bb49110",
+        "photo": "",
+        "startup": "OLSO (Gearide rental pvt ltd)",
+        "startup-nature": "Rental Mrketplace",
+        "startup-website": "https://olsorental.com",
+        "start-location": "Ranchi"
     }
 ]
-
-
-const container = document.getElementById("listOfStartups");
-
-// Not needed now, but present here, for future reference, when more startups are added.
-/*data.sort((a,b) => {
-    if (a.name < b.name)
-        return -1;
-    return 1;
-});*/
-
-for (let i = 0; i < data.length; i++) {
-    container.innerHTML += (`
-      <div class="member-container">
-                    <div class="member">
-                        <div class="details">
-                            <h4 class="name">${data[i]['name']}</h4>
-                            <h6 class="position">${data[i]['course']}, ${data[i]['graduated']}</h6>
-                            <a class="startup-link" href="${data[i]['startup-website']}">
-                                <h5 class="position-link">${data[i]['startup']}, ${data[i]['start-location']}</h5>
-                            </a>
-                            <h5 class="position">${data[i]['startup-nature']}</h5>
-                        </div>
-                        <div class="social">
-                            <a href="https://www.${data[i]['linkedin']}"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-      `);
-}
