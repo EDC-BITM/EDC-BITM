@@ -1,0 +1,25 @@
+.slick-dots li button:before {
+	font-size: 12px; 
+}
+
+.slick-prev:before,
+.slick-next:before {
+	font-size: 3rem;
+	color: rgb(186, 186, 186); 
+}
+.slick-prev {
+	left: -5rem; 
+}
+
+.slick-next {
+	right: -3.5rem; 
+}
+@media screen and (max-width: 800px) {
+	.slick-prev {
+		left: -2rem; 
+	}
+
+	.slick-next {
+		right: -0.25rem; 
+	}
+}
