@@ -51,7 +51,7 @@ const Footer = () => {
         <div className="flex md:flex-row flex-col">
           <div className="flex md:flex-row flex-col">
             <div className="sb__footer-links_edc scale-125">
-              <div className="sb__footer-links_edc_upper mt-4 ">
+              <div className="sb__footer-links_edc_upper mt-6 ">
                 <p>
                   <img src={edclogo} className="img01 w-20" alt="" />{" "}
                 </p>

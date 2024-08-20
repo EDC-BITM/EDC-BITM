@@ -142,7 +142,6 @@ function Eventspage() {
             </div>
           </div>
         </div>
-        <Slidermain />
         <Socials />
       </div>
     </>
