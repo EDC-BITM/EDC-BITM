@@ -26,6 +26,11 @@ function Slider() {
         centeredSlides={true}
         loop={true}
         slidesPerView={'2'}
+        breakpoints={{
+          768: {
+            slidesPerView: 3.5,
+          },
+        }}
         coverflowEffect={{
           rotate: 15,
           stretch: 0,
@@ -64,10 +69,10 @@ function Slider() {
         </SwiperSlide>
 
         <div className="slider-controler">
-          <div className="swiper-button-prev slider-arrow">
+          <div className="swiper-button-prev slider-arrow ml-[-1%]">
             <ion-icon name="arrow-back-outline"></ion-icon>
           </div>
-          <div className="swiper-button-next slider-arrow">
+          <div className="swiper-button-next slider-arrow mr-[-1%]">
             <ion-icon name="arrow-forward-outline"></ion-icon>
           </div>
           <div className="swiper-pagination"></div>
