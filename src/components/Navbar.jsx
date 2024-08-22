@@ -78,11 +78,11 @@ const NavBar = () => {
         <div className="h-10vh w-screen">
             <style>{navbarStyles}</style>
             <nav className="m-0 p-0">
-                <div className={`h-10vh flex justify-between z-50 text-white lg:py-1 px-4 lg:px-20 py-1 fixed top-0 left-0 w-screen transition ${scroll ? 'bg-[#111111]' : 'bg-transparent'}`} style={{ ...(scroll ? { backdropFilter: 'blur(10px)', backgroundColor: 'rgba(0, 0, 0, 0.5)' } : {}) }}>
-                    <div className="flex items-center flex-1">
+                <div className={`h-9vh flex justify-between z-50 text-white lg:py-1 px-4 lg:px-20 py-2 fixed top-0 left-0 w-screen transition ${scroll ? 'bg-[#111111]' : 'bg-transparent'}`} style={{ ...(scroll ? { backdropFilter: 'blur(10px)', backgroundColor: 'rgba(0, 0, 0, 0.5)' } : {}) }}>
+                    <div className="flex items-center flex-1 mt-2 mb-2">
                         <Link to="/" className="lg:text-[18px] font-bold flex flex-row justify-center items-center" onClick={() => window.scrollTo(0, 0)}>
-                            <img src={logo} alt="" className="w-14 h-14" />
-                            <span className="hidden sm:block">Entrepreneurship <br />Development Cell</span>
+                            <img src={logo} alt="" className="w-12 h-12" />
+                            <span className="hidden sm:block font-medium text-[15px]">Entrepreneurship <br />Development Cell</span>
                         </Link>
                     </div>
                     <div className="lg:flex md:flex lg:flex-1 items-center justify-end font-normal hidden">

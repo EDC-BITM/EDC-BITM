@@ -1,11 +1,11 @@
 import React from "react";
 import { FaInstagram, FaLinkedinIn, FaFacebookF } from 'react-icons/fa';
-import '../socials/socials.css';
+import socialbg from './socialsbg.jpg'
 
 function Socials() {
     return (
-        <div className="socialbg w-screen bg-cover text-white">
-            <div className="backdrop-brightness-[0.25]">
+        <div className="text-white" style={{ backgroundImage: `url(${socialbg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="backdrop-brightness-[0.25]" style={{ height: '100%' }}>
                 <div className="flex flex-row justify-center items-center p-12">
                     <div className="h-[50px] w-[50px] bg-[#FED853]"></div>
                     <h1 className="text-[25px] ml-[-30px] font-bold" style={{ textShadow: '2px 2px 5px rgba(0, 0, 0, 0.5)' }}>

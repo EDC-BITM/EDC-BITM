@@ -17,15 +17,15 @@ const Footer = () => {
     e.preventDefault();
     setLoading(true);
 
-    const service_ID = 'service_jk7fihp'
-    const temp_ID = 'template_h09ik82'
-    const user_ID = '2AEZmAV4XKDlyliyD'
+    const service_ID = 'service_okd22ng'
+    const temp_ID = 'template_5nv8jld'
+    const user_ID = '2APikPfV0dHkUmski'
 
     emailjs.send(service_ID, temp_ID,
       {
         from_name: 'unknown',
         from_email: email,
-        to_name: 'Abhishek kr',
+        to_name: 'TEAM EDC',
         message: email,
       },
       user_ID
@@ -51,7 +51,7 @@ const Footer = () => {
         <div className="flex md:flex-row flex-col">
           <div className="flex md:flex-row flex-col">
             <div className="sb__footer-links_edc scale-125">
-              <div className="sb__footer-links_edc_upper mt-4 ">
+              <div className="sb__footer-links_edc_upper mt-6 ">
                 <p>
                   <img src={edclogo} className="img01 w-20" alt="" />{" "}
                 </p>
@@ -60,9 +60,9 @@ const Footer = () => {
               <div className="para">
                 <div className="">
                   <form onSubmit={handleSubmit}>
-                    <label className=" flex flex-col" >
-                      <div className="  flex h-10 md:w-72 text-black mb-5">
-                        <input onChange={handleChange} type="email" name="email" id="email" value={email} placeholder="Send your message here" required className="h-10 w-full  pl-7 pt-1 pb-1  text-sm rounded-tl-3xl rounded-bl-3xl">
+                    <label className="flex flex-col" >
+                      <div className="flex h-10 md:w-72 text-black mb-5">
+                        <input onChange={handleChange} type="text" name="email" id="email" value={email} placeholder="Send your message here" required className="h-10 w-full  pl-7 pt-1 pb-1  text-sm rounded-tl-3xl rounded-bl-3xl">
                         </input>
                         <i type="submit" onClick={handleSubmit} className=" h-full w-auto text-3xl font-black pt-1 pr-2  cursor-pointer bg-white rounded-tr-3xl rounded-br-3xl"><FaArrowCircleRight className="text-black" /></i>
                       </div>
