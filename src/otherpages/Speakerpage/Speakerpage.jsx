@@ -1,5 +1,6 @@
 import React from 'react'
-
+import blob from "../../assets/blobs.png"
+import blobR from "../../assets/blobR.png"
 import akshay from './akshay.png'
 import vatsal from './vatsal.png'
 import ravi from './ravi.png'
@@ -38,7 +39,7 @@ function Speakerpage() {
             <div className="lg:m-20 pl-12 pr-12 lg:pl-12 lg:pr-12 w-full">
             <div className="flex flex-row justify-start items-center pt-8 md:p-0 mb-6">
                 <div className="h-[50px] w-[50px] bg-[#FED853]"></div>
-                <h1 className="text-[25px] ml-[-35px] font-bold">Notable Past Speakers</h1>
+                <h1 className="text-[20px] sm:text-[25px] ml-[-35px] font-bold">Notable Past Speakers</h1>
             </div>
             <div className='grid md:grid-cols-3 grid-cols-1 md:p-8 gap-8 pb-8'>
               <div className='glass-morphism flex flex-col md:p-20 p-8 justify-center items-center gap-2 font-bold'>
@@ -108,6 +109,10 @@ function Speakerpage() {
         </div>
         
         </div>
+        <img src={blob} class="blob11 -z-10 mt-10" />
+            <img src={blob} class="blob22 -z-10" />
+            {/* <img src={blobR} class="blob33 -z-10" /> */}
+            <img src={blobR} class="blob55 -z-10" />
     </>
      )
  }

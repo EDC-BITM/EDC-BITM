@@ -23,9 +23,9 @@ function Eventsection() {
             </div>
             <div className="flex flex-col justify-center items-center mt-16">
                 <div className="flex md:flex-row flex-col justify-center items-center mb-4 md:gap-2 gap-4">
-                    <div className="flex flex-col justify-center items-center text-center md:p-8 rounded-2xl ">
+                    <div className="flex flex-col justify-center items-center text-center md:p-8">
                         <div>
-                            <img src={img3} alt="" srcset="" className="rounded-full" />
+                            <img src={img3} alt="" srcset="" className="rounded-lg" />
                             <h1 className="font-bold mt-4 md:text-[25px]">Innovate-A-Thon</h1>
                         </div>
                         <div className="flex flex-col justify-center items-center text-center mt-4">
@@ -46,7 +46,7 @@ function Eventsection() {
                             <p className="text-[18px]">Premier Entrepreneurial Fest</p>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center text-center md:p-8 rounded-2xl ">
+                    <div className="flex flex-col justify-center items-center text-center md:p-8">
                         <div>
                             <img src={img1} alt="" srcset="" className="rounded-full" />
                             <h1 className="font-bold mt-4 md:text-[25px]">E-Summit</h1>
@@ -69,7 +69,7 @@ function Eventsection() {
                             <p className="text-[18px]">Cultivate inventive startups</p>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center text-center md:p-8 rounded-2xl ">
+                    <div className="flex flex-col justify-center items-center text-center md:p-8">
                         <div>
                             <img src={img2} alt="" srcset="" className="rounded-full" />
                             <h1 className="font-bold mt-4 md:text-[25px]">Bit NISHAN</h1>

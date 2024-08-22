@@ -61,14 +61,14 @@ function Teamspage() {
                 <div className="h-[50px] w-[50px] bg-[#FED853]"></div>
                 <h1 className="text-[25px] ml-[-25px] font-bold">Our Team</h1>
             </div>
-            <h1 className="text-[35px] font-bold mt-10 ml-10">Faculty Members</h1>
-            <div className='flex justify-center items-center columns pt-8'>
-                <div className='prof'>
+            <h1 className="text-2xl items-center font-bold mt-10 ml-10">Faculty Members</h1>
+            <div className='flex justify-center items-center columns pt-2 sm:pt-8'>
+                <div className='prof shadow-2xl'>
                     <img src={sir1} className='sir mb-8' />
                     <div className='text align-center text-center'>
                         <p className='text-center text-2xl name'>Dr. C Jeganathan</p>
                         <div className='flex flex-col justify-center items-center'>
-                            <div class="overlay-text ">Dean of RIE</div>
+                            <div class="overlay-text">Dean of RIE</div>
                             <div className=' flex gap-4'>
                                 <div class="icon flex "><FaLinkedin /></div>
                                 <div class="icon flex "><FaFacebook /></div>
@@ -77,7 +77,7 @@ function Teamspage() {
                         </div>
                     </div>
                 </div>
-                <div className='prof'>
+                <div className='prof shadow-2xl'>
                     <img src={sir2} className='sir mb-8' />
                     <div className='text align-center text-center'>
                         <p className='text-center text-2xl name'>Vishal H. Shah</p>
@@ -94,11 +94,11 @@ function Teamspage() {
             </div>
             <div className='columns'>
                 <div className='p-1'>
-                    <h2 className='text-2xl font-bold mb-4 text-center '>Leadership Body</h2>
+                    <h2 className='text-2xl font-bold mb-4 text-center'>Leadership Body</h2>
                 </div>
-                <div className='prof1 flex flex-col align-center justify-center items-center '>
+                <div className='flex flex-col align-center justify-center items-center '>
                     <div className='flex space*-x-4 justify-center items-center columns'>
-                        <div className='prof'>
+                        <div className='prof shadow-2xl'>
                             <img src={ujjwalS} className='sir mb-8' />
                             <div className='text align-center text-center'>
                                 <p className='text-center text-2xl name'>Ujjwal Aman</p>
@@ -115,7 +115,7 @@ function Teamspage() {
                     </div>
                 </div>
                 <div className='flex justify-center items-center columns '>
-                    <div className='prof flex ' >
+                    <div className='prof shadow-2xl flex ' >
                         <img src={Varun} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Kumar Varun</p>
@@ -129,7 +129,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={vedant} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Vedant Gupta</p>
@@ -143,7 +143,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Mugdha} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Mugdha Shukla</p>
@@ -159,7 +159,7 @@ function Teamspage() {
                     </div>
                 </div>
                 <div className='flex space*-x-4 justify-center items-center columns'>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={AnshumanRaj} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Anshuman Raj</p>
@@ -173,7 +173,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Anudeep} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Anudeep Kumar</p>
@@ -187,7 +187,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Pulkit} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Pulkit Rewri</p>
@@ -201,7 +201,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Aayush} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Aayush Verma</p>
@@ -217,7 +217,7 @@ function Teamspage() {
                     </div>
                 </div>
                 <div className='flex space*-x-4 justify-center items-center columns'>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Shantanu} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Shantanu Sameer</p>
@@ -231,7 +231,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Shailesh} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Shailesh Kashyap</p>
@@ -252,7 +252,7 @@ function Teamspage() {
                     <h2 className='text-2xl font-bold mb-4 text-center'>Executive Body</h2>
                 </div>
                 <div className='flex space*-x-4 justify-center items-center columns'>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Pranav} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Pranav Raj Srivastav</p>
@@ -266,7 +266,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={AnshumanT} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Anshuman Tomar</p>
@@ -286,7 +286,7 @@ function Teamspage() {
                 </div>
 
                 <div className='flex justify-center items-center columns'>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Nishit} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Nishit Sharma</p>
@@ -301,7 +301,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Yogesh} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Yogesh Kr.</p>
@@ -316,7 +316,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={VarunS} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Varun Sharma</p>
@@ -331,7 +331,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Amarnath} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Amarnath</p>
@@ -350,7 +350,7 @@ function Teamspage() {
 
                 </div>
                 <div className='flex space*-x-4 justify-center items-center columns'>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Bhawesh} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Bhawesh Pandey</p>
@@ -365,7 +365,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Debjyoti} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Debjyoti Dey</p>
@@ -380,7 +380,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Aditya} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Aditya Kr Singh</p>
@@ -395,7 +395,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Chirag} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Chirag Agarwal</p>
@@ -415,7 +415,7 @@ function Teamspage() {
                 </div>
 
                 <div className='flex space*-x-4 justify-center items-center columns'>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Shubham} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Shubham Kr</p>
@@ -430,7 +430,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={harshit} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>HARSHIT SINGH</p>
@@ -453,7 +453,7 @@ function Teamspage() {
 
 
                 <div className='flex space*-x-4 justify-center items-center columns'>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={VarunG} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>VARUN GUPTA</p>
@@ -468,7 +468,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Sachit} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>SANCHIT JAIN</p>
@@ -483,7 +483,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Harshvardhan} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>HARSHVARDHAN </p>
@@ -504,7 +504,7 @@ function Teamspage() {
                 </div>
 
                 <div className='flex space*-x-4 justify-center items-center columns'>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={rachit} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>RACHIT BANSAL</p>
@@ -519,7 +519,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={aman} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>AMAN PRATIK</p>
@@ -537,7 +537,7 @@ function Teamspage() {
                 </div>
 
                 <div className='flex space*-x-4 justify-center items-center columns'>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Krish} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>KRISHNANSHU JHA</p>
@@ -552,7 +552,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Nikhil} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>NIKHIL KR</p>
@@ -567,7 +567,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Vaibhav} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>VAIBHAV KR.</p>
@@ -588,7 +588,7 @@ function Teamspage() {
 
                 </div>
                 <div className='flex space*-x-4 justify-center items-center columns'>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Yash} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>YASHWANT BHISE</p>
@@ -603,7 +603,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Sushil} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>SUSHIL GUPTA</p>
@@ -618,7 +618,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Singh} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>SHOURYAMAN SINGH </p>
@@ -641,7 +641,7 @@ function Teamspage() {
 
 
                 <div className='flex space*-x-4 justify-center items-center columns'>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Savit} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>SAVIT RAJ</p>
@@ -656,7 +656,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Shivam} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>SHIVAM CHOUBEY</p>
@@ -671,7 +671,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Aatis} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>AATISH GANGURDE</p>
@@ -686,7 +686,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Ashwini} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>ASHWINI KUMAR</p>
@@ -708,7 +708,7 @@ function Teamspage() {
 
 
                 <div className='flex space*-x-4 justify-center items-center columns'>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Adarsh2} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>ADARSH KUMAR</p>
@@ -723,7 +723,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={AdarshRaj} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>ADARSH RAJ</p>
@@ -738,7 +738,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Ravikant} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>RAVIKANT SINHA </p>
@@ -755,7 +755,7 @@ function Teamspage() {
                     </div>
                 </div>
                 <div className='flex space*-x-4 justify-center items-center columns'>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={AyushK} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>AYUSH KARAN</p>
@@ -770,7 +770,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Diptanshu} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>DIPTANSHU MAHAKUD</p>
@@ -785,7 +785,7 @@ function Teamspage() {
                             </div>
                         </div>
                     </div>
-                    <div className='prof flex'>
+                    <div className='prof shadow-2xl flex'>
                         <img src={Prince} className='sir  h-64 w-64' />
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>PRINCE RAJ</p>
