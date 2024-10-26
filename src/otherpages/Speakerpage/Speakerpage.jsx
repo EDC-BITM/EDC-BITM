@@ -36,6 +36,7 @@ function Speakerpage() {
                 <span className='text-4xl sm:text-5xl uppercase font-bold'>who graced our events</span>
                 </div>
             </div>
+            <div data-aos="zoom-in">
             <div className="lg:m-20 pl-12 pr-12 lg:pl-12 lg:pr-12 w-full">
             <div className="flex flex-row justify-start items-center pt-8 md:p-0 mb-6">
                 <div className="h-[50px] w-[50px] bg-[#FED853]"></div>
@@ -113,6 +114,7 @@ function Speakerpage() {
             <img src={blob} class="blob22 -z-10" />
             {/* <img src={blobR} class="blob33 -z-10" /> */}
             <img src={blobR} class="blob55 -z-10" />
+    </div>
     </>
      )
  }

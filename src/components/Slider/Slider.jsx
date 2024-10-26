@@ -69,10 +69,10 @@ function Slider() {
         </SwiperSlide>
 
         <div className="slider-controler">
-          <div className="swiper-button-prev slider-arrow ml-[-1%]">
-            <ion-icon name="arrow-back-outline"></ion-icon>
+        <div className="swiper-button-prev slider-arrow ml-[-1%] animate-bounce">
+          <ion-icon name="arrow-back-outline"></ion-icon>
           </div>
-          <div className="swiper-button-next slider-arrow mr-[-1%]">
+          <div className="swiper-button-next slider-arrow mr-[-1%] animate-bounce">
             <ion-icon name="arrow-forward-outline"></ion-icon>
           </div>
           <div className="swiper-pagination"></div>

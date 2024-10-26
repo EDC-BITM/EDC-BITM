@@ -7,7 +7,6 @@ import event6 from '../Eventspage/Image(EVENT)/event6.png'
 import event14 from '../Eventspage/Image(EVENT)/event14.png'
 import leaf1 from '../Eventspage/leaf.png'
 import leaf2 from '../Eventspage/leaf2.png'
-import Slidermain from '/src/components/Slider/Slidermain.jsx'
 import Socials from "../../components/socials/socials"
 import eventsbg from '../Eventspage/eventsbg.png'
 import roadmap from '../Eventspage/roadmap.png'
@@ -28,7 +27,7 @@ function Eventspage() {
           alt=""
           className="block md:hidden"
         />
-        <div className="flex justify-center recbox1 md:p-[5rem] p-4">
+        <div className="flex justify-center recbox1 md:p-[5rem] p-4" data-aos="zoom-in">
           <div className="glass-morphism md:w-[80%] w-full md:p-8 p-4">
             <div className="flex flex-row justify-start items-center">
               <div className="h-[50px] w-[50px] bg-[#FED853]"></div>
@@ -39,18 +38,18 @@ function Eventspage() {
             </div>
             <div className="flex justify-center mt-4">
               <a href="https://unstop.com/hackathons/innovate-a-thon-20-bit-mesra-ranchi-1112526?ref=digitomize&utm_source=digitomize">
-                <button className="p-4 rounded-xl bg-[#FED853] font-bold">Register Now!</button>
+                <button className=" register-button p-4 rounded-xl bg-[#FED853] font-bold">Register Now!</button>
               </a>
             </div>
           </div>
         </div>
-        <div className="glass-morphic lg:m-20 mt-32 p-4 lg:p-12 shadow-2xl rounded-2xl ">
+        <div className=" glass-morphic lg:m-20 mt-32 p-4 lg:p-12 shadow-2xl rounded-2xl" data-aos="flip-up" data-aos-easing="ease-in-back" data-aos-delay="200" data-aos-offset="0" data-aos-mirror = "true">
           <div className="flex flex-row justify-start items-center">
             <div className="h-[50px] w-[50px] bg-[#FED853]"></div>
             <h1 className="text-[25px] ml-[-25px] font-bold">Road Map</h1>
           </div>
-          <div className="md:px-28 flex flex-col justify-center md:gap-20 gap-8 text-center">
-            <div className="mt-12">
+          <div className="md:px-28 flex flex-col justify-center md:gap-20 gap-8 text-center " >
+            <div className="my-20">
               <img src={roadmap} alt="" />
             </div>
             <div>
@@ -58,7 +57,8 @@ function Eventspage() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center gap-4 mt-20 p-8 text-center">
+        <div data-aos="fade-up" data-aos-mirror="true">
+        <div className="flex flex-col justify-center items-center gap-4 mt-20 p-8 text-center" >
           <div>
             <h1 className="text-5xl font-bold">Win Exciting Prizes!</h1>
           </div>
@@ -66,15 +66,18 @@ function Eventspage() {
             <img src={prize} alt="" />
           </div>
         </div>
-        <div className="bg-white w-screen overflow-hidden mt-20">
-          <div className="flex lg:flex-row bg-white p-20 text-center justify-center items-center">
-            <img src={leaf1} alt="" className="md:h-56" />
+        <div className="bg-white w-screen overflow-hidden">
+          <div className="flex lg:flex-row bg-white  text-center justify-center items-center">
+            <img src={leaf1} alt="" className="md:h-56 mb-12" />
             <p className="md:text-[32px]">Our Events are more than just gatherings. They are opportunities to transform your entrepreneurial journey. Unleash the Entrepreneur in you and connect with us for the latest updates and exclusive announcements.!</p>
             <img src={leaf2} alt="" className="md:h-56" />
           </div>
-        </div>
-        <div className="md:m-20 m-4 mt-20">
-          <div className="flex flex-col justify-center items-center lg:m-4 p-4 md:p-2 shadow-2xl rounded-2xl">
+        </div></div>
+
+        {/* past events cards */}
+
+        <div className="md:m-20 m-4 mt-20" >
+        <div className="flex flex-col justify-center items-center lg:m-4 p-4 md:p-2 shadow-2xl rounded-2xl" data-aos="fade-up" data-aos-mirror="true">
             <h1 className="font-bold text-[32px] uppercase">Past Events</h1>
             <div className="flex md:flex-row flex-col justify-center ">
               <div className="event-card-container">

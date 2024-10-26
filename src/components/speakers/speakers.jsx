@@ -11,6 +11,7 @@ import img_6 from "../speakers/Rishabh.png";
 function Speakers() {
     return (
       <>
+      <div data-aos="fade-up"  data-aos-anchor-placement="center-bottom">
           <div className="glass-morphic lg:m-20 p-4 lg:p-12 shadow-2xl rounded-2xl">
             <div className="p-4">
               <div className="flex flex-row justify-start items-center">
@@ -80,9 +81,10 @@ function Speakers() {
             </div>
             <div className="flex flex-col justify-center items-center">
             <Link spy={true} smooth={true} to="/Speakers">
-              <button className="p-4 rounded-xl bg-[#FED853] font-bold mt-[-50px]">Know More</button>
+            <button className="transition ease-in-out hover:scale-110 p-4 rounded-xl bg-[#FED853] font-bold mt-[-50px]">Know More</button>
               </Link>
             </div>
+          </div>
           </div>
       </>
     );

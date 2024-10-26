@@ -89,6 +89,10 @@ body {
   color: #000000;
 }
 
+.register-button:hover {
+  transform: scale(1.1);
+}
+
 .participate-button {
   margin-left: auto;
   padding: 5px 10px;
