@@ -18,12 +18,12 @@
 
 .prof{
 
-width: 22rem;
-height: 30rem;
+width: 20rem;
+height: 28rem;
 scale: 0.8;
 padding: 2rem 2rem;
 justify-content: center;
-gap: 25px;
+gap: 2rem;
 flex-shrink: 0;
 flex-wrap: wrap;
 border-radius: 50px;
@@ -32,8 +32,6 @@ background: rgba(255, 255, 255, 0.6);
 backdrop-filter: blur(8.699999809265137px);
 -webkit-backdrop-filter: blur(10px);
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-margin-bottom: 3rem;
-
 }
 
 .prof:hover .overlay-text{
@@ -57,7 +55,10 @@ margin-bottom: 3rem;
     transition: opacity 0.1s ease;
   }
 
+.icon:hover{
+    color: #FED853;
 
+}
 
 
 .text{
