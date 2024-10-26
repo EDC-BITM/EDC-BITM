@@ -129,7 +129,7 @@ const Footer = () => {
                   <a href="mailto:btech10048.22@bitmesra.ac.in" className="block mb-2">
                     <p className="hover:text-yellow-400">Vaibhav Kr Gupta</p>
                   </a>
-                  <a href="mailto: btech10962.22@bitmesra.ac.in" className="block mb-2 ">
+                  <a href="mailto: mailto:btech10962.22@bitmesra.ac.in" className="block mb-2 ">
                     <p className="hover:text-yellow-400">Krishnanshu Jha</p>
                   </a>
                 </div>

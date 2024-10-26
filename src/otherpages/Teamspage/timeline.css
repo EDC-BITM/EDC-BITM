@@ -82,7 +82,6 @@
 .teamsleft-container {
     right: 50%;
     text-align: right;
-
 }
 
 .teamsright-container {
@@ -95,6 +94,11 @@
     border-radius: 50%;
     right: -20px;
     top: 32px;
+    z-index: 7;
+}
+
+.oddlogo {
+    margin-left: 60px;
 }
 
 .presidentsphoto {
@@ -191,6 +195,10 @@
         padding-left: 80px;
         padding-right: 25px;
         object-fit: cover;
+    }
+
+    .oddlogo {
+        margin-left: 0px;
     }
 
     .teamstext-box {
@@ -314,4 +322,8 @@
         z-index: -30;
 
     }
+}
+
+* {
+    z-index: 6;
 }
