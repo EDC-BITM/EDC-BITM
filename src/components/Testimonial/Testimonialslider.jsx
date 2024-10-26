@@ -27,11 +27,10 @@ function Testimonialslider() {
 			<Slider {...settings}>
 				<div className="flex flex-col justify-center items-center text-center p-16 md:text-[18px] text-[12px]">
 					<p className="">
-						Engaging in Entrepreneurship Development Club's events like Ancient
-						Entrepreneurship, Quiz Trivia, and Stock Stoicism has been
-						incredibly enriching. These events offered insights into historical
-						business practices, tested our knowledge, and taught valuable
-						financial strategies.
+					EDC is not like any other club. Its a breeding ground for future
+						innovators and problem solvers. The culture, the mindest and the
+						whole persona of the society is mind-boggling. The support and the
+						push from the seniors that the juniors get is unreal.
 					</p>
 					<div className="flex flex-row justify-center items-center mt-8 gap-2">
 						<img src={vc} alt="" className="w-28 h-28 object-cover" />
@@ -43,9 +42,8 @@ function Testimonialslider() {
 				</div>
 				<div className="flex flex-col justify-center items-center text-center p-16 md:text-[18px] text-[12px]">
 					<p>
-						The Entrepreneurship Development Club has been a pivotal part of our
-						development journey. Their well-organized events, such as Startup
-						Mela, IPL Auction, Bit Thon etc. have enriched our skills and
+						The Entrepreneurship Development Club has been a pivotal part of our students'
+						development journey in BIT Mesra. Their well-organized events have enriched their skills and
 						knowledge in various aspects. The club's dedication to fostering
 						innovation, strategic thinking, and personal growth is truly
 						commendable.
@@ -60,10 +58,7 @@ function Testimonialslider() {
 				</div>
 				<div className="flex flex-col justify-center items-center text-center p-16 md:text-[18px] text-[12px]">
 					<p>
-						EDC is not like any other club. Its a breeding ground for future
-						innovators and problem solvers. The culture, the mindest and the
-						whole persona of the society is mind-boggling. The support and the
-						push from the seniors that the juniors get is unreal.
+						Welcome to the Entrepreneurship Development Cell (EDC), where innovation meets opportunity. Our mission is to inspire, guide, and equip students with the entrepreneurial skills and mindset to turn their ideas into impactful ventures.
 					</p>
 					<div className="flex flex-row justify-center items-center mt-8 gap-2">
 						<img src={facad} alt="" className="w-28 h-28 object-cover" />
