@@ -25,7 +25,7 @@ function Testimonialslider() {
 	return (
 		<div className="slider-container">
 			<Slider {...settings}>
-				<div className="flex flex-col justify-center items-center text-center p-16 md:text-[18px] text-[12px]">
+				<div className="flex flex-col justify-center items-center text-center p-8 md:text-[18px] text-[12px]">
 					<p className="">
 						Engaging in Entrepreneurship Development Club's events like Ancient
 						Entrepreneurship, Quiz Trivia, and Stock Stoicism has been
@@ -41,7 +41,7 @@ function Testimonialslider() {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-col justify-center items-center text-center p-16 md:text-[18px] text-[12px]">
+				<div className="flex flex-col justify-center items-center text-center p-8 md:text-[18px] text-[12px]">
 					<p>
 						The Entrepreneurship Development Club has been a pivotal part of our
 						development journey. Their well-organized events, such as Startup
@@ -58,7 +58,7 @@ function Testimonialslider() {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-col justify-center items-center text-center p-16 md:text-[18px] text-[12px]">
+				<div className="flex flex-col justify-center items-center text-center p-8 md:text-[18px] text-[12px]">
 					<p>
 						EDC is not like any other club. Its a breeding ground for future
 						innovators and problem solvers. The culture, the mindest and the

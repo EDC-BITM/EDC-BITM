@@ -19,7 +19,7 @@ function Body() {
        </div>
        <div className="btn">
        <Link spy={true} smooth={true} to = "our_stats">
-        <button className='button'>Let's Start </button>
+       <button className='button hover:scale-110 transition ease-in-out'>Let's Start </button>
         </Link>
        </div>
         </div>

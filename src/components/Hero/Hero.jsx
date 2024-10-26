@@ -12,6 +12,7 @@ function Hero() {
    const [counterOn, setCounterOn] = useState(false)
 
    return (
+      <div data-aos="fade-up">
       <div id='our_stats' className="sm:pt-8 pt-32">
          <div className="glass-morphic lg:m-20 p-4 lg:p-12 shadow-2xl rounded-2xl">
             <div className='flex md:flex-row flex-col'>
@@ -61,6 +62,7 @@ function Hero() {
                </div>
             </div>
          </div>
+      </div>
       </div>
    )
 }

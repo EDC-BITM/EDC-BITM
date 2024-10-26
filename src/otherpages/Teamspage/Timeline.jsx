@@ -12,7 +12,7 @@ function Timeline() {
     <div className='teamsparentboxx '>
       <div className='teamsboxx block'>
         <div className='p-1'> <h3 className='text-xl font-semibold ml-7 mb-4 mt-8'><span className='bg-yellow-300 pt-2 pb-2 pl-4'>Ha</span>ll of Fame</h3>
-          <h2 className='text-2xl font-bold ml-7 mb-4 mt-7 '>Previous Presidents</h2>
+          <h2 className='text-2xl font-bold ml-7 mb-4 hidden mt-7 '>Previous Presidents</h2>
         </div>
         <div className='teamstimeee'>
           <div className='teamstimeline'>
