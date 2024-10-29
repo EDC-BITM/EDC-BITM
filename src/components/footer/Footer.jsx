@@ -49,7 +49,7 @@ const Footer = () => {
 
   return (
     <div className="footer">
-      <div className="md:ml-20 flex flex-col justify-center items-center">
+      <div className="sm:ml-20 flex flex-col justify-center items-center">
         <div className="flex md:flex-row flex-col">
           <div className="flex md:flex-row flex-col">
             <div className="sb__footer-links_edc scale-125">
@@ -57,7 +57,7 @@ const Footer = () => {
                 <p>
                 <Link to="/" className="lg:text-[18px] font-bold flex flex-row justify-center items-center" onClick={() => window.scrollTo(0, 0)}>
                             <img src={logo} alt="" className="w-12 h-12" />
-                            <span className="hidden sm:block font-medium text-[15px]">Entrepreneurship <br />Development Cell</span>
+                            <span className="sm:block font-medium text-[15px]">Entrepreneurship <br />Development Cell</span>
                         </Link>
                 </p>
 
@@ -69,7 +69,7 @@ const Footer = () => {
                       <div className="flex h-10 md:w-72 text-black mb-5">
                         <input onChange={handleChange} type="text" name="email" id="email" value={email} placeholder="Send your message here" required className="h-10 w-full pl-7 pt-1 pb-1 text-sm rounded-tl-3xl rounded-bl-3xl">
                         </input>
-                        <i type="submit" onClick={handleSubmit} className=" h-full w-auto text-3xl font-black pt-1 pr-2  cursor-pointer bg-white rounded-tr-3xl rounded-br-3xl"><FaArrowCircleRight className="text-black" /></i>
+                        <i type="submit" onClick={handleSubmit} className=" h-full w-auto text-3xl font-black pt-1 pr-2 cursor-pointer bg-white rounded-tr-3xl rounded-br-3xl"><FaArrowCircleRight className="text-black" /></i>
                       </div>
                     </label>
                   </form>

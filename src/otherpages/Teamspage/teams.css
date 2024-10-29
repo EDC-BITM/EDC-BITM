@@ -13,15 +13,15 @@
 }
 
 .sir:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .prof{
-
+align-items: center;
 width: 20rem;
 height: 28rem;
 scale: 0.8;
-padding: 2rem 2rem;
+padding: 1rem 1rem;
 justify-content: center;
 gap: 2rem;
 flex-shrink: 0;
@@ -89,7 +89,7 @@ line-height: normal;
     transition: transform 0.3s ease;
 }
 
-@media screen and (max-width:750px) {
+@media screen and (max-width:540px) {
     .columns{
         flex: display;
         flex-direction: column;
@@ -97,7 +97,8 @@ line-height: normal;
     }
 
     .prof{
-        width: 23rem;
+        height: 28rem;
+        width: 20rem;
         /* margin-bottom:2px ; */
     }
 }

@@ -29,8 +29,7 @@ function Collage() {
           <div className="flex-none lg:w-1/3 lg:h-full md:h-1/4 h-1/6 p-4 pt-28 flex items-center justify-center mt-80 md:mt-0 ">
 
 
-            <h1 className="text-4xl font-bold mb-6 items-center text-white lg:leading-[6rem] leading-[3rem] lg:text-[5rem] text-[3rem] pb-12
-          ">
+            <h1 className="text-5xl sm:text-5xl font-bold mb-6 items-center text-white lg:leading-[6rem] leading-[3rem] lg:text-[5rem] text-[3rem] pb-12">
               <span className="block">MEET</span>
               <span className="block">THE</span>
               <span className="block">TEAM</span>
