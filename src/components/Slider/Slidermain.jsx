@@ -16,14 +16,14 @@ function Slidermain() {
 
     return (
         <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-            <div className="w-screen">
+            <div className="w-screen sm:p-0 p-4 mt-4">
             <div className="glass-morphic lg:m-20 p-4 lg:p-12 shadow-2xl rounded-2xl">
             <div className="flex flex-row justify-start items-center">
                         <div className="h-[50px] w-[50px] bg-[#FED853]"></div>
-                        <h1 className="text-[25px] ml-[-30px] font-bold">Gallery</h1>
+                        <h1 className="text-[25px] ml-[-35px] font-bold">Gallery</h1>
                     </div>
                     <div className="mt-6 sm:mt-12">
-                        <h1 className="text-[35px] font-bold">Captured Moments</h1>
+                        <h1 className="text-[25px] sm:text-[35px] font-bold">Captured Moments</h1>
                     </div>
                     <div className="flex justify-center items-center mt-8 sm:mt-2">
                         <Slider />
