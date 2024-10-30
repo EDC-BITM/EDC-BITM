@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 import "./footer.css";
 import edclogo from "../../assets/edclogo3d.png";
 import { FaArrowCircleRight } from "react-icons/fa";
-import { FaFacebook, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedin, FaFacebook, FaInstagram, } from "react-icons/fa";
 
 const Footer = () => {
   const [email, setEmail] = useState(' ');
@@ -77,7 +77,7 @@ const Footer = () => {
                     <FaFacebook className="facebookIcon" /><a href="https://www.facebook.com/edcbitmesra" target="_blank" rel="noopener noreferrer"></a>
                   </p>
                   <p>
-                    <FaLinkedinIn className="linkedinIcon"></FaLinkedinIn><a href="https://www.linkedin.com/company/edcbitmesra/" target="_blank" rel="noopener noreferrer"></a>
+                    <FaLinkedin className="linkedinIcon"></FaLinkedin><a href="https://www.linkedin.com/company/edcbitmesra/" target="_blank" rel="noopener noreferrer"></a>
                   </p>
                 </div>
               </div>

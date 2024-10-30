@@ -32,8 +32,10 @@ function Speakerpage() {
     <div className="flex flex-col items-center w-screen">
             <div className="speakerbg h-auto w-full text-white bg-cover ">
                 <div className="h-screen md:text-[50px] backdrop-brightness-50 flex flex-col justify-center items-center text-center">
-                <h1 className="text-4xl sm:text-5xl uppercase font-bold sm:p-4">noteworthy Entrepreneurs</h1>
-                <span className='text-4xl sm:text-5xl uppercase font-bold'>who graced our events</span>
+                <h1 className="text-4xl sm:text-5xl uppercase font-bold sm:p-4"
+                style={{ textShadow: '2px 2px 8px rgba(255, 255, 255, 0.6)' }}>noteworthy Entrepreneurs</h1>
+                <span className='text-4xl sm:text-5xl uppercase font-bold'
+                style={{ textShadow: '2px 2px 8px rgba(255, 255, 255, 0.6)' }}>who graced our events</span>
                 </div>
             </div>
             <div className="lg:m-20 pl-12 pr-12 lg:pl-12 lg:pr-12 w-full">
