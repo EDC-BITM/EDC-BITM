@@ -105,7 +105,7 @@ function Teamspage() {
                                     <div class="overlay-text">President</div>
                                     <div className='flex gap-4'>
                                         <div class="icon flex "><a href="https://www.linkedin.com/in/ujjwal-aman/"><FaLinkedin /></a></div>
-                                        <div class="icon flex "><a href="https://www.instagram.com/ujjwal_aman"><FaInstagram /></a></div>
+                                        <div class="icon flex "><a href="https://www.instagram.com/_ujjwal_aman_/"><FaInstagram /></a></div>
                                         <div class="icon flex "><a href="mailto:btech10033.21@bitmesra.ac.in"><IoIosMail /></a></div>
                                     </div>
                                 </div>
@@ -121,8 +121,8 @@ function Teamspage() {
                             <div className='flex flex-col justify-center items-center'>
                                 <div class="overlay-text">Joint President</div>
                                 <div className='flex gap-4'>
-                                    <div class="icon flex "><a href="https://www.linkedin.com/in/kumar-varun-srivastava-47586422a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><FaLinkedin /></a></div>
-                                    <div class="icon flex "><a href="https://www.instagram.com/varunsrivastava123?igsh=emJtNGt2aWUwbTds"><FaInstagram /></a></div>
+                                    <div class="icon flex "><a href="https://www.linkedin.com/in/kumar-varun-srivastava-47586422a"><FaLinkedin /></a></div>
+                                    <div class="icon flex "><a href="https://www.instagram.com/varunsrivastava123"><FaInstagram /></a></div>
                                     <div class="icon flex "><a href="mailto:btech10916.22@bitmesra.ac.in"><IoIosMail /></a></div>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@ function Teamspage() {
                                 <div class="overlay-text">Joint President</div>
                                 <div className='flex gap-4'>
                                     <div class="icon flex "><a href="https://www.linkedin.com/in/vedant-gupta-bloom-tide/"><FaLinkedin /></a></div>
-                                    <div class="icon flex "><a href="https://www.instagram.com/vedant.gupta.1706?igsh=bHpmanU4ZXJwbXA2"><FaInstagram /></a></div>
+                                    <div class="icon flex "><a href="https://www.instagram.com/vedant.gupta.1706"><FaInstagram /></a></div>
                                     <div class="icon flex "><a href="mailto:btech10367.21@bitmesra.ac.in"><IoIosMail /></a></div>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@ function Teamspage() {
                                 <div class="overlay-text">Joint President</div>
                                 <div className='flex gap-4'>
                                     <div class="icon flex "><a href="https://www.linkedin.com/in/mugdha10/"><FaLinkedin /></a></div>
-                                    <div class="icon flex "><a href="https://www.instagram.com/mugdhaaaaa?igsh=empsNmgwMDdpc2Nm"><FaInstagram /></a></div>
+                                    <div class="icon flex "><a href="https://www.instagram.com/_mugdhaaaaa_/"><FaInstagram /></a></div>
                                     <div class="icon flex "><a href="mailto:btech10259.21@bitmesra.ac.in"><IoIosMail /></a></div>
                                 </div>
                             </div>
@@ -165,8 +165,8 @@ function Teamspage() {
                             <div className='flex flex-col justify-center items-center'>
                                 <div class="overlay-text">Vice President (Operations)</div>
                                 <div className='flex gap-4'>
-                                    <div class="icon flex "><a href="https://www.linkedin.com/in/anshuman-raj-81818b1b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><FaLinkedin /></a></div>
-                                    <div class="icon flex "><a href="https://www.instagram.com/anshuman18_4?igsh=MWR2dW1wYzA1cnZlcQ%3D%3D&utm_source=qr"> <FaInstagram /></a></div>
+                                    <div class="icon flex "><a href="https://www.linkedin.com/in/anshuman-raj-81818b1b7"><FaLinkedin /></a></div>
+                                    <div class="icon flex "><a href="https://www.instagram.com/anshuman18_4?"> <FaInstagram /></a></div>
                                     <div class="icon flex "><a href="mailto:btech10048.21@bitmesra.ac.in"><IoIosMail /></a></div>
                                 </div>
                             </div>

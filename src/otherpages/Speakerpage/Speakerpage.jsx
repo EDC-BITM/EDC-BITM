@@ -4,25 +4,15 @@ import blobR from "../../assets/blobR.png"
 import akshay from './akshay.png'
 import vatsal from './vatsal.png'
 import ravi from './ravi.png'
-import jyoti from './jyoti.jpg'
 import pawan from './pawan.png'
-import rahul from './rahul.png'
 import aman from './aman.png'
-import vineet from './vineet.png'
 import ayush from './ayush.png'
-import anshul from './anshul.png'
-import anmol from './anmol.png'
-import aditya from './aditya.png'
 import richa from './richa.png'
 import sreedhar from './sreedhar.png'
 import adityaRanjan from './adityaRanjan.png'
 import rishavJain from './Rishabh Jain.png'
-import prateek from './prateek.png'
-import sanjeev from './sanjeev.png'
 import karan from './karan.png'
 import amit from './amit.png'
-
-
 import '../Speakerpage/speakerpage.css'
 
 
@@ -37,12 +27,12 @@ function Speakerpage() {
                 </div>
             </div>
             <div data-aos="zoom-in">
-            <div className="lg:m-20 pl-12 pr-12 lg:pl-12 lg:pr-12 w-full">
+            <div className="p-12 w-full">
             <div className="flex flex-row justify-start items-center pt-8 md:p-0 mb-6">
                 <div className="h-[50px] w-[50px] bg-[#FED853]"></div>
                 <h1 className="text-[20px] sm:text-[25px] ml-[-35px] font-bold">Notable Past Speakers</h1>
             </div>
-            <div className='grid md:grid-cols-3 grid-cols-1 md:p-8 gap-8 pb-8'>
+            <div className='grid md:grid-cols-3 grid-cols-1 sm:p-8 gap-8 pb-8 mx-auto justify-items-center'>
               <div className='glass-morphism flex flex-col md:p-20 p-8 justify-center items-center gap-2 font-bold'>
                 <img src={aman} className='' alt="" />
                 <h1 className=' text-xl md:text-2xl'>Aman Dhattarwal</h1>
