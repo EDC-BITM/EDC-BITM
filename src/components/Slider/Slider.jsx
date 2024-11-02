@@ -9,11 +9,11 @@ import 'swiper/css/navigation';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
 import slide_image_1 from '../Slider/1.png';
-import slide_image_2 from '../Slider/2.png';
-import slide_image_3 from '../Slider/3.png';
+import slide_image_2 from '../Slider/2.jpg';
+import slide_image_3 from '../Slider/3.jpg';
 import slide_image_4 from '../Slider/4.png';
 import slide_image_5 from '../Slider/5.png';
-import slide_image_6 from '../Slider/6.png';
+import slide_image_6 from '../Slider/6.jpg';
 import slide_image_7 from '../Slider/7.png';
 
 function Slider() {

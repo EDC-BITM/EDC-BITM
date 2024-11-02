@@ -12,11 +12,24 @@ import eventsbg from '../Eventspage/eventsbg.png'
 import roadmap from '../Eventspage/roadmap.png'
 import prize from '../Eventspage/prize.png'
 import mobilebg from '../Eventspage/mobilebg.jpeg'
+import comingsoonmob from '../Eventspage/E-SUMMITmob.jpg'
+import comingsoondesktop from '../Eventspage/e-summitdesktop.jpg'
 
 function Eventspage() {
   return (
     <>
-      <div className="eventsbg h-auto w-full text-black">
+    <div className="h-auto w-full text-black">
+        <img
+          src={comingsoondesktop}
+          alt=""
+          className="hidden md:block"
+        />
+        <img
+          src={comingsoonmob}
+          alt=""
+          className="block md:hidden"
+        />
+      {/* <div className="eventsbg h-auto w-full text-black">
         <img
           src={eventsbg}
           alt=""
@@ -65,14 +78,15 @@ function Eventspage() {
           <div>
             <img src={prize} alt="" />
           </div>
-        </div>
+        </div> */}
         <div className="bg-white w-screen overflow-hidden">
           <div className="flex lg:flex-row bg-white  text-center justify-center items-center">
-            <img src={leaf1} alt="" className="md:h-56 mb-12" />
-            <p className="md:text-[32px]">Our Events are more than just gatherings. They are opportunities to transform your entrepreneurial journey. Unleash the Entrepreneur in you and connect with us for the latest updates and exclusive announcements.!</p>
-            <img src={leaf2} alt="" className="md:h-56" />
+            <img src={leaf1} alt="" className="sm:h-56 h-28 mt-10" />
+            <p className="sm:text-[25px] text-[15px] mt-6">Our Events are more than just gatherings. They are opportunities to transform your entrepreneurial journey. Unleash the Entrepreneur in you and connect with us for the latest updates and exclusive announcements.!</p>
+            <img src={leaf2} alt="" className="md:h-56 h-28" />
           </div>
-        </div></div>
+        </div>
+        {/* </div> */}
 
         {/* past events cards */}
 

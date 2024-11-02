@@ -60,6 +60,10 @@ a{
     margin-right: 10px; 
 }
 
+.facebookIcon:hover, .instagramIcon:hover, .linkedinIcon:hover {
+    color: #FED853;
+}
+
 .sb__footer-links_div h3{
     font-size: 17px;
     line-height: 17px;
