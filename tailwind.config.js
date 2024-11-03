@@ -18,9 +18,12 @@ export default {
         },
       },
         animation: {
-          'infinte-slide': '11s slide infinite linear',
+          'infinte-slide': '20s slide infinite linear',
         },
      
+      },
+      variants: {
+        animation: ['responsive', 'hover'],
       },
   },
   plugins: [],
