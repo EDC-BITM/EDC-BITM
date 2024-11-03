@@ -11,7 +11,7 @@ function Sponser() {
         <h2 className='font-bold ml-24 spon1 text-[25px]' ><span className=' bg-[#FED853] pt-2 pb-2 pl-3'>Sp</span>onsorship</h2>
         <h1 className='text-2xl font-bold ml-24 mt-5 spon1'>Our Past Sponsers</h1>
         <div className='flex overflow-hidden mt-10'>
-          <div className=' flex animate-infinte-slide shrink-0 whitespace-nowrap gap-12 mx-2'>
+          <div className='slide flex animate-infinte-slide shrink-0 whitespace-nowrap gap-12 mx-2'>
           <div className='h-40 w-40 flex justify-center items-center'>
             <a href="https://logowik.com/nissan-new-logo-vector-31776.html"><img src="https://logowik.com/content/uploads/images/nissan-new2693.logowik.com.webp"/></a>
             </div>

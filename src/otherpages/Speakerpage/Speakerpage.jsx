@@ -9,7 +9,7 @@ import aman from './aman.png'
 import ayush from './ayush.png'
 import richa from './richa.png'
 import sreedhar from './sreedhar.png'
-import adityaRanjan from './adityaRanjan.png'
+import adityaRanjan from './aditya.jpeg'
 import rishavJain from './Rishabh Jain.png'
 import karan from './karan.png'
 import amit from './amit.png'
@@ -90,15 +90,12 @@ function Speakerpage() {
                 <h2 className='text-sm md:text-lg font-normal'>Co-founder - Crio.do</h2>
               </div>
               <div className='glass-morphism flex flex-col md:p-20 p-8 justify-center items-center gap-2 font-bold'>
-                <img src={adityaRanjan} alt="" />
+                <img src={adityaRanjan} alt="" class='rounded-full'/>
                 <h1  className=' text-lg md:text-2xl'>Aditya Ranjan</h1>
                 <h2 className='text-sm md:text-lg font-normal'>Journey of an IAS</h2>
               </div>
-
             </div>
-            
         </div>
-        
         </div>
         <img src={blob} class="blob11 -z-10 mt-10" />
             <img src={blob} class="blob22 -z-10" />
