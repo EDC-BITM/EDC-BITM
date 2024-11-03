@@ -94,7 +94,7 @@ function Eventsection() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center">
+                    <div className="flex flex-col justify-center items-center mt-6 sm:mt-0">
                         <Link spy={true} smooth={true} to="/Events">
                             <button className="transition ease-in-out hover:scale-110 p-4 rounded-xl bg-[#FED853] font-bold mt-[-50px]">Know More</button>                    </Link>
                     </div>
