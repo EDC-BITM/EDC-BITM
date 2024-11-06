@@ -15,7 +15,7 @@ function Body() {
         <div className='b-body'>
         
        <div className="heading">
-        <h1 className='h1'> <h3><span>Igniting the innovation</span></h3> within upcoming<span>  ground breakers.</span></h1>
+        <h1 className='h1'> <span>Igniting the innovation</span>within upcoming<span>  ground breakers.</span></h1>
        </div>
        <div className="btn">
        <Link spy={true} smooth={true} to = "our_stats">

@@ -25,7 +25,7 @@ function Slidermain() {
                     <div className="mt-6 sm:mt-12">
                         <h1 className="text-[25px] sm:text-[35px] font-bold">Captured Moments</h1>
                     </div>
-                    <div className="flex justify-center items-center mt-8 sm:mt-2">
+                    <div className="flex justify-center items-center mt-8 sm:mt-0">
                         <Slider />
                     </div>
 
