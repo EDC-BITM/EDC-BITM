@@ -1,5 +1,6 @@
 .slick-dots li button:before {
-	font-size: 12px; 
+	font-size: 1rem; 
+	margin-top: 1rem;
 }
 
 .slick-prev:before,
@@ -21,5 +22,10 @@
 
 	.slick-next {
 		right: -0.25rem; 
+	}
+
+	.slick-dots li button:before {
+		font-size: 0.8rem; 
+		margin-top: 0.2rem;
 	}
 }
