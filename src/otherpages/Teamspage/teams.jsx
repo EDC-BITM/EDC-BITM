@@ -648,7 +648,7 @@ function Teamspage() {
                         <div className='text align-center text-center'>
                             <p className='text-center text-2xl name'>Shivam Chaubey</p>
                             <div className='flex flex-col justify-center items-center'>
-                                <div class="overlay-text">LLogistics Head</div>
+                                <div class="overlay-text">Logistics Head</div>
                                 <div className='flex gap-4'>
                                     <div class="icon flex "><a href="https://www.linkedin.com/in/shivam-chaubey-16a45b260/"><FaLinkedin /></a></div>
                                     <div class="icon flex "><FaInstagram /></div>
