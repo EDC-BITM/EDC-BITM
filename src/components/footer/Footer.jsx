@@ -127,7 +127,7 @@ const Footer = () => {
           </div>
           <div className="mt-6 text-sm">
             <p>
-              Copyright @{new Date().getFullYear()} EDC, BIT Mesra. All rights
+            ©{new Date().getFullYear()} EDC, BIT Mesra. All rights
               reserved.
             </p>
           </div>
