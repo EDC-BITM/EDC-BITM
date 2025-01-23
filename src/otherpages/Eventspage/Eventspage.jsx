@@ -12,23 +12,24 @@ import eventsbg from '../Eventspage/eventsbg.png'
 import roadmap from '../Eventspage/roadmap.png'
 import prize from '../Eventspage/prize.png'
 import mobilebg from '../Eventspage/mobilebg.jpeg'
-import comingsoonmob from '../Eventspage/E-SUMMITmob.jpg'
+import Mobile from '../Eventspage/esummitmob.jpeg'
+import Desktop from '../Eventspage/esummitlandscape.jpeg'
 import comingsoondesktop from '../Eventspage/e-summitdesktop.jpg'
 
 function Eventspage() {
   return (
     <>
-    <div className="h-auto w-full text-black">
+    <div className="h-auto w-full text-black"><a href="https://esummit.edcbitmesra.in" target="_blank" rel="noreferrer">
         <img
-          src={comingsoondesktop}
+          src={Desktop}
           alt=""
-          className="hidden md:block"
+          className="hidden md:block h-screen"
         />
         <img
-          src={comingsoonmob}
+          src={Mobile}
           alt=""
-          className="block md:hidden"
-        />
+          className="block md:hidden h-screen"
+        /></a>
       {/* <div className="eventsbg h-auto w-full text-black">
         <img
           src={eventsbg}
