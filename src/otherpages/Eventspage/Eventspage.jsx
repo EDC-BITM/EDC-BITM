@@ -23,12 +23,12 @@ function Eventspage() {
         <img
           src={Desktop}
           alt=""
-          className="hidden md:block h-screen"
+          className="hidden md:block h-screen w-full"
         />
         <img
           src={Mobile}
           alt=""
-          className="block md:hidden h-screen"
+          className="block md:hidden h-screen w-full"
         /></a>
       {/* <div className="eventsbg h-auto w-full text-black">
         <img
