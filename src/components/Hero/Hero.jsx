@@ -5,8 +5,8 @@ import img1 from '../Hero/Idea.png'
 import img2 from '../Hero/Event.png'
 import img3 from '../Hero/People.png'
 import img4 from '../Hero/Feet.png'
-import stats1 from '../../assets/stats1.jpeg'
-import stats2 from '../../assets/stats2.jpeg'
+import stats1 from '/stats1.jpeg'
+import stats2 from '/stats2.jpeg'
 
 function Hero() {
    const [counterOn, setCounterOn] = useState(false)

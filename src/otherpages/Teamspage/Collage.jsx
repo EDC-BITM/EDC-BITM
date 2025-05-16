@@ -1,5 +1,5 @@
 import React from "react";
-import bg from "./CollageImg/BG.jpg";
+import bg from "/teambg.jpg";
 import one from './CollageImg/1.png'
 import two from './CollageImg/2.png'
 import three from './CollageImg/3.png'
@@ -19,7 +19,7 @@ function Collage() {
   return (
     <>
       <div
-        className="mx-auto p-0 bg-cover bg-center h-screen w-screen relative"
+        className="mx-auto bg-cover h-screen relative"
         style={{ backgroundImage: `url(${bg})` }}
       >
         <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
@@ -36,7 +36,7 @@ function Collage() {
             </h1>
           </div>
 
-          <div className=" lg:w-2/3 relative p-2 flex items-center justify-center overflow-hidden opacity-0 md:opacity-100">
+          {/* <div className=" lg:w-2/3 relative p-2 flex items-center justify-center overflow-hidden opacity-0 md:opacity-100">
             <div className="relative w-[45em] h-[35em]">
 
 
@@ -53,7 +53,7 @@ function Collage() {
               <img src={ninth} alt="Image 8" className="absolute w-[10.5em] h-[6.25em] top-[13.875em] left-[31.5625em] object-cover rounded-[1.25em]" />
               <img src={eight} alt="Image 9" className="absolute w-[7.5em] h-[10.625em] top-[21.5em] left-[31.5625em] object-cover rounded-[1.25em]" />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

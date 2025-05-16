@@ -1,5 +1,5 @@
 import React from "react"
-import waves from "../../assets/wave.svg"
+import waves from "/wave.svg"
 import "./wave.css"
 
 const Wave = () => {

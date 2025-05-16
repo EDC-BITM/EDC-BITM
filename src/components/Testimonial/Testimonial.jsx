@@ -1,7 +1,7 @@
 import React from "react";
 import Testimonialslider from "./Testimonialslider.jsx";
-import blob from "../../assets/blobs.png"
-import blobR from "../../assets/blobR.png"
+import blob from "/blobs.png"
+import blobR from "/blobR.png"
 
 
 function Testimonial() {

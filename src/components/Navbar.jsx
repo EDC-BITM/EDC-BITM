@@ -2,9 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from 'react-router-dom';
 import { FaTimes } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
-import logo from "../assets/edclogo3d.png";
+import logo from "/edclogo3d.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+const navLinks = [
+  { to: "/", label: "Home" },
+  { to: "/Events", label: "Events" },
+  { to: "/Speakers", label: "Speakers" },
+  { to: "/Team", label: "Team" },
+  { to: "/App", label: "App" },
+];
 
 const NavBar = () => {
   useEffect(() => {
@@ -41,43 +49,38 @@ const NavBar = () => {
 
   const content = (
     <div
-      data-aos="fade-down"
-      className="lg:hidden block absolute top-16 left-0 right-0 bg-[#111111] transition-all duration-[5000ms] delay-[150ms] ease-in-out"
+      className={`
+        lg:hidden absolute top-20 left-0 right-0 bg-[#111111] overflow-hidden
+        transition-all duration-300 ease-in-out
+        ${click ? 'h-100 opacity-100' : 'h-0 opacity-0 pointer-events-none'}
+      `}
+      style={{
+        zIndex: 49,
+      }}
     >
       <ul className="text-center text-xl py-10">
-        <Link spy={true} smooth={true} to="/" onClick={() => {handleClick(); window.scrollTo(0, 0)}}>
-          <li className="my-4 py-4 border-b border-transparent hover:bg-transparent hover:rounded transition">Home</li>
-        </Link>
-        <Link spy={true} smooth={true} to="/Events" onClick={() => {handleClick(); window.scrollTo(0, 0)}}>
-          <li className="my-4 py-4 border-b border-transparent hover:bg-transparent hover:rounded transition">Events</li>
-        </Link>
-        <Link spy={true} smooth={true} to="/Speakers" onClick={() => {handleClick(); window.scrollTo(0, 0)}}>
-          <li className="my-4 py-4 border-b border-transparent hover:bg-transparent hover:rounded transition">Speakers</li>
-        </Link>
-        <Link spy={true} smooth={true} to="/Team" onClick={() => {handleClick(); window.scrollTo(0, 0)}}>
-          <li className="my-4 py-4 border-b border-transparent hover:bg-transparent hover:rounded transition">Team</li>
-        </Link>
-        <Link spy={true} smooth={true} to="/App" onClick={() => {handleClick(); window.scrollTo(0, 0)}}>
-          <li className="my-4 py-4 border-b border-transparent hover:bg-transparent hover:rounded transition">App</li>
-        </Link>
+        {navLinks.map((link) => (
+          <Link
+            key={link.to}
+            spy={true}
+            smooth={true}
+            to={link.to}
+            onClick={() => {
+              handleClick();
+              window.scrollTo(0, 0);
+            }}
+          >
+            <li className="my-4 py-4 border-b border-transparent hover:bg-transparent hover:rounded transition">
+              {link.label}
+            </li>
+          </Link>
+        ))}
       </ul>
     </div>
   );
 
-  const navbarStyles = `
-  .nav-btn {
-    display: none;
-  }
-
-  @media (max-width: 768px) {
-    .nav-btn {
-      display: block;
-    }
-  }
-`;
   return (
     <div className="h-10vh w-screen">
-      <style>{navbarStyles}</style>
       <nav className="m-0 p-0">
         <div
           className={`h-9vh flex justify-between z-50 text-white lg:py-1 px-4 lg:px-20 py-2 fixed top-0 left-0 w-screen transition ${
@@ -102,69 +105,28 @@ const NavBar = () => {
               </span>
             </Link>
           </div>
-          <div className="lg:flex md:flex lg:flex-1 items-center justify-end font-normal hidden">
+          <div className="hidden md:flex items-center justify-end font-normal">
             <div className="flex-10">
               <ul className="flex gap-4 lg:gap-8 text-[16px] lg:text-[18px]">
-                <Link
-                  to="/"
-                  className={`hover:text-yellow-400 transition cursor-pointer ${
-                    location.pathname === '/' ? 'text-yellow-400' : ''
-                  }`}
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  <li>Home</li>
-                </Link>
-                <Link
-                  to="/Events"
-                  className={`hover:text-yellow-400 transition cursor-pointer ${
-                    location.pathname === '/Events' ? 'text-yellow-400' : ''
-                  }`}
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  <li>Events</li>
-                </Link>
-                <Link
-                  to="/Speakers"
-                  className={`hover:text-yellow-400 transition cursor-pointer ${
-                    location.pathname === '/Speakers' ? 'text-yellow-400' : ''
-                  }`}
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  <li>Speakers</li>
-                </Link>
-                <Link
-                  to="/Team"
-                  className={`hover:text-yellow-400 transition cursor-pointer ${
-                    location.pathname === '/Team' ? 'text-yellow-400' : ''
-                  }`}
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  <li>Team</li>
-                </Link>
-                <Link
-                  to="/App"
-                  className={`hover:text-yellow-400 transition cursor-pointer ${
-                    location.pathname === '/App' ? 'text-yellow-400' : ''
-                  }`}
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  <li>App</li>
-                </Link>
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    className={`hover:text-yellow-400 transition cursor-pointer ${
+                      location.pathname === link.to ? 'text-yellow-400' : ''
+                    }`}
+                    onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}
+                  >
+                    <li>{link.label}</li>
+                  </Link>
+                ))}
               </ul>
             </div>
           </div>
-          <div>{click && content}</div>
-          <button className="nav-btn" onClick={handleClick}>
+          {content}
+          <button className="block md:hidden" onClick={handleClick}>
             {click ? (
               <FaTimes className="icon" style={{ fontSize: '3rem' }} />
             ) : (

@@ -5,7 +5,7 @@ import Speakerpage from "./otherpages/Speakerpage/Speakerpage.jsx"
 import { createBrowserRouter , RouterProvider } from "react-router-dom"
 import Home from "./Home.jsx"
 import Eventspage from "./otherpages/Eventspage/Eventspage.jsx"
-import Teamspage from "./otherpages/Teamspage/teams.jsx"
+import Teamspage from "./otherpages/Teamspage/team.jsx"
 import Apppage from "./otherpages/Apppage/Apppage.jsx"
 
 function App() {
