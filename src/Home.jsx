@@ -12,11 +12,13 @@ import Socials from "./components/socials/socials.jsx";
 function Home() {
   return (
     <div>
-      <Body />
-      <About_us />
-      <Hero />
-      <Slidermain />
-      <Eventsection />
+      
+      <Body/>
+      <About_us/>
+      
+      <Hero/>
+      <Slidermain/>
+      <Eventsection/>
       <Speakers />
       <Sponser />
       <Wave />
