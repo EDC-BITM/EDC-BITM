@@ -13,8 +13,10 @@ import Socials from "./components/socials/socials.jsx"
 function Home() {
   return(
     <div>
+      
       <Body/>
       <About_us/>
+      
       <Hero/>
       <Slidermain/>
       <Eventsection/>
