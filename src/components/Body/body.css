@@ -1,14 +1,14 @@
-.b-body {
+/* .b-body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("../Body/edc_group.jpg");
-}
+    url("../Body/edc_group.webp");
+} */
 
-@media screen and (max-width: 640px) {
+/* @media screen and (max-width: 640px) {
   .b-body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
       url("../Body/homemobilebg.jpeg");
   }
-}
+} */
 
 .heading {
   width: 100%;
