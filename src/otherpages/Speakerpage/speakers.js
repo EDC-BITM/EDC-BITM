@@ -31,7 +31,7 @@ const speakers = [
   { image: richa, name: 'Richa Shrivastava', title: "Managing Partner - Maker's Asylum" },
   { image: sreedhar, name: 'Sridhar Jeychandran', title: 'Co-founder - Crio.do' },
   { image: adityaRanjan, name: 'Aditya Ranjan', title: 'Journey of an IAS' },
-  { image: vijender, name: 'Dr. Vijender Chauhan', title: 'Interviewer' },
+  { image: vijender, name: 'Dr. Vijender Chauhan', title: 'Public Speaker' },
   { image: nidhi, name: 'Nidhi Bhantia', title: 'Renowned business coach and influencer' },
   { image: ashutoshh, name: 'Ashutosh Naik', title: 'Chief Compliance Officer (CCO) at Groww' },
   { image: muskaan, name: 'Muskaan Sancheti', title: 'Co-founder of The State Plate' },
