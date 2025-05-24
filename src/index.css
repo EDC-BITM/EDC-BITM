@@ -1,12 +1,8 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap"); */
-
 @tailwind base;
 @tailwind components;
-@layer base {
-}
+@tailwind utilities;
 
 /* fonts */
-
 /* latin-ext */
 @font-face {
   font-family: "Sora";
@@ -35,8 +31,6 @@ body {
   font-family: "Sora", sans-serif;
   overflow-x: hidden;
 }
-
-@tailwind utilities;
 
 @layer utilities {
   .glass-morphic {
