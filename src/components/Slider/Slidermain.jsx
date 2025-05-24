@@ -1,4 +1,5 @@
 import Slider from "./Slider";
+import FadeUpAnimation from "../../components/FadeUp";
 
 function Slidermain() {
   const handleClick = () => {
@@ -10,7 +11,7 @@ function Slidermain() {
   };
 
   return (
-    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+    <FadeUpAnimation className="w-full m-0">
       <div className="w-screen sm:p-0 p-4 mt-4 mx-auto">
         <div className="glass-morphic lg:m-20 p-4 lg:p-12 shadow-2xl rounded-2xl">
           <div className="flex flex-row justify-start items-center">
@@ -41,7 +42,7 @@ function Slidermain() {
           </div>
         </div>
       </div>
-    </div>
+    </FadeUpAnimation>
   );
 }
 

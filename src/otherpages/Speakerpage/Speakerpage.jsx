@@ -1,10 +1,9 @@
 // pages/Speakerpage.jsx
-import React from 'react';
-import blob from '/blobs.png';
-import blobR from '/blobR.png';
-import SpeakerCard from './SpeakerCard';
-import speakers from './speakers';
-import './speakerpage.css';
+import blob from "/blobs.png";
+import blobR from "/blobR.png";
+import SpeakerCard from "./SpeakerCard";
+import speakers from "./speakers";
+import "./speakerpage.css";
 
 function Speakerpage() {
   return (
@@ -32,7 +31,7 @@ function Speakerpage() {
           <div className="grid md:grid-cols-3 grid-cols-1 md:p-8 gap-8 pb-8">
             {speakers.map((speaker, index) => (
               <SpeakerCard
-                key={speaker.name}
+                key={speaker.name + index}
                 image={speaker.image}
                 name={speaker.name}
                 title={speaker.title}

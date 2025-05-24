@@ -1,15 +1,3 @@
-.b-body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("../Body/edc_group.jpg");
-}
-
-@media screen and (max-width: 640px) {
-  .b-body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url("../Body/homemobilebg.jpeg");
-  }
-}
-
 .heading {
   width: 100%;
   max-height: 300px;
