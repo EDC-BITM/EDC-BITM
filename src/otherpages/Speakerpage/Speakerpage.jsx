@@ -1,9 +1,28 @@
-// pages/Speakerpage.jsx
 import blob from "/blobs.png";
 import blobR from "/blobR.png";
 import SpeakerCard from "./SpeakerCard";
 import speakers from "./speakers";
 import "./speakerpage.css";
+import { motion } from "framer-motion"; 
+
+
+const upVariant = {
+  show: { y: 0, opacity: 1 },
+  hover: {
+    y: -40,
+    opacity: 0,
+    transition: { duration: 0.25, ease: "easeInOut" },
+  },
+};
+
+const downVariant = {
+  show: { y: 40, opacity: 0 },
+  hover: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.25, ease: "easeInOut" },
+  },
+};
 
 function Speakerpage() {
   return (
@@ -11,12 +30,33 @@ function Speakerpage() {
       <div className="flex flex-col items-center w-screen">
         <div className="speakerbg h-auto w-full text-white bg-cover">
           <div className="h-screen md:text-[50px] backdrop-brightness-50 flex flex-col justify-center items-center text-center">
-            <h1 className="text-4xl sm:text-5xl uppercase font-bold sm:p-4">
-              Noteworthy Entrepreneurs
+            <h1 className="text-5xl sm:text-6xl uppercase font-extrabold sm:p-4 text-white">
+              <motion.div
+                initial="show"
+                whileHover="hover"
+                className="overflow-hidden cursor-default lg:h-14 relative"
+              >
+                <motion.div className="absolute inset-0" variants={upVariant}>
+                  Noteworthy Entrepreneurs
+                </motion.div>
+                <motion.div variants={downVariant}>
+                  Noteworthy Entrepreneurs
+                </motion.div>
+              </motion.div>
+
+              <motion.div
+                initial="show"
+                whileHover="hover"
+                className="overflow-hidden cursor-default lg:h-14 relative"
+              >
+                <motion.div className="absolute inset-0" variants={upVariant}>
+                  Who Graced Our Events
+                </motion.div>
+                <motion.div variants={downVariant}>
+                  Who Graced Our Events
+                </motion.div>
+              </motion.div>
             </h1>
-            <span className="text-4xl sm:text-5xl uppercase font-bold">
-              Who Graced Our Events
-            </span>
           </div>
         </div>
 
