@@ -1,162 +1,171 @@
-body {
-  overflow-x: hidden;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply overflow-x-hidden;
+  }
 }
 
-.recbox1 {
-  position: relative;
-  z-index: 9;
-  margin-top: -150px;
-  margin-bottom: -100px;
-}
+@layer components {
+  .recbox1 {
+    @apply relative z-[9] -mt-[150px] -mb-[100px];
+  }
 
-.glass-morphism {
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.372);
-  border-radius: 0.75rem;
-  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
+  .blob1 {
+    @apply absolute w-64 z-[-30] left-0 mt-12;
+  }
 
-.event-card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
+  .blob2 {
+    @apply absolute w-64 z-[-30] left-0 top-[165rem];
+  }
 
-.event-card {
-  position: relative;
-  width: 300px;
-  /* Adjust the width as needed */
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s;
-  margin-top: 1rem;
-}
+  .blob3 {
+    @apply absolute w-64 z-[-30] right-0 mt-[170rem];
+  }
 
-.event-card:hover {
-  transform: scale(1.05);
-}
+  .blob4 {
+    @apply absolute w-64 z-[-30] left-0 top-[350rem];
+  }
 
-.event-image {
-  width: 100%;
-  height: auto;
-}
+  .blob5 {
+    @apply absolute w-40 z-[-30] right-0 mt-[285rem];
+  }
 
-.event-details {
-  position: absolute;
-  flex: auto;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.903);
-  padding: 20px;
-  border-radius: 35px 35px 0px 0px;
-  text-align: left;
-  transition: transform 0.3s, opacity 0.3s;
-  transform: translateY(100%);
-  opacity: 0;
-}
+  .blob6 {
+    @apply absolute w-64 z-[-30] right-0 top-[90rem];
+  }
 
-.event-card:hover .event-details {
-  transform: translateY(0);
-  opacity: 1;
-}
+  .glass-morphism {
+    @apply backdrop-blur bg-white/40 rounded-xl shadow-2xl;
+  }
 
-.event-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.event-details h2 {
-  font-weight: 500;
-  margin: 0;
-  font-size: 15px;
-  color: #000;
-}
-
-.event-details p {
-  margin: 5px 0;
-  font-size: 12px;
-  color: #666;
-}
-
-.event-details h4 {
-  margin: 5px 0;
-  font-size: 12px;
-  color: #000000;
-}
-
-.register-button:hover {
-  transform: scale(1.1);
-}
-
-.participate-button {
-  margin-left: auto;
-  padding: 5px 10px;
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 11px;
-}
-
-.participate-button:hover {
-  background-color: #218838;
-}
-
-@media (max-width: 768px) {
   .event-card-container {
-    margin: 10px;
+    @apply flex justify-center items-center m-5;
   }
 
   .event-card {
-    max-width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    @apply relative w-[300px] rounded-[27px] overflow-hidden shadow-lg transition-transform duration-300 mt-4;
+  }
+
+  .event-card:hover {
+    @apply scale-105;
+  }
+
+  .event-image {
+    @apply w-full h-auto;
   }
 
   .event-details {
-    padding: 15px;
+    @apply absolute bottom-0 left-0 right-0 bg-white/90 p-5 rounded-t-[35px] text-left transition-all duration-300 translate-y-full opacity-0;
+  }
+
+  .event-card:hover .event-details {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .event-header {
+    @apply flex justify-between items-center;
   }
 
   .event-details h2 {
-    font-size: 16px;
+    @apply font-medium m-0 text-[15px] text-black;
   }
 
   .event-details p {
-    font-size: 12px;
+    @apply my-1 text-[12px] text-gray-600;
+  }
+
+  .event-details h4 {
+    @apply my-1 text-[12px] text-black;
+  }
+
+  .register-button:hover {
+    @apply scale-110;
   }
 
   .participate-button {
-    padding: 5px 8px;
-    font-size: 10px;
+    @apply ml-auto px-2.5 py-1 bg-green-600 text-white border-none rounded-full cursor-pointer transition-colors duration-300 text-[11px];
+  }
+
+  .participate-button:hover {
+    @apply bg-green-700;
   }
 }
 
-@media (max-width: 480px) {
-  .event-card-container {
-    margin: 5px;
+@layer utilities {
+  @media (max-width: 768px) {
+    .event-card-container {
+      @apply m-2.5;
+    }
+
+    .event-card {
+      @apply max-w-full shadow-md;
+    }
+
+    .event-details {
+      @apply p-4;
+    }
+
+    .event-details h2 {
+      @apply text-[16px];
+    }
+
+    .event-details p {
+      @apply text-[12px];
+    }
+
+    .participate-button {
+      @apply px-2 py-1 text-[10px];
+    }
   }
 
-  .event-details {
-    padding: 10px;
+  @media (max-width: 480px) {
+    .event-card-container {
+      @apply m-1.5;
+    }
+
+    .event-details {
+      @apply p-2.5;
+    }
+
+    .event-details h2 {
+      @apply text-[14px];
+    }
+
+    .event-details p {
+      @apply text-[10px];
+    }
+
+    .participate-button {
+      @apply px-1.5 py-1 text-[9px];
+    }
   }
 
-  .event-details h2 {
-    font-size: 14px;
-  }
+  @media (max-width: 750px) {
+    .blob1 {
+      @apply absolute w-[12rem] h-auto mt-[30px] z-[-30] left-0;
+    }
 
-  .event-details p {
-    font-size: 10px;
-  }
+    .blob2 {
+      @apply absolute w-[12rem] h-auto top-[2900px] z-[-30] left-0;
+    }
 
-  .participate-button {
-    padding: 4px 6px;
-    font-size: 9px;
+    .blob3 {
+      @apply absolute w-[10rem] h-auto top-[1630px] z-[-30] right-0;
+    }
+
+    .blob4 {
+      @apply absolute w-[10rem] h-auto top-[6341px] z-[-30];
+    }
+
+    .blob5 {
+      @apply absolute w-[8rem] h-auto top-[1600px] z-[-30];
+    }
+
+    .blob6 {
+      @apply absolute w-[10rem] h-auto top-[1400px] z-[-30];
+    }
   }
 }
