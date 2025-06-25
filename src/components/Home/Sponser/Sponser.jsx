@@ -52,12 +52,12 @@ export default function Sponser() {
                 className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 flex justify-center items-center shrink-0"
               >
                 <img
-                  src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/${s.publicId}`}
+                  src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/w_300,f_webp,q_auto/${s.publicId}.webp`}
                   alt={`sponsor ${i + 1}`}
                   width={160}
                   height={160}
                   className="object-contain w-full h-full"
-                  loading="eager"
+                  loading="lazy"
                 />
               </div>
             ))}
