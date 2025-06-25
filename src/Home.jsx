@@ -1,24 +1,23 @@
-import About_us from "./components/About_us.jsx";
-import Body from "./components/Body/body.jsx";
-import Eventsection from "./components/Eventsection/Eventssection.jsx";
-import Speakers from "./components/speakers/speakers.jsx";
-import Sponser from "./components/Sponser/Sponser.jsx";
-import Hero from "./components/Hero/Hero.jsx";
-import Wave from "./components/wave/wave.jsx";
-import Slidermain from "./components/Slider/Slidermain.jsx";
-import Testimonial from "./components/Testimonial/Testimonial.jsx";
-import Socials from "./components/socials/socials.jsx";
+import Eventsection from "./components/Home/Eventsection/Eventssection.jsx";
+import Speakers from "./components/Home/speakers/speakers.jsx";
+import Sponser from "./components/Home/Sponser/Sponser.jsx";
+import Wave from "./components/Home/wave/wave.jsx";
+import Slidermain from "./components/Home/Slider/Slidermain.jsx";
+import Testimonial from "./components/Home/Testimonial/Testimonial.jsx";
+import Socials from "./components/Home/socials/socials.jsx";
+import Stats from "./components/Home/Stats/Stats.jsx";
+import Hero from "./components/Home/Hero/Hero.jsx";
+import About_us from "./components/Home/AboutUs/AboutUs.jsx";
 
 function Home() {
   return (
     <div>
-      
-      <Body/>
-      <About_us/>
-      
-      <Hero/>
-      <Slidermain/>
-      <Eventsection/>
+      <Hero />
+      <About_us />
+
+      <Stats />
+      <Slidermain />
+      <Eventsection />
       <Speakers />
       <Sponser />
       <Wave />
