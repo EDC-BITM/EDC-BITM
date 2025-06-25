@@ -20,11 +20,11 @@ import event27 from "../Eventspage/Image(EVENT)/event27.png";
 import event28 from "../Eventspage/Image(EVENT)/event28.png";
 import event29 from "../Eventspage/Image(EVENT)/event29.png";
 import event30 from "../Eventspage/Image(EVENT)/event30.png";
-import event31 from "../Eventspage/Image(EVENT)/event31.png";   
+import event31 from "../Eventspage/Image(EVENT)/event31.png";
 import event32 from "../Eventspage/Image(EVENT)/event32.png";
 import leaf1 from "../Eventspage/leaf.png";
 import leaf2 from "../Eventspage/leaf2.png";
-import Socials from "../../components/socials/socials";
+import Socials from "../../components/Home/socials/socials";
 import eventsbg from "../Eventspage/eventsbg.png";
 import roadmap from "../Eventspage/roadmap.png";
 import prize from "../Eventspage/prize.png";
@@ -44,7 +44,7 @@ import cardimg1 from "../Eventspage/cardimg1.png";
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { Link } from "react-scroll";
 import { useState } from "react";
-import header_bg  from "../Eventspage/header_bg.png";
+import header_bg from "../Eventspage/header_bg.png";
 
 function Eventspage() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -82,7 +82,6 @@ function Eventspage() {
     },
   ];
 
-
   const events2 = [
     {
       image: event32,
@@ -115,7 +114,6 @@ function Eventspage() {
       date: "28/01/25",
     },
   ];
-
 
   const events1 = [
     {
@@ -247,8 +245,6 @@ function Eventspage() {
         <img src={blobR} className="blob6" />
         <img src={blob} className="blob2" />
         <img src={blobR} className="blob3" />
-        
-        
 
         <div className="m-4 font-semibold text-gray-700 p-8">
           <p className="sm:text-[35px] text-[20px]  text-center font-poppins mt-10">
@@ -315,7 +311,6 @@ function Eventspage() {
         {/* </div> */}
       </div>
 
-      
       <div id="events-1">
         <div className="md:m-20 m-4 mt-20">
           <div
@@ -347,16 +342,17 @@ function Eventspage() {
             </div>
           </div>
         </div>
-
       </div>
-        <div id="events-2">
+      <div id="events-2">
         <div className="md:m-20 m-4 mt-20">
           <div
             className="flex flex-col justify-center items-center lg:m-4 p-4 md:p-2 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
             data-aos="fade-up"
             data-aos-mirror="true"
           >
-            <h1 className="font-bold text-[32px] uppercase">Semi-Formal Events</h1>
+            <h1 className="font-bold text-[32px] uppercase">
+              Semi-Formal Events
+            </h1>
             <div className="flex flex-wrap justify-center gap-6 mt-6">
               {events2.map((event, index) => (
                 <div key={index} className="event-card-container">
@@ -381,7 +377,7 @@ function Eventspage() {
         </div>
       </div>
 
-        <div id="events-3">
+      <div id="events-3">
         <div className="md:m-20 m-4 mt-20">
           <div
             className="flex flex-col justify-center items-center lg:m-4 p-4 md:p-2 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
@@ -411,7 +407,6 @@ function Eventspage() {
             </div>
           </div>
         </div>
-      
       </div>
       <Socials />
     </>
