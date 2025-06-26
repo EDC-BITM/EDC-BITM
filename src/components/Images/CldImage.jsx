@@ -8,6 +8,20 @@ import {
 import { fill } from "@cloudinary/url-gen/actions/resize";
 import PropTypes from "prop-types";
 
+/**
+ * Renders a Cloudinary image with advanced features such as lazy loading, responsive sizing, and blurred placeholder.
+ *
+ * @component
+ * @param {Object} props - Component props.
+ * @param {string} props.src - The source path of the image in Cloudinary.
+ * @param {string} [props.alt=""] - Alternative text for the image.
+ * @param {number} [props.width=300] - The width of the image.
+ * @param {number} [props.height=300] - The height of the image.
+ * @param {number[]} [props.sizes=[1200, 1100]] - Responsive image width steps.
+ * @param {string} [props.loading="lazy"] - Image loading strategy ("lazy", "eager", etc.).
+ * @param {string} [props.className=""] - Additional CSS classes for the container div.
+ * @returns {JSX.Element} The rendered Cloudinary image component.
+ */
 const CldImage = ({
   src,
   alt = "",
