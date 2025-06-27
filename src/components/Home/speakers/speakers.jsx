@@ -28,7 +28,7 @@ function Speakers() {
 
           <div className="flex relative overflow-hidden min-h-[400px] sm:h-auto">
             <motion.div
-              id="speakers-carousel"
+              key="speakers-carousel"
               className="flex space-x-6 flex-nowrap"
               animate={{ x: ["-50%", "0%"] }}
               transition={{
