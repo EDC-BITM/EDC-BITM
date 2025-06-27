@@ -1,37 +1,11 @@
 import { scroller } from "react-scroll";
-import { motion } from "framer-motion";
 import CldImageData from "@/data/CldImage.json";
 import CldImage from "../../Images/CldImage";
 import blobL from "@assets/blobs/blobL.png?w=200&format=webp&quality=50&as=meta";
 import blobR from "@assets/blobs/blobR.png?w=200&format=webp&quality=50&as=meta";
+import HoverTextTranslateEffect from "@/components/Animations/HoverTextTranslate";
 
 function Hero() {
-  // These variants define the initial and hover states for the text
-  // The `show` state is the initial state, and the `hover` state is the state when the text is hovered over
-  const upvarient = {
-    show: {
-      y: 0,
-      opacity: 1,
-    },
-    hover: {
-      y: -40,
-      opacity: 0,
-      transition: { duration: 0.25, ease: "easeInOut" },
-    },
-  };
-
-  const downvarient = {
-    show: {
-      y: 40,
-      opacity: 0,
-    },
-    hover: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.25, ease: "easeInOut" },
-    },
-  };
-
   console.log("blobs", blobL, blobR);
   const heroImage = CldImageData.Home.hero[0];
   return (
@@ -49,32 +23,10 @@ function Hero() {
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6))]"></div>
         </div>
         <div className="w-full max-h-[300px] flex items-center justify-center text-6xl font-black px-[50px] py-[20px] mb-[30px]">
-          <h1 className="text-center tracking-tighter [word-spacing:0.09em] text-3xl md:text-5xl lg:text-6xl uppercase text-white font-bold">
-            <motion.div
-              initial="show"
-              whileHover="hover"
-              className="overflow-hidden cursor-default lg:h-14 relative"
-            >
-              <motion.div className="absolute inset-0" variants={upvarient}>
-                Igniting the innovation
-              </motion.div>
-              <motion.div variants={downvarient}>
-                Igniting the innovation
-              </motion.div>
-            </motion.div>
-            <motion.div
-              initial="show"
-              whileHover="hover"
-              className="overflow-hidden h-24 cursor-default lg:h-14 relative"
-            >
-              <motion.div className="absolute  inset-0" variants={upvarient}>
-                within upcoming ground breakers.
-              </motion.div>
-              <motion.div variants={downvarient}>
-                within upcoming ground breakers.
-              </motion.div>
-            </motion.div>
-          </h1>
+          <HoverTextTranslateEffect
+            firstLine="Igniting the innovation"
+            secondLine="within upcoming ground breakers."
+          />
         </div>
         <div
           className="group duration-150 ease-in-out cursor-pointer hover:bg-[whitesmoke]  rounded-[10px] text-2xl border border-white  hover:scale-110 backdrop-blur-sm text-black h-auto"

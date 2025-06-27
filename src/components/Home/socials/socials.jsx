@@ -12,6 +12,8 @@ function Socials() {
           className="absolute inset-0 w-full h-full object-cover"
           src={cldImageData.Home.socials[0].publicId}
           alt={cldImageData.Home.socials[0].alt}
+          height={cldImageData.Home.socials[0].height}
+          width={cldImageData.Home.socials[0].width}
         />
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
       </div>
