@@ -33,6 +33,7 @@ const HoverTextTranslateEffect = ({ firstLine, secondLine, className }) => {
     >
       {/* Top Line */}
       <motion.div
+        id="first-line"
         className="overflow-hidden cursor-default relative"
         initial="initial"
         animate="animate"
@@ -40,6 +41,7 @@ const HoverTextTranslateEffect = ({ firstLine, secondLine, className }) => {
         variants={lineContainerVariants}
       >
         <motion.div
+          key="first-line-out"
           className="absolute inset-0"
           variants={lineOutVariants}
           transition={transitionSettings}
@@ -53,6 +55,7 @@ const HoverTextTranslateEffect = ({ firstLine, secondLine, className }) => {
 
       {/* Bottom Line */}
       <motion.div
+        key="second-line"
         className="overflow-hidden cursor-default relative"
         initial="initial"
         animate="animate"
@@ -60,6 +63,7 @@ const HoverTextTranslateEffect = ({ firstLine, secondLine, className }) => {
         variants={lineContainerVariants}
       >
         <motion.div
+          key="second-line-out"
           className="absolute inset-0"
           variants={lineOutVariants}
           transition={transitionSettings}
