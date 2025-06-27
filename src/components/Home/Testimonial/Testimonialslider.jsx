@@ -3,9 +3,9 @@ import "slick-carousel/slick/slick-theme.css";
 import "./TestimonialSlider.css";
 
 import Slider from "react-slick";
-import vc from "@assets/Home/testimonial/1.png?w=300&h=300&fit=crop&auto=format";
-import drie from "@assets/Home/testimonial/3.jpeg?w=300&h=300&fit=crop&auto=format";
-import facad from "@assets/Home/testimonial/2.png?w=300&h=300&fit=crop&auto=format";
+import vc from "@assets/Home/testimonial/1.png?url&w=150&format=webp";
+import drie from "@assets/Home/testimonial/3.jpeg?url&w=150&format=webp";
+import facad from "@assets/Home/testimonial/2.png?url&w=150&format=webp";
 
 function Testimonialslider() {
   const settings = {
