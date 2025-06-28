@@ -1,49 +1,19 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./TestimonialSlider.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-import Slider from "react-slick";
 import vc from "@assets/Home/testimonial/1.png?url&w=150&format=webp";
 import drie from "@assets/Home/testimonial/3.jpeg?url&w=150&format=webp";
 import facad from "@assets/Home/testimonial/2.png?url&w=150&format=webp";
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 function Testimonialslider() {
-  const settings = {
-    dots: true,
-    lazyLoad: true,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    initialSlide: 1,
-    autoplay: true,
-    speed: 1500,
-    autoplaySpeed: 3000,
-    cssEase: "ease-in-out",
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false,
-          dots: true,
-        },
-      },
-    ],
-  };
-
   const testimonials = [
     {
-      text: "EDC is not like any other club. Its a breeding ground for future innovators and problem solvers. The culture, the mindest and the whole persona of the society is mind-boggling. The support and the push from the seniors that the juniors get is unreal.",
+      text: "EDC is not like any other club. It's a breeding ground for future innovators and problem solvers. The culture, the mindset, and the whole persona of the society is mind-boggling. The support and the push from the seniors that the juniors get is unreal.",
       image: vc,
       name: "Dr. Indranil Manna",
       title: "Vice Chancellor, BIT Mesra",
@@ -63,37 +33,72 @@ function Testimonialslider() {
   ];
 
   return (
-    <div className="slider-container max-w-4xl mx-auto px-4 py-12 bg-gradient-to-b from-gray-50 to-white rounded-2xl shadow-lg">
-      <Slider {...settings}>
+    <div className="relative z-10 max-w-5xl mx-auto px-6 py-16 bg-gradient-to-br from-white via-slate-50 to-gray-100 rounded-3xl shadow-xl overflow-hidden">
+      <div className="absolute inset-0 blur-[90px] opacity-40 bg-gradient-to-br from-yellow-300 to-pink-300 -z-10" />
+      <Swiper
+        modules={[Pagination, Autoplay, Navigation]}
+        spaceBetween={50}
+        slidesPerView={1}
+        pagination={{
+          bulletClass: "swiper-pagination-bullet",
+          bulletActiveClass: "swiper-pagination-bullet-active",
+          clickable: true,
+        }}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+          clickable: true,
+        }}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+          waitForTransition: true,
+        }}
+        speed={1200}
+        loop={true}
+        className="testimonial-swiper pb-12"
+      >
         {testimonials.map((testimonial, idx) => (
-          <div
-            key={idx}
-            className="flex flex-col h-full items-center p-6 md:p-10 transition-all duration-300"
-          >
-            <div className="relative mb-8 flex justify-center">
-              <img
-                loading="lazy"
-                src={testimonial.image}
-                alt={testimonial.name}
-                className="w-28 h-28 md:w-36 md:h-36 relative z-10 object-cover rounded-full border-4 border-yellow-400 shadow-lg"
-              />
+          <SwiperSlide key={idx}>
+            <div className="flex flex-col items-center gap-6 text-center px-4 md:px-8 transition-all duration-300 ease-in-out">
+              <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden shadow-2xl border-4 border-yellow-400">
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="bg-white/60 backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-lg max-w-3xl border border-gray-200 transition duration-300 ease-in-out">
+                <p className="text-gray-800 text-base md:text-lg font-medium leading-relaxed italic tracking-tight">
+                  &ldquo;{testimonial.text}&rdquo;
+                </p>
+              </div>
+
+              <div className="mt-4 mb-6">
+                <h3 className="text-xl md:text-2xl font-semibold text-gray-900">
+                  {testimonial.name}
+                </h3>
+                <p className="text-sm md:text-base text-gray-600">
+                  {testimonial.title}
+                </p>
+              </div>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-md max-w-2xl mx-auto mb-6">
-              <p className="text-gray-700 text-base md:text-lg italic leading-relaxed">
-                &quot;{testimonial.text}&quot;
-              </p>
-            </div>
-            <div className="flex flex-col items-center">
-              <h1 className="text-lg md:text-xl font-bold text-primary-700">
-                {testimonial.name}
-              </h1>
-              <p className="text-sm md:text-base text-gray-600 font-medium">
-                {testimonial.title}
-              </p>
-            </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </Slider>
+      </Swiper>
+      <div className="slider-controler">
+        <div className="swiper-button-prev animate-bounce hover:-translate-x-[17%] -translate-x-[17%] slider-arrow">
+          <button className="bg-white/70 p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors">
+            <FaArrowLeft className="w-6 h-6 text-gray-800" />
+          </button>
+        </div>
+        <div className="swiper-button-next animate-bounce hover:translate-x-[17%] translate-x-[17%] slider-arrow">
+          <button className="bg-white/70 p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors">
+            <FaArrowRight className="w-6 h-6 text-gray-800" />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
