@@ -27,13 +27,13 @@ function Slidermain() {
             <Slider />
           </div>
 
-          <div className="flex items-center justify-center">
+          <div className="flex mt-8 sm:mt-4 lg:mt-0 items-center justify-center">
             <a
               href="https://drive.google.com/drive/folders/1UR_3rWjMEXwj9dTGYKmUvXwDJIsesuMg?usp=sharing"
               target="_blank"
             >
               <button
-                className="transition ease-in-out hover:scale-110 sm:mt-0 mt-8 p-4 rounded-xl bg-[#FED853] font-bold"
+                className="transition ease-in-out hover:scale-110 sm:mt-0 p-4 rounded-xl bg-[#FED853] font-bold"
                 onClick={handleClick}
               >
                 View More

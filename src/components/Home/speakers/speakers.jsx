@@ -28,8 +28,8 @@ function Speakers() {
 
           <div className="flex relative overflow-hidden min-h-[400px] sm:h-auto">
             <motion.div
-              className="flex space-x-6"
-              style={{ whiteSpace: "nowrap" }}
+              key="speakers-carousel"
+              className="flex space-x-6 flex-nowrap"
               animate={{ x: ["-50%", "0%"] }}
               transition={{
                 repeat: Infinity,
@@ -46,7 +46,7 @@ function Speakers() {
                   <CldImage
                     height={300}
                     width={300}
-                    loading="eagery"
+                    loading="lazy"
                     src={speaker.publicId}
                     alt={speaker.alt}
                   />

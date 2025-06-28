@@ -80,3 +80,16 @@ body {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+
+@layer components {
+  .swiper-pagination-bullet {
+    @apply w-2 h-2 bg-gray-500 rounded-full opacity-50 transition-all duration-300 ease-in-out hover:scale-110;
+  }
+  .swiper-pagination-bullet-active {
+    @apply bg-gray-800 opacity-100 scale-125 transition-all duration-300 ease-in-out;
+  }
+}
+
+
+
