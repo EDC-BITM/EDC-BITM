@@ -45,6 +45,7 @@ import { text } from "@fortawesome/fontawesome-svg-core";
 import { Link } from "react-scroll";
 import { useState } from "react";
 import header_bg from "../Eventspage/header_bg.png";
+import { motion } from "framer-motion";
 
 function Eventspage() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -170,24 +171,71 @@ function Eventspage() {
     },
   ];
 
+  const upVariant = {
+  show: { y: 0, opacity: 1 },
+  hover: {
+    y: -40,
+    opacity: 0,
+    transition: { duration: 0.25, ease: "easeInOut" },
+  },
+};
+
+const downVariant = {
+  show: { y: 40, opacity: 0 },
+  hover: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.25, ease: "easeInOut" },
+  },
+};
+
+
   return (
     <>
       <div className="h-auto w-full">
-        <a
-          href="https://esummit.edcbitmesra.in"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src={header_bg}
-            alt=""
-            className="hidden md:block h-screen w-full"
-          />
-          <img
-            src={Mobile}
-            alt=""
-            className="block md:hidden h-screen w-full"
-          />
+        <a>
+
+         <div className="relative h-screen w-full">
+  {/* Background Image */}
+  <img
+    src={header_bg}
+    alt="Background"
+    className="h-screen w-full object-cover"
+  />
+
+  {/* Overlay Text on Image */}
+  <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center">
+    <h1 className="text-4xl sm:text-5xl uppercase font-extrabold sm:p-4 text-white">
+      <motion.div
+        initial="show"
+        whileHover="hover"
+        className="overflow-hidden cursor-default lg:h-14 relative"
+      >
+        <motion.div className="absolute inset-0" variants={upVariant}>
+          Celebrating moments that sparked change
+        </motion.div>
+        <motion.div variants={downVariant}>
+          Celebrating moments that sparked change
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        initial="show"
+        whileHover="hover"
+        className="overflow-hidden cursor-default lg:h-14 relative"
+      >
+        <motion.div className="absolute inset-0" variants={upVariant}>
+          Through events that inspire connect and lead
+        </motion.div>
+        <motion.div variants={downVariant}>
+          Through events that inspire connect and lead
+        </motion.div>
+      </motion.div>
+    </h1>
+  </div>
+</div>
+
+
         </a>
 
         {/* <div className="eventsbg h-auto w-full text-black">
@@ -286,18 +334,13 @@ function Eventspage() {
                   </button>
                 </Link>
 
-                <div className="event-details">
-                  <div className="event-header">
-                    {/* Other content if needed */}
-                  </div>
-                </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="bg-white w-screen overflow-hidden">
-          <div className="flex lg:flex-row bg-white  text-center justify-center items-center">
+        <div className="bg-white/30 w-screen overflow-hidden backdrop-blur-md">
+          <div className="flex lg:flex-row bg-white/30  text-center justify-center backdrop-blur-md items-center">
             <img src={leaf1} alt="" className="sm:h-56 h-28 mt-10" />
             <p className="sm:text-[25px] text-[15px] mt-6">
               Our Events are more than just gatherings. They are opportunities
