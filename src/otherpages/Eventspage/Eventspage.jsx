@@ -20,11 +20,11 @@ import event27 from "../Eventspage/Image(EVENT)/event27.png";
 import event28 from "../Eventspage/Image(EVENT)/event28.png";
 import event29 from "../Eventspage/Image(EVENT)/event29.png";
 import event30 from "../Eventspage/Image(EVENT)/event30.png";
-import event31 from "../Eventspage/Image(EVENT)/event31.png";   
+import event31 from "../Eventspage/Image(EVENT)/event31.png";
 import event32 from "../Eventspage/Image(EVENT)/event32.png";
 import leaf1 from "../Eventspage/leaf.png";
 import leaf2 from "../Eventspage/leaf2.png";
-import Socials from "../../components/socials/socials";
+import Socials from "../../components/Home/socials/socials";
 import eventsbg from "../Eventspage/eventsbg.png";
 import roadmap from "../Eventspage/roadmap.png";
 import prize from "../Eventspage/prize.png";
@@ -44,7 +44,8 @@ import cardimg1 from "../Eventspage/cardimg1.png";
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { Link } from "react-scroll";
 import { useState } from "react";
-import header_bg  from "../Eventspage/header_bg.png";
+import header_bg from "../Eventspage/header_bg.png";
+import { motion } from "framer-motion";
 
 function Eventspage() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -82,7 +83,6 @@ function Eventspage() {
     },
   ];
 
-
   const events2 = [
     {
       image: event32,
@@ -115,7 +115,6 @@ function Eventspage() {
       date: "28/01/25",
     },
   ];
-
 
   const events1 = [
     {
@@ -172,24 +171,71 @@ function Eventspage() {
     },
   ];
 
+  const upVariant = {
+  show: { y: 0, opacity: 1 },
+  hover: {
+    y: -40,
+    opacity: 0,
+    transition: { duration: 0.25, ease: "easeInOut" },
+  },
+};
+
+const downVariant = {
+  show: { y: 40, opacity: 0 },
+  hover: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.25, ease: "easeInOut" },
+  },
+};
+
+
   return (
     <>
       <div className="h-auto w-full">
-        <a
-          href="https://esummit.edcbitmesra.in"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src={header_bg}
-            alt=""
-            className="hidden md:block h-screen w-full"
-          />
-          <img
-            src={Mobile}
-            alt=""
-            className="block md:hidden h-screen w-full"
-          />
+        <a>
+
+         <div className="relative h-screen w-full">
+  {/* Background Image */}
+  <img
+    src={header_bg}
+    alt="Background"
+    className="h-screen w-full object-cover"
+  />
+
+  {/* Overlay Text on Image */}
+  <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center">
+    <h1 className="text-4xl sm:text-5xl uppercase font-extrabold sm:p-4 text-white">
+      <motion.div
+        initial="show"
+        whileHover="hover"
+        className="overflow-hidden cursor-default lg:h-14 relative"
+      >
+        <motion.div className="absolute inset-0" variants={upVariant}>
+          Celebrating moments that sparked change
+        </motion.div>
+        <motion.div variants={downVariant}>
+          Celebrating moments that sparked change
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        initial="show"
+        whileHover="hover"
+        className="overflow-hidden cursor-default lg:h-14 relative"
+      >
+        <motion.div className="absolute inset-0" variants={upVariant}>
+          Through events that inspire connect and lead
+        </motion.div>
+        <motion.div variants={downVariant}>
+          Through events that inspire connect and lead
+        </motion.div>
+      </motion.div>
+    </h1>
+  </div>
+</div>
+
+
         </a>
 
         {/* <div className="eventsbg h-auto w-full text-black">
@@ -247,8 +293,6 @@ function Eventspage() {
         <img src={blobR} className="blob6" />
         <img src={blob} className="blob2" />
         <img src={blobR} className="blob3" />
-        
-        
 
         <div className="m-4 font-semibold text-gray-700 p-8">
           <p className="sm:text-[35px] text-[20px]  text-center font-poppins mt-10">
@@ -290,18 +334,13 @@ function Eventspage() {
                   </button>
                 </Link>
 
-                <div className="event-details">
-                  <div className="event-header">
-                    {/* Other content if needed */}
-                  </div>
-                </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="bg-white w-screen overflow-hidden">
-          <div className="flex lg:flex-row bg-white  text-center justify-center items-center">
+        <div className="bg-white/30 w-screen overflow-hidden backdrop-blur-md">
+          <div className="flex lg:flex-row bg-white/30  text-center justify-center backdrop-blur-md items-center">
             <img src={leaf1} alt="" className="sm:h-56 h-28 mt-10" />
             <p className="sm:text-[25px] text-[15px] mt-6">
               Our Events are more than just gatherings. They are opportunities
@@ -315,7 +354,6 @@ function Eventspage() {
         {/* </div> */}
       </div>
 
-      
       <div id="events-1">
         <div className="md:m-20 m-4 mt-20">
           <div
@@ -347,16 +385,17 @@ function Eventspage() {
             </div>
           </div>
         </div>
-
       </div>
-        <div id="events-2">
+      <div id="events-2">
         <div className="md:m-20 m-4 mt-20">
           <div
             className="flex flex-col justify-center items-center lg:m-4 p-4 md:p-2 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
             data-aos="fade-up"
             data-aos-mirror="true"
           >
-            <h1 className="font-bold text-[32px] uppercase">Semi-Formal Events</h1>
+            <h1 className="font-bold text-[32px] uppercase">
+              Semi-Formal Events
+            </h1>
             <div className="flex flex-wrap justify-center gap-6 mt-6">
               {events2.map((event, index) => (
                 <div key={index} className="event-card-container">
@@ -381,7 +420,7 @@ function Eventspage() {
         </div>
       </div>
 
-        <div id="events-3">
+      <div id="events-3">
         <div className="md:m-20 m-4 mt-20">
           <div
             className="flex flex-col justify-center items-center lg:m-4 p-4 md:p-2 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
@@ -411,7 +450,6 @@ function Eventspage() {
             </div>
           </div>
         </div>
-      
       </div>
       <Socials />
     </>

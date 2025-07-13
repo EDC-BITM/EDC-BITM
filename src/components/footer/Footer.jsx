@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "/edclogo3d.png";
+import logo from "@assets/edclogo3d.png";
 import emailjs from "@emailjs/browser";
 import {
   FaArrowCircleRight,

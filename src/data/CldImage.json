@@ -1,0 +1,220 @@
+{
+  "Home": {
+    "hero": [
+      {
+        "publicId": "edc_group_v3eqr7",
+        "alt": "Hero Image",
+        "width": 2560,
+        "height": 1440
+      }
+    ],
+    "stats": [
+      {
+        "publicId": "Copy_of_untitled-2_i2gmxu",
+        "alt": "Stats Image",
+        "width": 1200,
+        "height": 600
+      },
+      {
+        "publicId": "stats1_vkikqk",
+        "alt": "Stats Image",
+        "width": 1200,
+        "height": 600
+      }
+    ],
+    "slider": [
+      {
+        "publicId": "6_nmvaux",
+        "alt": "slider_img_1",
+        "width": 970,
+        "height": 1350
+      },
+      {
+        "publicId": "7_tfiktc",
+        "alt": "slider_img_2",
+        "width": 970,
+        "height": 1350
+      },
+      {
+        "publicId": "6_j9htxz",
+        "alt": "slider_img_3",
+        "width": 970,
+        "height": 1350
+      },
+      {
+        "publicId": "2_auifji",
+        "alt": "slider_img_4",
+        "width": 970,
+        "height": 1350
+      },
+      {
+        "publicId": "5_oeqxp6",
+        "alt": "slider_img_5",
+        "width": 970,
+        "height": 1350
+      },
+      {
+        "publicId": "4_nrxblv",
+        "alt": "slider_img_6",
+        "width": 970,
+        "height": 1350
+      },
+      {
+        "publicId": "1_aykvc2",
+        "alt": "slider_img_7",
+        "width": 970,
+        "height": 1350
+      },
+      {
+        "publicId": "3_hmwlts",
+        "alt": "slider_img_8",
+        "width": 970,
+        "height": 1350
+      },
+      {
+        "publicId": "3_jdv57g",
+        "alt": "slider_img_9",
+        "width": 970,
+        "height": 1350
+      },
+      {
+        "publicId": "2_ikwcnr",
+        "alt": "slider_img_10",
+        "width": 970,
+        "height": 1350
+      }
+    ],
+    "pastSpeakers": [
+      {
+        "publicId": "vijendra_hwriks",
+        "alt": "Dr. Vijendra Chauhan",
+        "width": 275,
+        "height": 275,
+        "name": "Dr. Vijendra Chauhan",
+        "description": "Public Speaker"
+      },
+      {
+        "publicId": "Rishabh_taiwqm",
+        "alt": "Rishabh Jain",
+        "width": 275,
+        "height": 275,
+        "name": "Rishabh Jain",
+        "description": "Labour Law Advisor"
+      },
+      {
+        "publicId": "ravi_zwhuub",
+        "alt": "Ravi K Ranjan",
+        "width": 275,
+        "height": 275,
+        "name": "Ravi K Ranjan",
+        "description": "Ex Shark Tank"
+      },
+      {
+        "publicId": "karan_t3xkn3",
+        "alt": "Karan Bajaj",
+        "width": 275,
+        "height": 275,
+        "name": "Karan Bajaj",
+        "description": "Founder - WhiteHat Jr"
+      },
+      {
+        "publicId": "amit_qfua57",
+        "alt": "Amit Choudhary",
+        "width": 275,
+        "height": 275,
+        "name": "Amit Choudhary",
+        "description": "Founder - Lenskart"
+      },
+      {
+        "publicId": "aman_ef9eim",
+        "alt": "Aman Dhattarwal",
+        "width": 275,
+        "height": 275,
+        "name": "Aman Dhattarwal",
+        "description": "Founder - Apni Kaksha"
+      }
+    ],
+    "socials": [
+      {
+        "publicId": "socialsbg_z2uihm",
+        "alt": "Socials Background",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "sponsors": 
+      [
+        {
+          "publicId": "1113718_yrsoir",
+          "width": 450,
+          "height": 237
+        },
+        {
+          "publicId": "typo_logo-b40bf595603dc0e63a5c._o2crmd",
+          "width": 450,
+          "height": 120
+        },
+        {
+          "publicId": "rapido-bike-taxi8263_wyqpbx",
+          "width": 866,
+          "height": 650
+        },
+        {
+          "publicId": "pizza-hut-new6371_mrll4s",
+          "width": 866,
+          "height": 650
+        },
+        {
+          "publicId": "nissan-new2693.logowik.com_tlel36",
+          "width": 866,
+          "height": 650
+        },
+        {
+          "publicId": "mahindra-suv1293_jrofsa",
+          "width": 866,
+          "height": 650
+        },
+        {
+          "publicId": "image_30_u28ygo",
+          "width": 225,
+          "height": 225
+        },
+        {
+          "publicId": "image_9_s4z6ly",
+          "width": 225,
+          "height": 225
+        },
+        {
+          "publicId": "image_6_uh4dga",
+          "width": 299,
+          "height": 168
+        },
+        {
+          "publicId": "image_3_taq4st",
+          "width": 100,
+          "height": 100
+        },
+        {
+          "publicId": "dribbble_001_2x_jt7cdu",
+          "width": 800,
+          "height": 600
+        },
+        {
+          "publicId": "cblogo_pbrlvr",
+          "width": 511,
+          "height": 181
+        },
+        {
+          "publicId": "741_nikon_jsnfod",
+          "width": 866,
+          "height": 650
+        },
+        {
+          "publicId": "mahindra-suv1293_kobvkn",
+          "width": 866,
+          "height": 650
+        }
+      
+    ]
+  }
+}
