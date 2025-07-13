@@ -91,7 +91,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/Startups",
-    element: <RouteLayout Component={Startupspage} />,
+    element: <RouteLayout Component={Startups} />,
   },
 ]);
 

@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/Speakers", label: "Speakers" },
   { href: "/Team", label: "Team" },
   { href: "/App", label: "App" },
+  { href: "/Startups", label: "Startups" },
 ];
 
 const NavBar = () => {
