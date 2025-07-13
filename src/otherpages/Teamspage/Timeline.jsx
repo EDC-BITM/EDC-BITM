@@ -1,42 +1,42 @@
 import PropTypes from "prop-types";
-import ujjwal from "/ujjwal.png";
-import pranit from "/Pranit 23-24.jpeg";
-import saumya from "/Saumya Agarwal 22-23.jpeg";
-import sarwadi from "/Sarwadi.jpeg";
-import utkarsh from "/utkarsh mishra 20-21.jpeg";
-import rahul from "/Rahul thakur 19-20.jpeg";
+import ujjwal from "@assets/teams/pastPresident/ujjwal.png?w=200&format=webp&quality=50&as=meta";
+import pranit from "@assets/teams/pastPresident/Pranit 23-24.jpeg?w=200&format=webp&quality=50&as=meta";
+import saumya from "@assets/teams/pastPresident/Saumya Agarwal 22-23.jpeg?w=200&format=webp&quality=50&as=meta";
+import sarwadi from "@assets/teams/pastPresident/Sarwadi.jpeg?w=200&format=webp&quality=50&as=meta";
+import utkarsh from "@assets/teams/pastPresident/utkarsh mishra 20-21.jpeg?w=200&format=webp&quality=50&as=meta";
+import rahul from "@assets/teams/pastPresident/Rahul thakur 19-20.jpeg?w=200&format=webp&quality=50&as=meta";
 import { motion } from "framer-motion";
 
 const presidents = [
   {
     name: "Ujjwal Aman",
     tenure: "2024-2025",
-    image: ujjwal,
+    image: ujjwal.src,
   },
   {
     name: "Pranit",
     tenure: "2023-2024",
-    image: pranit,
+    image: pranit.src,
   },
   {
     name: "Saumya Agarwal",
     tenure: "2022-2023",
-    image: saumya,
+    image: saumya.src,
   },
   {
     name: "Sarwadi Satank",
     tenure: "2021-2022",
-    image: sarwadi,
+    image: sarwadi.src,
   },
   {
     name: "Utkarsh Mishra",
     tenure: "2020-2021",
-    image: utkarsh,
+    image: utkarsh.src,
   },
   {
     name: "Rahul Thakur",
     tenure: "2019-2020",
-    image: rahul,
+    image: rahul.src,
   },
 ];
 
@@ -48,8 +48,6 @@ function Timeline() {
         <div className="flex flex-col max-w-3xl w-full px-4 py-8 relative">
           {/* SVG vertical timeline line */}
           <motion.svg
-            initial={{ height: 0 }}
-            whileInView={{ height: "100%" }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 3, ease: "easeInOut" }}
             className="absolute left-[12%] sm:left-1/2 top-0 -translate-x-1/2 z-0"
@@ -91,7 +89,7 @@ function Timeline() {
               transition={{ duration: 0.5, delay: idx * 0.2 }}
               className={`flex relative z-10 ${
                 idx % 2 === 0 ? "sm:justify-start justify-end" : "justify-end"
-              } mb-8`}
+              } mb-8 sm:mb-4`}
               style={{ minHeight: 160 }}
             >
               <TimelineItem
@@ -145,9 +143,10 @@ const TimelineItem = ({ name, tenure, image, index }) => {
       }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{
-        duration: 0.5,
-        delay: index * 0.1,
+        duration: 0.3,
+        delay: index * 0.05,
         type: "spring",
+        damping: 7,
         stiffness: 100,
       }}
       className="relative flex w-32 sm:w-48  flex-col items-center bg-white/80 backdrop-blur-md shadow-xl rounded-3xl p-6 min-w-[240px] max-w-xs border border-white/40"
@@ -195,14 +194,9 @@ TimelineItem.propTypes = {
 const HeadingTimeline = () => {
   return (
     <div className="p-1">
-      <motion.h3
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="text-xl font-semibold ml-7 mb-4 mt-8"
-      >
+      <h3 className="text-xl font-semibold ml-7 mb-4 mt-8">
         <span className="bg-yellow-300 pt-2 pb-2 pl-4">Ha</span>ll of Fame
-      </motion.h3>
+      </h3>
       <motion.h2
         initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
