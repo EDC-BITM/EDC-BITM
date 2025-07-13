@@ -161,6 +161,7 @@ const TimelineItem = ({ name, tenure, image, index }) => {
         <img
           src={image}
           alt={name}
+          loading="lazy"
           className="w-32 h-32 object-cover rounded-full border-4 border-yellow-300 shadow-lg"
         />
         <span className="absolute -bottom-1.5 right-1.5 bg-yellow-300 rounded-full w-5 h-5 border-2 border-white shadow-md"></span>
