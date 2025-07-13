@@ -4,7 +4,8 @@
       "id": "rajupoddar",
       "name": "Dr. Raju Poddar",
       "title": "Dean of RIE",
-      "image": "./src/components/Testimonial/3.jpeg",
+      "image": "./src/assets/Home/testimonial/3.jpeg",
+      "publicId": "3_ix8dsl",
       "socials": { "email": "drie@bitmesra.ac.in" }
     },
     {
@@ -12,6 +13,7 @@
       "name": "Vishal H. Shah",
       "title": "Faculty Advisor",
       "image": "/VShah.png",
+      "publicId": "VShah_dzabjg",
       "socials": {
         "linkedin": "https://www.linkedin.com/in/vishal-hshah/",
         "facebook": "https://www.facebook.com/vishal.h.shah.7/",
@@ -26,6 +28,7 @@
         "name": "Pranav Raj Srivastav",
         "title": "President",
         "image": "/pranav.png",
+        "publicId": "pranav_mxnnec",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/pranav-raj-srivastav-891633240/",
           "instagram": "https://www.instagram.com/pranav_raj_srivastav_03/",
@@ -37,6 +40,7 @@
         "name": "Yogesh Kumar",
         "title": "Joint President",
         "image": "/yogesh.png",
+        "publicId": "yogesh_qy26wh",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/yogeshkr7/",
           "instagram": "https://www.instagram.com/yogex.7/",
@@ -50,6 +54,7 @@
         "name": "Anshuman Tomar",
         "title": "Vice President (Entrepreneurship)",
         "image": "/anshuman.png",
+        "publicId": "anshuman_dmw4h5",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/anshuman-tomar-3354a01b6/",
           "instagram": "https://www.instagram.com/papabizz_/",
@@ -61,6 +66,7 @@
         "name": "Debjyoti Dey",
         "title": "Vice President (Events)",
         "image": "/debjyoti.png",
+        "publicId": "debjyoti_ih7mbq",
         "socials": {
           "linkedin": "http://linkedin.com/in/debjyoti-dey-876b18270",
           "instagram": "https://www.instagram.com/debjyoti_3333/",
@@ -72,6 +78,7 @@
         "name": "Varun Sharma",
         "title": "Vice President (Finance)",
         "image": "/varunk.png",
+        "publicId": "varunk_g8dopp",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/varun0510/",
           "instagram": "https://www.instagram.com/varunsharmaaaaaa/",
@@ -83,6 +90,7 @@
         "name": "Shivam Chaubey",
         "title": "Vice President (Resources)",
         "image": "/shivam.png",
+        "publicId": "shivam_ggpvro",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/shivam-chaubey-16a45b260/",
           "instagram": null,
@@ -94,6 +102,7 @@
         "name": "Shubham Kumar",
         "title": "Vice President (Events)",
         "image": "/shubham.png",
+        "publicId": "shubham_svk32r",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/shubhamk1608/",
           "instagram": "https://www.instagram.com/kumar_shubham16/",
@@ -105,6 +114,7 @@
         "name": "Aman Pratik",
         "title": "Vice President (Finance)",
         "image": "/amanp.png",
+        "publicId": "amanp_gupydu",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/aman-pratik-04ba3235b/",
           "instagram": "https://www.instagram.com/amanpratik7/",
@@ -116,6 +126,7 @@
         "name": "Sanchit Jain",
         "title": "Vice President (Design)",
         "image": "/sanchit.png",
+        "publicId": "sanchit_qauopa",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/sanchit-jain-2a1374258/",
           "instagram": "https://www.instagram.com/sanchit_1107/",
@@ -127,6 +138,7 @@
         "name": "Savit Raj",
         "title": "Vice President (Technical)",
         "image": "/savit.png",
+        "publicId": "savit_lrc7fu",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/savit-raj/",
           "instagram": "https://www.instagram.com/hades_81597/",
@@ -140,6 +152,7 @@
         "name": "Adarsh Raj",
         "title": "Director (Resources)",
         "image": "/adarsh.png",
+        "publicId": "adarsh_vljytl",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/iadarshraj/",
           "instagram": "https://www.instagram.com/adarsh_raj18/",
@@ -151,6 +164,7 @@
         "name": "Yashwant Bhise",
         "title": "Director (Resources)",
         "image": "/yashwant.png",
+        "publicId": "yashwant_kjpbs9",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/yashwantbbhise/",
           "instagram": "https://www.instagram.com/ig_yashwantbhise/",
@@ -162,6 +176,7 @@
         "name": "Varun Gupta",
         "title": "Director (Design)",
         "image": "/varung.png",
+        "publicId": "varung_oafeo8",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/ivarung/",
           "instagram": null,
@@ -173,6 +188,7 @@
         "name": "Nikhil Kumar",
         "title": "Director (Technical)",
         "image": "/nikhil.png",
+        "publicId": "nikhil_egn6m0",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/nikhilkr16/",
           "instagram": "https://www.instagram.com/nikhil_kr16/",
@@ -184,6 +200,7 @@
         "name": "Sumit Kumar",
         "title": "Director (Media)",
         "image": "/sumit.png",
+        "publicId": "sumit_zvvuvu",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/sumit-kumar-95b52925a/",
           "instagram": null,
@@ -199,6 +216,7 @@
         "name": "Abhinav Kumar Choudhary",
         "title": "General Secretary",
         "image": "/abhinav.png",
+        "publicId": "abhinav_cgowme",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/akc12/",
           "instagram": "https://www.instagram.com/poetry_aficionado/",
@@ -210,6 +228,7 @@
         "name": "Naveen Modi",
         "title": "General Secretary",
         "image": "/naveen.png",
+        "publicId": "naveen_lvsfn1",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/navinco/",
           "instagram": "https://www.instagram.com/naveenmodii/",
@@ -221,6 +240,7 @@
         "name": "Mehul Mundhra",
         "title": "Treasurer",
         "image": "/mehul.png",
+        "publicId": "mehul_bfvc1a",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/mehul-mundhra/",
           "instagram": "https://www.instagram.com/mehul_mundhra/",
@@ -234,6 +254,7 @@
         "name": "Aditya Vishwakarma",
         "title": "Joint Secretary",
         "image": "/aditya.png",
+        "publicId": "aditya_nrqknv",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/adivish2831/",
           "instagram": "https://www.instagram.com/adi._.vish/",
@@ -245,6 +266,7 @@
         "name": "Subham Giri",
         "title": "Joint Secretary",
         "image": "/subham.png",
+        "publicId": "subham_r3msox",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/subham-giri-676722287/",
           "instagram": "https://www.instagram.com/subham_giri_23/",
@@ -256,6 +278,7 @@
         "name": "Rahul Kumar Mishra",
         "title": "Joint Treasurer",
         "image": "/rahul.png",
+        "publicId": "rahul_ojeexn",
         "socials": {
           "linkedin": null,
           "instagram": "https://www.instagram.com/oye.ee_rahul/",
@@ -267,6 +290,7 @@
         "name": "Shreyanshu Raj",
         "title": "Joint Treasurer",
         "image": "/shreyanshu.png",
+        "publicId": "shreyanshu_fnyo7j",
         "socials": {
           "linkedin": "hhttps://www.linkedin.com/in/shreyanshu-raj/",
           "instagram": "https://www.instagram.com/heyy.sshreyanshu_raj/",
@@ -280,6 +304,7 @@
         "name": "Kumar Lavanya",
         "title": "Associate Director",
         "image": "/lavanya.png",
+        "publicId": "lavanya_ezwyc0",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/kumarlavanya07/",
           "instagram": "https://www.instagram.com/kumarlavanya07/",
@@ -291,6 +316,7 @@
         "name": "Asra Jamal",
         "title": "Associate Director",
         "image": "/asra.png",
+        "publicId": "asra_zmzcqb",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/asra-jamal-b5b221276/",
           "instagram": "https://www.instagram.com/asra._.jml/",
@@ -302,6 +328,7 @@
         "name": "Aakanchha Choudhary",
         "title": "Associate Director",
         "image": "/aakanchha.png",
+        "publicId": "aakanchha_jatkc4",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/aakanchha-choudhary-656146282/",
           "instagram": "https://www.instagram.com/muski_muskan1234/",
@@ -313,6 +340,7 @@
         "name": "Pranshu Pranjal",
         "title": "Associate Director",
         "image": "/pranshu.png",
+        "publicId": "pranshu_octul1",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/pranshu-pranjal-1a827428a/",
           "instagram": "https://www.instagram.com/_pranshu1512/",
@@ -326,6 +354,7 @@
         "name": "Sangmesh Biradar",
         "title": "Events Head",
         "image": "/sangmesh.png",
+        "publicId": "sangmesh_iuvn8x",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/sangmesh-biradar-274aaa354/",
           "instagram": "https://www.instagram.com/sangmesh_03/",
@@ -337,6 +366,7 @@
         "name": "Vaibhav Bahal",
         "title": "Events Head",
         "image": "/vaibhav.png",
+        "publicId": "vaibhav_fvxpau",
         "socials": {
           "linkedin": "hhttps://www.linkedin.com/in/vaibhav-bahal-24031b32b/",
           "instagram": null,
@@ -348,6 +378,7 @@
         "name": "Rajiv Kumar",
         "title": "Design Head",
         "image": "/rajiv.png",
+        "publicId": "rajiv_zqdpei",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/rajiv-kumar-893851196/",
           "instagram": "https://www.instagram.com/zazrajiv/",
@@ -359,6 +390,7 @@
         "name": "Sudhanshu Kumar",
         "title": "Design Head",
         "image": "/sudhanshu.png",
+        "publicId": "sudhanshu_u8hjvr",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/sudhanshu-kumar-1211011b4/",
           "instagram": "https://www.instagram.com/_.sudhanshu._27/",
@@ -372,6 +404,7 @@
         "name": "Anuj Nayak",
         "title": "Tech Head",
         "image": "/anuj.png",
+        "publicId": "anuj_kgbn9n",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/anuj-nayak-189a83233/",
           "instagram": "https://www.instagram.com/__anuj__nayak/",
@@ -383,6 +416,7 @@
         "name": "Rishi Agarwal",
         "title": "Tech Head",
         "image": "/rishi.png",
+        "publicId": "rishi_xp4uma",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/rsagbansal/",
           "instagram": null,
@@ -394,6 +428,7 @@
         "name": "Ashish Kumar",
         "title": "Tech Head",
         "image": "/ashish.png",
+        "publicId": "ashish_pnavwg",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/ashish-kumar-997039217/",
           "instagram": "https://www.instagram.com/empty_silhouette_/",
@@ -407,6 +442,7 @@
         "name": "Aman Goyal",
         "title": "Social Media Head",
         "image": "/amang.png",
+        "publicId": "amang_eacfnv",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/aman-goyal-16026a278/",
           "instagram": "https://www.instagram.com/_aman.goyal_._/",
@@ -418,6 +454,7 @@
         "name": "Aayush Sagar",
         "title": "Social Media Head",
         "image": "/aayush.png",
+        "publicId": "aayush_iipvpd",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/aayush-sagar-8978a5281/",
           "instagram": "https://www.instagram.com/s_a_g_ar12/",
@@ -429,6 +466,7 @@
         "name": "Satyam Raj",
         "title": "Public Relations Head",
         "image": "/satyam.png",
+        "publicId": "satyam_ebvfq3",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/satyam-raj-153ba82b8/",
           "instagram": null,
@@ -440,6 +478,7 @@
         "name": "Mayank Krishna",
         "title": "Public Relations Head",
         "image": "/mayank.png",
+        "publicId": "mayank_wyuxzq",
         "socials": {
           "linkedin": null,
           "instagram": "https://www.instagram.com/krishna.mayank29/",
@@ -453,6 +492,7 @@
         "name": "Aditya Roy",
         "title": "Content Head",
         "image": "/roy.png",
+        "publicId": "roy_w8lh0d",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/adityyaroy//",
           "instagram": "https://www.instagram.com/adityya.roy/",
@@ -464,6 +504,7 @@
         "name": "Aditi Singh",
         "title": "Content Head",
         "image": "/aditi.png",
+        "publicId": "aditi_u59eju",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/aditi-singh-441826243/",
           "instagram": "https://www.instagram.com/__aditi.03/",
@@ -475,6 +516,7 @@
         "name": "Amar Kumar",
         "title": "Logistics & Resources Head",
         "image": "/amar.png",
+        "publicId": "amar_jqkxeb",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/amar-kumar11/",
           "instagram": "https://www.instagram.com/___amar2505___/",
@@ -486,6 +528,7 @@
         "name": "Purushottam Mayur",
         "title": "Logistics & Resources Head",
         "image": "/mayur.png",
+        "publicId": "mayur_q1tofd",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/purushottam-mayur-87936a251/",
           "instagram": "https://www.instagram.com/sarcastic.mac/",
@@ -499,6 +542,7 @@
         "name": "Yash Goyal",
         "title": "Senior Executive Member",
         "image": "/yash.png",
+        "publicId": "yash_hg0nps",
         "socials": {
           "linkedin": null,
           "instagram": null,
@@ -510,6 +554,7 @@
         "name": "Hera Siddique",
         "title": "Senior Executive Member",
         "image": "/hera.png",
+        "publicId": "hera_kikqth",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/hera-siddique-9aa67b274/",
           "instagram": "https://www.instagram.com/_.eraaaheyy._/",
@@ -521,6 +566,7 @@
         "name": "Koushik Nakka",
         "title": "Senior Executive Member",
         "image": "/koushik.png",
+        "publicId": "koushik_d7bqwt",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/kiran-siva-koushik-nakka-8b866928b/",
           "instagram": null,
@@ -532,6 +578,7 @@
         "name": "Abhinav Gautam",
         "title": "Senior Executive Member",
         "image": "/gautam.png",
+        "publicId": "gautam_hzeert",
         "socials": {
           "linkedin": "hhttps://www.linkedin.com/in/abhinavgautam2024/",
           "instagram": null,
@@ -543,6 +590,7 @@
         "name": "Harsh Paswan",
         "title": "Senior Executive Member",
         "image": "/harsh.png",
+        "publicId": "harsh_ljcj3k",
         "socials": {
           "linkedin": "https://www.linkedin.com/in/harsh-paswan-6229a6276/",
           "instagram": null,
