@@ -1,62 +1,64 @@
-import React from "react";
-import bg from "/teambg.jpg";
-import one from './CollageImg/1.png'
-import two from './CollageImg/2.png'
-import three from './CollageImg/3.png'
-import four from './CollageImg/4.jpg'
-import five from './CollageImg/5.jpg'
-import six from './CollageImg/6.jpeg'
-import seven from './CollageImg/7.jpeg'
-import eight from './CollageImg/8.jpg'
-import ninth from './CollageImg/9.jpeg'
-import nikhil from './CollageImg/NIKHIL KUMAR.png'
-import varun from './CollageImg/Varun Gupta.jpg'
-import pulkit from './CollageImg/Pulkit Rewri.jpg'
-import diptanshu from './CollageImg/Diptanshu Mahakud.jpg'
-import ved from './CollageImg/ved.png'
+import CldImage from "@/components/Images/CldImage";
+import { motion } from "framer-motion";
 
 function Collage() {
   return (
-    <>
-      <div
-        className="mx-auto bg-cover h-screen relative"
-        style={{ backgroundImage: `url(${bg})` }}
-      >
-        <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
-
-        <div className="relative z-20 flex flex-col lg:flex-row h-full">
-
-          <div className="flex-none lg:w-1/3 lg:h-full md:h-1/4 h-1/6 p-4 pt-28 flex items-center justify-center mt-80 md:mt-0 ">
-
-
-            <h1 className="text-5xl sm:text-5xl font-bold mb-6 items-center text-white lg:leading-[6rem] leading-[3rem] lg:text-[5rem] text-[3rem] pb-12">
-              <span className="block">MEET</span>
-              <span className="block">THE</span>
-              <span className="block">TEAM</span>
-            </h1>
-          </div>
-
-          {/* <div className=" lg:w-2/3 relative p-2 flex items-center justify-center overflow-hidden opacity-0 md:opacity-100">
-            <div className="relative w-[45em] h-[35em]">
-
-
-              <img src={one} alt="Image 1" className="absolute w-[18em] h-[16em] top-[7.125em] left-[12.5em] object-cover rounded-[1.25em]" />
-
-              <img src={seven} alt="Image 1" className="absolute w-[18em] h-[8.25em] top-[24em] left-[12.5em] object-cover rounded-[1.25em]" />
-
-              <img src={five} alt="Image 2" className="absolute w-[9.375em] h-[8.25em] top-[24em] left-[1.625em] object-cover rounded-[1.25em]" />
-              <img src={ved} alt="Image 3" className="absolute w-[12.625em] h-[8.75em] top-[14.625em] left-[-1.625em] object-cover rounded-[1.25em]" />
-              <img src={diptanshu} alt="Image 4" className="absolute w-[9.375em] h-[6.25em] top-[7.5em] left-[1.625em] object-cover rounded-[1.25em]" />
-              <img src={six} alt="Image 5" className="absolute w-[12.5em] h-[6.25em] top-[0em] left-[6.4375em] object-cover rounded-[1.25em]" />
-              <img src={nikhil} alt="Image 6" className="absolute w-[10.5em] h-[6.25em] top-[0em] left-[20em] object-cover rounded-[1.25em]" />
-              <img src={pulkit} alt="Image 7" className="absolute w-[7.5em] h-[9.375em] top-[3.125em] left-[31.5625em] object-cover rounded-[1.25em]" />
-              <img src={ninth} alt="Image 8" className="absolute w-[10.5em] h-[6.25em] top-[13.875em] left-[31.5625em] object-cover rounded-[1.25em]" />
-              <img src={eight} alt="Image 9" className="absolute w-[7.5em] h-[10.625em] top-[21.5em] left-[31.5625em] object-cover rounded-[1.25em]" />
-            </div>
-          </div> */}
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 to-black overflow-hidden">
+      <CldImage
+        src="teambg_kziltz"
+        alt="Background"
+        width={1920}
+        height={1080}
+        className="absolute inset-0 object-cover opacity-40 z-0 select-none pointer-events-none"
+        draggable={false}
+      />
+      {/* Overlay: more blackish */}
+      <div className="absolute inset-0 bg-black/30 z-10"></div>
+      <div className="relative z-20 flex flex-col lg:flex-row w-full max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <div className="flex flex-col justify-center items-center lg:items-start lg:w-1/2 mb-10 lg:mb-0">
+          <h1 className="text-white font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight drop-shadow-lg mb-6 text-center lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 1, type: "spring" }}
+              className="block"
+            >
+              MEET
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 1, type: "spring" }}
+              className="block"
+            >
+              THE
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 1, type: "spring" }}
+              className="block"
+            >
+              TEAM
+            </motion.div>
+          </h1>
+          <motion.p
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 1, type: "spring" }}
+            className="text-base sm:text-lg text-gray-200 max-w-xs sm:max-w-md text-center lg:text-left"
+            style={{
+              WebkitFontSmoothing: "antialiased",
+              MozOsxFontSmoothing: "grayscale",
+              textShadow: "0 1px 8px rgba(0,0,0,0.18)",
+            }}
+          >
+            Creative minds, passionate hearts, and unstoppable energy. Get to
+            know the people behind our success.
+          </motion.p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
