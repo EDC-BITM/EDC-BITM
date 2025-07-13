@@ -1,23 +1,19 @@
 .speakerbg {
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.4), 
-   rgba(0, 0, 0, 0.05)
-  ), url('./speakersbg2.png');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.05)), url('./speakersbg2.png');
   background-size: cover;
- 
+  background-position: center;
+  background-repeat: no-repeat;
   background-blend-mode: multiply;
+  min-height: 90vh;
 }
 
 
 
-
   @media screen and (max-width: 640px) {
-    .speakerbg{
-      background-image: url('./speakersbgmob.jpeg') ;
-    }
-    
+  .speakerbg {
+    background-image: url('./speakersbgmob.jpeg');
   }
+}
   
 .glass-morphism {
     backdrop-filter: blur(10px);
