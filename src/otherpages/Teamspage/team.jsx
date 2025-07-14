@@ -1,12 +1,12 @@
-import React from "react";
 import Collage from "./Collage";
 import Timeline from "./Timeline";
-import "../Teamspage/timeline.css";
-import blob from "/blobs.png";
-import blobR from "/blobR.png";
+import blobL from "@assets/blobs/blobL.png?w=200&format=webp&quality=50&as=meta";
+import blobR from "@assets/blobs/blobR.png?w=200&format=webp&quality=50&as=meta";
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import teamData from "./teamData.json";
+import PropTypes from "prop-types";
+import CldImage from "@/components/Images/CldImage";
 
 // Reusable MemberCard component
 const MemberCard = ({ member }) => {
@@ -15,10 +15,13 @@ const MemberCard = ({ member }) => {
   }
   return (
     <div className="group relative flex flex-col items-center py-4 m-2 w-56 md:w-60 h-auto bg-white/70 backdrop-blur-sm shadow-2xl rounded-3xl transform transition-all duration-300 hover:scale-105 border border-gray-200/50">
-      <img
-        src={member.image}
+      <CldImage
+        src={member.publicId}
         alt={member.name}
-        className="w-40 h-40 md:w-48 md:h-48 object-cover rounded-full border-2 border-white shadow-md mb-4 scale-95 group-hover:scale-100 transition-transform duration-300"
+        width={200}
+        height={200}
+        loading="lazy"
+        className="w-40 h-40 md:w-48 md:h-48 overflow-hidden object-cover rounded-full border-2 border-white shadow-md mb-4 scale-95 group-hover:scale-100 transition-transform duration-300"
       />
       <p className="text-xl font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 text-center">
         {member.name}
@@ -68,6 +71,21 @@ const MemberCard = ({ member }) => {
       </div>
     </div>
   );
+};
+
+MemberCard.propTypes = {
+  member: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    name: PropTypes.string,
+    title: PropTypes.string,
+    publicId: PropTypes.string,
+    socials: PropTypes.shape({
+      linkedin: PropTypes.string,
+      instagram: PropTypes.string,
+      facebook: PropTypes.string,
+      email: PropTypes.string,
+    }),
+  }),
 };
 
 // Helper function to render a row of members
@@ -165,10 +183,56 @@ function Teamspage() {
       </section>
 
       <Timeline />
-      <img src={blob} class="blob11 -z-10 mt-10" />
-      <img src={blob} class="blob22" />
-      <img src={blobR} class="blob33" />
-      <img src={blobR} class="blob55" />
+
+      {/* Blobs */}
+      <img
+        src={blobL.src}
+        alt=""
+        className="absolute w-[13rem] z-[-10] left-0 top-[53rem] opacity-80
+          max-[649px]:w-0 max-[649px]:h-auto max-[649px]:z-[-30] max-[649px]:left-0"
+      />
+      <img
+        src={blobR.src}
+        alt=""
+        className="absolute w-[13rem] z-[-10] right-0 top-[78rem] opacity-80
+          max-[649px]:w-0 max-[649px]:h-auto max-[649px]:z-[-30] max-[649px]:left-0"
+      />
+      <img
+        src={blobL.src}
+        alt=""
+        className="absolute w-[14rem] z-[-10] left-0 top-[120rem] opacity-80
+          max-[649px]:w-0 max-[649px]:h-auto max-[649px]:top-[10rem] max-[649px]:z-[-30] max-[649px]:left-0"
+      />
+      <img
+        src={blobR.src}
+        alt=""
+        className="absolute w-[12rem] z-[-10] right-0 top-[180rem] opacity-80
+          max-[649px]:w-0 max-[649px]:top-[7rem] max-[649px]:z-[-30] max-[649px]:right-0"
+      />
+      <img
+        src={blobL.src}
+        alt=""
+        className="absolute w-[12rem] z-[-10] left-0 top-[230rem] opacity-80
+          max-[649px]:w-0 max-[649px]:h-auto max-[649px]:mt-[30rem] max-[649px]:z-[-30]"
+      />
+      <img
+        src={blobR.src}
+        alt=""
+        className="absolute w-[12rem] z-[-10] right-0 top-[300rem] opacity-80
+          max-[649px]:w-0 max-[649px]:h-auto max-[649px]:mt-[30rem] max-[649px]:z-[-30]"
+      />
+      <img
+        src={blobL.src}
+        alt=""
+        className="absolute w-[12rem] z-[-10] left-0 top-[350rem] opacity-80
+          max-[649px]:w-0 max-[649px]:h-auto max-[649px]:mt-[30rem] max-[649px]:z-[-30]"
+      />
+      <img
+        src={blobR.src}
+        alt=""
+        className="absolute w-[12rem] z-[-10] right-0 top-[400rem] opacity-80
+          max-[649px]:w-0 max-[649px]:h-auto max-[649px]:mt-[30rem] max-[649px]:z-[-30]"
+      />
     </>
   );
 }
