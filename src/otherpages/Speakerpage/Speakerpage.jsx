@@ -1,91 +1,146 @@
-import { useEffect, useState } from "react";
-import blob from "/blobs.png";
-import blobR from "/blobR.png";
+import blobL from "@assets/blobs/blobL.png?w=200&format=webp&quality=50&as=meta";
+import blobR from "@assets/blobs/blobR.png?w=200&format=webp&quality=50&as=meta";
 import SpeakerCard from "./SpeakerCard";
-import speakersMeta from "./speakersMeta";              
+import speakersMeta from "./speakersMeta";
 import "./speakerpage.css";
 import { motion } from "framer-motion";
-
-
-const upVariant = {
-  show: { y: 0, opacity: 1 },
-  hover: { y: -40, opacity: 0, transition: { duration: 0.25, ease: "easeInOut" } },
-};
-const downVariant = {
-  show: { y: 40, opacity: 0 },
-  hover: { y: 0, opacity: 1, transition: { duration: 0.25, ease: "easeInOut" } },
-};
+import CldImage from "@/components/Images/CldImage";
+import HoverTextTranslateEffect from "@/components/Animations/HoverTextTranslate";
 
 function Speakerpage() {
-  const [speakers, setSpeakers] = useState([]);
-
-  
-  useEffect(() => {
-    fetch(
-      "https://edc-cloudinary.salillakra-dev.workers.dev/data/Speakers/gallery"
-    )
-      .then((r) => r.json())
-      .then((cdn) => {
-        
-        const hasImg = {};
-        cdn.forEach((d) => (hasImg[d.publicId] = true));
-
-        
-        setSpeakers(
-          speakersMeta.map((m) => ({
-            ...m,
-            
-            publicId: hasImg[m.publicId] ? m.publicId : "",
-          }))
-        );
-      })
-      .catch(console.error);
-  }, []);
+  const speakers = speakersMeta;
 
   return (
-    <>
-      
-      <div className="flex flex-col items-center w-screen">
-        <div className="speakerbg min-h-[90vh] w-full text-white bg-cover bg-center bg-no-repeat">
-          <div className="h-screen backdrop-brightness-50 flex flex-col justify-center items-center text-center">
-            <h1 className="text-5xl sm:text-6xl uppercase font-extrabold sm:p-4">
-              
-              <motion.div initial="show" whileHover="hover" className="overflow-hidden lg:h-14 relative">
-                <motion.div variants={upVariant} className="absolute inset-0">
-                  India’s finest speakers
-                </motion.div>
-                <motion.div variants={downVariant}>Visionaries</motion.div>
-              </motion.div>
-
-              <motion.div initial="show" whileHover="hover" className="overflow-hidden lg:h-14 relative">
-                <motion.div variants={upVariant} className="absolute inset-0">
-                  at EDC BIT Mesra
-                </motion.div>
-                <motion.div variants={downVariant}>who redefined success</motion.div>
-              </motion.div>
-            </h1>
-          </div>
+    <div className="flex flex-col items-center w-screen overflow-hidden relative min-h-screen">
+      {/* /* Hero Section */}
+      <div className="relative w-full flex items-center justify-center min-h-screen ">
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <CldImage
+            src="speakersbg2_qxr6f8"
+            alt="Speakers Background"
+            height={1080}
+            width={1920}
+            className="w-full h-full object-cover scale-105 brightness-50 custom-object-right-mobile"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-transparent" />
         </div>
-
-        
-        <div className="lg:m-20 px-12 w-full">
-          <h1 className="text-[20px] sm:text-[25px] font-bold mb-6">
-            Notable Past Speakers
-          </h1>
-
-          <div className="grid md:grid-cols-3 grid-cols-1 md:p-8 gap-8 pb-8">
-            {speakers.map((sp) => (
-              <SpeakerCard key={sp.key} {...sp} />
-            ))}
-          </div>
+        <div className="relative z-10 flex flex-col items-center justify-center w-full px-4 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase text-white drop-shadow-lg text-center"
+          >
+            <HoverTextTranslateEffect
+              firstLine="India’s finest speakers"
+              secondLine="at BIT Mesra"
+            />
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
+            className="mt-8 text-lg sm:text-2xl text-gray-200 max-w-2xl text-center flex flex-wrap justify-center gap-x-2"
+          >
+            {"Meet the visionaries, innovators, and leaders who have inspired generations at EDC BIT Mesra"
+              .split(" ")
+              .map((word, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    delay: index * 0.07,
+                    duration: 0.5,
+                    ease: "easeOut",
+                  }}
+                  className="inline-block"
+                >
+                  {word}
+                </motion.span>
+              ))}
+          </motion.p>
         </div>
       </div>
-
-      
-      <img src={blob}  className="blob11 -z-10 mt-10" alt="" />
-      <img src={blob}  className="blob22 -z-10"     alt="" />
-      <img src={blobR} className="blob55 -z-10"      alt="" />
-    </>
+      <section className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 py-12">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center tracking-wide"
+        >
+          Notable Past Speakers
+        </motion.h2>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            show: {
+              opacity: 1,
+              y: 0,
+              transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+            },
+          }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+        >
+          {speakers.map(({ key, ...rest }) => (
+            <motion.div
+              key={key}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+              }}
+              whileHover={{
+                scale: 1.04,
+                boxShadow: "0 8px 32px 0 rgba(31,38,135,0.37)",
+              }}
+            >
+              <SpeakerCard {...rest} />
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+      {/* Blobs */}
+      <img
+        src={blobL.src}
+        alt=""
+        className="absolute w-[13rem] z-[-10] left-0 top-[53rem] opacity-60 blur-sm pointer-events-none
+              max-[649px]:w-0"
+      />
+      <img
+        src={blobR.src}
+        alt=""
+        className="absolute w-[13rem] z-[-10] right-0 top-[78rem] opacity-60 blur-sm pointer-events-none
+              max-[649px]:w-0"
+      />
+      <img
+        src={blobL.src}
+        alt=""
+        className="absolute w-[14rem] z-[-10] left-0 top-[120rem] opacity-60 blur-sm pointer-events-none
+              max-[649px]:w-0"
+      />
+      <img
+        src={blobR.src}
+        alt=""
+        className="absolute w-[12rem] z-[-10] right-0 top-[180rem] opacity-60 blur-sm pointer-events-none
+              max-[649px]:w-0"
+      />
+      <img
+        src={blobL.src}
+        alt=""
+        className="absolute w-[12rem] z-[-10] left-0 top-[230rem] opacity-60 blur-sm pointer-events-none
+              max-[649px]:w-0"
+      />
+      <img
+        src={blobR.src}
+        alt=""
+        className="absolute w-[12rem] z-[-10] right-0 top-[300rem] opacity-60 blur-sm pointer-events-none
+              max-[649px]:w-0"
+      />
+    </div>
   );
 }
 
