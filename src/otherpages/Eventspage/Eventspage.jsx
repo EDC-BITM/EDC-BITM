@@ -1,27 +1,7 @@
 import React from "react";
 import "../Eventspage/Eventspage.css";
-import event1 from "../Eventspage/Image(EVENT)/event1.png";
-import event3 from "../Eventspage/Image(EVENT)/event3.png";
-import event4 from "../Eventspage/Image(EVENT)/event4.png";
-import event6 from "../Eventspage/Image(EVENT)/event6.png";
-import event14 from "../Eventspage/Image(EVENT)/event14.png";
-import event15 from "../Eventspage/Image(EVENT)/event15.png";
-import event17 from "../Eventspage/Image(EVENT)/event17.png";
-import event18 from "../Eventspage/Image(EVENT)/event18.png";
-import event19 from "../Eventspage/Image(EVENT)/event19.png";
-import event20 from "../Eventspage/Image(EVENT)/event20.png";
-import event21 from "../Eventspage/Image(EVENT)/event21.png";
-import event22 from "../Eventspage/Image(EVENT)/event22.png";
-import event23 from "../Eventspage/Image(EVENT)/event23.png";
-
-import event25 from "../Eventspage/Image(EVENT)/event25.png";
-import event26 from "../Eventspage/Image(EVENT)/event26.png";
-import event27 from "../Eventspage/Image(EVENT)/event27.png";
-import event28 from "../Eventspage/Image(EVENT)/event28.png";
-import event29 from "../Eventspage/Image(EVENT)/event29.png";
-import event30 from "../Eventspage/Image(EVENT)/event30.png";
-import event31 from "../Eventspage/Image(EVENT)/event31.png";
-import event32 from "../Eventspage/Image(EVENT)/event32.png";
+import CldImageData from "@/data/CldImage.json";
+import CldImage from "../../components/Images/CldImage";
 import leaf1 from "../Eventspage/leaf.png";
 import leaf2 from "../Eventspage/leaf2.png";
 import Socials from "../../components/Home/socials/socials";
@@ -49,106 +29,13 @@ import { motion } from "framer-motion";
 
 function Eventspage() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const heroImage = CldImageData.Events.hero[0];
+  
+  const eventsImage = CldImageData.Events.formalEvents;
+  const eventsImage2 = CldImageData.Events.semiFormalEvents;
+  const eventsImage3 = CldImageData.Events.informalEvents;
 
-  const events3 = [
-    {
-      image: event20,
-      title: "BAZAAR CLASH",
-      venue: "ROOM 220",
-      date: "31/01/25",
-    },
-    {
-      image: event22,
-      title: "IPL AUCTION",
-      venue: "LH-1",
-      date: "01/02/25",
-    },
-    {
-      image: event19,
-      title: "BGMI TOURNAMENT",
-      venue: "",
-      date: "01/02/25",
-    },
-    {
-      image: event23,
-      title: "INTELLIGENT INVESTOR",
-      venue: "ROOM219",
-      date: "31/01/25",
-    },
-    {
-      image: event25,
-      title: "UI/UX ARENA",
-      venue: "ROOM 220",
-      date: "02/02/25",
-    },
-  ];
-
-  const events2 = [
-    {
-      image: event32,
-      title: "BEHIND THE FRAMES",
-      venue: "CAT HALL",
-      date: "15/02/25",
-    },
-    {
-      image: event27,
-      title: "STELLER FIRESIDE CHAT",
-      venue: "CAT HALL",
-      date: "02/02/25",
-    },
-    {
-      image: event30,
-      title: "LIVE SESSION",
-      venue: "GOOGLE MEET",
-      date: "10/03/25",
-    },
-    {
-      image: event31,
-      title: "GROW SESSION",
-      venue: "CAT HALL",
-      date: "20/02/25",
-    },
-    {
-      image: event26,
-      title: "AD VENTURE",
-      venue: "ROOM 217",
-      date: "28/01/25",
-    },
-  ];
-
-  const events1 = [
-    {
-      image: event28,
-      title: "INNOVATION WEBINAR",
-      venue: "GOOGLE MEET",
-      date: "15/05/25",
-    },
-    {
-      image: event21,
-      title: "B-PLAN COMPETITION",
-      venue: "SEMINAR HALL-1",
-      date: "01/02/25",
-    },
-    {
-      image: event29,
-      title: "PITCH SUMMIT",
-      venue: "SEMINAR HALL-1",
-      date: "15/04/25",
-    },
-    {
-      image: event18,
-      title: "UI/UX WORKSHOP",
-      venue: "ROOM 220",
-      date: "25/01/25",
-    },
-    {
-      image: event15,
-      title: "STARTUP EXPO",
-      venue: "SHORBAGH",
-      date: "01/02/25",
-    },
-  ];
-
+  
   const AllEvents = [
     {
       image: card4,
@@ -190,6 +77,7 @@ const downVariant = {
 };
 
 
+
   return (
     <>
       <div className="h-auto w-full">
@@ -197,11 +85,14 @@ const downVariant = {
 
          <div className="relative h-screen w-full">
   {/* Background Image */}
-  <img
-    src={header_bg}
-    alt="Background"
-    className="h-screen w-full object-cover"
-  />
+     <CldImage
+             src={heroImage.publicId}
+             alt={heroImage.alt}
+             height={heroImage.height}
+             width={heroImage.width}
+             loading="eager"
+             className="w-full h-full"
+           />
 
   {/* Overlay Text on Image */}
   <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center">
@@ -364,12 +255,12 @@ const downVariant = {
             <h1 className="font-bold text-[32px] uppercase  ">Formal Events</h1>
 
             <div className="flex flex-wrap justify-center gap-6 mt-6">
-              {events1.map((event, index) => (
+              {eventsImage.map((event, index) => (
                 <div key={index} className="event-card-container">
                   <div className="event-card">
                     <img
-                      src={event.image}
-                      alt="Event"
+                      src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419389/${event.publicId}.png`}
+                      alt={event.alt}
                       className="event-image"
                     />
                     <div className="event-details">
@@ -397,12 +288,12 @@ const downVariant = {
               Semi-Formal Events
             </h1>
             <div className="flex flex-wrap justify-center gap-6 mt-6">
-              {events2.map((event, index) => (
+              {eventsImage2.map((event, index) => (
                 <div key={index} className="event-card-container">
                   <div className="event-card">
                     <img
-                      src={event.image}
-                      alt="Event"
+                      src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419204/${event.publicId}.png`}
+                      alt={event.alt}
                       className="event-image"
                     />
                     <div className="event-details">
@@ -429,12 +320,12 @@ const downVariant = {
           >
             <h1 className="font-bold text-[32px] uppercase">Informal Events</h1>
             <div className="flex flex-wrap justify-center gap-6 mt-6">
-              {events3.map((event, index) => (
+              {eventsImage3.map((event, index) => (
                 <div key={index} className="event-card-container">
                   <div className="event-card">
                     <img
-                      src={event.image}
-                      alt="Event"
+                      src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419631/${event.publicId}.png`}
+                      alt={event.alt}
                       className="event-image"
                     />
                     <div className="event-details">

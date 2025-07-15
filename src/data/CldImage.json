@@ -216,5 +216,181 @@
         }
       
     ]
+  },
+  
+  "Events" : {
+    "hero" : [
+      {
+        "publicId": "header_bg_tnadtt",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600
+       }  
+       ],
+        
+       
+    "formalEvents": [
+       {
+        "key": 1,
+        "publicId": "event28_fpobku",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title": "INNOVATION WEBINAR",
+        "venue": "GOOGLE MEET",
+        "date": "15/05/25"
+      },
+      {
+        "key": 2,
+        "publicId": "event21_utq4ch",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title": "B-PLAN COMPETITION",
+        "venue": "SEMINAR HALL-1",
+        "date": "01/02/25"
+      },
+      {
+        "key": 3,
+        "publicId": "event29_shzcpa",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title": "PITCH SUMMIT",
+        "venue": "SEMINAR HALL-1",
+        "date": "15/04/25"
+      },
+      {
+        "key": 4,
+        "publicId": "event18_svwacz",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title": "UI/UX WORKSHOP",
+        "venue": "ROOM 220",
+        "date": "25/01/25"
+      },
+      {
+        "key": 5,
+        "publicId": "event15_lyjfy6",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title": "STARTUP EXPO",
+        "venue": "SHORBAGH",
+        "date": "01/02/25"
+      }
+      
+     
+    ],
+
+    "semiFormalEvents" : [
+      {
+        "key": 1,
+        "publicId": "event32_xe0trx",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title": "BEHIND THE FRAMES",
+        "venue": "CAT HALL",
+        "date": "15/02/25"
+      },
+      {
+        "key": 2,
+        "publicId": "event27_ltmhbx",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title": "STELLER FIRESIDE CHAT",
+        "venue": "CAT HALL",
+        "date" : "02/02/25"
+      },
+      {
+        "key": 3,
+        "publicId": "event30_rifjcn",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title": "LIVE SESSION",
+        "venue": "GOOGLE MEET",
+        "date": "10/03/25"
+      },
+      {
+        "key": 4,
+        "publicId": "event31_odwb8w",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title": "GROW SESSION",
+        "venue": "CAT HALL",
+        "date": "20/02/25"
+      },
+      {
+        "key": 5,
+        "publicId": "event26_owtrko",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title": "AD VENTURE",
+        "venue": "ROOM 217",
+        "date" : "28/01/25"
+
+      }
+    ],
+    "informalEvents" : [
+      {
+        "key": 1,
+        "publicId": "event20_fvt9vz",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title": "BAZAAR CLASH",
+        "venue": "ROOM 220",
+        "date": "31/01/25"
+        
+      },
+      {
+        "key": 2,
+        "publicId": "event22_n9fvpw",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title": "IPL AUCTION",
+        "venue": "LH-1",
+        "date": "01/02/25"
+      },
+      {
+        "key": 3,
+        "publicId": "event19_b9o8kq",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title": "BGMI TOURNAMENT",
+        "venue": "",
+        "date": "01/02/25"
+      },
+      {
+        "key": 4,
+        "publicId": "event23_rdsl7o",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title" : "INTELLIGENT INVESTOR",
+        "venue" : "ROOM219",
+        "date" : "31/01/25"   
+      },
+      {
+        "key": 5,
+        "publicId": "event25_q45dbw",
+        "alt": "Event Image",
+        "width": 1200,
+        "height": 600,
+        "title" : "UI/UX ARENA",
+        "venue" : "ROOM 220",
+        "date"  : "02/02/25"
+        }
+      ]
+    
+    }
+  
   }
-}
