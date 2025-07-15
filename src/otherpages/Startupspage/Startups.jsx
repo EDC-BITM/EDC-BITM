@@ -2,6 +2,29 @@ import React from "react";
 import startup1 from "./Startupspic/img1.png";
 import startup2 from "./Startupspic/img2.png";
 import heroImage from "./Startupspic/startuphome.png";
+import bhorukaLogo from "./Startupspic/bhoruka.png";
+import auraLogo from "./Startupspic/aura.png";
+import triviumLogo from "./Startupspic/trivium.png";
+import tanaashiLogo from "./Startupspic/tanaashi.png";
+import tejasLogo from "./Startupspic/tejas.png";
+import netwovenLogo from "./Startupspic/netwoven.png";
+import crmnextLogo from "./Startupspic/crmnext.png";
+import foodsafetylogo from "./Startupspic/foodsafety.svg";
+import ekoLogo from "./Startupspic/eko.svg";
+import dbsyncLogo from "./Startupspic/dbsync.svg";
+import Lenskartlogo from "./Startupspic/lenskart.svg";
+import cropinLogo from "./Startupspic/cropin.png";
+import indibnilogo from "./Startupspic/indibni.svg";
+import myoperatorLogo from "./Startupspic/myoperator.png";
+import easebuzzlogo from "./Startupspic/easebuzz.png";
+import piggylogo from "./Startupspic/piggy.svg";
+import khabrilogo from "./Startupspic/khabri.png";
+import Whitehatlogo from "./Startupspic/WhiteHat.svg";
+import quolumlogo from "./Startupspic/quolum.png";
+import swiftskilllogo from "./Startupspic/swiftskill.png";
+import floworkslogo from "./Startupspic/floworks.png";
+import alcheymistlogo from "./Startupspic/alcheymist.png";
+import zlurilogo from "./Startupspic/zluri.png";
 
 const Startups = () => {
   const timeline = [
@@ -9,28 +32,28 @@ const Startups = () => {
       year: "1958",
       company: "Bhoruka",
       desc: "Bhoruka Power is charting its own pioneering path in the rapidly growing field of renewable energy.",
-      logo: "https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752423745/bhoruka-web.jpg_1_mjlmbt.png",
+      logo: bhorukaLogo,
       side: "left",
     },
     {
       year: "1989",
       company: "Aura Inc.",
       desc: "We manufacture instrumentation fittings, valves, and temperature sensor assemblies.",
-      logo: "https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752423774/aura-logo_1_wzznqe.png",
+      logo: auraLogo,
       side: "right",
     },
     {
       year: "1995",
       company: "TriVium",
       desc: "A leading provider of smart business productivity solutions for voice and data convergence.",
-      logo: "https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752423837/trivium_abixed.png",
+      logo: triviumLogo,
       side: "left",
     },
     {
       year: "1999",
       company: "Tanaashi",
       desc: "Tanaashi Group was founded with the vision of providing complete solutions to the industry in the fields of software development.",
-      logo: "https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752423846/tanaashi_hnmxnu.png",
+      logo: tanaashiLogo,
       side: "right",
     },
     {
@@ -68,6 +91,105 @@ const Startups = () => {
       logo: dbsyncLogo,
       side: "left",
     },
+    {
+      year: "2009",
+      company: "Food Safety Works",
+      desc: "It bridges the knowledge gap in the industry about Food Safety Management Systems.",
+      logo: foodsafetylogo,
+      side: "right",
+    },
+    {
+      year: "2010",
+      company: "Lenskart",
+      desc: "Lenskart is an Indian optical prescription eyewear retail chain, based in Faridabad.",
+      logo: Lenskartlogo,
+      side: "left",
+    },
+    {
+      year: "2010",
+      company: "Cropin",
+      desc: "CropIn Technology solutions is a company that offers an intelligent and selfevolving system that delivers farming solutions to the agricultural sector.",
+      logo: cropinLogo,
+      side: "right",
+    },
+    {
+      year: "2012",
+      company: "Indibni",
+      desc: "Indibni Private limited is the root and regulatory body, assuring vertical and horizontal expansion of Indibrand and vision.",
+      logo: indibnilogo,
+      side: "left",
+    },
+    {
+      year: "2013",
+      company: "My Operator",
+      desc: "MyOperator is a cloud based telephony service provider company based in New Delhi.",
+      logo: myoperatorLogo,
+      side: "right",
+    },
+    {
+      year: "2014",
+      company: "Easebuzz",
+      desc: "Easebuzz is one of India's Leading Digital Payment Solutions Platform with more than 70,000+ businesses .",
+      logo: easebuzzlogo,
+      side: "left",
+    },
+    {
+      year: "2016",
+      company: "Piggy",
+      desc: "At Piggy, our mission is to democratis e personal finance and bring it within the reach of over a billion Indians.",
+      logo: piggylogo,
+      side: "right",
+    },
+    {
+      year: "2017",
+      company: "Khabri",
+      desc: "Khabri is India's Fastest Growing Vernacular Audio Podcast platform enabling next billion internet users to create & consume information and content .",
+      logo: khabrilogo,
+      side: "left",
+    },
+    {
+      year: "2018",
+      company: "WhiteHat Jr",
+      desc: "WhiteHat Jr is an Indian online educational technology company, which mainly provides coding classes for children.",
+      logo: Whitehatlogo,
+      side: "right",
+    },
+    {
+      year: "2019",
+      company: "Quolum",
+      desc: "At Quolum, we are building a new stack to help every company effectively consume SaaS at scale.",
+      logo: quolumlogo,
+      side: "left",
+    },
+      {
+      year: "2020",
+      company: "SwiftSkill",
+      desc: "SwiftSkill is an esports analytics, strategy, and efficient team collaboratio n platform that helps you become a monster gamer.",
+      logo: swiftskilllogo,
+      side: "right",
+    },
+    {
+      year: "2021",
+      company: "Floworks",
+      desc: "Reps juggle lead generation, emails, calls, meetings, and CRM updates all in limited time. Floworks solves this with AI-powered sales employees, utomating outreach,replies, bookings, and CRM updates.",
+      logo: floworkslogo,
+      side: "left",
+    },
+    {
+      year: "2023",
+      company: "Alchesymist AI",
+      desc: "Building the future of the AI agents workforce. Backed by Inflection Point Ventures, 100Unicorns,EarlySeed Ventures..",
+      logo: alcheymistlogo,
+      side: "right",
+    },
+    {
+      year: "2024",
+      company: "Zluri",
+      desc: "Zluri is a next-gen Identity Governance and Administrat ion (IGA) platform that helps IT and security teams discover identities, manage access, and automate reviews from a single interface.",
+      logo:zlurilogo,
+      side: "left",
+    },
+    
   ];
 
   return (
