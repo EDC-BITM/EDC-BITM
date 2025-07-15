@@ -109,7 +109,7 @@ function Stats() {
                     height={CldImageData.Home.stats[0].height}
                     width={CldImageData.Home.stats[0].width}
                     loading="lazy"
-                    className="w-full h-full object-cover hover:scale-105 duration-1000 transition-all rounded-xl"
+                    className="w-full h-full object-cover hover:scale-110 duration-700 ease-in-out transition-transform rounded-xl"
                     fill
                   />
                 </div>
@@ -122,7 +122,7 @@ function Stats() {
                     height={CldImageData.Home.stats[1].height}
                     width={CldImageData.Home.stats[1].width}
                     loading="lazy"
-                    className="w-full h-full object-cover hover:scale-105 duration-1000 transition-all rounded-xl"
+                    className="w-full h-full object-cover hover:scale-110 duration-700 ease-in-out transition-transform rounded-xl"
                     fill
                   />
                 </div>
