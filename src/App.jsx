@@ -12,7 +12,7 @@ import Home from "./Home.jsx";
 import Speakerpage from "./otherpages/Speakerpage/Speakerpage.jsx";
 import Eventspage from "./otherpages/Eventspage/Eventspage.jsx";
 import Teamspage from "./otherpages/Teamspage/team.jsx";
-import Apppage from "./otherpages/Apppage/Apppage.jsx";
+import Startups from "./otherpages/Startupspage/Startups.jsx";
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -85,8 +85,8 @@ const router = createBrowserRouter([
     element: <RouteLayout Component={Teamspage} />,
   },
   {
-    path: "/App",
-    element: <RouteLayout Component={Apppage} />,
+    path: "/Startups",
+    element: <RouteLayout Component={Startups} />,
   },
 ]);
 
