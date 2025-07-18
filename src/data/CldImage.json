@@ -215,8 +215,10 @@
           "height": 650
         }
       
-    ],
-    "Events" : {
+    ]
+  },
+  
+  "Events" : {
     "hero" : [
       {
         "publicId": "header_bg_tnadtt",
@@ -388,9 +390,10 @@
         "date"  : "02/02/25"
         }
       ]
+    
+    }
+  
   }
-}
-}
   
   
 
