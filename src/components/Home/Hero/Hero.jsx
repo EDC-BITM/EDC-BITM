@@ -6,7 +6,6 @@ import blobR from "@assets/blobs/blobR.png?w=200&format=webp&quality=50&as=meta"
 import HoverTextTranslateEffect from "@/components/Animations/HoverTextTranslate";
 
 function Hero() {
-  console.log("blobs", blobL, blobR);
   const heroImage = CldImageData.Home.hero[0];
   return (
     <div className="h-screen p-0 w-full m-0">

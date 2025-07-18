@@ -1,277 +1,488 @@
-import React from "react";
-import startup1 from "./Startupspic/img1.png";
-import startup2 from "./Startupspic/img2.png";
-import heroImage from "./Startupspic/startuphome.png";
-import bhorukaLogo from "./Startupspic/bhoruka.png";
-import auraLogo from "./Startupspic/aura.png";
-import triviumLogo from "./Startupspic/trivium.png";
-import tanaashiLogo from "./Startupspic/tanaashi.png";
-import tejasLogo from "./Startupspic/tejas.png";
-import netwovenLogo from "./Startupspic/netwoven.png";
-import crmnextLogo from "./Startupspic/crmnext.png";
+import blobL from "@assets/blobs/blobL.png?w=100&format=webp&quality=90&as=meta";
+import blobR from "@assets/blobs/blobR.png?w=100&format=webp&quality=90&as=meta";
+import bhorukaLogo from "./Startupspic/bhoruka.png?w=100&format=webp&quality=90";
+import auraLogo from "./Startupspic/aura.png?w=100&format=webp&quality=90";
+import triviumLogo from "./Startupspic/trivium.png?w=100&format=webp&quality=90";
+import tanaashiLogo from "./Startupspic/tanaashi.png?w=100&format=webp&quality=90";
+import tejasLogo from "./Startupspic/tejas.png?w=100&format=webp&quality=90";
+import netwovenLogo from "./Startupspic/netwoven.png?w=100&format=webp&quality=90";
+import crmnextLogo from "./Startupspic/crmnext.png?w=100&format=webp&quality=90";
 import foodsafetylogo from "./Startupspic/foodsafety.svg";
 import ekoLogo from "./Startupspic/eko.svg";
 import dbsyncLogo from "./Startupspic/dbsync.svg";
 import Lenskartlogo from "./Startupspic/lenskart.svg";
-import cropinLogo from "./Startupspic/cropin.png";
+import cropinLogo from "./Startupspic/cropin.png?w=100&format=webp&quality=90";
 import indibnilogo from "./Startupspic/indibni.svg";
-import myoperatorLogo from "./Startupspic/myoperator.png";
-import easebuzzlogo from "./Startupspic/easebuzz.png";
+import myoperatorLogo from "./Startupspic/myoperator.png?w=100&format=webp&quality=90";
+import easebuzzlogo from "./Startupspic/easebuzz.png?w=100&format=webp&quality=90";
 import piggylogo from "./Startupspic/piggy.svg";
-import khabrilogo from "./Startupspic/khabri.png";
+import khabrilogo from "./Startupspic/khabri.png?w=100&format=webp&quality=90";
 import Whitehatlogo from "./Startupspic/WhiteHat.svg";
-import quolumlogo from "./Startupspic/quolum.png";
-import swiftskilllogo from "./Startupspic/swiftskill.png";
-import floworkslogo from "./Startupspic/floworks.png";
-import alcheymistlogo from "./Startupspic/alcheymist.png";
-import zlurilogo from "./Startupspic/zluri.png";
+import quolumlogo from "./Startupspic/quolum.png?w=100&format=webp&quality=90";
+import swiftskilllogo from "./Startupspic/swiftskill.png?w=100&format=webp&quality=90";
+import floworkslogo from "./Startupspic/floworks.png?w=100&format=webp&quality=90";
+import alcheymistlogo from "./Startupspic/alcheymist.png?w=100&format=webp&quality=90";
+import zlurilogo from "./Startupspic/zluri.png?w=100&format=webp&quality=90";
+import CldImage from "@/components/Images/CldImage";
+import { IoRocket, IoTrophySharp } from "react-icons/io5";
+import { GiUnicorn } from "react-icons/gi";
+import { scroller } from "react-scroll";
+import { motion } from "framer-motion";
+import FadeUpAnimation from "@/components/Animations/FadeUp";
 
 const Startups = () => {
+  const headingVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const textWord = {
+    hidden: { opacity: 0 },
+    visible: (i) => ({
+      opacity: 1,
+      transition: {
+        delay: i * 0.099,
+        duration: 1.5,
+        ease: "easeOut",
+      },
+    }),
+  };
   const timeline = [
     {
       year: "1958",
       company: "Bhoruka",
-      desc: "Bhoruka Power is charting its own pioneering path in the rapidly growing field of renewable energy.",
+      desc: "Charting a pioneering path in the rapidly growing field of renewable energy.",
       logo: bhorukaLogo,
-      side: "left",
     },
     {
       year: "1989",
       company: "Aura Inc.",
-      desc: "We manufacture instrumentation fittings, valves, and temperature sensor assemblies.",
+      desc: "Manufacturing instrumentation fittings, valves, and temperature sensor assemblies.",
       logo: auraLogo,
-      side: "right",
     },
     {
       year: "1995",
       company: "TriVium",
       desc: "A leading provider of smart business productivity solutions for voice and data convergence.",
       logo: triviumLogo,
-      side: "left",
     },
     {
       year: "1999",
       company: "Tanaashi",
-      desc: "Tanaashi Group was founded with the vision of providing complete solutions to the industry in the fields of software development.",
+      desc: "Providing complete solutions to the industry in the fields of software development.",
       logo: tanaashiLogo,
-      side: "right",
     },
     {
       year: "2000",
       company: "TEJAS Networks",
       desc: "A leading telecom product company for network infrastructure across the globe.",
       logo: tejasLogo,
-      side: "left",
     },
     {
       year: "2001",
       company: "Netwoven",
       desc: "Helping businesses embrace digital transformation through scalable cloud solutions.",
       logo: netwovenLogo,
-      side: "right",
     },
     {
       year: "2002",
       company: "CRMNEXT",
       desc: "A leading CRM solution that improves customer experience through automation.",
       logo: crmnextLogo,
-      side: "left",
     },
-     {
+    {
       year: "2007",
       company: "Eko",
-      desc: "Eko India Financial Services Pvt. Ltd. is an Indian fintech company ,service for SBI,ICICI and Yes bank.",
+      desc: "An Indian fintech company providing services for major banks like SBI, ICICI, and Yes Bank.",
       logo: ekoLogo,
-      side: "right",
     },
     {
       year: "2009",
       company: "DBSync",
-      desc: "DBSync is a complete on-demand integration & replication provider that empires companies to connect any combination of SaaS,cloud and on-premise applications together.",
+      desc: "An on-demand integration provider connecting any combination of SaaS and cloud applications.",
       logo: dbsyncLogo,
-      side: "left",
     },
     {
       year: "2009",
       company: "Food Safety Works",
-      desc: "It bridges the knowledge gap in the industry about Food Safety Management Systems.",
+      desc: "Bridging the knowledge gap in the industry about Food Safety Management Systems.",
       logo: foodsafetylogo,
-      side: "right",
     },
     {
       year: "2010",
       company: "Lenskart",
-      desc: "Lenskart is an Indian optical prescription eyewear retail chain, based in Faridabad.",
+      desc: "An Indian optical prescription eyewear retail chain, revolutionizing the industry.",
       logo: Lenskartlogo,
-      side: "left",
     },
     {
       year: "2010",
       company: "Cropin",
-      desc: "CropIn Technology solutions is a company that offers an intelligent and selfevolving system that delivers farming solutions to the agricultural sector.",
+      desc: "Offering an intelligent, self-evolving system that delivers farming solutions to agriculture.",
       logo: cropinLogo,
-      side: "right",
     },
     {
       year: "2012",
       company: "Indibni",
-      desc: "Indibni Private limited is the root and regulatory body, assuring vertical and horizontal expansion of Indibrand and vision.",
+      desc: "The root and regulatory body, assuring expansion of the Indibrand and its vision.",
       logo: indibnilogo,
-      side: "left",
     },
     {
       year: "2013",
       company: "My Operator",
-      desc: "MyOperator is a cloud based telephony service provider company based in New Delhi.",
+      desc: "A cloud-based telephony service provider company based in New Delhi.",
       logo: myoperatorLogo,
-      side: "right",
     },
     {
       year: "2014",
       company: "Easebuzz",
-      desc: "Easebuzz is one of India's Leading Digital Payment Solutions Platform with more than 70,000+ businesses .",
+      desc: "One of India's leading digital payment solution platforms for over 70,000 businesses.",
       logo: easebuzzlogo,
-      side: "left",
     },
     {
       year: "2016",
       company: "Piggy",
-      desc: "At Piggy, our mission is to democratis e personal finance and bring it within the reach of over a billion Indians.",
+      desc: "On a mission to democratize personal finance for over a billion Indians.",
       logo: piggylogo,
-      side: "right",
     },
     {
       year: "2017",
       company: "Khabri",
-      desc: "Khabri is India's Fastest Growing Vernacular Audio Podcast platform enabling next billion internet users to create & consume information and content .",
+      desc: "India's fastest-growing vernacular audio podcast platform for the next billion users.",
       logo: khabrilogo,
-      side: "left",
     },
     {
       year: "2018",
       company: "WhiteHat Jr",
-      desc: "WhiteHat Jr is an Indian online educational technology company, which mainly provides coding classes for children.",
+      desc: "An online educational tech company providing coding classes for children.",
       logo: Whitehatlogo,
-      side: "right",
     },
     {
       year: "2019",
       company: "Quolum",
-      desc: "At Quolum, we are building a new stack to help every company effectively consume SaaS at scale.",
+      desc: "Building a new stack to help every company effectively consume SaaS at scale.",
       logo: quolumlogo,
-      side: "left",
     },
-      {
+    {
       year: "2020",
       company: "SwiftSkill",
-      desc: "SwiftSkill is an esports analytics, strategy, and efficient team collaboratio n platform that helps you become a monster gamer.",
+      desc: "An esports analytics, strategy, and team collaboration platform for gamers.",
       logo: swiftskilllogo,
-      side: "right",
     },
     {
       year: "2021",
       company: "Floworks",
-      desc: "Reps juggle lead generation, emails, calls, meetings, and CRM updates all in limited time. Floworks solves this with AI-powered sales employees, utomating outreach,replies, bookings, and CRM updates.",
+      desc: "Using AI-powered sales employees to automate outreach, replies, and CRM updates.",
       logo: floworkslogo,
-      side: "left",
     },
     {
       year: "2023",
       company: "Alchesymist AI",
-      desc: "Building the future of the AI agents workforce. Backed by Inflection Point Ventures, 100Unicorns,EarlySeed Ventures..",
+      desc: "Building the future of the AI agent workforce, backed by prominent VCs.",
       logo: alcheymistlogo,
-      side: "right",
     },
     {
       year: "2024",
       company: "Zluri",
-      desc: "Zluri is a next-gen Identity Governance and Administrat ion (IGA) platform that helps IT and security teams discover identities, manage access, and automate reviews from a single interface.",
-      logo:zlurilogo,
-      side: "left",
+      desc: "A next-gen Identity Governance platform for IT and security teams.",
+      logo: zlurilogo,
     },
-    
   ];
 
   return (
-    <div className="bg-[#f1f8f4] font-sans text-gray-800">
-      {/* Hero Section */}
-      <div
-        className="relative w-full h-[500px] bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-          <h1 className="text-white text-3xl md:text-5xl font-bold text-center px-4">
-            INNOVATING FROM THE HEART OF <br /> BIT MESRA, WHERE IDEAS MEET IMPACT.
-          </h1>
+    <div className="bg-gray-100 font-sans relative text-gray-800 overflow-x-hidden">
+      <div className="relative w-full h-[54rem] md:h-[700px] lg:h-[800px] overflow-hidden">
+        <CldImage
+          src="startuphome_p6blhu"
+          height={1080}
+          width={1920}
+          alt="Hero Image"
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent" />
+
+        <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4 sm:px-6">
+          <motion.div
+            variants={headingVariants}
+            initial="hidden"
+            animate="visible"
+            className="mb-4"
+          >
+            <motion.h1
+              variants={headingVariants}
+              className="text-white tracking-tight text-4xl md:text-5xl lg:text-6xl font-extrabold"
+            >
+              Innovating From The Heart
+            </motion.h1>
+            <motion.h2
+              variants={headingVariants}
+              className="text-green-400 tracking-tight text-3xl md:text-4xl font-bold mt-2"
+            >
+              Where Ideas Meet Impact
+            </motion.h2>
+          </motion.div>
+
+          <motion.p
+            className="text-gray-300 text-lg md:text-xl mt-6 max-w-2xl"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {"Explore the legacy of entrepreneurship born at BIT Mesra"
+              .split(" ")
+              .map((word, i) => (
+                <motion.span
+                  key={i}
+                  variants={textWord}
+                  custom={i}
+                  className={`inline-block ${
+                    word === "BIT" || word === "Mesra"
+                      ? "text-yellow-400 font-semibold"
+                      : ""
+                  } mr-2`}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            <span className="text-yellow-400 font-semibold">.</span>
+          </motion.p>
+          {/* Button */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.6, ease: "easeOut" }}
+            className="mt-8"
+          >
+            <button
+              onClick={() =>
+                scroller.scrollTo("startups", {
+                  smooth: true,
+                  duration: 500,
+                  offset: -70,
+                })
+              }
+              className="group bg-white/10 hover:bg-white/20 border border-white text-white px-8 py-2 text-lg rounded-xl backdrop-blur-md shadow-xl transition-all duration-300 ease-in-out hover:scale-105"
+            >
+              <span className="group-hover:text-yellow-300">
+                Explore Startups
+              </span>
+            </button>
+          </motion.div>
         </div>
       </div>
 
-      {/* Startup Info Section */}
-      <section className="max-w-6xl mx-auto p-8 bg-white shadow rounded-lg mt-[-4rem] relative z-10">
-        <h2 className="text-green-700 font-bold text-lg mb-4">STARTUPS</h2>
-        <p className="text-sm leading-relaxed">
-          Entrepreneurship Development Cells (EDCs) are campus-based initiatives that aim to inspire and support students in becoming future entrepreneurs by fostering innovation, creativity, and leadership. They provide a platform where students can explore ideas, build startups, and gain real-world business exposure through mentorship, workshops, networking events, and access to funding.
-        </p>
-        <div className="grid md:grid-cols-2 gap-6 mt-6">
-          <img src={startup1} alt="Startup 1" className="rounded-lg w-full h-auto" />
-          <img src={startup2} alt="Startup 2" className="rounded-lg w-full h-auto" />
-        </div>
-        <div className="flex justify-around text-center mt-6">
-          <div>
-            <span className="text-yellow-500 text-2xl font-bold">50+</span>
-            <p>Startups</p>
-          </div>
-          <div>
-            <span className="text-blue-500 text-2xl font-bold">40+</span>
-            <p>Success</p>
-          </div>
-          <div>
-            <span className="text-orange-600 text-2xl font-bold">2+</span>
-            <p>Unicorns</p>
-          </div>
-        </div>
-      </section>
+      <FadeUpAnimation>
+        <section
+          id="startups"
+          className="max-w-7xl  z-20 glass-morphic mx-auto p-6 sm:p-10 shadow-2xl rounded-xl md:-mt-20 relative animate-fade-in-up flex flex-col md:flex-row gap-10"
+        >
+          {/* Text Content */}
+          <div className="flex-1 flex flex-col justify-center">
+            <div className="flex items-center mb-6">
+              <div className="h-[50px] w-[50px] bg-[#FED853] rounded-md shadow-md"></div>
+              <h1 className="text-[28px] ml-[-35px] font-bold uppercase tracking-wide text-gray-800">
+                Startups
+              </h1>
+            </div>
 
-      {/* Timeline Section */}
-       
-        <section className="max-w-6xl mx-auto p-8 relative">
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full border-l-4 border-green-600"></div>
-       
-        {timeline.map((item, index) => (
-          <div key={index} className="mb-12 flex flex-col md:flex-row items-center justify-between relative">
-            {index % 2 === 0 ? (
-              <>
-                <div className="md:w-[45%] p-4"></div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 bg-green-600 text-white w-14 h-14 flex items-center justify-center rounded-full text-lg font-bold shadow">
-                  {item.year}
-                </div>
-                <div className="md:w-[45%] p-4">
-                  <div className="bg-white p-4 shadow rounded-lg">
-                    <img src={item.logo} alt={`${item.company} logo`} className="w-24 mb-2" />
-                    <h3 className="font-semibold text-lg">{item.company}</h3>
-                    <p className="mt-2 text-sm text-gray-600">{item.desc}</p>
-                  </div>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="md:w-[45%] p-4">
-                  <div className="bg-white p-4 shadow rounded-lg">
-                    <img src={item.logo} alt={`${item.company} logo`} className="w-24 mb-2" />
-                    <h3 className="font-semibold text-lg">{item.company}</h3>
-                    <p className="mt-2 text-sm text-gray-600">{item.desc}</p>
-                  </div>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 bg-green-600 text-white w-14 h-14 flex items-center justify-center rounded-full text-lg font-bold shadow">
-                  {item.year}
-                </div>
-                <div className="md:w-[45%] p-4"></div>
-              </>
-            )}
-          </div>
-        ))}
-      </section>
+            <p className="text-md text-gray-600 leading-relaxed">
+              Entrepreneurship Development Cells (EDCs) are campus-based
+              initiatives that aim to inspire and support students in becoming
+              future entrepreneurs by fostering innovation, creativity, and
+              leadership. They provide a platform where students can explore
+              ideas, build startups, and gain real-world business exposure
+              through mentorship, workshops, networking events, and access to
+              funding. EDCs often collaborate with industry experts, incubators,
+              and investors to guide students in transforming their concepts
+              into viable ventures. By bridging the gap between academics and
+              practical entrepreneurship, EDCs play a crucial role in developing
+              problem-solving skills, risk-taking ability, and business acumen
+              among students, empowering them to become change-makers in the
+              modern economy.
+            </p>
 
+            <div className="flex flex-wrap justify-around text-center mt-10 border-t pt-8 gap-6">
+              <div className="flex flex-col items-center">
+                <span className="text-yellow-500 text-4xl font-bold flex items-center gap-2">
+                  <IoRocket className="text-yellow-400 text-3xl" />
+                  50+
+                </span>
+                <p className="text-gray-500 mt-1 font-semibold">Startups</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="text-blue-500 text-4xl font-bold flex items-center gap-2">
+                  <IoTrophySharp className="text-blue-400 text-3xl" />
+                  40+
+                </span>
+                <p className="text-gray-500 mt-1 font-semibold">
+                  Success Stories
+                </p>
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="text-red-500 text-4xl font-bold flex items-center gap-2">
+                  <GiUnicorn className="text-red-400 text-3xl" />
+                  2+
+                </span>
+                <p className="text-gray-500 mt-1 font-semibold">Unicorns</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Images */}
+          <div className="flex-1 grid gap-6">
+            <div className="aspect-video overflow-hidden rounded-2xl shadow-xl">
+              <CldImage
+                src="13781_fgzlte"
+                width={600}
+                height={400}
+                loading="lazy"
+                alt="Startup Collaboration"
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <div className="aspect-video overflow-hidden rounded-2xl shadow-xl">
+              <CldImage
+                src="859_ukifuv"
+                width={600}
+                height={400}
+                loading="lazy"
+                alt="Innovative Minds"
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+          </div>
+        </section>
+      </FadeUpAnimation>
+
+      <div className="relative z-20 max-w-5xl mx-auto mt-10 ">
+        <div className="hidden md:block">
+          <div className="absolute left-1/2 -translate-x-1/2 h-full w-1 bg-gradient-to-b from-green-300 via-teal-400 to-blue-500 rounded-full" />
+
+          {timeline.map((item, index) => (
+            <div
+              key={index}
+              className={`group mb-8 flex justify-between items-center w-full ${
+                index % 2 === 0 ? "flex-row-reverse" : ""
+              }`}
+            >
+              <div className="w-5/12" />
+
+              {/* Year Marker */}
+              <div className="z-20 flex items-center justify-center order-1 bg-gray-800 shadow-xl w-24 h-24 rounded-full transition-transform duration-300 group-hover:scale-110">
+                <h1 className="font-bold text-xl text-white">{item.year}</h1>
+              </div>
+
+              {/* Card */}
+              <div className="order-1 w-5/12 px-2 py-4">
+                <div className="p-6 glass-morphic backdrop-blur-xl rounded-2xl shadow-lg border border-gray-200/50 transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2">
+                  <div className="flex items-center gap-4 mb-4">
+                    <img
+                      src={item.logo}
+                      alt={`${item.company} logo`}
+                      className="w-12 h-12 object-contain rounded-lg"
+                    />
+                    <h3 className="font-bold text-xl text-gray-800">
+                      {item.company}
+                    </h3>
+                  </div>
+                  <p className="text-sm leading-snug tracking-wide text-gray-600">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile Timeline - Vertical Left-aligned */}
+        <div className="md:hidden px-4 z-20 mt-12">
+          <div className="absolute left-10 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-300 via-teal-400 to-blue-500 rounded-full" />
+
+          {timeline.map((item, index) => (
+            <div key={index} className="relative flex items-start mb-8">
+              {/* Year Marker */}
+              <div className="flex items-center justify-center w-12 h-12 bg-gray-800 rounded-full shadow-xl z-10 flex-shrink-0">
+                <span className="font-bold text-xs text-white">
+                  {item.year}
+                </span>
+              </div>
+
+              {/* Card */}
+              <div className="ml-6 flex-1">
+                <div className="p-4 bg-white/80 backdrop-blur-xl rounded-2xl shadow-lg border border-gray-200/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <img
+                      src={item.logo}
+                      alt={`${item.company} logo`}
+                      className="w-10 h-10 object-contain rounded-lg"
+                    />
+                    <h3 className="font-bold text-lg text-gray-800">
+                      {item.company}
+                    </h3>
+                  </div>
+                  <p className="text-sm leading-snug tracking-wide text-gray-600">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Blobs */}
+      <img
+        src={blobL.src}
+        alt=""
+        className="absolute w-[13rem] z-10 left-0 top-[53rem] pointer-events-none
+                    max-[649px]:w-0"
+      />
+      <img
+        src={blobR.src}
+        alt=""
+        className="absolute w-[13rem] z-10 right-0 top-[78rem] pointer-events-none
+                    max-[649px]:w-0"
+      />
+      <img
+        src={blobL.src}
+        alt=""
+        className="absolute w-[14rem] z-10 left-0 top-[120rem] pointer-events-none
+                    max-[649px]:w-0"
+      />
+      <img
+        src={blobR.src}
+        alt=""
+        className="absolute w-[12rem] z-10 right-0 top-[180rem] pointer-events-none
+                    max-[649px]:w-0"
+      />
+      <img
+        src={blobL.src}
+        alt=""
+        className="absolute w-[12rem] z-10 left-0 top-[230rem] pointer-events-none
+                    max-[649px]:w-0"
+      />
+      <img
+        src={blobR.src}
+        alt=""
+        className="absolute w-[12rem] z-10 right-0 top-[300rem] pointer-events-none
+                    max-[649px]:w-0"
+      />
+      <img
+        src={blobL.src}
+        alt=""
+        className="absolute w-[12rem] z-10 left-0 top-[350rem] pointer-events-none
+                    max-[649px]:w-0"
+      />
     </div>
   );
 };
