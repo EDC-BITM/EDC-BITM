@@ -3,13 +3,14 @@ import react from "@vitejs/plugin-react";
 import { imagetools } from "vite-imagetools";
 import path from "path";
 import { fileURLToPath } from "url";
+import tailwindcss from '@tailwindcss/vite'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), imagetools()],
+  plugins: [react(), imagetools(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),

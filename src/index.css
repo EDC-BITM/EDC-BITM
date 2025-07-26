@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* fonts */
 /* latin-ext */
@@ -90,6 +88,3 @@ body {
     @apply bg-gray-800 opacity-100 scale-125 transition-all duration-300 ease-in-out;
   }
 }
-
-
-
