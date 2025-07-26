@@ -13,6 +13,7 @@ import Speakerpage from "./otherpages/Speakerpage/Speakerpage.jsx";
 import Eventspage from "./otherpages/Eventspage/Eventspage.jsx";
 import Teamspage from "./otherpages/Teamspage/team.jsx";
 import Startups from "./otherpages/Startupspage/Startups.jsx";
+import IATPage from "./otherpages/IAT/IATPage.jsx";
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
   {
     path: "/Startups",
     element: <RouteLayout Component={Startups} />,
+  },
+  {
+    path: "/iat",
+    element: <IATPage />,
   },
 ]);
 
