@@ -1,5 +1,6 @@
 import Background from "./components/background";
 import Hero from "./components/Hero";
+import Footer from "./components/footer";
 
 const IATPage = () => {
   return (
@@ -8,6 +9,7 @@ const IATPage = () => {
       <div className="text-white">
         <Hero />
       </div>
+      <Footer />
     </div>
   );
 };
