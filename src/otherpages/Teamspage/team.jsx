@@ -129,11 +129,11 @@ function Teamspage() {
         {/* Vice Presidents */}
         {renderMemberRow(
           leadershipBody.vicePresidents.slice(0, 4),
-          "vice-presidents"
+          "vice-presidents",
         )}
         {renderMemberRow(
           leadershipBody.vicePresidents.slice(4, 8),
-          "vice-presidents-line2"
+          "vice-presidents-line2",
         )}
 
         {/* Directors */}
@@ -167,18 +167,18 @@ function Teamspage() {
         {/* Two Content Heads and two Logistics & Resources Heads */}
         {renderMemberRow(
           executiveBody.contentLogisticsResourceHeads,
-          "content-logistics"
+          "content-logistics",
         )}
 
         {/* Senior Executive Members */}
         {renderMemberRow(
           executiveBody.seniorExecutiveMembers.slice(0, 2),
-          "sem-line1"
+          "sem-line1",
         )}
         {executiveBody.seniorExecutiveMembers.length > 2 &&
           renderMemberRow(
             executiveBody.seniorExecutiveMembers.slice(2, 5),
-            "sem-line2"
+            "sem-line2",
           )}
       </section>
 

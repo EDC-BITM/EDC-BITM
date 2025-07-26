@@ -63,7 +63,7 @@ const Footer = () => {
           to_name: "TEAM EDC",
           message: message,
         },
-        serviceConfig.user_ID
+        serviceConfig.user_ID,
       )
       .then((r) => console.log("Message sent successfully", r))
       .catch((error) => console.error("Error sending message:", error))

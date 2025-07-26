@@ -12,7 +12,6 @@ import CldImage from "@/components/Images/CldImage";
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 
-
 function Slider() {
   const slides = cldImageData.Home.slider;
   return (

@@ -28,7 +28,7 @@ const HoverTextTranslateEffect = ({ firstLine, secondLine, className }) => {
     <h1
       className={twMerge(
         "text-center tracking-tighter [word-spacing:0.09em] text-4xl md:text-5xl lg:text-6xl uppercase text-white font-bold ",
-        className
+        className,
       )}
     >
       {/* Top Line */}

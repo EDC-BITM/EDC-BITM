@@ -6,7 +6,8 @@ const speakersMeta = [
     name: "Aman Dhattarwal",
     title: "Founder – Apni Kaksha",
     twitter: "https://x.com/amandhattarwal?lang=en",
-    linkedin: "https://www.linkedin.com/in/dhattarwalaman/?originalSubdomain=in",
+    linkedin:
+      "https://www.linkedin.com/in/dhattarwalaman/?originalSubdomain=in",
     instagram: "https://www.instagram.com/amandhattarwal/?hl=en",
   },
   {
@@ -24,7 +25,8 @@ const speakersMeta = [
     name: "Dr. Vijender Chauhan",
     title: "Public Speaker",
     twitter: "https://x.com/masijeevi?lang=en",
-    linkedin: "https://www.linkedin.com/in/vijendermasijeevi/?originalSubdomain=in",
+    linkedin:
+      "https://www.linkedin.com/in/vijendermasijeevi/?originalSubdomain=in",
     instagram: "https://www.instagram.com/masijeevi/?hl=en",
   },
   {
@@ -81,7 +83,8 @@ const speakersMeta = [
     name: "Muskaan Sancheti",
     title: "Co‑founder of The State Plate",
     twitter: "https://x.com/heyitsmushh",
-    linkedin: "https://www.linkedin.com/in/muskaan-sancheti/?originalSubdomain=in",
+    linkedin:
+      "https://www.linkedin.com/in/muskaan-sancheti/?originalSubdomain=in",
     instagram: "https://www.instagram.com/heyitsmush/?hl=en",
   },
   {
@@ -156,7 +159,8 @@ const speakersMeta = [
     name: "Aditya Ranjan",
     title: "Journey of an IAS",
     twitter: "",
-    linkedin: "https://www.linkedin.com/in/aditya-ranjan-79b7b81b/?originalSubdomain=in",
+    linkedin:
+      "https://www.linkedin.com/in/aditya-ranjan-79b7b81b/?originalSubdomain=in",
     instagram: "https://www.instagram.com/adityaias/?hl=en",
   },
   {

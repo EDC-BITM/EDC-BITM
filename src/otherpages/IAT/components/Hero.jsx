@@ -14,7 +14,7 @@ const Hero = () => {
 
         {/* Heading and Logo */}
         <div className="text-center flex flex-col items-center font-semibold leading-tight sm:leading-[10rem] text-white">
-          <h1 className="text-nowrap text-5xl sm:text-[5rem] md:text-[8rem] lg:text-[10.75rem] leading-[1.2]">
+          <h1 className="text-nowrap text-5xl sm:text-[5rem] md:text-[8rem] lg:text-[10rem] leading-[1.2]">
             Welcome to
           </h1>
           <div className="flex h-28 items-center -translate-y-4 justify-center w-full">

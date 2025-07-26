@@ -1,5 +1,6 @@
 import Background from "./components/background";
 import Hero from "./components/Hero";
+// import Timeline from "./components/timeline";
 import Footer from "./components/footer";
 
 const IATPage = () => {
@@ -9,8 +10,10 @@ const IATPage = () => {
         <Background className="fixed -z-20 inset-0" />
         <div className="text-white">
           <Hero />
+          {/* <Timeline /> */}
         </div>
       </div>
+
       <Footer />
     </>
   );

@@ -7,7 +7,7 @@ const Background = ({ className }) => {
     <div
       className={twMerge(
         "relative flex justify-center items-center min-h-screen bg-[#030014] overflow-hidden",
-        className
+        className,
       )}
     >
       <Particles

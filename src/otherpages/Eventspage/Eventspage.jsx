@@ -30,12 +30,11 @@ import { motion } from "framer-motion";
 function Eventspage() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const heroImage = CldImageData.Events.hero[0];
-  
+
   const eventsImage = CldImageData.Events.formalEvents;
   const eventsImage2 = CldImageData.Events.semiFormalEvents;
   const eventsImage3 = CldImageData.Events.informalEvents;
 
-  
   const AllEvents = [
     {
       image: card4,
@@ -59,74 +58,69 @@ function Eventspage() {
   ];
 
   const upVariant = {
-  show: { y: 0, opacity: 1 },
-  hover: {
-    y: -40,
-    opacity: 0,
-    transition: { duration: 0.25, ease: "easeInOut" },
-  },
-};
+    show: { y: 0, opacity: 1 },
+    hover: {
+      y: -40,
+      opacity: 0,
+      transition: { duration: 0.25, ease: "easeInOut" },
+    },
+  };
 
-const downVariant = {
-  show: { y: 40, opacity: 0 },
-  hover: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.25, ease: "easeInOut" },
-  },
-};
-
-
+  const downVariant = {
+    show: { y: 40, opacity: 0 },
+    hover: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.25, ease: "easeInOut" },
+    },
+  };
 
   return (
     <>
       <div className="h-auto w-full">
         <a>
+          <div className="relative h-screen w-full">
+            {/* Background Image */}
+            <CldImage
+              src={heroImage.publicId}
+              alt={heroImage.alt}
+              height={heroImage.height}
+              width={heroImage.width}
+              loading="eager"
+              className="w-full h-full"
+            />
 
-         <div className="relative h-screen w-full">
-  {/* Background Image */}
-     <CldImage
-             src={heroImage.publicId}
-             alt={heroImage.alt}
-             height={heroImage.height}
-             width={heroImage.width}
-             loading="eager"
-             className="w-full h-full"
-           />
+            {/* Overlay Text on Image */}
+            <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center">
+              <h1 className="text-4xl sm:text-5xl uppercase font-extrabold sm:p-4 text-white">
+                <motion.div
+                  initial="show"
+                  whileHover="hover"
+                  className="overflow-hidden cursor-default lg:h-14 relative"
+                >
+                  <motion.div className="absolute inset-0" variants={upVariant}>
+                    Celebrating moments that sparked change
+                  </motion.div>
+                  <motion.div variants={downVariant}>
+                    Celebrating moments that sparked change
+                  </motion.div>
+                </motion.div>
 
-  {/* Overlay Text on Image */}
-  <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center">
-    <h1 className="text-4xl sm:text-5xl uppercase font-extrabold sm:p-4 text-white">
-      <motion.div
-        initial="show"
-        whileHover="hover"
-        className="overflow-hidden cursor-default lg:h-14 relative"
-      >
-        <motion.div className="absolute inset-0" variants={upVariant}>
-          Celebrating moments that sparked change
-        </motion.div>
-        <motion.div variants={downVariant}>
-          Celebrating moments that sparked change
-        </motion.div>
-      </motion.div>
-
-      <motion.div
-        initial="show"
-        whileHover="hover"
-        className="overflow-hidden cursor-default lg:h-14 relative"
-      >
-        <motion.div className="absolute inset-0" variants={upVariant}>
-          Through events that inspire connect and lead
-        </motion.div>
-        <motion.div variants={downVariant}>
-          Through events that inspire connect and lead
-        </motion.div>
-      </motion.div>
-    </h1>
-  </div>
-</div>
-
-
+                <motion.div
+                  initial="show"
+                  whileHover="hover"
+                  className="overflow-hidden cursor-default lg:h-14 relative"
+                >
+                  <motion.div className="absolute inset-0" variants={upVariant}>
+                    Through events that inspire connect and lead
+                  </motion.div>
+                  <motion.div variants={downVariant}>
+                    Through events that inspire connect and lead
+                  </motion.div>
+                </motion.div>
+              </h1>
+            </div>
+          </div>
         </a>
 
         {/* <div className="eventsbg h-auto w-full text-black">
@@ -224,7 +218,6 @@ const downVariant = {
                     Explore More
                   </button>
                 </Link>
-
               </div>
             </div>
           ))}

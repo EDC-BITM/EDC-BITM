@@ -42,7 +42,7 @@ function Eventsection() {
               key={idx}
               className="flex justify-center items-center mb-5 transition ease-in-out hover:scale-105"
             >
-              <motion.div 
+              <motion.div
                 className="event-card relative w-64 md:w-72 lg:w-72 rounded-xl overflow-hidden p-1.5 shadow-md mt-4"
                 whileHover="hover"
                 initial="initial"
@@ -53,11 +53,11 @@ function Eventsection() {
                   alt={event.title}
                   className="w-full h-auto rounded-lg"
                 />
-                <motion.div 
+                <motion.div
                   className="event-details absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-5 rounded-t-2xl text-center"
                   variants={{
                     initial: { y: 100, opacity: 0 },
-                    hover: { y: 0, opacity: 1 }
+                    hover: { y: 0, opacity: 1 },
                   }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
