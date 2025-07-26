@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-b from-[#0F0F1B] to-black text-gray-400 px-6 md:px-20 py-16 font-hanken">
       <div className="max-w-7xl mx-auto grid md:grid-cols-5 gap-10">
 
-        {/* Left section: Logo, socials, newsletter text */}
+        
         <div className="md:col-span-2 flex flex-col justify-between space-y-6">
           <div>
             <div className="flex items-center gap-2">
@@ -20,7 +20,7 @@ const Footer = () => {
               <FaLinkedin className="text-xl hover:text-white transition" />
             </div>
 
-            {/* Talk to us + message input */}
+            
             <div className="pt-8">
               <h2 className="text-white font-medium text-lg mb-2 font-hanken">
                 Have Questions?
@@ -42,7 +42,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Columns */}
+        
         <div>
           <h4 className="text-white font-medium mb-4">For Official</h4>
           <ul className="space-y-2 text-sm">
@@ -51,7 +51,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Company Column */}
+        
         <div>
           <h4 className="text-white font-medium mb-4">For Queries</h4>
           <ul className="space-y-2 text-sm mb-4">
@@ -60,7 +60,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Resources Column */}
+        
         <div>
           <h4 className="text-white font-medium mb-4">Resources</h4>
           <ul className="space-y-2 text-sm">
@@ -71,7 +71,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom line - only copyright now, centered */}
+      
       <div className="mt-12 border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
         ©2025 EDC, BIT Mesra. All rights reserved.
       </div>
