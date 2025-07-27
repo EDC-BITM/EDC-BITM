@@ -17,7 +17,7 @@ const Hero = () => {
           <h1 className="text-nowrap text-5xl sm:text-[5rem] md:text-[8rem] lg:text-[10rem] leading-[1.2]">
             Welcome to
           </h1>
-          <div className="flex h-28 items-center -translate-y-4 justify-center w-full">
+          <div className="flex h-34 items-center  justify-center w-full">
             <img
               draggable="false"
               loading="lazy"
@@ -39,11 +39,7 @@ const Hero = () => {
 
         {/* Registration Section */}
         <div className="relative w-full min-h-[10rem] flex flex-col items-center justify-center bg-transparent">
-          {/* Dotted Line Background */}
-          <div className="absolute w-full h-0.5 top-1/2 -translate-y-1/2 bg-dotted-line-texture"></div>
-
-          {/* Buttons and SVGs */}
-          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0">
+          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-0">
             {/* Left Button */}
             <div className="relative mb-4 sm:mb-0 sm:mr-4">
               <svg
