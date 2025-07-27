@@ -4,7 +4,7 @@ import iatLogo from "../assets/iatlogo.png?w=1480&q=75&format=webp";
 
 const Hero = () => {
   return (
-    <div className="flex justify-center mt-24 sm:mt-32 lg:mt-36 px-4">
+    <div className="flex justify-center mt-32 sm:mt-32 lg:mt-36 px-4">
       <div className="flex w-full max-w-[90%] sm:max-w-[70%] flex-col items-center justify-center gap-4 mb-8 text-white">
         {/* Announcement Bar */}
         <div className="flex px-3 lg:translate-y-10 rounded-2xl py-1.5 bg-gradient-to-r from-[#E59CFF3D] via-[#BA9CFF3D] to-[#9CB2FF3D] items-center justify-center gap-2 text-white text-xs sm:text-sm">
@@ -17,7 +17,7 @@ const Hero = () => {
           <h1 className="text-5xl sm:text-5xl md:text-[5rem] lg:text-[8rem] xl:text-[10rem] leading-[1.2] px-2">
             <span className="whitespace-nowrap">Welcome to</span>
           </h1>
-          <div className="flex items-center justify-center w-full sm:-my-16">
+          <div className="flex items-center h-24 sm:h-56 justify-center w-full sm:-my-16">
             <img
               draggable="false"
               loading="lazy"
@@ -43,7 +43,7 @@ const Hero = () => {
             {/* Left Button */}
             <div className="relative w-full sm:w-auto sm:mr-4">
               <svg
-                className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-40"
+                className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-44"
                 width="531"
                 height="2"
                 viewBox="0 0 531 2"
@@ -106,7 +106,7 @@ const Hero = () => {
             {/* Right Button */}
             <div className="relative w-full sm:w-auto sm:ml-4">
               <svg
-                className="hidden lg:block absolute top-1/2 -translate-y-1/2 left-40"
+                className="hidden lg:block absolute top-1/2 -translate-y-1/2 left-44"
                 width="531"
                 height="2"
                 viewBox="0 0 531 2"
