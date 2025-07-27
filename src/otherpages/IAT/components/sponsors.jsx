@@ -41,7 +41,7 @@ const Sponsors = () => {
     sponsors.map((s, i) => (
       <div
         key={i}
-        className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 flex justify-center items-center shrink-0"
+        className="h-16 w-16 sm:h-24 sm:w-24 md:h-32 md:w-32 lg:h-40 lg:w-40 flex justify-center items-center shrink-0"
       >
         <img
           src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/w_300,f_webp,q_auto,e_bgremoval/${s.publicId}.webp`}
@@ -53,9 +53,9 @@ const Sponsors = () => {
     ));
 
   return (
-    <section className="w-full py-10 overflow-hidden">
+    <section className="w-full py-8 sm:py-10 overflow-hidden px-4">
       <h2
-        className="text-center text-4xl sm:text-6xl md:text-8xl font-normal leading-tight sm:leading-[5.56rem] tracking-tight sm:tracking-[-0.0556rem] bg-gradient-to-r from-[#2461E2] via-[#2461E2] to-[#FDA011] bg-clip-text text-transparent"
+        className="text-center text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-normal leading-tight sm:leading-[5.56rem] tracking-tight sm:tracking-[-0.0556rem] bg-gradient-to-r from-[#2461E2] via-[#2461E2] to-[#FDA011] bg-clip-text text-transparent mb-4 sm:mb-0"
         style={{
           backgroundImage:
             "linear-gradient(86deg, #2461E2 24.3%, #FDA011 83.39%)",
@@ -67,12 +67,12 @@ const Sponsors = () => {
         Our Sponsors
       </h2>
 
-      <div className="mt-10 space-y-4">
+      <div className="mt-6 sm:mt-10 space-y-3 sm:space-y-4">
         {/* Marquee 1 - left */}
         <div className="relative w-full overflow-hidden">
           <div
             ref={marquee1Ref}
-            className="flex gap-6 sm:gap-12 whitespace-nowrap will-change-transform"
+            className="flex gap-4 sm:gap-6 lg:gap-12 whitespace-nowrap will-change-transform"
           >
             {renderSponsors()}
             {renderSponsors()}
@@ -83,7 +83,7 @@ const Sponsors = () => {
         <div className="relative w-full overflow-hidden">
           <div
             ref={marquee2Ref}
-            className="flex gap-6 sm:gap-12 whitespace-nowrap will-change-transform"
+            className="flex gap-4 sm:gap-6 lg:gap-12 whitespace-nowrap will-change-transform"
           >
             {renderSponsors()}
             {renderSponsors()}
