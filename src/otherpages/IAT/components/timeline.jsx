@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 import img1 from "../assets/timeline/1.png?w=300&format=webp&quality=90&as=meta";
 import img2 from "../assets/timeline/2.png?w=300&format=webp&quality=90&as=meta";
@@ -7,6 +7,7 @@ import img3 from "../assets/timeline/3.png?w=300&format=webp&quality=90&as=meta"
 import img4 from "../assets/timeline/4.png?w=300&format=webp&quality=90&as=meta";
 import img5 from "../assets/timeline/5.png?w=300&format=webp&quality=90&as=meta";
 import { twMerge } from "tailwind-merge";
+import { useRef } from "react";
 
 const timelineItems = [
   {
@@ -47,81 +48,40 @@ const timelineItems = [
 ];
 
 function IAT_Timeline() {
+  const timelineRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start center", "end center"],
+  });
+
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   return (
     <div id="timeline">
       <HeadingTimeline />
       <div className="flex justify-center px-4">
-        <div className="flex flex-col max-w-7xl w-full py-8 relative">
-          {/* SVG vertical timeline line - Hidden on mobile */}
-          <motion.svg
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 3, ease: "easeInOut" }}
-            className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 z-0"
-            width="2"
-            initial={{ opacity: 0, height: 0 }}
-            whileInView={{ opacity: 1, height: "100%" }}
-            viewBox={`0 0 2 ${timelineItems.length * 375}`}
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <linearGradient
-                id="timeline-gradient"
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="1"
-              >
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-                <stop offset="50%" stopColor="#f97316" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="transparent" />
-              </linearGradient>
-            </defs>
-            <rect
-              x="0"
-              y="0"
-              width="2"
-              height={timelineItems.length * 400}
-              rx="1"
-              fill="url(#timeline-gradient)"
-            />
-          </motion.svg>
+        <div
+          ref={timelineRef}
+          className="flex flex-col max-w-7xl w-full py-8 relative"
+        >
+          {/* Vertical timeline line - Hidden on mobile */}
+          <motion.span
+            className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-0.5 bg-gradient-to-b from-blue-500 via-orange-400 to-transparent origin-top rounded-full z-0"
+            style={{ height: "100%", scaleY }}
+          />
 
-          {/* Mobile timeline line */}
-          <motion.svg
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 3, ease: "easeInOut" }}
+          {/* Mobile timeline line - changed from SVG to span */}
+          <span
             className="md:hidden absolute left-[.95rem] top-0 z-0"
-            width="2"
-            height="100%"
-            viewBox={`0 0 2 ${timelineItems.length * 300}`}
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <linearGradient
-                id="timeline-gradient-mobile"
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="1"
-              >
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-                <stop offset="50%" stopColor="#f97316" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="transparent" />
-              </linearGradient>
-            </defs>
-            <rect
-              x="0"
-              y="0"
-              width="2"
-              height={timelineItems.length * 350}
-              rx="1"
-              fill="url(#timeline-gradient-mobile)"
-            />
-          </motion.svg>
+            style={{
+              width: "2px",
+              height: `${timelineItems.length * 560}px`,
+              background:
+                "linear-gradient(180deg, #3b82f6 0%, #f97316 50%, transparent 100%)",
+              borderRadius: "1px",
+            }}
+          />
 
           {timelineItems.map((item, idx) => (
             <motion.div
@@ -303,22 +263,17 @@ const HeadingTimeline = () => {
         transition={{ duration: 0.8 }}
         className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-normal leading-tight sm:leading-[5.56rem] tracking-tight sm:tracking-[-0.0556rem] bg-clip-text text-transparent mb-4 sm:mb-0"
         style={{
-  backgroundImage: "linear-gradient(90deg, #6366F1 0%, #8B5CF6 25%, #EC4899 55%, #F59E0B 80%, #FDE68A 100%)",
-  backgroundClip: "text",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent"
-}}
-
-
-
-
+          backgroundImage:
+            "linear-gradient(90deg, #6366F1 0%, #8B5CF6 25%, #EC4899 55%, #F59E0B 80%, #FDE68A 100%)",
+          backgroundClip: "text",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+        }}
       >
         The Timeline
       </motion.h1>
-
     </div>
   );
 };
-
 
 export default IAT_Timeline;
