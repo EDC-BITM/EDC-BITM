@@ -2,6 +2,8 @@ import Background from "./components/background";
 import Hero from "./components/Hero";
 // import Timeline from "./components/timeline";
 import Footer from "./components/footer";
+import FeaturedSpeaker from "./components/FeaturedSpeaker";
+import Sponsors from "./components/sponsors";
 
 const IATPage = () => {
   return (
@@ -11,6 +13,8 @@ const IATPage = () => {
         <div className="text-white">
           <Hero />
           {/* <Timeline /> */}
+          <FeaturedSpeaker />
+          <Sponsors />
         </div>
       </div>
 
