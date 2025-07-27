@@ -14,17 +14,17 @@ const Hero = () => {
 
         {/* Heading and Logo */}
         <div className="text-center flex flex-col items-center font-semibold leading-tight sm:leading-[10rem] text-white">
-          <h1 className="text-nowrap text-5xl sm:text-[5rem] md:text-[8rem] lg:text-[10rem] leading-[1.2]">
-            Welcome to
+          <h1 className="text-5xl sm:text-5xl md:text-[5rem] lg:text-[8rem] xl:text-[10rem] leading-[1.2] px-2">
+            <span className="whitespace-nowrap">Welcome to</span>
           </h1>
-          <div className="flex h-34 items-center  justify-center w-full">
+          <div className="flex items-center justify-center w-full sm:-my-16">
             <img
               draggable="false"
               loading="lazy"
               width="1480"
               height="auto"
               src={iatLogo}
-              className="w-[90%] sm:w-[80%] md:w-[60%] h-auto"
+              className="w-[95%] sm:w-[90%] md:w-[80%] lg:w-[60%] h-auto max-w-full"
               alt="Innovate-A-Thon Logo"
             />
           </div>
@@ -38,12 +38,12 @@ const Hero = () => {
         </p>
 
         {/* Registration Section */}
-        <div className="relative w-full min-h-[10rem] flex flex-col items-center justify-center bg-transparent">
-          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-0">
+        <div className="relative w-full min-h-[8rem] sm:min-h-[10rem] flex flex-col items-center justify-center bg-transparent px-4">
+          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0 w-full max-w-lg sm:max-w-none">
             {/* Left Button */}
-            <div className="relative mb-4 sm:mb-0 sm:mr-4">
+            <div className="relative w-full sm:w-auto sm:mr-4">
               <svg
-                className="hidden sm:block absolute top-1/2 -translate-y-1/2 right-40"
+                className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-40"
                 width="531"
                 height="2"
                 viewBox="0 0 531 2"
@@ -80,7 +80,7 @@ const Hero = () => {
                   boxShadow:
                     "0 2px 5px 0 rgba(16, 0, 51, 0.39), 0 8px 8px 0 rgba(16, 0, 51, 0.34), 0 19px 11px 0 rgba(16, 0, 51, 0.20), 0 34px 14px 0 rgba(16, 0, 51, 0.06), 0 53px 15px 0 rgba(16, 0, 51, 0.01), 0 0 12px 0 rgba(255, 255, 255, 0.08) inset, 0 -8px 32px 0 #1E0D49 inset",
                 }}
-                className="px-4 py-2 text-white font-semibold text-sm sm:text-base text-center"
+                className="w-full sm:w-auto px-6 py-3 text-white font-semibold text-sm sm:text-base text-center min-w-[140px]"
               >
                 REGISTER WITH
                 <br />
@@ -100,10 +100,13 @@ const Hero = () => {
               <path d="M46 1H0.312241" stroke="white" strokeWidth="2" />
             </svg>
 
+            {/* Mobile Divider */}
+            <div className="sm:hidden w-full h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-30"></div>
+
             {/* Right Button */}
-            <div className="relative sm:ml-4">
+            <div className="relative w-full sm:w-auto sm:ml-4">
               <svg
-                className="hidden sm:block absolute top-1/2 -translate-y-1/2 left-40"
+                className="hidden lg:block absolute top-1/2 -translate-y-1/2 left-40"
                 width="531"
                 height="2"
                 viewBox="0 0 531 2"
@@ -140,7 +143,7 @@ const Hero = () => {
                   boxShadow:
                     "0 2px 5px 0 rgba(16, 0, 51, 0.39), 0 8px 8px 0 rgba(16, 0, 51, 0.34), 0 19px 11px 0 rgba(16, 0, 51, 0.20), 0 34px 14px 0 rgba(16, 0, 51, 0.06), 0 53px 15px 0 rgba(16, 0, 51, 0.01), 0 0 12px 0 rgba(255, 255, 255, 0.08) inset, 0 -8px 32px 0 #1E0D49 inset",
                 }}
-                className="px-4 py-2 text-white font-semibold text-sm sm:text-base text-center"
+                className="w-full sm:w-auto px-6 py-3 text-white font-semibold text-sm sm:text-base text-center min-w-[140px]"
               >
                 REGISTER WITH
                 <br />

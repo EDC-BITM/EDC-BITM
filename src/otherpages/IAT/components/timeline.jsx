@@ -65,13 +65,13 @@ function IAT_Timeline() {
   return (
     <>
       <HeadingTimeline />
-      <div className="flex justify-center">
-        <div className="flex flex-col max-w-7xl w-full px-4 py-8 relative">
-          {/* SVG vertical timeline line */}
+      <div className="flex justify-center px-4">
+        <div className="flex flex-col max-w-7xl w-full py-8 relative">
+          {/* SVG vertical timeline line - Hidden on mobile */}
           <motion.svg
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 3, ease: "easeInOut" }}
-            className="absolute left-1/2 top-0 -translate-x-1/2 z-0"
+            className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 z-0"
             width="2"
             height="100%"
             viewBox={`0 0 2 ${presidents.length * 400}`}
@@ -102,6 +102,41 @@ function IAT_Timeline() {
             />
           </motion.svg>
 
+          {/* Mobile timeline line */}
+          <motion.svg
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 3, ease: "easeInOut" }}
+            className="md:hidden absolute left-4 top-0 z-0"
+            width="2"
+            height="100%"
+            viewBox={`0 0 2 ${presidents.length * 300}`}
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient
+                id="timeline-gradient-mobile"
+                x1="0"
+                y1="0"
+                x2="0"
+                y2="1"
+              >
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#f97316" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="transparent" />
+              </linearGradient>
+            </defs>
+            <rect
+              x="0"
+              y="0"
+              width="2"
+              height={presidents.length * 300}
+              rx="1"
+              fill="url(#timeline-gradient-mobile)"
+            />
+          </motion.svg>
+
           {presidents.map((president, idx) => (
             <motion.div
               key={idx}
@@ -109,10 +144,9 @@ function IAT_Timeline() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: idx * 0.2 }}
-              className="flex relative z-10 items-start mb-32"
-              style={{ minHeight: 400 }}
+              className="flex relative z-10 items-start mb-16 md:mb-32 min-h-[250px] md:min-h-[400px]"
             >
-              {/* Timeline dot */}
+              {/* Timeline dot - Desktop */}
               <motion.span
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
@@ -123,60 +157,99 @@ function IAT_Timeline() {
                   type: "spring",
                   stiffness: 300,
                 }}
-                className="bg-gradient-to-r from-blue-500 to-orange-500 border-4 border-black shadow-lg rounded-full z-20 absolute left-1/2 -translate-x-1/2"
+                className="hidden md:block bg-gradient-to-r from-blue-500 to-orange-500 border-4 border-black shadow-lg rounded-full z-20 absolute left-1/2 -translate-x-1/2"
                 style={{
                   width: 20,
                   height: 20,
                 }}
               />
 
+              {/* Timeline dot - Mobile */}
+              <motion.span
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.4,
+                  delay: idx * 0.3,
+                  type: "spring",
+                  stiffness: 300,
+                }}
+                className="md:hidden bg-gradient-to-r from-blue-500 to-orange-500 border-2 border-black shadow-lg rounded-full z-20 absolute left-4 -translate-x-1/2"
+                style={{
+                  width: 16,
+                  height: 16,
+                }}
+              />
+
               {/* Content sections */}
               <div className="flex w-full gap-0">
-                {/* Left section */}
-                <div className="flex-1">
-                  {idx % 2 === 0 ? (
+                {/* Mobile Layout - Single Column */}
+                <div className="md:hidden w-full pl-8">
+                  <div className="space-y-4">
                     <HeadingSection
                       name={president.name}
                       tenure={president.tenure}
                       achievements={president.achievements}
                       index={idx}
                     />
-                  ) : (
                     <ContentSection
                       image={president.image}
                       description={president.description}
                       name={president.name}
                       index={idx}
                     />
-                  )}
+                  </div>
                 </div>
 
-                {/* Right section */}
-                <div className="flex-1">
-                  {idx % 2 === 0 ? (
-                    <ContentSection
-                      image={president.image}
-                      description={president.description}
-                      name={president.name}
-                      index={idx}
-                    />
-                  ) : (
-                    <HeadingSection
-                      name={president.name}
-                      tenure={president.tenure}
-                      achievements={president.achievements}
-                      index={idx}
-                    />
-                  )}
+                {/* Desktop Layout - Two Columns */}
+                <div className="hidden md:flex w-full gap-0">
+                  {/* Left section */}
+                  <div className="flex-1">
+                    {idx % 2 === 0 ? (
+                      <HeadingSection
+                        name={president.name}
+                        tenure={president.tenure}
+                        achievements={president.achievements}
+                        index={idx}
+                      />
+                    ) : (
+                      <ContentSection
+                        image={president.image}
+                        description={president.description}
+                        name={president.name}
+                        index={idx}
+                      />
+                    )}
+                  </div>
+
+                  {/* Right section */}
+                  <div className="flex-1">
+                    {idx % 2 === 0 ? (
+                      <ContentSection
+                        image={president.image}
+                        description={president.description}
+                        name={president.name}
+                        index={idx}
+                      />
+                    ) : (
+                      <HeadingSection
+                        name={president.name}
+                        tenure={president.tenure}
+                        achievements={president.achievements}
+                        index={idx}
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-        </div>
+      </div>
     </>
   );
-  }
+}
 
 const HeadingSection = ({ name, tenure, achievements, index }) => {
   return (
@@ -185,28 +258,30 @@ const HeadingSection = ({ name, tenure, achievements, index }) => {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="flex flex-col justify-center h-full p-8 py-2"
+      className="flex flex-col justify-center h-full p-2 md:p-8 py-2"
     >
-
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: index * 0.3 }}
-        className="space-y-6"
+        className="space-y-3 md:space-y-6"
       >
-        <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
-          <h3 className="text-xl font-semibold text-blue-400 mb-3">
-            Tenure Period
+        <div className="bg-gray-900 rounded-xl p-3 md:p-6 border border-gray-800">
+          <h3 className="text-lg md:text-xl font-semibold text-blue-400 mb-2 md:mb-3">
+            {name}
           </h3>
-          <p className="text-gray-300 text-lg">{tenure}</p>
+          <h4 className="text-base md:text-lg font-medium text-orange-400 mb-2">
+            Tenure Period
+          </h4>
+          <p className="text-gray-300 text-sm md:text-lg">{tenure}</p>
         </div>
 
-        <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
-          <h3 className="text-xl font-semibold text-orange-400 mb-3">
+        <div className="bg-gray-900 rounded-xl p-3 md:p-6 border border-gray-800">
+          <h3 className="text-lg md:text-xl font-semibold text-orange-400 mb-2 md:mb-3">
             Key Achievements
           </h3>
-          <p className="text-gray-300 text-sm leading-relaxed">
+          <p className="text-gray-300 text-xs md:text-sm leading-relaxed">
             {achievements}
           </p>
         </div>
@@ -215,7 +290,7 @@ const HeadingSection = ({ name, tenure, achievements, index }) => {
   );
 };
 
-const ContentSection = ({description, index }) => {
+const ContentSection = ({ description, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: 50 }}
@@ -229,12 +304,12 @@ const ContentSection = ({description, index }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: index * 0.3 }}
-        className="bg-gray-900 rounded-xl p-6 border border-gray-800 max-w-md"
+        className="bg-gray-900 rounded-xl p-3 md:p-6 border border-gray-800 w-full max-w-md"
       >
-        <h3 className="text-xl font-semibold text-blue-400 mb-3">
+        <h3 className="text-lg md:text-xl font-semibold text-blue-400 mb-2 md:mb-3">
           Leadership Legacy
         </h3>
-        <p className="text-gray-300 text-sm leading-relaxed">{description}</p>
+        <p className="text-gray-300 text-xs md:text-sm leading-relaxed">{description}</p>
       </motion.div>
     </motion.div>
   );
@@ -256,12 +331,12 @@ ContentSection.propTypes = {
 
 const HeadingTimeline = () => {
   return (
-    <div className="p-8 text-center">
+    <div className="p-4 md:p-8 text-center">
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-6xl md:text-7xl font-bold mb-6"
+        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6"
       >
         <span className="text-blue-500">The</span>{" "}
         <span className="text-orange-500">Timeline</span>
@@ -270,4 +345,4 @@ const HeadingTimeline = () => {
   );
 };
 
-export default IAT_Timeline;
+export default IAT_Timeline;
