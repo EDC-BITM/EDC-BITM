@@ -6,6 +6,7 @@ import FeaturedSpeaker from "./components/FeaturedSpeaker";
 import Sponsors from "./components/sponsors";
 import IATIgniting from "./components/IATIgniting";
 import Navbar from "./components/Navbar";
+import Gallery from "./components/Gallery";
 
 const IATPage = () => {
   return (
@@ -17,6 +18,7 @@ const IATPage = () => {
           <Hero />
           <Timeline />
           <FeaturedSpeaker />
+          <Gallery />
           <Sponsors />
           <IATIgniting />
         </div>
