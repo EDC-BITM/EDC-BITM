@@ -54,7 +54,7 @@ import { FaQuestion } from "react-icons/fa6";
 
 const SpeakerCard = () => {
   return (
-    <div
+    <div id = "speakers"
       className="flex flex-col sm:flex-row w-full max-w-full sm:max-w-2xl lg:max-w-3xl rounded-xl overflow-hidden p-3 sm:p-4 lg:p-6 gap-3 sm:gap-4 lg:gap-8 items-center relative group hover:scale-[1.02] transition-all duration-300"
       style={{
         borderRadius: "1rem",

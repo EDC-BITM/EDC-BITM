@@ -2,6 +2,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../SquareIATLogo.png";
+import { Link } from 'react-scroll';
+
+import Background from "../components/background";
+import Hero from "../components/Hero";
+import Timeline from "../components/timeline";
+import Footer from "../components/footer";
+import FeaturedSpeaker from "../components/FeaturedSpeaker";
+import Sponsors from "../components/sponsors";
+import IATIgniting from "../components/IATIgniting";
 
 const IATLogo = ({ className }) => (
   <img src={logo} alt="IAT Logo" className={className} />
@@ -9,7 +18,7 @@ const IATLogo = ({ className }) => (
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState("Home");
+  const [activeItem, setActiveItem] = useState("Home"); 
 
   useEffect(() => {
     const handleResize = () => {
@@ -17,16 +26,15 @@ const Navbar = () => {
         setIsMenuOpen(false);
       }
     };
-    window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const navItems = [
-    { name: "Home", href: "#" },
-    { name: "Schedule", href: "#" },
-    { name: "Speakers", href: "#" },
-    { name: "Events", href: "#" },
-    { name: "News/Updates", href: "#" },
+    { name: "Home", label: "" },
+    { name: "Schedule", label: "timeline" },
+    { name: "Speakers", label: "speakers" },
+    { name: "Events", label: "timeline" },
+    { name: "News/Updates", label: "igniting" },
   ];
 
   const menuVariants = {
@@ -46,6 +54,19 @@ const Navbar = () => {
     visible: { opacity: 1, x: 0 },
   };
 
+  const handleScrollTo = (item) => {
+    setActiveItem(item.name);
+    
+    if (item.name === "Home" || item.label === "") {
+      // Scroll to top for Home
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+   
+  };
+
   console.log(isMenuOpen);
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 p-4">
@@ -56,12 +77,13 @@ const Navbar = () => {
         <div className="absolute bottom-0 right-0 w-12 h-12 md:w-16 md:h-16 border-r-2 border-b-2 border-gray-400/60 rounded-br-2xl opacity-50 transition-all duration-300"></div>
 
         <div className="flex items-center justify-between h-16 lg:h-20 w-full">
-          {/* Logo and Title */}
+         
           <motion.div
             className="flex items-center space-x-3 cursor-pointer"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
+            onClick={() => handleScrollTo({ name: "Home", label: "" })}
           >
             <IATLogo className="w-8 h-8 lg:w-10 lg:h-10" />
             <span className="text-white font-bold text-lg lg:text-xl tracking-wide">
@@ -70,27 +92,57 @@ const Navbar = () => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-2 bg-black/20 p-1 rounded-full border border-white/10">
-            {navItems.map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                onClick={() => setActiveItem(item.name)}
-                className="relative px-4 py-2 text-sm font-medium transition-colors duration-300 text-gray-300 hover:text-white"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {item.name}
-                {activeItem === item.name && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute inset-0 bg-white/10 rounded-full border border-white/20"
-                    initial={false}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
-              </motion.a>
-            ))}
+          <div className="hidden lg:flex items-center space-x-2">
+           {navItems.map((item) => (
+  <div key={item.name} className="relative">
+    {item.name === "Home" || item.label === "" ? (
+      <motion.button
+        onClick={() => handleScrollTo(item)}
+        className="relative px-4 py-2 text-sm font-medium transition-colors duration-300 text-gray-300 hover:text-white"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        {item.name}
+        {activeItem === item.name && (
+          <motion.div
+            layoutId="activeTab"
+            className="absolute inset-0 bg-white/10 rounded-full border border-white/20"
+            initial={false}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          />
+        )}
+      </motion.button>
+    ) : (
+      <Link
+        to={item.label}
+        spy={true}
+        smooth={true}
+        duration={800}
+        offset={-100}
+      
+        className="block"
+        onClick={() => setActiveItem(item.name)} 
+      >
+        <motion.div
+          className="relative px-4 py-2 text-sm font-medium transition-colors duration-300 text-gray-300 hover:text-white cursor-pointer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {item.name}
+          {activeItem === item.name && (
+            <motion.div
+              layoutId="activeTab"
+              className="absolute inset-0 bg-white/10 rounded-full border border-white/20"
+              initial={false}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            />
+          )}
+        </motion.div>
+      </Link>
+    )}
+  </div>
+))}
+
           </div>
 
           {/* Register Button (Desktop) */}
@@ -173,22 +225,46 @@ const Navbar = () => {
             >
               <div className="flex flex-col space-y-2">
                 {navItems.map((item) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => {
-                      setActiveItem(item.name);
-                      setIsMenuOpen(false);
-                    }}
-                    variants={menuItemVariants}
-                    className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 ${
-                      activeItem === item.name
-                        ? "text-white bg-white/10"
-                        : "text-gray-300 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    {item.name}
-                  </motion.a>
+                  <div key={item.name}>
+                    {item.name === "Home" || item.label === "" ? (
+                      <motion.button
+                        onClick={() => {
+                          handleScrollTo(item);
+                          setIsMenuOpen(false);
+                        }}
+                        variants={menuItemVariants}
+                        className={`block w-full text-left px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 ${
+                          activeItem === item.name 
+                            ? "text-white bg-white/10"
+                            : "text-gray-300 hover:text-white hover:bg-white/5"
+                        }`}
+                      >
+                        {item.name}
+                      </motion.button>
+                    ) : (
+                      <Link
+                        to={item.label} 
+                        spy={true}
+                        smooth={true}
+                        duration={800}
+                        offset={-100}
+                        onSetActive={() => setActiveItem(item.name)} 
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block"
+                      >
+                        <motion.div
+                          variants={menuItemVariants}
+                          className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 cursor-pointer ${
+                            activeItem === item.name 
+                              ? "text-white bg-white/10"
+                              : "text-gray-300 hover:text-white hover:bg-white/5"
+                          }`}
+                        >
+                          {item.name}
+                        </motion.div>
+                      </Link>
+                    )}
+                  </div>
                 ))}
                 <div className="pt-3 border-t border-white/10">
                   <motion.button

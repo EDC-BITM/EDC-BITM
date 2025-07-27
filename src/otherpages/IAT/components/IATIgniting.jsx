@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const IATIgniting = () => {
     return (
-        <section className="w-full py-16 sm:py-20 lg:py-24 overflow-hidden px-4">
+        <section id = "igniting" className="w-full py-16 sm:py-20 lg:py-24 overflow-hidden px-4">
             <div className="flex flex-col items-center justify-center max-w-7xl mx-auto">
                 {/* Main Heading */}
                 <div className="text-center mb-8 sm:mb-12">
