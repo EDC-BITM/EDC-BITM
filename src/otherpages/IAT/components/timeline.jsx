@@ -109,7 +109,7 @@ function IAT_Timeline() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: idx * 0.2 }}
-              className="flex relative z-10 items-center mb-32"
+              className="flex relative z-10 items-start mb-32"
               style={{ minHeight: 400 }}
             >
               {/* Timeline dot */}
@@ -131,11 +131,9 @@ function IAT_Timeline() {
               />
 
               {/* Content sections */}
-              <div className="flex w-full gap-16">
+              <div className="flex w-full gap-0">
                 {/* Left section */}
-                <div
-                  className={`flex-1 ${idx % 2 === 0 ? "order-1" : "order-2"}`}
-                >
+                <div className="flex-1">
                   {idx % 2 === 0 ? (
                     <HeadingSection
                       name={president.name}
@@ -154,9 +152,7 @@ function IAT_Timeline() {
                 </div>
 
                 {/* Right section */}
-                <div
-                  className={`flex-1 ${idx % 2 === 0 ? "order-2" : "order-1"}`}
-                >
+                <div className="flex-1">
                   {idx % 2 === 0 ? (
                     <ContentSection
                       image={president.image}
@@ -177,10 +173,10 @@ function IAT_Timeline() {
             </motion.div>
           ))}
         </div>
-      </div>
+        </div>
     </>
   );
-}
+  }
 
 const HeadingSection = ({ name, tenure, achievements, index }) => {
   return (
@@ -189,17 +185,8 @@ const HeadingSection = ({ name, tenure, achievements, index }) => {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="flex flex-col justify-center h-full p-8"
+      className="flex flex-col justify-center h-full p-8 py-2"
     >
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: index * 0.2 }}
-        className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight"
-      >
-        {name}
-      </motion.h2>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -228,30 +215,15 @@ const HeadingSection = ({ name, tenure, achievements, index }) => {
   );
 };
 
-const ContentSection = ({ image, description, name, index }) => {
+const ContentSection = ({description, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: 50 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="flex flex-col items-center justify-center h-full p-8"
+      className="flex flex-col items-center justify-start h-full p-2"
     >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: index * 0.2 }}
-        className="mb-8"
-      >
-        <img
-          src={image}
-          alt={name}
-          loading="lazy"
-          className="w-48 h-48 object-cover rounded-full border-4 border-gradient-to-r from-blue-500 to-orange-500 shadow-2xl"
-        />
-      </motion.div>
-
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -294,17 +266,8 @@ const HeadingTimeline = () => {
         <span className="text-blue-500">The</span>{" "}
         <span className="text-orange-500">Timeline</span>
       </motion.h1>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-xl text-gray-400 max-w-3xl mx-auto"
-      >
-        Journey through the leadership that shaped our organization's growth and
-        success
-      </motion.p>
     </div>
   );
 };
 
-export default IAT_Timeline;
+export default IAT_Timeline;
