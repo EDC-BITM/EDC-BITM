@@ -22,7 +22,7 @@ const Sponsors = () => {
         {/* Section Header */}
         <div className="text-center">
           <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight bg-gradient-to-r from-blue-500 to-yellow-400 bg-clip-text text-transparent"
+            className="text-3xl sm:text-4xl lg:text-8xl tracking-tight bg-gradient-to-r from-blue-500 to-yellow-400 bg-clip-text text-transparent"
             style={{
               backgroundImage:
                 "linear-gradient(86deg, #2461E2 24.3%, #FDA011 83.39%)",
