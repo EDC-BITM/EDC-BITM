@@ -9,32 +9,34 @@ const Footer = () => {
         <div className="md:col-span-2 flex flex-col justify-between space-y-6">
           <div>
             <div className="flex items-center gap-2">
-              <img src={logo} alt="logo" className="w-8 h-8" />
-              <h2 className="text-white font-medium">Innovate-A-Thon</h2>
+              <img src={logo} alt="logo" className="w-12 h-12" />
+              <h2 className="text-white font-bold">Innovate-A-Thon</h2>
             </div>
 
             <div className="flex space-x-4 mt-4">
-              <FaInstagram className="text-xl hover:text-white transition" />
-              <FaLinkedin className="text-xl hover:text-white transition" />
+              <a
+                href="https://www.instagram.com/edcbitmesra/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram className="text-3xl hover:text-white transition" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/edcbitmesra/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="text-3xl hover:text-white transition" />
+              </a>
             </div>
 
-            <div className="pt-8">
-              <h2 className="text-white font-medium text-lg mb-2 font-hanken">
-                Have Questions?
-              </h2>
-              <form className="flex items-center gap-0 mt-2">
-                <input
-                  type="email"
-                  placeholder="Send us a message"
-                  className="w-[18rem] md:w-[20rem] bg-transparent border border-gray-600 text-sm px-3 py-2 rounded-l-md focus:outline-none focus:border-white placeholder:text-gray-500"
-                />
-                <button
-                  type="submit"
-                  className="bg-white text-black text-sm font-medium px-4 py-2 rounded-r-md hover:bg-gray-200"
-                >
-                  Send
-                </button>
-              </form>
+
+            <div className="pt-8 text-sm leading-relaxed text-gray-400">
+              <p>
+                Innovate-A-Thon is East India's biggest hackathon,
+                fostering innovation and entrepreneurship by bringing together
+                brilliant minds from across the country.
+              </p>
             </div>
           </div>
         </div>

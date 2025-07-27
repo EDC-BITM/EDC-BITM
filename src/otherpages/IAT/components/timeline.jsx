@@ -74,7 +74,7 @@ function IAT_Timeline() {
             className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 z-0"
             width="2"
             height="100%"
-            viewBox={`0 0 2 ${presidents.length * 400}`}
+            viewBox={`0 0 2 ${presidents.length * 375}`}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="none"
@@ -309,7 +309,9 @@ const ContentSection = ({ description, index }) => {
         <h3 className="text-lg md:text-xl font-semibold text-blue-400 mb-2 md:mb-3">
           Leadership Legacy
         </h3>
-        <p className="text-gray-300 text-xs md:text-sm leading-relaxed">{description}</p>
+        <p className="text-gray-300 text-xs md:text-sm leading-relaxed">
+          {description}
+        </p>
       </motion.div>
     </motion.div>
   );
