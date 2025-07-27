@@ -1,42 +1,66 @@
-import coinbase from "../assets/sponsors/coinbase.svg";
-import dachi from "../assets/sponsors/dachi.svg";
+import CoinbaseLogo from "../assets/sponsors/coinbase.svg";
+import DachiLogo from "../assets/sponsors/dachi.svg";
 const Sponsors = () => {
-  const sponsor = [
+  // Storing sponsor data in an array makes it easy to add or remove sponsors.
+  const sponsorList = [
     {
-      name: "coinbase",
-      image: coinbase,
+      name: "Coinbase",
+      Logo: CoinbaseLogo,
+      url: "https://www.coinbase.com",
     },
     {
-      name: "Star Union Dai-Ichi Life Insurance Company Limited",
-      image: dachi,
+      name: "Star Union Dai-Ichi",
+      Logo: DachiLogo,
+      url: "https://www.sudlife.in/",
     },
+    // Add more sponsors here
   ];
 
   return (
-    <section className="w-full py-8 sm:py-10 ">
-      <h2
-        className="text-center text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-normal leading-tight tracking-tight bg-gradient-to-r from-[#2461E2] via-[#2461E2] to-[#FDA011] bg-clip-text text-transparent mb-4"
-        style={{
-          backgroundImage:
-            "linear-gradient(86deg, #2461E2 24.3%, #FDA011 83.39%)",
-          backgroundClip: "text",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-        }}
-      >
-        Our Sponsors
-      </h2>
-      <div className="flex bg-black py-3 justify-evenly items-center gap-8 mt-8">
-        {sponsor.map((s) => (
-          <div key={s.name} className="flex w-38 sm:w-48 flex-col items-center">
-            <img
-              src={s.image}
-              alt={s.name}
-              className="h-20 w-auto object-contain"
-              style={{ filter: "brightness(0) invert(1)" }}
-            />
+    <section className="w-full py-16 sm:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center">
+          <h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight bg-gradient-to-r from-blue-500 to-yellow-400 bg-clip-text text-transparent"
+            style={{
+              backgroundImage:
+                "linear-gradient(86deg, #2461E2 24.3%, #FDA011 83.39%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Our Sponsors
+          </h2>
+          <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
+            We are proud to partner with these innovative companies who support
+            our mission.
+          </p>
+        </div>
+
+        {/* Sponsor Logos Grid */}
+        <div className="mt-12">
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-10 sm:gap-x-12 md:gap-x-16 lg:gap-x-20">
+            {/* FIX: Destructure Logo and use a unique key for each item in the list. */}
+            {sponsorList.map(({ name, Logo, url }) => (
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit ${name}`}
+                className="text-gray-300 transition-all duration-300 ease-in-out hover:text-white hover:scale-110"
+              >
+                {/* FIX: Use the capitalized 'Logo' variable so React recognizes it as a component. */}
+                <img
+                  src={Logo}
+                  alt={name}
+                  className="h-8 sm:h-9 md:h-10 w-auto"
+                />
+              </a>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );
