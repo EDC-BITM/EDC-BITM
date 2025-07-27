@@ -4,7 +4,7 @@ import iatLogo from "../assets/iatlogo.png?w=1480&q=75&format=webp";
 
 const Hero = () => {
   return (
-    <div className="flex justify-center mt-20 sm:mt-26 px-4">
+    <div className="flex justify-center mt-24 sm:mt-32 lg:mt-36 px-4">
       <div className="flex w-full max-w-[90%] sm:max-w-[70%] flex-col items-center justify-center gap-4 mb-8 text-white">
         {/* Announcement Bar */}
         <div className="flex px-3 lg:translate-y-10 rounded-2xl py-1.5 bg-gradient-to-r from-[#E59CFF3D] via-[#BA9CFF3D] to-[#9CB2FF3D] items-center justify-center gap-2 text-white text-xs sm:text-sm">
