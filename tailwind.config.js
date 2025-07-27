@@ -6,6 +6,8 @@ export default {
       fontFamily: {
         satoshi: ["Satoshi", "sans-serif"],
         inter: ["Inter", "sans-serif"],
+        michroma: ['Michroma', 'sans-serif'],
+        orbitron: ['Orbitron', 'sans-serif'],
       },
       keyframes: {
         slide: {
