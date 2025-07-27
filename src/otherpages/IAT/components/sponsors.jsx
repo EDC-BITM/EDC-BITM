@@ -49,9 +49,8 @@ const Sponsors = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Visit ${name}`}
-                className="text-gray-300 transition-all duration-300 ease-in-out hover:text-white hover:scale-110"
+                className="text-gray-300 "
               >
-                {/* FIX: Use the capitalized 'Logo' variable so React recognizes it as a component. */}
                 <img
                   src={Logo}
                   alt={name}
