@@ -6,7 +6,7 @@ const IATIgniting = () => {
             <div className="flex flex-col items-center justify-center max-w-7xl mx-auto">
                 {/* Main Heading */}
                 <div className="text-center mb-8 sm:mb-12">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-tight">
+                    <h1 className="text-center text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-normal leading-tight sm:leading-[5.56rem] tracking-tight sm:tracking-[-0.0556rem] bg-clip-text text-transparent">
                         <span
                             style={{
                                 backgroundImage: "linear-gradient(90deg, #6366F1 0%, #8B5CF6 25%, #EC4899 75%, #F59E0B 100%)",
@@ -60,7 +60,7 @@ const IATIgniting = () => {
 
                     <motion.button
                         whileHover={{ scale: 1.05 }}
-                        className="relative px-10 sm:px-16 py-4 sm:py-5 text-white font-bold text-lg sm:text-xl rounded-full overflow-hidden group"
+                        className="relative px-8 sm:px-12 py-3 sm:py-4 text-white font-bold text-base sm:text-lg md:text-xl rounded-full overflow-hidden group"
                         style={{
                             background: "linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #F59E0B 100%)",
                             boxShadow: "0 10px 30px rgba(139, 92, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
