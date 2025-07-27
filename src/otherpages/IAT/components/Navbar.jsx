@@ -25,7 +25,7 @@ const Navbar = () => {
                 {/* Top-left border accent */}
                 <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-grey-400/60 rounded-tl-2xl"></div>
 
-<div className="flex items-center justify-between h-16 lg:h-18 w-full min-w-[400px] sm:min-w-[500px] lg:min-w-[1000px]">
+                <div className="flex items-center justify-between h-16 lg:h-18 w-full min-w-[400px] sm:min-w-[500px] lg:min-w-[1000px]">
                     <div className="flex items-center space-x-3">
                         <img
                             src={logo}
