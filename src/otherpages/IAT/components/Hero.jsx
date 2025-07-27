@@ -17,14 +17,14 @@ const Hero = () => {
           <h1 className="text-5xl sm:text-5xl md:text-[5rem] lg:text-[8rem] xl:text-[10rem] leading-[1.2] px-2">
             <span className="whitespace-nowrap">Welcome to</span>
           </h1>
-          <div className="flex items-center h-24 sm:h-56 justify-center w-full sm:-my-16">
+          <div className="flex items-center h-24 sm:h-64 justify-center w-full sm:-my-16">
             <img
               draggable="false"
               loading="lazy"
               width="1480"
               height="auto"
               src={iatLogo}
-              className="w-[95%] sm:w-[90%] md:w-[80%] lg:w-[60%] h-auto max-w-full"
+              className="w-[95%] sm:w-[90%] md:w-[80%] h-auto max-w-full"
               alt="Innovate-A-Thon Logo"
             />
           </div>
