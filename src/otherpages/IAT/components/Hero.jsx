@@ -14,10 +14,10 @@ const Hero = () => {
 
         {/* Heading and Logo */}
         <div className="text-center flex flex-col items-center font-semibold leading-tight sm:leading-[10rem] text-white">
-          <h1 className="text-3xl sm:text-5xl md:text-[5rem] lg:text-[8rem] xl:text-[10rem] leading-[1.2] px-2">
-            Welcome to
+          <h1 className="text-5xl sm:text-5xl md:text-[5rem] lg:text-[8rem] xl:text-[10rem] leading-[1.2] px-2">
+            <span className="whitespace-nowrap">Welcome to</span>
           </h1>
-          <div className="flex items-center justify-center w-full mt-2 sm:mt-4">
+          <div className="flex items-center justify-center w-full sm:-my-16">
             <img
               draggable="false"
               loading="lazy"
