@@ -338,13 +338,24 @@ const HeadingTimeline = () => {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6"
+        className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-normal leading-tight sm:leading-[5.56rem] tracking-tight sm:tracking-[-0.0556rem] bg-clip-text text-transparent mb-4 sm:mb-0"
+        style={{
+  backgroundImage: "linear-gradient(90deg, #6366F1 0%, #8B5CF6 25%, #EC4899 55%, #F59E0B 80%, #FDE68A 100%)",
+  backgroundClip: "text",
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent"
+}}
+
+
+
+
       >
-        <span className="text-blue-500">The</span>{" "}
-        <span className="text-orange-500">Timeline</span>
+        The Timeline
       </motion.h1>
+
     </div>
   );
 };
+
 
 export default IAT_Timeline;

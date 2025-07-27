@@ -1,7 +1,7 @@
 import CoinbaseLogo from "../assets/sponsors/coinbase.svg";
 import DachiLogo from "../assets/sponsors/dachi.svg";
+
 const Sponsors = () => {
-  // Storing sponsor data in an array makes it easy to add or remove sponsors.
   const sponsorList = [
     {
       name: "Coinbase",
@@ -13,35 +13,30 @@ const Sponsors = () => {
       Logo: DachiLogo,
       url: "https://www.sudlife.in/",
     },
-    // Add more sponsors here
   ];
 
   return (
     <section className="w-full py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center">
           <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight bg-gradient-to-r from-blue-500 to-yellow-400 bg-clip-text text-transparent"
+            className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-normal leading-tight sm:leading-[5.56rem] tracking-tight sm:tracking-[-0.0556rem] bg-clip-text text-transparent mb-4 sm:mb-0"
             style={{
-              backgroundImage:
-                "linear-gradient(86deg, #2461E2 24.3%, #FDA011 83.39%)",
+              backgroundImage: "linear-gradient(90deg, #6366F1 0%, #8B5CF6 25%, #EC4899 55%, #F59E0B 80%, #FDE68A 100%)",
+              backgroundClip: "text",
               WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
+              WebkitTextFillColor: "transparent"
             }}
           >
             Our Sponsors
           </h2>
-          <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
-            We are proud to partner with these innovative companies who support
-            our mission.
+          <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+            We are proud to partner with these innovative companies who support our mission.
           </p>
         </div>
 
-        {/* Sponsor Logos Grid */}
         <div className="mt-12">
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-10 sm:gap-x-12 md:gap-x-16 lg:gap-x-20">
-            {/* FIX: Destructure Logo and use a unique key for each item in the list. */}
             {sponsorList.map(({ name, Logo, url }) => (
               <a
                 key={name}
@@ -49,9 +44,8 @@ const Sponsors = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Visit ${name}`}
-                className="text-gray-300 transition-all duration-300 ease-in-out hover:text-white hover:scale-110"
+                className="text-gray-300 transition-all duration-300 ease-in-out hover:text-white"
               >
-                {/* FIX: Use the capitalized 'Logo' variable so React recognizes it as a component. */}
                 <img
                   src={Logo}
                   alt={name}
@@ -59,6 +53,7 @@ const Sponsors = () => {
                 />
               </a>
             ))}
+
           </div>
         </div>
       </div>
