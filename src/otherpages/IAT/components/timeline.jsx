@@ -106,7 +106,7 @@ function IAT_Timeline() {
           <motion.svg
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 3, ease: "easeInOut" }}
-            className="md:hidden absolute left-4 top-0 z-0"
+            className="md:hidden absolute left-[.95rem] top-0 z-0"
             width="2"
             height="100%"
             viewBox={`0 0 2 ${presidents.length * 300}`}
@@ -131,7 +131,7 @@ function IAT_Timeline() {
               x="0"
               y="0"
               width="2"
-              height={presidents.length * 300}
+              height={presidents.length * 350}
               rx="1"
               fill="url(#timeline-gradient-mobile)"
             />
@@ -297,7 +297,7 @@ const ContentSection = ({ description, index }) => {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="flex flex-col items-center justify-start h-full p-2"
+      className="flex flex-col items-center justify-start h-full p-2 translate-y-6 md:translate-y-0 md:p-8 py-2"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
