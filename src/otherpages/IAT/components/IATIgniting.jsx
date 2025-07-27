@@ -1,12 +1,19 @@
 import { motion } from "framer-motion";
+import IgniteBanner from "../assets/Ignite_Banner5.jpg"; 
+
+
 
 const IATIgniting = () => {
     return (
-        <section className="w-full py-16 sm:py-20 lg:py-24 overflow-hidden px-4">
+        <section className="w-full py-16 sm:py-20 lg:py-24 overflow-hidden px-4" style={{
+            backgroundImage: `url(${IgniteBanner})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+        }}>
             <div className="flex flex-col items-center justify-center max-w-7xl mx-auto">
                 {/* Main Heading */}
                 <div className="text-center mb-8 sm:mb-12">
-                    <h1 className="text-center text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-normal leading-tight sm:leading-[5.56rem] tracking-tight sm:tracking-[-0.0556rem] bg-clip-text text-transparent">
+                    <h1 style={{ lineHeight: '1.3' }} className="text-center text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-normal leading-tight sm:leading-[5.56rem] tracking-tight sm:tracking-[-0.0556rem] bg-clip-text text-transparent">
                         <span
                             style={{
                                 backgroundImage: "linear-gradient(90deg, #6366F1 0%, #8B5CF6 25%, #EC4899 75%, #F59E0B 100%)",
