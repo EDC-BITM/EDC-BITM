@@ -4,6 +4,7 @@ import Timeline from "./components/timeline";
 import Footer from "./components/footer";
 import FeaturedSpeaker from "./components/FeaturedSpeaker";
 import Sponsors from "./components/sponsors";
+import Register from "./components/Register";
 
 const IATPage = () => {
   return (
@@ -15,6 +16,7 @@ const IATPage = () => {
           <Timeline />
           <FeaturedSpeaker />
           <Sponsors />
+          <Register />
         </div>
       </div>
 
