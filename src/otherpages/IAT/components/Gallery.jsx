@@ -35,7 +35,7 @@ const localImages = [
 
 const Gallery = () => {
   return (
-    <div className="flex -space-y-12 my-4 flex-col items-center justify-center w-full max-w-7xl mx-auto">
+    <div id = "gallery" className="flex -space-y-12 my-4 flex-col items-center justify-center w-full max-w-7xl mx-auto">
       <h2
         className="text-3xl sm:text-4xl lg:text-8xl tracking-tight bg-gradient-to-r from-blue-500 to-yellow-400 bg-clip-text text-transparent"
         style={{
