@@ -1,36 +1,20 @@
 import React from "react";
 import CircularGallery from "./CircularGallery/CircularGallery";
 
-// ✅ Step 1: import local images
-import IATGallery1 from "@/otherpages/IAT/assets/Gallery/IATGallery1.jpg";
-import IATGallery2 from "@/otherpages/IAT/assets/Gallery/IATGallery2.jpg";
-import IATGallery3 from "@/otherpages/IAT/assets/Gallery/IATGallery3.jpg";
-import IATGallery4 from "@/otherpages/IAT/assets/Gallery/IATGallery4.jpg";
-import IATGallery5 from "@/otherpages/IAT/assets/Gallery/IATGallery5.jpg";
-import IATGallery6 from "@/otherpages/IAT/assets/Gallery/IATGallery6.jpg";
-import IATGallery7 from "@/otherpages/IAT/assets/Gallery/IATGallery7.jpg";
-import IATGallery8 from "@/otherpages/IAT/assets/Gallery/IATGallery8.jpg";
-import IATGallery9 from "@/otherpages/IAT/assets/Gallery/IATGallery9.jpg";
-import IATGallery10 from "@/otherpages/IAT/assets/Gallery/IATGallery10.jpg";
-import IATGallery11 from "@/otherpages/IAT/assets/Gallery/IATGallery11.jpg";
-import IATGallery12 from "@/otherpages/IAT/assets/Gallery/IATGallery12.jpg";
-import IATGallery13 from "@/otherpages/IAT/assets/Gallery/IATGallery13.jpg";
-
-// ✅ Step 2: make array of items
-const localImages = [
-  { image: IATGallery1, text: "" },
-  { image: IATGallery2, text: "" },
-  { image: IATGallery3, text: "" },
-  { image: IATGallery4, text: "" },
-  { image: IATGallery5, text: "" },
-  { image: IATGallery6, text: "" },
-  { image: IATGallery7, text: "" },
-  { image: IATGallery8, text: "" },
-  { image: IATGallery9, text: "" },
-  { image: IATGallery10, text: "" },
-  { image: IATGallery11, text: "" },
-  { image: IATGallery12, text: "" },
-  { image: IATGallery13, text: "" },
+const cloudImages = [
+  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery1_jcm0uq.jpg", text: "" },
+  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery2_uthgp7.jpg", text: "" },
+  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery12_jdwyhz.jpg", text: "" },
+  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery10_vmy4gx.jpg", text: "" },
+  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery9_zhad3w.jpg", text: "" },
+  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery8_rchrnu.jpg", text: "" },
+  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery3_fdttjt.jpg", text: "" },
+  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery7_mihlxc.jpg", text: "" },
+  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery6_frrrmy.jpg", text: "" },
+  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery11_ktyunk.jpg", text: "" },
+  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery5_bchqhn.jpg", text: "" },
+  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery13_xfah5a.jpg", text: "" },
+  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery4_lrgpey.jpg", text: "" },
 ];
 
 const Gallery = () => {
@@ -53,7 +37,7 @@ const Gallery = () => {
         className="w-full"
       >
         <CircularGallery
-          items={localImages}
+          items={cloudImages}
           bend={0.1}
           textColor="#ffffff"
           borderRadius={0.05}
