@@ -58,16 +58,16 @@ function IAT_Timeline() {
   const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <div id="timeline">
+    <div id="timeline" className="mb-8">
       <HeadingTimeline />
       <div className="flex justify-center px-4">
         <div
           ref={timelineRef}
-          className="flex flex-col max-w-7xl w-full py-8 relative"
+          className="flex flex-col max-w-7xl w-full pt-8 relative"
         >
           {/* Vertical timeline line - Hidden on mobile */}
           <motion.span
-            className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-0.5 bg-gradient-to-b from-blue-500 via-orange-400 to-transparent origin-top rounded-full z-0"
+            className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-0.5 bg-gradient-to-b from-blue-500 to-orange-400  origin-top rounded-full z-0"
             style={{ height: "100%", scaleY }}
           />
 
@@ -90,7 +90,7 @@ function IAT_Timeline() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: idx * 0.2 }}
-              className="flex relative z-10 items-start mb-16 md:mb-32 min-h-[250px] md:min-h-[400px]"
+              className="flex relative z-10 items-start mb-16 md:mb-32 "
             >
               {/* Timeline dot - Desktop */}
               <motion.span
@@ -219,7 +219,7 @@ const ContentSection = ({ image, description, index }) => {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="flex flex-col items-center justify-start h-full p-2 translate-y-6 md:-translate-y-0 md:p-8 py-2"
+      className="flex flex-col items-center justify-start p-2 translate-y-6 md:-translate-y-0 md:p-8 py-2"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
