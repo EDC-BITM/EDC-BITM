@@ -28,34 +28,9 @@ import { IoRocket, IoTrophySharp } from "react-icons/io5";
 import { GiUnicorn } from "react-icons/gi";
 import { scroller } from "react-scroll";
 import { motion } from "framer-motion";
-import FadeUpAnimation from "@/components/Animations/FadeUp";
 import HoverTextTranslateEffect from "@/components/Animations/HoverTextTranslate";
 
 const Startups = () => {
-  const headingVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const textWord = {
-    hidden: { opacity: 0 },
-    visible: (i) => ({
-      opacity: 1,
-      transition: {
-        delay: i * 0.099,
-        duration: 1.5,
-        ease: "easeOut",
-      },
-    }),
-  };
   const timeline = [
     {
       year: "1958",
