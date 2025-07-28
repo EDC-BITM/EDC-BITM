@@ -249,10 +249,15 @@ const Navbar = () => {
                         smooth={true}
                         duration={800}
                         offset={-100}
-                        onSetActive={() => setActiveItem(item.name)}
-                        onClick={() => setIsMenuOpen(false)}
                         className="block"
+                        
+                        onClick={() => {
+                          setActiveItem(item.name);
+                          setIsMenuOpen(false);
+                          }}
+
                       >
+                        
                         <motion.div
                           variants={menuItemVariants}
                           className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 cursor-pointer ${activeItem === item.name
