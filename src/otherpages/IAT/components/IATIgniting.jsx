@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import IgniteBanner from "../assets/Ignite_Banner5.jpg"; 
+import IgniteBanner from "../assets/Ignite_Banner5.jpg";
 
 
 
 const IATIgniting = () => {
     return (
-        <section id = "igniting" className="w-full py-16 sm:py-20 lg:py-24 overflow-hidden px-4" style={{
+        <section id="igniting" className="w-full py-16 sm:py-20 lg:py-24 overflow-hidden px-4" style={{
             backgroundImage: `url(${IgniteBanner})`,
             backgroundSize: "cover",
             backgroundPosition: "center"
@@ -72,6 +72,8 @@ const IATIgniting = () => {
                             background: "linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #F59E0B 100%)",
                             boxShadow: "0 10px 30px rgba(139, 92, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
                         }}
+
+                        onClick={() => window.open("https://unstop.com/p/innovate-a-thon-30-bit-mesra-ranchi-1529762", "_blank")}
                     >
                         {/* Animated gradient overlay */}
                         <div

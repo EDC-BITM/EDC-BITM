@@ -18,7 +18,7 @@ const IATLogo = ({ className }) => (
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState("Home"); 
+  const [activeItem, setActiveItem] = useState("Home");
 
   useEffect(() => {
     const handleResize = () => {
@@ -56,7 +56,7 @@ const Navbar = () => {
 
   const handleScrollTo = (item) => {
     setActiveItem(item.name);
-    
+
     if (item.name === "Home" || item.label === "") {
       // Scroll to top for Home
       window.scrollTo({
@@ -64,7 +64,7 @@ const Navbar = () => {
         behavior: 'smooth'
       });
     }
-   
+
   };
 
   console.log(isMenuOpen);
@@ -77,7 +77,7 @@ const Navbar = () => {
         <div className="absolute bottom-0 right-0 w-12 h-12 md:w-16 md:h-16 border-r-2 border-b-2 border-gray-400/60 rounded-br-2xl opacity-50 transition-all duration-300"></div>
 
         <div className="flex items-center justify-between h-16 lg:h-20 w-full">
-         
+
           <motion.div
             className="flex items-center space-x-3 cursor-pointer"
             initial={{ opacity: 0, x: -20 }}
@@ -93,55 +93,55 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-2">
-           {navItems.map((item) => (
-  <div key={item.name} className="relative">
-    {item.name === "Home" || item.label === "" ? (
-      <motion.button
-        onClick={() => handleScrollTo(item)}
-        className="relative px-4 py-2 text-sm font-medium transition-colors duration-300 text-gray-300 hover:text-white"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        {item.name}
-        {activeItem === item.name && (
-          <motion.div
-            layoutId="activeTab"
-            className="absolute inset-0 bg-white/10 rounded-full border border-white/20"
-            initial={false}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          />
-        )}
-      </motion.button>
-    ) : (
-      <Link
-        to={item.label}
-        spy={true}
-        smooth={true}
-        duration={800}
-        offset={-100}
-      
-        className="block"
-        onClick={() => setActiveItem(item.name)} 
-      >
-        <motion.div
-          className="relative px-4 py-2 text-sm font-medium transition-colors duration-300 text-gray-300 hover:text-white cursor-pointer"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          {item.name}
-          {activeItem === item.name && (
-            <motion.div
-              layoutId="activeTab"
-              className="absolute inset-0 bg-white/10 rounded-full border border-white/20"
-              initial={false}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            />
-          )}
-        </motion.div>
-      </Link>
-    )}
-  </div>
-))}
+            {navItems.map((item) => (
+              <div key={item.name} className="relative">
+                {item.name === "Home" || item.label === "" ? (
+                  <motion.button
+                    onClick={() => handleScrollTo(item)}
+                    className="relative px-4 py-2 text-sm font-medium transition-colors duration-300 text-gray-300 hover:text-white"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {item.name}
+                    {activeItem === item.name && (
+                      <motion.div
+                        layoutId="activeTab"
+                        className="absolute inset-0 bg-white/10 rounded-full border border-white/20"
+                        initial={false}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                  </motion.button>
+                ) : (
+                  <Link
+                    to={item.label}
+                    spy={true}
+                    smooth={true}
+                    duration={800}
+                    offset={-100}
+
+                    className="block"
+                    onClick={() => setActiveItem(item.name)}
+                  >
+                    <motion.div
+                      className="relative px-4 py-2 text-sm font-medium transition-colors duration-300 text-gray-300 hover:text-white cursor-pointer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {item.name}
+                      {activeItem === item.name && (
+                        <motion.div
+                          layoutId="activeTab"
+                          className="absolute inset-0 bg-white/10 rounded-full border border-white/20"
+                          initial={false}
+                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        />
+                      )}
+                    </motion.div>
+                  </Link>
+                )}
+              </div>
+            ))}
 
           </div>
 
@@ -157,9 +157,11 @@ const Navbar = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
+              onClick={() => window.open("https://unstop.com/p/innovate-a-thon-30-bit-mesra-ranchi-1529762", "_blank")}
             >
               Register
             </motion.button>
+
           </div>
 
           {/* Mobile menu button */}
@@ -233,23 +235,20 @@ const Navbar = () => {
                           setIsMenuOpen(false);
                         }}
                         variants={menuItemVariants}
-                        className={`block w-full text-left px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 ${
-                          activeItem === item.name 
+                        className={`block w-full text-left px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 ${activeItem === item.name
                             ? "text-white bg-white/10"
                             : "text-gray-300 hover:text-white hover:bg-white/5"
-                        }`}
+                          }`}
                       >
                         {item.name}
                       </motion.button>
                     ) : (
                       <Link
-                        to={item.label} 
+                        to={item.label}
                         spy={true}
                         smooth={true}
                         duration={800}
                         offset={-100}
-                        
-                        
                         className="block"
                         
                         onClick={() => {
@@ -261,11 +260,10 @@ const Navbar = () => {
                         
                         <motion.div
                           variants={menuItemVariants}
-                          className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 cursor-pointer ${
-                            activeItem === item.name 
+                          className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 cursor-pointer ${activeItem === item.name
                               ? "text-white bg-white/10"
                               : "text-gray-300 hover:text-white hover:bg-white/5"
-                          }`}
+                            }`}
                         >
                           {item.name}
                         </motion.div>
