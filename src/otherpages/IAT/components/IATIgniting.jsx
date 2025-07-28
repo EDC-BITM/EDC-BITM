@@ -5,7 +5,7 @@ import IgniteBanner from "../assets/Ignite_Banner5.jpg";
 
 const IATIgniting = () => {
     return (
-        <section className="w-full py-16 sm:py-20 lg:py-24 overflow-hidden px-4" style={{
+        <section id = "igniting" className="w-full py-16 sm:py-20 lg:py-24 overflow-hidden px-4" style={{
             backgroundImage: `url(${IgniteBanner})`,
             backgroundSize: "cover",
             backgroundPosition: "center"

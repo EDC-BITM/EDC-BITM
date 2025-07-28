@@ -2,7 +2,7 @@ import SpeakerCard from "./SpeakerCard";
 
 const FeaturedSpeaker = () => {
   return (
-    <div className="relative mb-16 flex justify-center px-4">
+    <div id = "speakers" className="relative mb-16 flex justify-center px-4">
       <div className="flex flex-col items-center w-full max-w-7xl">
         <h2
           className="text-center text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-normal leading-tight sm:leading-[5.56rem] tracking-tight sm:tracking-[-0.0556rem] bg-clip-text text-transparent mb-4 sm:mb-0"
