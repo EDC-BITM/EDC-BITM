@@ -1,15 +1,38 @@
-import { scroller } from "react-scroll";
+// import { scroller } from "react-scroll";
 import CldImageData from "@/data/CldImage.json";
 import CldImage from "../../Images/CldImage";
 import blobL from "@assets/blobs/blobL.png?w=200&format=webp&quality=50&as=meta";
 import blobR from "@assets/blobs/blobR.png?w=200&format=webp&quality=50&as=meta";
 import HoverTextTranslateEffect from "@/components/Animations/HoverTextTranslate";
+import IATLogo from "../../../otherpages/IAT/assets/horizontalLogo.svg";
+import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
+
+const IATLink = () => {
+  return (
+    <NavLink
+      to="/iat"
+      className="relative z-10 flex items-center justify-center w-full px-4 py-2 sm:px-6"
+    >
+      <motion.img
+        src={IATLogo}
+        alt="IAT Logo"
+        className="w-64 sm:w-80 md:w-[30rem] max-w-full h-auto drop-shadow-lg transition-transform duration-300 ease-in-out"
+        whileHover={{
+          scale: 1.05,
+          filter: "brightness(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.3))",
+        }}
+        transition={{ type: "spring", stiffness: 250, damping: 18 }}
+      />
+    </NavLink>
+  );
+};
 
 function Hero() {
   const heroImage = CldImageData.Home.hero[0];
   return (
     <div className="h-screen p-0 w-full m-0">
-      <div className="sm:h-full relative h-screen w-screen bg-no-repeat sm:w-full p-0 m-0 box-border bg-center flex flex-col b-body justify-center items-center bg-cover ">
+      <div className="sm:h-full relative min-h-screen w-screen bg-no-repeat sm:w-full p-0 m-0 box-border bg-center flex flex-col b-body justify-center items-center bg-cover ">
         <div className="absolute inset-0 ">
           <CldImage
             src={heroImage.publicId}
@@ -21,13 +44,13 @@ function Hero() {
           />
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6))]"></div>
         </div>
-        <div className="w-full max-h-[300px] flex items-center justify-center text-6xl font-black px-[50px] py-[20px] mb-[30px]">
+        <div className="w-full flex items-center justify-center text-6xl font-black px-[50px] pt-[20px]">
           <HoverTextTranslateEffect
             firstLine="Igniting the innovation"
             secondLine="within upcoming ground breakers."
           />
         </div>
-        <div
+        {/* <div
           className="group duration-150 ease-in-out cursor-pointer hover:bg-[whitesmoke]  rounded-[10px] text-2xl border border-white  hover:scale-110 backdrop-blur-sm text-black h-auto"
           onClick={() => {
             scroller.scrollTo("our_stats", {
@@ -41,11 +64,13 @@ function Hero() {
             <button className="group-hover:text-black px-8 py-1.5 text-white transition ease-in-out">
               Get Started
             </button>
-          </div>
-        </div>
+          </div>*/}
+
+        {/* // IAT Redirect */}
+
+        <IATLink />
       </div>
 
-      {/* Blobs */}
       <img
         src={blobL.src}
         alt="Blob 1"
