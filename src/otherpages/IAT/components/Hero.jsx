@@ -7,10 +7,11 @@ const Hero = () => {
   return (
     <div id="hero" className="flex justify-center mt-32 sm:mt-32 lg:mt-36 px-4">
       <div className="flex w-full max-w-[90%] sm:max-w-[70%] flex-col items-center justify-center gap-4 mb-8 text-white">
-
         {/* Announcement Bar */}
         <button
-          onClick={() => scroller.scrollTo("timeline", { smooth: true, offset: -150 })}
+          onClick={() =>
+            scroller.scrollTo("timeline", { smooth: true, offset: -150 })
+          }
           className="flex cursor-pointer px-3 lg:translate-y-10 rounded-2xl py-1.5 bg-gradient-to-r from-[#E59CFF3D] via-[#BA9CFF3D] to-[#9CB2FF3D] items-center justify-center gap-2 text-white text-xs sm:text-sm"
         >
           <img src={icon} className="w-4 h-4 sm:w-5 sm:h-5" alt="Event Icon" />
@@ -22,7 +23,7 @@ const Hero = () => {
           <h1 className="text-5xl sm:text-5xl md:text-[5rem] lg:text-[8rem] xl:text-[10rem] leading-[1.2] px-2">
             <span className="whitespace-nowrap">Welcome to</span>
           </h1>
-          <div className="flex items-center h-72 sm:h-auto justify-center w-full sm:-my-24">
+          <div className="flex items-center h-72 sm:h-[24rem] md:h-[34rem] lg:h-[38rem] justify-center w-full sm:-my-24">
             <img
               draggable="false"
               loading="lazy"
@@ -52,7 +53,10 @@ const Hero = () => {
               {/* Center Button */}
               <motion.button
                 onClick={() =>
-                  window.open("https://unstop.com/p/innovate-a-thon-30-bit-mesra-ranchi-1529762", "_blank")
+                  window.open(
+                    "https://unstop.com/p/innovate-a-thon-30-bit-mesra-ranchi-1529762",
+                    "_blank"
+                  )
                 }
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -75,7 +79,6 @@ const Hero = () => {
               <div className="hidden sm:block flex-1 h-px bg-gradient-to-l from-white/0 via-white/60 to-white"></div>
             </div>
           </div>
-
         </div>
 
         {/* Middle Divider - commented out */}
