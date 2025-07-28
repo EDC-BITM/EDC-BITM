@@ -12,12 +12,12 @@ const IATLink = () => {
   return (
     <NavLink
       to="/iat"
-      className="relative z-10 flex items-center justify-center w-full px-4 py-2 sm:px-6"
+      className="relative z-10 flex h-28 sm:h-36 items-center justify-center w-full px-4 py-2 sm:px-6"
     >
       <motion.img
         src={IATLogo}
         alt="IAT Logo"
-        className="w-64 sm:w-80 md:w-[30rem] max-w-full h-auto drop-shadow-lg transition-transform duration-300 ease-in-out"
+        className="w-80 md:w-[30rem] max-w-full h-auto drop-shadow-lg transition-transform duration-300 ease-in-out"
         whileHover={{
           scale: 1.05,
           filter: "brightness(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.3))",
