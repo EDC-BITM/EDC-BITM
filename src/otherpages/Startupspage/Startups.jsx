@@ -29,6 +29,7 @@ import { GiUnicorn } from "react-icons/gi";
 import { scroller } from "react-scroll";
 import { motion } from "framer-motion";
 import FadeUpAnimation from "@/components/Animations/FadeUp";
+import HoverTextTranslateEffect from "@/components/Animations/HoverTextTranslate";
 
 const Startups = () => {
   const headingVariants = {
@@ -212,157 +213,139 @@ const Startups = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent" />
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4 sm:px-6">
-          <motion.div
-            variants={headingVariants}
-            initial="hidden"
-            animate="visible"
-            className="mb-4"
-          >
-            <motion.h1
-              variants={headingVariants}
-              className="text-white tracking-tight text-4xl md:text-5xl lg:text-6xl font-extrabold"
-            >
-              Innovating From The Heart
-            </motion.h1>
-            <motion.h2
-              variants={headingVariants}
-              className="text-green-400 tracking-tight text-3xl md:text-4xl font-bold mt-2"
-            >
-              Where Ideas Meet Impact
-            </motion.h2>
-          </motion.div>
+          <HoverTextTranslateEffect
+            firstLine={" Innovating From The"}
+            secondLine={"Heart Where Ideas Meet Impact"}
+            className="text-3xl tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-50/90 mb-4"
+          />
 
-          <motion.p
-            className="text-gray-300 text-lg md:text-xl mt-6 max-w-2xl"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {"Explore the legacy of entrepreneurship born at BIT Mesra"
-              .split(" ")
-              .map((word, i) => (
-                <motion.span
-                  key={i}
-                  variants={textWord}
-                  custom={i}
-                  className={`inline-block ${
-                    word === "BIT" || word === "Mesra"
-                      ? "text-yellow-400 font-semibold"
-                      : ""
-                  } mr-2`}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            <span className="text-yellow-400 font-semibold">.</span>
-          </motion.p>
-          {/* Button */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.6, ease: "easeOut" }}
-            className="mt-8"
-          >
-            <button
-              onClick={() =>
-                scroller.scrollTo("startups", {
-                  smooth: true,
-                  duration: 500,
-                  offset: -70,
-                })
-              }
-              className="group bg-white/10 hover:bg-white/20 border border-white text-white px-8 py-2 text-lg rounded-xl backdrop-blur-md shadow-xl transition-all duration-300 ease-in-out hover:scale-105"
+          <div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
+              className="mt-8 text-lg sm:text-2xl text-gray-200 max-w-2xl text-center flex flex-wrap justify-center gap-x-2"
             >
-              <span className="group-hover:text-yellow-300">
+              {"Explore the legacy of entrepreneurship born at BIT Mesra"
+                .split(" ")
+                .map((word, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{
+                      delay: index * 0.099,
+                      duration: 1.5,
+                      ease: "easeOut",
+                    }}
+                    className="inline-block"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+            </motion.p>
+          </div>
+          {/* Button */}
+
+          <div
+            className="group mt-8 duration-150 ease-in-out hover:bg-[whitesmoke]  rounded-[10px] text-2xl border border-white  hover:scale-110 backdrop-blur-sm text-black h-auto"
+            onClick={() => {
+              scroller.scrollTo("startups", {
+                smooth: true,
+                duration: 500,
+                offset: -70,
+              });
+            }}
+          >
+            <div className="flex justify-center items-center">
+              <button className="group-hover:text-black cursor-pointer px-8 py-1.5 text-white transition ease-in-out">
                 Explore Startups
-              </span>
-            </button>
-          </motion.div>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <FadeUpAnimation>
-        <section
-          id="startups"
-          className="max-w-7xl  z-20 glass-morphic mx-auto p-6 sm:p-10 shadow-2xl rounded-xl md:-mt-20 relative animate-fade-in-up flex flex-col md:flex-row gap-10"
-        >
-          {/* Text Content */}
-          <div className="flex-1 flex flex-col justify-center">
-            <div className="flex items-center mb-6">
-              <div className="h-[50px] w-[50px] bg-[#FED853] rounded-md shadow-md"></div>
-              <h1 className="text-[28px] ml-[-35px] font-bold uppercase tracking-wide text-gray-800">
-                Startups
-              </h1>
-            </div>
-
-            <p className="text-md text-gray-600 leading-relaxed">
-              Entrepreneurship Development Cells (EDCs) are campus-based
-              initiatives that aim to inspire and support students in becoming
-              future entrepreneurs by fostering innovation, creativity, and
-              leadership. They provide a platform where students can explore
-              ideas, build startups, and gain real-world business exposure
-              through mentorship, workshops, networking events, and access to
-              funding. EDCs often collaborate with industry experts, incubators,
-              and investors to guide students in transforming their concepts
-              into viable ventures. By bridging the gap between academics and
-              practical entrepreneurship, EDCs play a crucial role in developing
-              problem-solving skills, risk-taking ability, and business acumen
-              among students, empowering them to become change-makers in the
-              modern economy.
-            </p>
-
-            <div className="flex flex-wrap justify-around text-center mt-10 border-t pt-8 gap-6">
-              <div className="flex flex-col items-center">
-                <span className="text-yellow-500 text-4xl font-bold flex items-center gap-2">
-                  <IoRocket className="text-yellow-400 text-3xl" />
-                  50+
-                </span>
-                <p className="text-gray-500 mt-1 font-semibold">Startups</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-blue-500 text-4xl font-bold flex items-center gap-2">
-                  <IoTrophySharp className="text-blue-400 text-3xl" />
-                  40+
-                </span>
-                <p className="text-gray-500 mt-1 font-semibold">
-                  Success Stories
-                </p>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-red-500 text-4xl font-bold flex items-center gap-2">
-                  <GiUnicorn className="text-red-400 text-3xl" />
-                  2+
-                </span>
-                <p className="text-gray-500 mt-1 font-semibold">Unicorns</p>
-              </div>
-            </div>
+      <section
+        id="startups"
+        className="max-w-7xl  z-20 glass-morphic mx-auto p-6 sm:p-10 shadow-2xl rounded-xl md:-mt-20 relative animate-fade-in-up flex flex-col md:flex-row gap-10"
+      >
+        {/* Text Content */}
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="flex items-center mb-6">
+            <div className="h-[50px] w-[50px] bg-[#FED853] rounded-md shadow-md"></div>
+            <h1 className="text-[28px] ml-[-35px] font-bold uppercase tracking-wide text-gray-800">
+              Startups
+            </h1>
           </div>
 
-          {/* Images */}
-          <div className="flex-1 grid gap-6">
-            <div className="aspect-video overflow-hidden rounded-2xl shadow-xl">
-              <CldImage
-                src="13781_fgzlte"
-                width={600}
-                height={400}
-                loading="lazy"
-                alt="Startup Collaboration"
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-              />
+          <p className="text-md text-gray-600 leading-relaxed">
+            Entrepreneurship Development Cells (EDCs) are campus-based
+            initiatives that aim to inspire and support students in becoming
+            future entrepreneurs by fostering innovation, creativity, and
+            leadership. They provide a platform where students can explore
+            ideas, build startups, and gain real-world business exposure through
+            mentorship, workshops, networking events, and access to funding.
+            EDCs often collaborate with industry experts, incubators, and
+            investors to guide students in transforming their concepts into
+            viable ventures. By bridging the gap between academics and practical
+            entrepreneurship, EDCs play a crucial role in developing
+            problem-solving skills, risk-taking ability, and business acumen
+            among students, empowering them to become change-makers in the
+            modern economy.
+          </p>
+
+          <div className="flex flex-wrap justify-around text-center mt-10 border-t pt-8 gap-6">
+            <div className="flex flex-col items-center">
+              <span className="text-yellow-500 text-4xl font-bold flex items-center gap-2">
+                <IoRocket className="text-yellow-400 text-3xl" />
+                50+
+              </span>
+              <p className="text-gray-500 mt-1 font-semibold">Startups</p>
             </div>
-            <div className="aspect-video overflow-hidden rounded-2xl shadow-xl">
-              <CldImage
-                src="859_ukifuv"
-                width={600}
-                height={400}
-                loading="lazy"
-                alt="Innovative Minds"
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-              />
+            <div className="flex flex-col items-center">
+              <span className="text-blue-500 text-4xl font-bold flex items-center gap-2">
+                <IoTrophySharp className="text-blue-400 text-3xl" />
+                40+
+              </span>
+              <p className="text-gray-500 mt-1 font-semibold">
+                Success Stories
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-red-500 text-4xl font-bold flex items-center gap-2">
+                <GiUnicorn className="text-red-400 text-3xl" />
+                2+
+              </span>
+              <p className="text-gray-500 mt-1 font-semibold">Unicorns</p>
             </div>
           </div>
-        </section>
-      </FadeUpAnimation>
+        </div>
+
+        {/* Images */}
+        <div className="flex-1 grid gap-6">
+          <div className="aspect-video overflow-hidden rounded-2xl shadow-xl">
+            <CldImage
+              src="13781_fgzlte"
+              width={600}
+              height={400}
+              loading="lazy"
+              alt="Startup Collaboration"
+              className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+          <div className="aspect-video overflow-hidden rounded-2xl shadow-xl">
+            <CldImage
+              src="859_ukifuv"
+              width={600}
+              height={400}
+              loading="lazy"
+              alt="Innovative Minds"
+              className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+        </div>
+      </section>
 
       <div className="relative z-20 max-w-5xl mx-auto mt-10 ">
         <div className="hidden md:block">
