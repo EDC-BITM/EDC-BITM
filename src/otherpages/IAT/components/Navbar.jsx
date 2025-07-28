@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../SquareIATLogo.png";
-import { Link } from 'react-scroll';
+import { Link } from "react-scroll";
 
 import Background from "../components/background";
 import Hero from "../components/Hero";
@@ -61,10 +61,9 @@ const Navbar = () => {
       // Scroll to top for Home
       window.scrollTo({
         top: 0,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
-
   };
 
   console.log(isMenuOpen);
@@ -77,7 +76,6 @@ const Navbar = () => {
         <div className="absolute bottom-0 right-0 w-12 h-12 md:w-16 md:h-16 border-r-2 border-b-2 border-gray-400/60 rounded-br-2xl opacity-50 transition-all duration-300"></div>
 
         <div className="flex items-center justify-between h-16 lg:h-20 w-full">
-
           <motion.div
             className="flex items-center space-x-3 cursor-pointer"
             initial={{ opacity: 0, x: -20 }}
@@ -108,7 +106,11 @@ const Navbar = () => {
                         layoutId="activeTab"
                         className="absolute inset-0 bg-white/10 rounded-full border border-white/20"
                         initial={false}
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 30,
+                        }}
                       />
                     )}
                   </motion.button>
@@ -119,7 +121,6 @@ const Navbar = () => {
                     smooth={true}
                     duration={800}
                     offset={-100}
-
                     className="block"
                     onClick={() => setActiveItem(item.name)}
                   >
@@ -134,7 +135,11 @@ const Navbar = () => {
                           layoutId="activeTab"
                           className="absolute inset-0 bg-white/10 rounded-full border border-white/20"
                           initial={false}
-                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 30,
+                          }}
                         />
                       )}
                     </motion.div>
@@ -142,7 +147,6 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-
           </div>
 
           {/* Register Button (Desktop) */}
@@ -153,15 +157,19 @@ const Navbar = () => {
                 boxShadow: "0 0 25px rgba(101, 94, 253, 0.5)",
               }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-2.5 bg-[#655EFD] text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-[#655EFD]/30"
+              className="px-6 py-2.5 cursor-pointer bg-[#655EFD] text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-[#655EFD]/30"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              onClick={() => window.open("https://unstop.com/p/innovate-a-thon-30-bit-mesra-ranchi-1529762", "_blank")}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              onClick={() =>
+                window.open(
+                  "https://unstop.com/p/innovate-a-thon-30-bit-mesra-ranchi-1529762",
+                  "_blank"
+                )
+              }
             >
               Register
             </motion.button>
-
           </div>
 
           {/* Mobile menu button */}
@@ -235,10 +243,11 @@ const Navbar = () => {
                           setIsMenuOpen(false);
                         }}
                         variants={menuItemVariants}
-                        className={`block w-full text-left px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 ${activeItem === item.name
+                        className={`block w-full text-left px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 ${
+                          activeItem === item.name
                             ? "text-white bg-white/10"
                             : "text-gray-300 hover:text-white hover:bg-white/5"
-                          }`}
+                        }`}
                       >
                         {item.name}
                       </motion.button>
@@ -250,20 +259,18 @@ const Navbar = () => {
                         duration={800}
                         offset={-100}
                         className="block"
-                        
                         onClick={() => {
                           setActiveItem(item.name);
                           setIsMenuOpen(false);
-                          }}
-
+                        }}
                       >
-                        
                         <motion.div
                           variants={menuItemVariants}
-                          className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 cursor-pointer ${activeItem === item.name
+                          className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 cursor-pointer ${
+                            activeItem === item.name
                               ? "text-white bg-white/10"
                               : "text-gray-300 hover:text-white hover:bg-white/5"
-                            }`}
+                          }`}
                         >
                           {item.name}
                         </motion.div>
