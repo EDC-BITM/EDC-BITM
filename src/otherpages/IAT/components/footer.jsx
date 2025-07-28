@@ -82,7 +82,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-white">
+              <a href="https://unstop.com/p/innovate-a-thon-30-bit-mesra-ranchi-1529762" className="hover:text-white">
                 Unstop
               </a>
             </li>
