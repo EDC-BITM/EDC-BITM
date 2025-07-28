@@ -4,14 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "../SquareIATLogo.png";
 import { Link } from "react-scroll";
 
-import Background from "../components/background";
-import Hero from "../components/Hero";
-import Timeline from "../components/timeline";
-import Footer from "../components/footer";
-import FeaturedSpeaker from "../components/FeaturedSpeaker";
-import Sponsors from "../components/sponsors";
-import IATIgniting from "../components/IATIgniting";
-
 const IATLogo = ({ className }) => (
   <img src={logo} alt="IAT Logo" className={className} />
 );
@@ -19,6 +11,8 @@ const IATLogo = ({ className }) => (
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("Home");
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,12 +23,29 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShow(false); // scrolling neche
+      } else {
+        setShow(true); // scrolling upar
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   const navItems = [
     { name: "Home", label: "" },
     { name: "Schedule", label: "timeline" },
     { name: "Speakers", label: "speakers" },
-    { name: "Events", label: "gallery" },
-    { name: "News/Updates", label: "igniting" },
+    { name: "Gallery", label: "gallery" },
   ];
 
   const menuVariants = {
@@ -68,7 +79,12 @@ const Navbar = () => {
 
   console.log(isMenuOpen);
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 p-4">
+    <motion.nav
+      initial={{ y: 0 }}
+      animate={{ y: show ? 0 : "-100%" }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="fixed top-0 left-0 right-0 z-50 p-4"
+    >
       <div className="relative w-full max-w-7xl mx-auto bg-black/30 backdrop-blur-xl border border-white/20 rounded-2xl px-4 sm:px-6 lg:px-8 shadow-2xl shadow-black/20">
         {/* Top-left border accent */}
         <div className="absolute top-0 left-0 w-12 h-12 md:w-16 md:h-16 border-l-2 border-t-2 border-gray-400/60 rounded-tl-2xl opacity-50 transition-all duration-300"></div>
@@ -291,7 +307,7 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
