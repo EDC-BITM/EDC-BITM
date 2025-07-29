@@ -94,13 +94,14 @@ const SpeakerCard = () => {
 
         {/* Title */}
         <div
-          className="text-white text-lg sm:text-xl lg:text-2xl xl:text-3xl leading-tight sm:leading-relaxed"
+          className="text-white text-lg sm:text-xl lg:text-2xl xl:text-3xl leading-tight sm:leading-relaxed italic opacity-70 blur-xs animate-pulse"
           style={{
             fontFamily: "Raleway, sans-serif",
             textShadow: "0 2px 8px rgba(0,0,0,0.15)",
+            letterSpacing: "0.01em",
           }}
         >
-          Navigating an AI-Enabled Future
+          Comming Soon:
         </div>
 
         {/* Speaker Status */}
