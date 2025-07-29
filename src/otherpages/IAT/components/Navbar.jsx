@@ -1,12 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../SquareIATLogo.png";
+import IATBulb from "../assets/IATBulb.svg?react";
 import { Link } from "react-scroll";
 
-const IATLogo = ({ className }) => (
-  <img src={logo} alt="IAT Logo" className={className} />
-);
+const IATLogo = ({ className }) => <IATBulb className={className} />;
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -1,6 +1,6 @@
 import React from "react";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
-import logo from "../SquareIATLogo.png";
+import IATBulb from "../assets/IATBulb.svg?react";
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="md:col-span-2 flex flex-col justify-between space-y-6">
           <div>
             <div className="flex items-center gap-2">
-              <img src={logo} alt="logo" className="w-12 h-12" />
+              <IATBulb className="w-12 h-12" />
               <h2 className="text-white font-bold">Innovate-A-Thon</h2>
             </div>
 
@@ -30,12 +30,11 @@ const Footer = () => {
               </a>
             </div>
 
-
             <div className="pt-8 text-sm leading-relaxed text-gray-400">
               <p>
-                Innovate-A-Thon is East India's biggest hackathon,
-                fostering innovation and entrepreneurship by bringing together
-                brilliant minds from across the country.
+                Innovate-A-Thon is East India's biggest hackathon, fostering
+                innovation and entrepreneurship by bringing together brilliant
+                minds from across the country.
               </p>
             </div>
           </div>
@@ -82,7 +81,10 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="https://unstop.com/p/innovate-a-thon-30-bit-mesra-ranchi-1529762" className="hover:text-white">
+              <a
+                href="https://unstop.com/p/innovate-a-thon-30-bit-mesra-ranchi-1529762"
+                className="hover:text-white"
+              >
                 Unstop
               </a>
             </li>

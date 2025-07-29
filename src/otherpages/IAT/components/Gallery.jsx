@@ -2,24 +2,79 @@ import React from "react";
 import CircularGallery from "./CircularGallery/CircularGallery";
 
 const cloudImages = [
-  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery1_jcm0uq.jpg", text: "" },
-  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery2_uthgp7.jpg", text: "" },
-  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery12_jdwyhz.jpg", text: "" },
-  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery10_vmy4gx.jpg", text: "" },
-  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery9_zhad3w.jpg", text: "" },
-  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery8_rchrnu.jpg", text: "" },
-  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery3_fdttjt.jpg", text: "" },
-  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery7_mihlxc.jpg", text: "" },
-  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery6_frrrmy.jpg", text: "" },
-  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery11_ktyunk.jpg", text: "" },
-  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery5_bchqhn.jpg", text: "" },
-  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery13_xfah5a.jpg", text: "" },
-  { image: "https://res.cloudinary.com/dqjpac04m/image/upload/IATGallery4_lrgpey.jpg", text: "" },
+  {
+    image:
+      "https://res.cloudinary.com/dqjpac04m/image/upload/f_auto,q_auto,w_400/IATGallery1_jcm0uq.jpg",
+    text: "",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dqjpac04m/image/upload/f_auto,q_auto,w_400/IATGallery2_uthgp7.jpg",
+    text: "",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dqjpac04m/image/upload/f_auto,q_auto,w_500/IATGallery12_jdwyhz.jpg",
+    text: "",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dqjpac04m/image/upload/f_auto,q_auto,w_500/IATGallery10_vmy4gx.jpg",
+    text: "",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dqjpac04m/image/upload/f_auto,q_auto,w_500/IATGallery9_zhad3w.jpg",
+    text: "",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dqjpac04m/image/upload/f_auto,q_auto,w_500/IATGallery8_rchrnu.jpg",
+    text: "",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dqjpac04m/image/upload/f_auto,q_auto,w_500/IATGallery3_fdttjt.jpg",
+    text: "",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dqjpac04m/image/upload/f_auto,q_auto,w_500/IATGallery7_mihlxc.jpg",
+    text: "",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dqjpac04m/image/upload/f_auto,q_auto,w_500/IATGallery6_frrrmy.jpg",
+    text: "",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dqjpac04m/image/upload/f_auto,q_auto,w_500/IATGallery11_ktyunk.jpg",
+    text: "",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dqjpac04m/image/upload/f_auto,q_auto,w_500/IATGallery5_bchqhn.jpg",
+    text: "",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dqjpac04m/image/upload/f_auto,q_auto,w_500/IATGallery13_xfah5a.jpg",
+    text: "",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dqjpac04m/image/upload/f_auto,q_auto,w_500/IATGallery4_lrgpey.jpg",
+    text: "",
+  },
 ];
 
 const Gallery = () => {
   return (
-    <div id = "gallery" className="flex -space-y-12 my-4 flex-col items-center justify-center w-full max-w-7xl mx-auto">
+    <div
+      id="gallery"
+      className="flex -space-y-12 my-4 flex-col items-center justify-center w-full max-w-7xl mx-auto"
+    >
       <h2
         className="text-3xl sm:text-4xl lg:text-8xl tracking-tight bg-gradient-to-r from-blue-500 to-yellow-400 bg-clip-text text-transparent"
         style={{
@@ -35,6 +90,8 @@ const Gallery = () => {
       <div
         style={{ height: "600px", position: "relative" }}
         className="w-full"
+        onSelect={(e) => e.preventDefault()}
+        onDrag={(e) => e.preventDefault()}
       >
         <CircularGallery
           items={cloudImages}
@@ -42,6 +99,7 @@ const Gallery = () => {
           textColor="#ffffff"
           borderRadius={0.05}
           scrollEase={0.02}
+          scrollSpeed={1.5}
         />
       </div>
     </div>
