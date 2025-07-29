@@ -1,5 +1,5 @@
-import icon from "../assets/Frame.svg";
-import iatLogo from "../assets/iatLogo.svg";
+import StarIcon from "../assets/Frame.svg?react";
+import IatLogo from "../assets/iatLogo.svg?react";
 import { scroller } from "react-scroll";
 import { motion } from "framer-motion";
 
@@ -12,9 +12,9 @@ const Hero = () => {
           onClick={() =>
             scroller.scrollTo("timeline", { smooth: true, offset: -150 })
           }
-          className="flex cursor-pointer px-3 lg:translate-y-10 rounded-2xl py-1.5 bg-gradient-to-r from-[#E59CFF3D] via-[#BA9CFF3D] to-[#9CB2FF3D] items-center justify-center gap-2 text-white text-xs sm:text-sm"
+          className="flex hover:scale-105 ease-in-out transition-all duration-200 cursor-pointer px-3 lg:translate-y-10 rounded-2xl py-1.5 bg-gradient-to-r from-[#E59CFF3D] via-[#BA9CFF3D] to-[#9CB2FF3D] items-center justify-center gap-2 text-white text-xs sm:text-sm"
         >
-          <img src={icon} className="w-4 h-4 sm:w-5 sm:h-5" alt="Event Icon" />
+          <StarIcon className="w-4 h-4 sm:w-5 sm:h-5" />
           <span>New: Check our Schedule</span>
         </button>
 
@@ -24,15 +24,7 @@ const Hero = () => {
             <span className="whitespace-nowrap">Welcome to</span>
           </h1>
           <div className="flex items-center h-72 sm:h-[24rem] md:h-[34rem] lg:h-[38rem] justify-center w-full sm:-my-24">
-            <img
-              draggable="false"
-              loading="lazy"
-              width="1480"
-              height="auto"
-              src={iatLogo}
-              className="w-full sm:w-[90%] md:w-[60%] h-auto max-w-full"
-              alt="Innovate-A-Thon Logo"
-            />
+            <IatLogo className="w-full sm:w-[90%] md:w-[60%] h-auto max-w-full" />
           </div>
         </div>
 
@@ -51,16 +43,13 @@ const Hero = () => {
               <div className="hidden sm:block flex-1 h-px bg-gradient-to-r from-white/0 via-white/60 to-white"></div>
 
               {/* Center Button */}
-              <motion.button
+              <button
                 onClick={() =>
                   window.open(
                     "https://unstop.com/p/innovate-a-thon-30-bit-mesra-ranchi-1529762",
                     "_blank"
                   )
                 }
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
                 style={{
                   borderRadius: "0.625rem",
                   background:
@@ -68,12 +57,12 @@ const Hero = () => {
                   boxShadow:
                     "0 2px 5px rgba(16,0,51,0.39), 0 8px 8px rgba(16,0,51,0.34), 0 19px 11px rgba(16,0,51,0.20), 0 34px 14px rgba(16,0,51,0.06), 0 53px 15px rgba(16,0,51,0.01), 0 0 12px rgba(255,255,255,0.08) inset, 0 -8px 32px #1E0D49 inset",
                 }}
-                className="mx-4 px-6 py-3 text-white font-semibold text-sm sm:text-base text-center min-w-[140px]"
+                className="mx-4 hover:scale-105 ease-in-out duration-200 transition-all cursor-pointer px-6 py-3 text-white font-semibold text-sm sm:text-base text-center min-w-[140px]"
               >
                 REGISTER WITH
                 <br />
                 UNSTOP
-              </motion.button>
+              </button>
 
               {/* Right fading line */}
               <div className="hidden sm:block flex-1 h-px bg-gradient-to-l from-white/0 via-white/60 to-white"></div>
