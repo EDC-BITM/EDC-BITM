@@ -200,7 +200,7 @@ const HeadingSection = ({ title, index, className }) => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: index * 0.3 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
         className={twMerge(
           "text-lg md:text-3xl font-semibold text-left  sm:no-underline underline",
           className
@@ -225,7 +225,7 @@ const ContentSection = ({ image, description, index }) => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: index * 0.3 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
         className=" w-full max-w-md"
       >
         <p className="text-gray-300 text-xs md:text-sm leading-relaxed mb-4">
