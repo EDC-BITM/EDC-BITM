@@ -6,22 +6,22 @@ export default function ProblemStatements() {
       id="problems"
       className="w-full flex items-center justify-center px-4"
     >
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 p-6 w-full max-w-7xl">
+      <div className="flex flex-col  items-center justify-center gap-10 lg:gap-20 p-6 w-full max-w-7xl">
         
         <h2
-          className="text-2xl sm:text-4xl lg:text-7xl tracking-tight bg-gradient-to-r from-blue-500 to-yellow-400 bg-clip-text text-transparent"
-          style={{
-            backgroundImage: "linear-gradient(90deg, #6366F1 0%, #8B5CF6 25%, #EC4899 55%, #F59E0B 80%, #FDE68A 100%)",
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent"
-          }}
-        >
-          Problem Statements
-        </h2>
+            className="text-3xl sm:text-4xl lg:text-8xl tracking-tight bg-gradient-to-r from-blue-500 to-yellow-400 bg-clip-text text-transparent"
+            style={{
+              backgroundImage: "linear-gradient(90deg, #6366F1 0%, #8B5CF6 25%, #EC4899 55%, #F59E0B 80%, #FDE68A 100%)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}
+          >
+            Problem Statements
+          </h2>
 
         {/* Problem Card with Gradient Overlay */}
-        <div className="relative group w-[90%] h-[90vh] max-w-3xl flex items-center justify-center">
+        <div className="relative group w-[90%] h-[90%] max-w-3xl flex items-center justify-center">
           {/* Gradient hover background */}
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-pink-500/10 
                           opacity-0 group-hover:opacity-100 transition-opacity duration-500 
