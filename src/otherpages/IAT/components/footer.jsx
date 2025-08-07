@@ -1,8 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 import IATBulb from "../assets/IATBulb.svg?react";
 
 const Footer = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSendMessage = (recipientName, recipientEmail) => {
+    const message = prompt(`Send a message to ${recipientName}:`);
+    if (!message || !message.trim()) return;
+
+    setLoading(true);
+
+    const serviceConfig = {
+      service_ID: "service_okd22ng",
+      temp_ID: "template_5nv8jld",
+      user_ID: "2APikPfV0dHkUmski",
+    };
+
+    emailjs
+      .send(
+        serviceConfig.service_ID,
+        serviceConfig.temp_ID,
+        {
+          from_name: "Website Visitor",
+          from_email: "no-reply@edcbitmesra.com",
+          to_name: recipientName,
+          to_email: recipientEmail, // Optional: if your template supports dynamic to_email
+          message: message.trim(),
+        },
+        serviceConfig.user_ID,
+      )
+      .then((r) => alert(`Message sent to ${recipientName}`))
+      .catch((error) => alert("Error sending message"))
+      .finally(() => setLoading(false));
+  };
+
   return (
     <footer className="bg-gradient-to-b from-[#0F0F1B] to-black text-gray-400 px-6 md:px-20 py-16 font-hanken">
       <div className="max-w-7xl mx-auto grid md:grid-cols-5 gap-10">
@@ -40,43 +73,76 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Official */}
         <div>
           <h4 className="text-white font-medium mb-4">For Official</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="#" className="hover:text-white">
+              <button
+                className="hover:text-white"
+                disabled={loading}
+                onClick={() =>
+                  handleSendMessage("President", "president.edc@bitmesra.ac.in")
+                }
+              >
                 President
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#" className="hover:text-white">
+              <button
+                className="hover:text-white"
+                disabled={loading}
+                onClick={() =>
+                  handleSendMessage("EDC Team", "team.edc@bitmesra.ac.in")
+                }
+              >
                 EDC Team
-              </a>
+              </button>
             </li>
           </ul>
         </div>
 
+        {/* Queries */}
         <div>
           <h4 className="text-white font-medium mb-4">For Queries</h4>
           <ul className="space-y-2 text-sm mb-4">
             <li>
-              <a href="#" className="hover:text-white">
+              <button
+                className="hover:text-white"
+                disabled={loading}
+                onClick={() =>
+                  handleSendMessage(
+                    "Abhinav Kumar Choudhary",
+                    "btech10139.23@bitmesra.ac.in"
+                  )
+                }
+              >
                 Abhinav Kumar Choudhary
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#" className="hover:text-white">
+              <button
+                className="hover:text-white"
+                disabled={loading}
+                onClick={() =>
+                  handleSendMessage(
+                    "Naveen Modi",
+                    "btech11011.23@bitmesra.ac.in"
+                  )
+                }
+              >
                 Naveen Modi
-              </a>
+              </button>
             </li>
           </ul>
         </div>
 
+        {/* Resources */}
         <div>
           <h4 className="text-white font-medium mb-4">Resources</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="#" className="hover:text-white">
+              <a href="https://drive.google.com/file/u/1/d/1xbFGbUhj8ehHBTQtbBcJH0BjUJSsIke1/view?usp=sharing" className="hover:text-white">
                 Brochure
               </a>
             </li>
@@ -86,11 +152,6 @@ const Footer = () => {
                 className="hover:text-white"
               >
                 Unstop
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white">
-                Devfolio
               </a>
             </li>
           </ul>
