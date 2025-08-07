@@ -7,6 +7,7 @@ import Sponsors from "./components/sponsors";
 import IATIgniting from "./components/IATIgniting";
 import Navbar from "./components/Navbar";
 import Gallery from "./components/Gallery";
+import ProblemStatements from "./components/ProblemStatements";
 
 const IATPage = () => {
   return (
@@ -20,6 +21,7 @@ const IATPage = () => {
           <FeaturedSpeaker />
           <Gallery />
           <Sponsors />
+          <ProblemStatements/>
           <IATIgniting />
         </div>
       </div>
