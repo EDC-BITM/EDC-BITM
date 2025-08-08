@@ -67,7 +67,7 @@ const IATIgniting = () => {
 
                     <motion.button
                         whileHover={{ scale: 1.05 }}
-                        className="relative px-8 sm:px-12 py-3 sm:py-4 text-white font-bold text-base sm:text-lg md:text-xl rounded-full overflow-hidden group"
+                        className="relative cursor-pointer px-8 sm:px-12 py-3 sm:py-4 text-white font-bold text-base sm:text-lg md:text-xl rounded-full overflow-hidden group"
                         style={{
                             background: "linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #F59E0B 100%)",
                             boxShadow: "0 10px 30px rgba(139, 92, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
