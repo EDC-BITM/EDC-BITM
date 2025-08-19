@@ -2,8 +2,6 @@ import CoinbaseLogo from "../assets/sponsors/coinbase.svg";
 import DachiLogo from "../assets/sponsors/dachi.svg";
 import DJ_Logo from "../assets/sponsors/DJ-Logo-Eng.png"
 import adpro_Logo from "../assets/sponsors/adpro.jpeg"
-// import NewSponsor1Logo from "../assets/sponsors/newsponsor1.svg";
-// import NewSponsor2Logo from "../assets/sponsors/newsponsor2.svg";
 
 const Sponsors = () => {
   const sponsorList = [
