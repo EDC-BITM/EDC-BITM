@@ -1,4 +1,5 @@
 import SpeakerCard from "./SpeakerCard";
+import striver from "./IatImages/striver.jpg";
 
 const FeaturedSpeaker = () => {
   return (
@@ -16,9 +17,26 @@ const FeaturedSpeaker = () => {
           Featured Speakers
         </h2>
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 mt-6 lg:mt-8 w-full justify-center items-center">
-          {Array.from({ length: 2 }).map((_, index) => (
-            <SpeakerCard key={index} />
-          ))}
+          
+            <SpeakerCard
+            title="Renowned math educator with millions of followers, known for making complex concepts simple and accessible"
+            name = "By Dr.Gajendra Purohit"
+  eventType="Tech Talk"
+  statusText="Confirmed Speaker"
+  subtitle="Date - 29th August, 2025 | Venue - BIT Mesra"
+  imageSrc="https://res.cloudinary.com/dmjoxb8pe/image/upload/v1755164240/gp_w0vg3u.jpg"
+  imageAlt="Mentor"
+             />
+             <SpeakerCard
+            title="Founder of Take U Forward, guiding thousands of students to ace coding interviews through clear, structured guidance"
+  eventType="Tech Talk"
+  name="By Striver (Raj Vikramaditya)"
+  statusText="Confirmed Speaker"
+  subtitle="Date - 31st August, 2025 | Venue - BIT Mesra"
+  imageSrc="https://res.cloudinary.com/dmjoxb8pe/image/upload/v1755164252/striver_nnyfgi.jpg"
+  imageAlt="Striver "
+             />
+          
         </div>
       </div>
     </div>
