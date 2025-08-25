@@ -1,7 +1,9 @@
 import CoinbaseLogo from "../assets/sponsors/coinbase.svg";
 import DachiLogo from "../assets/sponsors/dachi.svg";
-import DJ_Logo from "../assets/sponsors/DJ-Logo-Eng.png"
-import adpro_Logo from "../assets/sponsors/adpro.jpeg"
+import DJ_Logo from "../assets/sponsors/DJ-Logo-Eng.png";
+import adpro_Logo from "../assets/sponsors/adpro.jpeg";
+import amrittulya from "../assets/sponsors/amrittulya.jpeg";
+import spartan from "../assets/sponsors/spartan.jpeg";
 
 const Sponsors = () => {
   const sponsorList = [
@@ -27,6 +29,18 @@ const Sponsors = () => {
       name: "Adpro",
       title: "Events and Advertising Partner",
       Logo: adpro_Logo,
+      url: "#",
+    },
+    {
+      name: "Amrittulya",
+      title: "Tea Corner",
+      Logo: amrittulya,
+      url: "#",
+    },
+    {
+      name: "Spartan",
+      title: "Wellness partner",
+      Logo: spartan,
       url: "#",
     },
   ];
