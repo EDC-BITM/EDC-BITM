@@ -5,8 +5,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import vc from "@assets/Home/testimonial/1.png?url&w=150&format=webp";
+const drie = "/NewPic_DRIE.jpg";
 import facad from "@assets/Home/testimonial/2.png?url&w=150&format=webp";
-import drie from "assets/Home/testimonial/NewPic_DRIE.jpg"
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 
@@ -27,7 +27,7 @@ function Testimonialslider() {
     {
       text: "Welcome to the Entrepreneurship Development Cell (EDC), where innovation meets opportunity. Our mission is to inspire, guide, and equip students with the entrepreneurial skills and mindset to turn their ideas into impactful ventures.",
       image: facad,
-      name: "Mr. Vishal H. Shah",
+      name: "Dr. Vishal H. Shah",
       title: "Faculty Advisor",
     },
   ];
