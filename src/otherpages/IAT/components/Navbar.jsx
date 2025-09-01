@@ -44,6 +44,7 @@ const Navbar = () => {
     { name: "Schedule", label: "timeline" },
     { name: "Speakers", label: "speakers" },
     { name: "Gallery", label: "gallery" },
+    { name: "Problem Statements", label:"problems"}
   ];
 
   const menuVariants = {

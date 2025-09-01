@@ -3,46 +3,27 @@ import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import IATBulb from "../assets/IATBulb.svg?react";
 
+const MailLink = ({ email, label }) => (
+  <a
+    href={`mailto:${email}`}
+    className="hover:text-white transition"
+    aria-label={`Send email to ${label}`}
+  >
+    {label}
+  </a>
+);
+
 const Footer = () => {
-  const [loading, setLoading] = useState(false);
-
-  const handleSendMessage = (recipientName, recipientEmail) => {
-    const message = prompt(`Send a message to ${recipientName}:`);
-    if (!message || !message.trim()) return;
-
-    setLoading(true);
-
-    const serviceConfig = {
-      service_ID: "service_okd22ng",
-      temp_ID: "template_5nv8jld",
-      user_ID: "2APikPfV0dHkUmski",
-    };
-
-    emailjs
-      .send(
-        serviceConfig.service_ID,
-        serviceConfig.temp_ID,
-        {
-          from_name: "Website Visitor",
-          from_email: "no-reply@edcbitmesra.com",
-          to_name: recipientName,
-          to_email: recipientEmail, // Optional: if your template supports dynamic to_email
-          message: message.trim(),
-        },
-        serviceConfig.user_ID,
-      )
-      .then((r) => alert(`Message sent to ${recipientName}`))
-      .catch((error) => alert("Error sending message"))
-      .finally(() => setLoading(false));
-  };
-
   return (
-    <footer className="bg-gradient-to-b from-[#0F0F1B] to-black text-gray-400 px-6 md:px-20 py-16 font-hanken">
+    <footer
+      className="bg-gradient-to-b from-[#0F0F1B] to-black text-gray-400 px-6 md:px-20 py-16 font-hanken"
+      aria-label="Footer"
+    >
       <div className="max-w-7xl mx-auto grid md:grid-cols-5 gap-10">
         <div className="md:col-span-2 flex flex-col justify-between space-y-6">
           <div>
             <div className="flex items-center gap-2">
-              <IATBulb className="w-12 h-12" />
+              <IATBulb className="w-12 h-12" aria-label="Innovate-A-Thon Logo" />
               <h2 className="text-white font-bold">Innovate-A-Thon</h2>
             </div>
 
@@ -51,15 +32,17 @@ const Footer = () => {
                 href="https://www.instagram.com/edcbitmesra/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit EDC BIT Mesra Instagram"
               >
-                <FaInstagram className="text-3xl hover:text-white transition" />
+                <FaInstagram className="text-3xl hover:text-white transition" aria-hidden="true" />
               </a>
               <a
                 href="https://www.linkedin.com/company/edcbitmesra/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit EDC BIT Mesra LinkedIn"
               >
-                <FaLinkedin className="text-3xl hover:text-white transition" />
+                <FaLinkedin className="text-3xl hover:text-white transition" aria-hidden="true" />
               </a>
             </div>
 
@@ -78,26 +61,14 @@ const Footer = () => {
           <h4 className="text-white font-medium mb-4">For Official</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <button
-                className="hover:text-white"
-                disabled={loading}
-                onClick={() =>
-                  handleSendMessage("President", "president.edc@bitmesra.ac.in")
-                }
-              >
+              <a href="#" className="hover:text-white">
                 President
-              </button>
+              </a>
             </li>
             <li>
-              <button
-                className="hover:text-white"
-                disabled={loading}
-                onClick={() =>
-                  handleSendMessage("EDC Team", "team.edc@bitmesra.ac.in")
-                }
-              >
+              <a href="#" className="hover:text-white">
                 EDC Team
-              </button>
+              </a>
             </li>
           </ul>
         </div>
@@ -107,32 +78,14 @@ const Footer = () => {
           <h4 className="text-white font-medium mb-4">For Queries</h4>
           <ul className="space-y-2 text-sm mb-4">
             <li>
-              <button
-                className="hover:text-white"
-                disabled={loading}
-                onClick={() =>
-                  handleSendMessage(
-                    "Abhinav Kumar Choudhary",
-                    "btech10139.23@bitmesra.ac.in"
-                  )
-                }
-              >
+              <a href="#" className="hover:text-white">
                 Abhinav Kumar Choudhary
-              </button>
+              </a>
             </li>
             <li>
-              <button
-                className="hover:text-white"
-                disabled={loading}
-                onClick={() =>
-                  handleSendMessage(
-                    "Naveen Modi",
-                    "btech11011.23@bitmesra.ac.in"
-                  )
-                }
-              >
+              <a href="#" className="hover:text-white">
                 Naveen Modi
-              </button>
+              </a>
             </li>
           </ul>
         </div>
@@ -142,7 +95,7 @@ const Footer = () => {
           <h4 className="text-white font-medium mb-4">Resources</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="https://drive.google.com/file/u/1/d/1xbFGbUhj8ehHBTQtbBcJH0BjUJSsIke1/view?usp=sharing" className="hover:text-white">
+              <a href="#" className="hover:text-white">
                 Brochure
               </a>
             </li>
@@ -150,6 +103,7 @@ const Footer = () => {
               <a
                 href="https://unstop.com/p/innovate-a-thon-30-bit-mesra-ranchi-1529762"
                 className="hover:text-white"
+                aria-label="Visit Unstop Innovate-A-Thon"
               >
                 Unstop
               </a>
