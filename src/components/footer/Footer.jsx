@@ -94,7 +94,7 @@ const Footer = () => {
       ],
     },
     enquiries: {
-      title: "For Enquiries",
+      title: "For Technical Enquiries",
       contacts: [
         { email: "imh10062.23@bitmesra.ac.in", label: "Anuj Nayak" },
         { email: "btech10991.23@bitmesra.ac.in", label: "Rishi Agarwal" },
