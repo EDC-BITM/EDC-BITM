@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 import IATBulb from "../assets/IATBulb.svg?react";
 
 const MailLink = ({ email, label }) => (
@@ -13,33 +14,6 @@ const MailLink = ({ email, label }) => (
 );
 
 const Footer = () => {
-  const contactSections = {
-    official: {
-      title: "For Official",
-      contacts: [
-        { email: "president.edc@bitmesra.ac.in", label: "President" },
-        { email: "team.edc@bitmesra.ac.in", label: "EDC Team" },
-      ],
-    },
-    queries: {
-      title: "For Queries",
-      contacts: [
-        {
-          email: "btech10139.23@bitmesra.ac.in",
-          label: "Abhinav Kumar Choudhary",
-        },
-        { email: "btech11011.23@bitmesra.ac.in", label: "Naveen Modi" },
-      ],
-    },
-    enquiries: {
-      title: "For Enquiries",
-      contacts: [
-        { email: "imh10062.23@bitmesra.ac.in", label: "Anuj Nayak" },
-        { email: "btech10991.23@bitmesra.ac.in", label: "Rishi Agarwal" },
-        { email: "btech10851.23@bitmesra.ac.in", label: "Ashish Kumar" },
-      ],
-    },
-  };
   return (
     <footer
       className="bg-gradient-to-b from-[#0F0F1B] to-black text-gray-400 px-6 md:px-20 py-16 font-hanken"
@@ -82,52 +56,47 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Official */}
         <div>
           <h4 className="text-white font-medium mb-4">For Official</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <MailLink
-                email={contactSections.official.contacts[0].email}
-                label="President"
-              />
+              <a href="#" className="hover:text-white">
+                President
+              </a>
             </li>
             <li>
-              <MailLink
-                email={contactSections.official.contacts[1].email}
-                label="EDC Team"
-              />
+              <a href="#" className="hover:text-white">
+                EDC Team
+              </a>
             </li>
           </ul>
         </div>
 
+        {/* Queries */}
         <div>
           <h4 className="text-white font-medium mb-4">For Queries</h4>
           <ul className="space-y-2 text-sm mb-4">
             <li>
-              <MailLink
-                email={contactSections.queries.contacts[0].email}
-                label="Abhinav Kumar Choudhary"
-              />
+              <a href="#" className="hover:text-white">
+                Abhinav Kumar Choudhary
+              </a>
             </li>
             <li>
-              <MailLink
-                email={contactSections.queries.contacts[1].email}
-                label="Naveen Modi"
-              />
+              <a href="#" className="hover:text-white">
+                Naveen Modi
+              </a>
             </li>
           </ul>
         </div>
 
+        {/* Resources */}
         <div>
           <h4 className="text-white font-medium mb-4">Resources</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <a
-                href="https://docs.google.com/document/d/1lI_YH2T3B1aaMFyDUwMbpVKovJzyFoXRvAm-HZ37Bvg/edit?tab=t.0"
-                className="hover:text-white"
-                aria-label="View Problem Statement"
-              >
-                Problem Statement
+              <a href="#" className="hover:text-white">
+                Brochure
               </a>
             </li>
             <li>
