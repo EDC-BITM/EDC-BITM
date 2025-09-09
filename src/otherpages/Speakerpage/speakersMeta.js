@@ -1,6 +1,25 @@
 // speakersMeta.js
 const speakersMeta = [
   {
+    key: "gajendra_purohit",
+    publicId: "gp_w0vg3u",
+    name: "Gajendra Purohit",
+    title: "Founder - MathsCare",
+    twitter: null,
+    linkedin:
+      "https://www.linkedin.com/in/dr-gajendra-purohit/?originalSubdomain=in",
+    instagram: "https://www.instagram.com/dr.gajendrapurohit/?hl=en",
+  },
+  {
+    key: "striver",
+    publicId: "striver_nnyfgi",
+    name: "Striver (Raj Vikramaditya)",
+    title: "Founder – TakeUForward",
+    twitter: null,
+    linkedin: "https://www.linkedin.com/in/rajstriver/?originalSubdomain=in",
+    instagram: "https://www.instagram.com/striver_79/?hl=en",
+  },
+  {
     key: "aman",
     publicId: "aman_difyip",
     name: "Aman Dhattarwal",

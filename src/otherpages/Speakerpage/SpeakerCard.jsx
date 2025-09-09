@@ -33,7 +33,7 @@ function SpeakerCard({
           height={200}
           key={publicId}
           loading="lazy"
-          className="rounded-full h-64 w-64 object-cover aspect-square shadow-md border-4 border-white"
+          className="rounded-full overflow-hidden h-64 w-64 object-cover aspect-square shadow-md border-4 border-white"
         />
       </motion.div>
 
