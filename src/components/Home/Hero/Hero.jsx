@@ -1,4 +1,4 @@
-// import { scroller } from "react-scroll";
+import { scroller } from "react-scroll";
 import CldImageData from "@/data/CldImage.json";
 import CldImage from "../../Images/CldImage";
 import blobL from "@assets/blobs/blobL.png?w=200&format=webp&quality=50&as=meta";
@@ -28,6 +28,107 @@ const IATLink = () => {
   );
 };
 
+const RecruitmentButton = () => {
+  // Animation variants for the button
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 10,
+        duration: 0.3,
+      },
+    },
+    tap: {
+      scale: 0.95,
+    },
+  };
+
+  // Animation variants for the blinking effect
+  const pulseVariants = {
+    animate: {
+      boxShadow: [
+        "0px 0px 0px rgba(255, 255, 255, 0)",
+        "0px 0px 20px rgba(255, 255, 255, 0.7)",
+        "0px 0px 0px rgba(255, 255, 255, 0)",
+      ],
+      transition: {
+        repeat: Infinity,
+        duration: 2.5,
+      },
+    },
+  };
+
+  // Animation for the "RECRUITING" text
+  const textVariants = {
+    animate: {
+      opacity: [0.7, 1, 0.7],
+      transition: {
+        repeat: Infinity,
+        duration: 1.8,
+      },
+    },
+  };
+
+  return (
+    <NavLink to="/recruitment" className="relative z-20">
+      <motion.div
+        className="backdrop-blur-md bg-black/30 text-white font-bold py-3 px-6 rounded-lg
+                   shadow-lg flex items-center gap-3 overflow-hidden border border-white/50"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          boxShadow: [
+            "0px 0px 0px rgba(255, 255, 255, 0)",
+            "0px 0px 20px rgba(255, 255, 255, 0.7)",
+            "0px 0px 0px rgba(255, 255, 255, 0)",
+          ],
+        }}
+        transition={{
+          opacity: { duration: 0.5 },
+          y: { duration: 0.5 },
+          boxShadow: { repeat: Infinity, duration: 2.5 },
+        }}
+        whileHover="hover"
+        whileTap="tap"
+        variants={buttonVariants}
+      >
+        <motion.div className="relative z-10 text-lg tracking-wider flex items-center gap-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+            />
+          </svg>
+
+          <div className="flex flex-col items-start">
+            <span className="text-sm uppercase tracking-widest opacity-80">
+              We are
+            </span>
+            <motion.span
+              className="text-xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300"
+              variants={textVariants}
+              animate="animate"
+            >
+              RECRUITING
+            </motion.span>
+          </div>
+        </motion.div>
+      </motion.div>
+    </NavLink>
+  );
+};
+
 function Hero() {
   const heroImage = CldImageData.Home.hero[0];
   return (
@@ -51,7 +152,7 @@ function Hero() {
           />
         </div>
         {/* <div
-          className="group duration-150 ease-in-out cursor-pointer hover:bg-[whitesmoke]  rounded-[10px] text-2xl border border-white  hover:scale-110 backdrop-blur-sm text-black h-auto"
+          className="group mt-8 mb-6 duration-150 ease-in-out cursor-pointer hover:bg-[whitesmoke] rounded-[10px] text-2xl border border-white hover:scale-110 backdrop-blur-sm text-black h-auto"
           onClick={() => {
             scroller.scrollTo("our_stats", {
               smooth: true,
@@ -64,11 +165,40 @@ function Hero() {
             <button className="group-hover:text-black px-8 py-1.5 text-white transition ease-in-out">
               Get Started
             </button>
-          </div>*/}
+          </div>
+        </div> */}
+
+        {/* Recruitment Button */}
+        <div className="mt-6 relative">
+          <motion.div
+            className="relative"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+              delay: 0.3,
+            }}
+          >
+            <motion.div
+              className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-yellow-500 rounded-full"
+              initial={{ scale: 0 }}
+              animate={{ scale: [1, 1.5, 1] }}
+              transition={{
+                delay: 1,
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: 1,
+              }}
+            />
+            <RecruitmentButton />
+          </motion.div>
+        </div>
 
         {/* // IAT Redirect */}
 
-        <IATLink />
+        {/* <IATLink /> */}
       </div>
 
       <img

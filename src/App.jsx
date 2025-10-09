@@ -14,6 +14,7 @@ import Eventspage from "./otherpages/Eventspage/Eventspage.jsx";
 import Teamspage from "./otherpages/Teamspage/team.jsx";
 import Startups from "./otherpages/Startupspage/Startups.jsx";
 import IATPage from "./otherpages/IAT/IATPage.jsx";
+import RecruitmentPage from "./otherpages/Recruitment/RecruitmentPage.jsx";
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
   {
     path: "/iat",
     element: <IATPage />,
+  },
+  {
+    path: "/recruitment",
+    element: <RecruitmentPage />,
   },
 ]);
 
