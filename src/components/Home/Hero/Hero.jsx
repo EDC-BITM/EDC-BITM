@@ -72,7 +72,11 @@ const RecruitmentButton = () => {
   };
 
   return (
-    <NavLink to="/recruitment" className="relative z-20">
+    <a
+      target="_blank"
+      href="https://forms.gle/nBEbxg5HRCamcyzi7"
+      className="relative z-20"
+    >
       <motion.div
         className="backdrop-blur-md bg-black/30 text-white font-bold py-3 px-6 rounded-lg
                    shadow-lg flex items-center gap-3 overflow-hidden border border-white/50"
@@ -125,7 +129,7 @@ const RecruitmentButton = () => {
           </div>
         </motion.div>
       </motion.div>
-    </NavLink>
+    </a>
   );
 };
 
