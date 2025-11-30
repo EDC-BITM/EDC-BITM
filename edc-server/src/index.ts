@@ -1,0 +1,156 @@
+import fastify from "fastify";
+import cookie from "@fastify/cookie";
+import cors from "@fastify/cors";
+import dotenv from "dotenv";
+import authRoutes from "./routes/auth/index.js";
+import articleRoutes from "./routes/article/index.js";
+
+// Load environment variables
+dotenv.config();
+
+const server = fastify({
+	logger:
+		process.env.NODE_ENV === "development"
+			? {
+					level: process.env.LOG_LEVEL || "info",
+					transport: {
+						target: "pino-pretty",
+						options: {
+							translateTime: "HH:MM:ss Z",
+							ignore: "pid,hostname",
+						},
+					},
+				}
+			: {
+					level: process.env.LOG_LEVEL || "info",
+				},
+	bodyLimit: 30 * 1024 * 1024, // 30MB limit
+});
+
+// Register plugins
+await server.register(cors, {
+	origin: [
+		"http://localhost:3000",
+		"http://localhost:5173",
+		"http://localhost:5174",
+		process.env.CORS_ORIGIN || "http://localhost:5173",
+	],
+	credentials: true,
+	methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+	allowedHeaders: ["Content-Type", "Authorization"],
+});
+
+await server.register(cookie, {
+	secret: process.env.COOKIE_SECRET || "your-cookie-secret-key",
+	parseOptions: {},
+});
+
+// Health check routes
+server.get("/", async () => {
+	return {
+		status: "ok",
+		message: "EDC Server API",
+		version: "1.0.0",
+		timestamp: new Date().toISOString(),
+	};
+});
+
+server.get("/health", async () => {
+	return {
+		status: "healthy",
+		timestamp: new Date().toISOString(),
+		uptime: process.uptime(),
+	};
+});
+
+server.get("/ping", async () => {
+	return "pong\n";
+});
+
+// Register routes
+await server.register(authRoutes, { prefix: "/api/auth" });
+await server.register(articleRoutes, { prefix: "/api/articles" });
+
+// Global error handler
+server.setErrorHandler((error, request, reply) => {
+	server.log.error(error);
+
+	// Handle Prisma errors
+	if (error.message.includes("Unique constraint")) {
+		return reply.status(409).send({
+			success: false,
+			message: "A record with this information already exists",
+		});
+	}
+
+	if (error.message.includes("Record to update not found")) {
+		return reply.status(404).send({
+			success: false,
+			message: "Record not found",
+		});
+	}
+
+	// Handle validation errors
+	if (error.validation) {
+		return reply.status(400).send({
+			success: false,
+			message: "Validation error",
+			errors: error.validation,
+		});
+	}
+
+	// Default error response
+	return reply.status(error.statusCode || 500).send({
+		success: false,
+		message: error.message || "Internal server error",
+	});
+});
+
+// 404 handler
+server.setNotFoundHandler((request, reply) => {
+	return reply.status(404).send({
+		success: false,
+		message: "Route not found",
+		path: request.url,
+	});
+});
+
+// Start server
+const start = async () => {
+	try {
+		const port = Number(process.env.PORT) || 8080;
+		const host = process.env.HOST || "0.0.0.0";
+
+		await server.listen({ port, host });
+
+		console.log(`
+╔═══════════════════════════════════════════════════════╗
+║                                                       ║
+║       🚀 EDC Server is running successfully! 🚀       ║
+║                                                       ║
+║   Server:  http://${host}:${port}                     ║
+║   Health:  http://${host}:${port}/health              ║
+║   API:     http://${host}:${port}/api                 ║
+║                                                       ║
+║   Environment: ${process.env.NODE_ENV || "development"}                           
+║                                                       ║
+╚═══════════════════════════════════════════════════════╝
+		`);
+	} catch (err) {
+		server.log.error(err);
+		process.exit(1);
+	}
+};
+
+// Handle graceful shutdown
+const gracefulShutdown = async (signal: string) => {
+	console.log(`\n${signal} received. Shutting down gracefully...`);
+	await server.close();
+	console.log("Server closed successfully");
+	process.exit(0);
+};
+
+process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
+process.on("SIGINT", () => gracefulShutdown("SIGINT"));
+
+start();

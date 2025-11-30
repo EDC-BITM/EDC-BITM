@@ -1,44 +1,215 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { pb } from "@/utils/pb";
+import { toast, Toaster } from "sonner";
+import { auth } from "@/utils/api";
 import EDCLogo from "@assets/edclogo3d.png?url&w=100&format=webp&quality=90&as=meta";
-import TailwindAdvancedEditor from "@/components/admin/TextEditor";
+import {
+  Edit,
+  Trash2,
+  Eye,
+  EyeOff,
+  Plus,
+  Clock,
+  Bell,
+  Loader2,
+  AlertCircle,
+  Filter,
+  AlertTriangle,
+} from "lucide-react";
+import {
+  useNotices,
+  useDeleteNotice,
+  useToggleNoticeStatus,
+} from "@/hooks/useNotices";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const user = pb.authStore.model;
+  const user = auth.getUser();
+  const [filterStatus, setFilterStatus] = useState("all"); // all, published, draft
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [pendingPublish, setPendingPublish] = useState(null);
 
-  const handleLogout = () => {
-    pb.authStore.clear();
-    localStorage.removeItem("userEmail");
-    localStorage.removeItem("userName");
+  // React Query hooks
+  const { data: articles = [], isLoading, error } = useNotices();
+  const deleteNoticeMutation = useDeleteNotice();
+  const toggleStatusMutation = useToggleNoticeStatus();
+
+  const handleLogout = async () => {
+    await auth.logout();
     navigate("/admin/auth");
   };
 
+  const handleCreateNew = () => {
+    navigate("/admin/editor/new");
+  };
+
+  const handleEdit = (articleId) => {
+    navigate(`/admin/editor/${articleId}`);
+  };
+
+  const handleToggleLive = async (articleId) => {
+    const targetArticle = articles.find((n) => n.id === articleId);
+    const currentLiveArticle = articles.find((n) => n.status === "published");
+
+    // Always show confirmation dialog when clicking the eye icon
+    setPendingPublish({
+      articleId,
+      targetArticle,
+      currentLiveArticle,
+      action: targetArticle.status === "published" ? "unpublish" : "publish",
+    });
+    setShowConfirmDialog(true);
+  };
+
+  const confirmPublish = async () => {
+    if (!pendingPublish) return;
+
+    try {
+      await toggleStatusMutation.mutateAsync({
+        id: pendingPublish.articleId,
+        currentStatus: pendingPublish.targetArticle.status,
+      });
+
+      // Show appropriate success message
+      if (pendingPublish.action === "publish") {
+        if (pendingPublish.currentLiveArticle) {
+          toast.success(
+            `Article published successfully. "${pendingPublish.currentLiveArticle.title}" has been unpublished.`
+          );
+        } else {
+          toast.success("Article published successfully!");
+        }
+      } else {
+        toast.success("Article unpublished successfully!");
+      }
+
+      setShowConfirmDialog(false);
+      setPendingPublish(null);
+    } catch (error) {
+      toast.error(
+        `Failed to ${pendingPublish.action} article. Please try again.`
+      );
+      console.error(error);
+    }
+  };
+
+  const cancelPublish = () => {
+    setShowConfirmDialog(false);
+    setPendingPublish(null);
+  };
+
+  const handleDelete = async (articleId) => {
+    toast.error("Are you sure you want to delete this article?", {
+      action: {
+        label: "Delete",
+        onClick: async () => {
+          try {
+            await deleteNoticeMutation.mutateAsync(articleId);
+            toast.success("Article deleted successfully!");
+          } catch (error) {
+            toast.error("Failed to delete article. Please try again.");
+            console.error(error);
+          }
+        },
+      },
+    });
+  };
+
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+
+  // Extract excerpt from content JSON
+  const getExcerpt = (content) => {
+    if (!content) return "No content";
+    try {
+      const contentObj =
+        typeof content === "string" ? JSON.parse(content) : content;
+      const firstTextNode = contentObj?.root?.children?.[0];
+      if (firstTextNode?.children?.[0]?.text) {
+        const text = firstTextNode.children[0].text;
+        return text.length > 100 ? text.substring(0, 100) + "..." : text;
+      }
+      return "No content";
+    } catch {
+      return "No content";
+    }
+  };
+
+  const liveArticle = articles.find((n) => n.status === "published");
+
+  // Filter articles based on status
+  const filteredArticles = articles.filter((article) => {
+    if (filterStatus === "all") return true;
+    return article.status === filterStatus;
+  });
+
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="w-12 h-12 animate-spin text-blue-600 mx-auto mb-4" />
+          <p className="text-gray-600 text-lg">Loading articles...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center max-w-md">
+          <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            Failed to load articles
+          </h2>
+          <p className="text-gray-600 mb-6">{error.message}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white">
+    <div className="min-h-screen bg-white text-gray-900">
+      <Toaster position="top-right" richColors />
       {/* Header */}
-      <header className="border-b border-yellow-500/20 bg-zinc-900/50 backdrop-blur-sm">
+      <header className="border-b border-gray-200 bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-yellow-500/10 rounded-lg flex items-center justify-center">
-              <span className="text-yellow-500 font-bold text-lg">
+            <div className="w-10 h-10 bg-yellow-50 rounded-lg flex items-center justify-center border border-yellow-200">
+              <span className="text-yellow-600 font-bold text-lg">
                 <img src={EDCLogo.src} alt="EDC Logo" className="w-8 h-8" />
               </span>
             </div>
             <div>
-              <h1 className="text-xl font-bold">Admin Dashboard</h1>
-              <p className="text-sm text-zinc-400">EDC - BITM</p>
+              <h1 className="text-xl font-bold text-gray-900">
+                Admin Dashboard
+              </h1>
+              <p className="text-sm text-gray-600">EDC - BITM</p>
             </div>
           </div>
           <div className="flex items-center gap-4">
             <div className="text-right hidden sm:block">
-              <p className="text-sm font-medium">{user?.name}</p>
-              <p className="text-xs text-zinc-400">{user?.email}</p>
+              <p className="text-sm font-medium text-gray-900">{user?.name}</p>
+              <p className="text-xs text-gray-500">{user?.email}</p>
             </div>
             <button
               onClick={handleLogout}
-              className="px-4 py-2 bg-red-500/10 text-red-400 rounded-lg border border-red-500/20 hover:bg-red-500/20 transition-colors text-sm font-medium"
+              className="px-4 py-2 bg-red-50 text-red-600 rounded-lg border border-red-200 hover:bg-red-100 transition-colors text-sm font-medium"
             >
               Logout
             </button>
@@ -49,129 +220,343 @@ const Dashboard = () => {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         {/* Welcome Section */}
-        <div className="mb-8 p-6 bg-gradient-to-r from-yellow-500/10 to-yellow-600/10 border border-yellow-500/20 rounded-xl">
-          <h2 className="text-2xl font-bold mb-2">
-            Welcome back, {user?.name}! 👋
-          </h2>
-          <p className="text-zinc-400">
-            Here's what's happening with your events today.
-          </p>
-        </div>
-
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-zinc-400 text-sm">Total Events</span>
-              <span className="text-2xl">📅</span>
+        <div className="mb-8 p-6 bg-gradient-to-r from-yellow-50 to-yellow-100 border border-yellow-200 rounded-xl">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-2xl font-bold mb-2 text-gray-900 flex items-center gap-2">
+                <Bell className="text-yellow-600" size={28} />
+                Article Management
+              </h2>
+              <p className="text-gray-600">
+                Manage articles for your organization. Only one article can be
+                published at a time.
+              </p>
             </div>
-            <p className="text-3xl font-bold">12</p>
-            <p className="text-xs text-green-400 mt-2">+2 this month</p>
-          </div>
-
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-zinc-400 text-sm">Speakers</span>
-              <span className="text-2xl">🎤</span>
-            </div>
-            <p className="text-3xl font-bold">28</p>
-            <p className="text-xs text-green-400 mt-2">+5 this month</p>
-          </div>
-
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-zinc-400 text-sm">Registrations</span>
-              <span className="text-2xl">✍️</span>
-            </div>
-            <p className="text-3xl font-bold">342</p>
-            <p className="text-xs text-green-400 mt-2">+48 this week</p>
-          </div>
-
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-zinc-400 text-sm">Team Members</span>
-              <span className="text-2xl">👥</span>
-            </div>
-            <p className="text-3xl font-bold">45</p>
-            <p className="text-xs text-zinc-500 mt-2">No change</p>
+            <button
+              onClick={handleCreateNew}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium flex items-center gap-2 shadow-md"
+            >
+              <Plus size={18} />
+              Create New Article
+            </button>
           </div>
         </div>
 
-        {/* Quick Actions */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
-          <h3 className="text-xl font-bold mb-4">Quick Actions</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <button className="p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-lg hover:bg-yellow-500/20 transition-colors text-left">
-              <div className="text-2xl mb-2">➕</div>
-              <h4 className="font-medium mb-1">Add New Event</h4>
-              <p className="text-sm text-zinc-400">Create a new event</p>
-            </button>
+        {/* Live Article Alert */}
+        {liveArticle && (
+          <div className="mb-6 p-4 bg-green-50 border-l-4 border-green-500 rounded-lg">
+            <div className="flex items-center gap-2 mb-1">
+              <Eye className="text-green-600" size={18} />
+              <span className="font-semibold text-green-800">
+                Currently Published Article:
+              </span>
+            </div>
+            <p className="text-green-700 text-sm">{liveArticle.title}</p>
+          </div>
+        )}
 
-            <button className="p-4 bg-blue-500/10 border border-blue-500/20 rounded-lg hover:bg-blue-500/20 transition-colors text-left">
-              <div className="text-2xl mb-2">🎤</div>
-              <h4 className="font-medium mb-1">Manage Speakers</h4>
-              <p className="text-sm text-zinc-400">Add or edit speakers</p>
-            </button>
+        {/* Confirmation Dialog */}
+        {showConfirmDialog && pendingPublish && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 animate-in fade-in zoom-in duration-200">
+              <div className="flex items-start gap-4 mb-4">
+                <div
+                  className={`p-3 rounded-full ${
+                    pendingPublish.action === "publish"
+                      ? "bg-orange-100"
+                      : "bg-blue-100"
+                  }`}
+                >
+                  <AlertTriangle
+                    className={
+                      pendingPublish.action === "publish"
+                        ? "text-orange-600"
+                        : "text-blue-600"
+                    }
+                    size={24}
+                  />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {pendingPublish.action === "publish"
+                      ? "Confirm Publishing"
+                      : "Confirm Unpublishing"}
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    {pendingPublish.action === "publish"
+                      ? "⚠️ Only one article can be published at a time."
+                      : "⚠️ This will remove the article from public view."}
+                  </p>
+                </div>
+              </div>
 
-            <button className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg hover:bg-green-500/20 transition-colors text-left">
-              <div className="text-2xl mb-2">📊</div>
-              <h4 className="font-medium mb-1">View Analytics</h4>
-              <p className="text-sm text-zinc-400">Check event statistics</p>
-            </button>
+              {pendingPublish.action === "publish" &&
+              pendingPublish.currentLiveArticle ? (
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-4">
+                  <p className="text-sm text-gray-700 mb-3">
+                    <span className="font-semibold">Currently Published:</span>
+                    <br />
+                    <span className="text-green-700">
+                      "{pendingPublish.currentLiveArticle.title}"
+                    </span>
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">Will be Published:</span>
+                    <br />
+                    <span className="text-blue-700">
+                      "{pendingPublish.targetArticle.title}"
+                    </span>
+                  </p>
+                </div>
+              ) : (
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-4">
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">
+                      {pendingPublish.action === "publish"
+                        ? "Publishing:"
+                        : "Unpublishing:"}
+                    </span>
+                    <br />
+                    <span
+                      className={
+                        pendingPublish.action === "publish"
+                          ? "text-blue-700"
+                          : "text-orange-700"
+                      }
+                    >
+                      "{pendingPublish.targetArticle.title}"
+                    </span>
+                  </p>
+                </div>
+              )}
 
-            <button className="p-4 bg-purple-500/10 border border-purple-500/20 rounded-lg hover:bg-purple-500/20 transition-colors text-left">
-              <div className="text-2xl mb-2">👥</div>
-              <h4 className="font-medium mb-1">Manage Team</h4>
-              <p className="text-sm text-zinc-400">Update team members</p>
-            </button>
+              <p className="text-sm text-gray-600 mb-6">
+                {pendingPublish.action === "publish"
+                  ? pendingPublish.currentLiveArticle
+                    ? "Publishing this article will automatically unpublish the current live article. Do you want to continue?"
+                    : "Do you want to publish this article?"
+                  : "This article will be set to draft status and will no longer be visible on the announcement page. Do you want to continue?"}
+              </p>
 
-            <button className="p-4 bg-orange-500/10 border border-orange-500/20 rounded-lg hover:bg-orange-500/20 transition-colors text-left">
-              <div className="text-2xl mb-2">🚀</div>
-              <h4 className="font-medium mb-1">Manage Startups</h4>
-              <p className="text-sm text-zinc-400">Add startup info</p>
-            </button>
+              <div className="flex gap-3">
+                <button
+                  onClick={cancelPublish}
+                  className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={confirmPublish}
+                  disabled={toggleStatusMutation.isPending}
+                  className={`flex-1 px-4 py-2 rounded-lg transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 ${
+                    pendingPublish.action === "publish"
+                      ? "bg-blue-600 hover:bg-blue-700 text-white"
+                      : "bg-orange-600 hover:bg-orange-700 text-white"
+                  }`}
+                >
+                  {toggleStatusMutation.isPending ? (
+                    <>
+                      <Loader2 className="animate-spin" size={16} />
+                      {pendingPublish.action === "publish"
+                        ? "Publishing..."
+                        : "Unpublishing..."}
+                    </>
+                  ) : pendingPublish.action === "publish" ? (
+                    "Publish Article"
+                  ) : (
+                    "Unpublish Article"
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
-            <button className="p-4 bg-pink-500/10 border border-pink-500/20 rounded-lg hover:bg-pink-500/20 transition-colors text-left">
-              <div className="text-2xl mb-2">⚙️</div>
-              <h4 className="font-medium mb-1">Settings</h4>
-              <p className="text-sm text-zinc-400">Configure dashboard</p>
-            </button>
+        {/* Articles Section */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-4 flex-wrap gap-4">
+            <h3 className="text-xl font-bold text-gray-900">All Articles</h3>
+
+            {/* Filter Buttons */}
+            <div className="flex items-center gap-2">
+              <Filter size={16} className="text-gray-500" />
+              <div className="flex gap-1 border border-gray-200 rounded-lg p-1">
+                <button
+                  onClick={() => setFilterStatus("all")}
+                  className={`px-3 py-1.5 text-sm font-medium rounded transition-colors ${
+                    filterStatus === "all"
+                      ? "bg-blue-600 text-white"
+                      : "text-gray-600 hover:bg-gray-100"
+                  }`}
+                >
+                  All ({articles.length})
+                </button>
+                <button
+                  onClick={() => setFilterStatus("published")}
+                  className={`px-3 py-1.5 text-sm font-medium rounded transition-colors ${
+                    filterStatus === "published"
+                      ? "bg-green-600 text-white"
+                      : "text-gray-600 hover:bg-gray-100"
+                  }`}
+                >
+                  Published (
+                  {articles.filter((a) => a.status === "published").length})
+                </button>
+                <button
+                  onClick={() => setFilterStatus("draft")}
+                  className={`px-3 py-1.5 text-sm font-medium rounded transition-colors ${
+                    filterStatus === "draft"
+                      ? "bg-gray-600 text-white"
+                      : "text-gray-600 hover:bg-gray-100"
+                  }`}
+                >
+                  Drafts ({articles.filter((a) => a.status === "draft").length})
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Articles Grid */}
+          <div className="grid gap-4">
+            {filteredArticles.length === 0 ? (
+              <div className="text-center py-12 bg-gray-50 rounded-xl border border-gray-200">
+                <Bell className="mx-auto mb-4 text-gray-400" size={48} />
+                <p className="text-gray-500 mb-4">
+                  {filterStatus === "all"
+                    ? "No articles yet"
+                    : `No ${filterStatus} articles`}
+                </p>
+                {filterStatus === "all" && (
+                  <button
+                    onClick={handleCreateNew}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium inline-flex items-center gap-2"
+                  >
+                    <Plus size={18} />
+                    Create Your First Article
+                  </button>
+                )}
+              </div>
+            ) : (
+              filteredArticles.map((article) => (
+                <div
+                  key={article.id}
+                  className={`bg-white border rounded-xl p-5 hover:shadow-md transition-all relative ${
+                    article.status === "published"
+                      ? "border-green-300 shadow-md ring-2 ring-green-100"
+                      : "border-gray-200"
+                  }`}
+                >
+                  {/* Live Indicator Badge */}
+                  {article.status === "published" && (
+                    <div className="absolute -top-2 -right-2 z-10">
+                      <div className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg flex items-center gap-1 animate-pulse">
+                        <span className="w-2 h-2 bg-white rounded-full"></span>
+                        LIVE
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="flex items-start justify-between gap-4">
+                    {/* Article Info */}
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <h4 className="text-lg font-semibold text-gray-900">
+                          {article.title}
+                        </h4>
+                        <span
+                          className={`px-2.5 py-1 rounded-full text-xs font-medium ${
+                            article.status === "published"
+                              ? "bg-green-100 text-green-700 border border-green-300"
+                              : "bg-gray-100 text-gray-700 border border-gray-200"
+                          }`}
+                        >
+                          {article.status === "published" ? (
+                            <span className="flex items-center gap-1">
+                              <Eye size={12} />
+                              Published
+                            </span>
+                          ) : (
+                            <span className="flex items-center gap-1">
+                              <EyeOff size={12} />
+                              Draft
+                            </span>
+                          )}
+                        </span>
+                      </div>
+                      <p className="text-gray-600 text-sm mb-3">
+                        {getExcerpt(article.content)}
+                      </p>
+                      <div className="flex items-center gap-4 text-xs text-gray-500">
+                        <span className="flex items-center gap-1">
+                          <Clock size={12} />
+                          Created: {formatDate(article.created)}
+                        </span>
+                        {article.updated !== article.created && (
+                          <span>Updated: {formatDate(article.updated)}</span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => handleEdit(article.id)}
+                        className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                        title="Edit Article"
+                      >
+                        <Edit size={18} />
+                      </button>
+                      <button
+                        onClick={() => handleToggleLive(article.id)}
+                        disabled={toggleStatusMutation.isPending}
+                        className={`p-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
+                          article.status === "published"
+                            ? "text-orange-600 hover:bg-orange-50"
+                            : "text-green-600 hover:bg-green-50"
+                        }`}
+                        title={
+                          article.status === "published"
+                            ? "Unpublish Article"
+                            : liveArticle
+                            ? `Publish Article (will unpublish "${liveArticle.title}")`
+                            : "Publish Article"
+                        }
+                      >
+                        {article.status === "published" ? (
+                          <EyeOff size={18} />
+                        ) : (
+                          <Eye size={18} />
+                        )}
+                      </button>
+                      <button
+                        onClick={() => handleDelete(article.id)}
+                        className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                        title="Delete Article"
+                      >
+                        <Trash2 size={18} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
 
         {/* User Info Card */}
-        <div className="mt-8 bg-zinc-900 border border-zinc-800 rounded-xl p-6">
-          <h3 className="text-xl font-bold mb-4">Your Account</h3>
+        <footer className="mt-8 bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+          <h3 className="text-xl font-bold mb-4 text-gray-900">Your Account</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <p className="text-sm text-zinc-400 mb-1">Email</p>
-              <p className="font-medium">{user?.email}</p>
+              <p className="text-sm text-gray-500 mb-1">Email</p>
+              <p className="font-medium text-gray-900">{user?.email}</p>
             </div>
             <div>
-              <p className="text-sm text-zinc-400 mb-1">User ID</p>
-              <p className="font-mono text-sm">{user?.id}</p>
-            </div>
-            <div>
-              <p className="text-sm text-zinc-400 mb-1">Verified</p>
-              <p className="font-medium">
-                {user?.verified ? (
-                  <span className="text-green-400">✓ Verified</span>
-                ) : (
-                  <span className="text-red-400">✗ Not verified</span>
-                )}
-              </p>
-            </div>
-            <div>
-              <p className="text-sm text-zinc-400 mb-1">Account Created</p>
-              <p className="font-medium">
-                {new Date(user?.created).toLocaleDateString()}
-              </p>
-            </div>
-            <div>
-              <TailwindAdvancedEditor />
+              <p className="text-sm text-gray-500 mb-1">User ID</p>
+              <p className="font-mono text-sm text-gray-700">{user?.id}</p>
             </div>
           </div>
-        </div>
+        </footer>
       </main>
     </div>
   );

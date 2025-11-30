@@ -1,26 +1,25 @@
 import { useState, useEffect } from "react";
-import { pb } from "@/utils/pb";
+import { auth } from "@/utils/api";
 
 export const useAuth = () => {
-  const [user, setUser] = useState(pb.authStore.model);
-  const [token, setToken] = useState(pb.authStore.token);
-  const [isValid, setIsValid] = useState(pb.authStore.isValid);
+  const [user, setUser] = useState(auth.getUser());
+  const [token, setToken] = useState(auth.getToken());
+  const [isValid, setIsValid] = useState(auth.isAuthenticated());
 
   useEffect(() => {
-    // Listen to auth state changes
-    const unsubscribe = pb.authStore.onChange((token, model) => {
-      setToken(token);
-      setUser(model);
-      setIsValid(pb.authStore.isValid);
-    });
+    // simple sync with localStorage in case other parts update it
+    const onStorage = () => {
+      setToken(auth.getToken());
+      setUser(auth.getUser());
+      setIsValid(auth.isAuthenticated());
+    };
 
-    return unsubscribe;
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
   }, []);
 
-  const logout = () => {
-    pb.authStore.clear();
-    localStorage.removeItem("userEmail");
-    localStorage.removeItem("userName");
+  const logout = async () => {
+    await auth.logout();
   };
 
   return {

@@ -1,20 +1,20 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import { pb } from "@/utils/pb";
+import { auth } from "@/utils/api";
 
 const ProtectedRoute = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
     // Check if user is authenticated
-    if (!pb.authStore.isValid) {
+    if (!auth.isAuthenticated()) {
       navigate("/admin/auth");
     }
   }, [navigate]);
 
   // If authenticated, render children
-  if (pb.authStore.isValid) {
+  if (auth.isAuthenticated()) {
     return children;
   }
 

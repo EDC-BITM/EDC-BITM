@@ -15,6 +15,10 @@ import Teamspage from "./otherpages/Teamspage/team.jsx";
 import Startups from "./otherpages/Startupspage/Startups.jsx";
 import IATPage from "./otherpages/IAT/IATPage.jsx";
 import RecruitmentPage from "./otherpages/Recruitment/RecruitmentPage.jsx";
+import AuthPage from "./otherpages/admin/auth/authPage.jsx";
+import Dashboard from "./otherpages/dashboard/index.jsx";
+import EditorPage from "./otherpages/admin/EditorPage.jsx";
+import AnnouncementPage from "./otherpages/Announcement/AnnouncementPage.jsx";
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -97,6 +101,22 @@ const router = createBrowserRouter([
   {
     path: "/recruitment",
     element: <RecruitmentPage />,
+  },
+  {
+    path: "/announcement",
+    element: <RouteLayout Component={AnnouncementPage} />,
+  },
+  {
+    path: "/admin/auth",
+    element: <AuthPage />,
+  },
+  {
+    path: "/admin/dashboard",
+    element: <Dashboard />,
+  },
+  {
+    path: "/admin/editor/:id",
+    element: <EditorPage />,
   },
 ]);
 

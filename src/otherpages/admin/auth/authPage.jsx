@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useNavigate } from "react-router-dom";
 import EDCLogo from "@assets/edclogo3d.png?url&w=100&format=webp&quality=90&as=meta";
-import { pb } from "@/utils/pb";
+import { auth } from "@/utils/api";
 
 const authSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -23,7 +23,7 @@ const AuthPage = () => {
 
   // Check if user is already logged in
   useEffect(() => {
-    if (pb.authStore.isValid) {
+    if (auth.isAuthenticated()) {
       navigate("/admin/dashboard");
     }
   }, [navigate]);
@@ -33,14 +33,16 @@ const AuthPage = () => {
       setAuthError(null);
       console.log("Form Data:", data);
 
-      const authData = await pb
-        .collection("users")
-        .authWithPassword(data.email, data.password);
+      const authData = await auth.login({
+        email: data.email,
+        password: data.password,
+      });
 
-      // Store auth data in localStorage (PocketBase does this automatically)
-      // but you can also manually store additional data if needed
-      localStorage.setItem("userEmail", authData.record.email);
-      localStorage.setItem("userName", authData.record.name);
+      // If server returned user details, store them (api.login already does this)
+      if (authData.user) {
+        localStorage.setItem("userEmail", authData.user.email || "");
+        localStorage.setItem("userName", authData.user.name || "");
+      }
 
       // Redirect to dashboard
       navigate("/admin/dashboard");
