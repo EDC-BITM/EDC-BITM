@@ -14,6 +14,7 @@ import {
 } from "../../utils/jwt.js";
 import type { AuthenticatedRequest } from "../../middleware/auth.js";
 import { authenticate } from "../../middleware/auth.js";
+import { create } from "domain";
 
 const prisma = new PrismaClient();
 
@@ -257,6 +258,8 @@ export default async function authRoutes(fastify: FastifyInstance) {
 						email: user.email,
 						name: user.name,
 						role: user.role,
+						createdAt: user.createdAt,
+						isEmailVerified: user.isEmailVerified,
 					},
 				},
 			});
