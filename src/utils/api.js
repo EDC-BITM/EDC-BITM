@@ -62,13 +62,19 @@ client.interceptors.response.use(
         console.log("Access token expired, attempting to refresh...");
 
         // Try to refresh the token using the httpOnly cookie
-        await axios.post(
+        // Use a direct axios call to avoid infinite loops
+        const refreshResponse = await axios.post(
           `${BASE_URL}/auth/refresh`,
           {},
-          { withCredentials: true }
+          {
+            withCredentials: true,
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
         );
 
-        console.log("Token refreshed successfully");
+        console.log("Token refreshed successfully", refreshResponse.data);
         processQueue(null);
         isRefreshing = false;
 

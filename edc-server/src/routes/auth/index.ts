@@ -276,7 +276,15 @@ export default async function authRoutes(fastify: FastifyInstance) {
 			const refreshToken =
 				getCookieValue(request, "refreshToken") || request.body.refreshToken;
 
+			fastify.log.info({
+				hasRefreshTokenInCookie: !!getCookieValue(request, "refreshToken"),
+				hasRefreshTokenInBody: !!request.body.refreshToken,
+				hasCookieHeader: !!request.headers.cookie,
+				cookiePreview: request.headers.cookie ? request.headers.cookie.substring(0, 50) + "..." : "none",
+			}, "Refresh token request");
+
 			if (!refreshToken) {
+				fastify.log.warn("No refresh token provided");
 				return reply.status(401).send({
 					success: false,
 					message: "Refresh token not provided",
@@ -293,6 +301,10 @@ export default async function authRoutes(fastify: FastifyInstance) {
 			});
 
 			if (!storedToken || storedToken.expiresAt < new Date()) {
+				fastify.log.warn({
+					tokenFound: !!storedToken,
+					isExpired: storedToken ? storedToken.expiresAt < new Date() : null,
+				}, "Invalid or expired refresh token");
 				// Clean up expired token
 				if (storedToken) {
 					await prisma.refreshToken.delete({
@@ -328,12 +340,17 @@ export default async function authRoutes(fastify: FastifyInstance) {
 				`accessToken=${accessToken}; ${refreshAccessCookieOptions}`,
 			);
 
+			fastify.log.info({
+				userId: storedToken.user.id,
+				newAccessTokenSet: true,
+			}, "Token refreshed successfully");
+
 			return reply.send({
 				success: true,
 				message: "Token refreshed successfully",
 			});
 		} catch (error) {
-			fastify.log.error(error);
+			fastify.log.error(error, "Token refresh failed");
 			return reply.status(401).send({
 				success: false,
 				message: "Invalid or expired refresh token",

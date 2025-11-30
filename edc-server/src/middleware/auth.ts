@@ -29,22 +29,34 @@ export async function authenticate(
 		// Try to get token from cookie first, fallback to Authorization header
 		let token = getCookieValue("accessToken");
 		
-		// Log cookie presence for debugging
+		// Detailed logging for debugging
+		const cookieHeader = request.headers?.cookie;
+		const hasRefreshToken = !!getCookieValue("refreshToken");
+		
 		request.log?.info({
-			hasCookie: !!request.headers.cookie,
+			url: request.url,
+			method: request.method,
+			hasCookieHeader: !!cookieHeader,
 			hasAccessToken: !!token,
-			cookieHeader: request.headers.cookie ? "present" : "missing",
-		}, "Auth middleware - cookie check");
+			hasRefreshToken: hasRefreshToken,
+			cookieLength: cookieHeader?.length || 0,
+			// Log first 50 chars of cookie for debugging (don't log full tokens in production)
+			cookiePreview: cookieHeader ? cookieHeader.substring(0, 50) + "..." : "none",
+		}, "Auth middleware - detailed check");
 		
 		if (!token) {
 			const authHeader = request.headers.authorization;
 			if (authHeader && authHeader.startsWith("Bearer ")) {
 				token = authHeader.substring(7);
+				request.log?.info("Using Authorization header token");
 			}
 		}
 
 		if (!token) {
-			request.log?.warn("No token provided in cookies or headers");
+			request.log?.warn({
+				hasCookieHeader: !!cookieHeader,
+				hasAuthHeader: !!request.headers.authorization,
+			}, "No token provided - authentication failed");
 			return reply.status(401).send({
 				success: false,
 				message: "No token provided",
@@ -52,10 +64,14 @@ export async function authenticate(
 		}
 
 		const payload = await verifyAccessToken(token);
+		request.log?.info({ userId: payload.userId, role: payload.role }, "Token verified successfully");
 
 		request.user = payload;
 	} catch (error) {
-		request.log?.error(error, "Token verification failed");
+		request.log?.error({ 
+			error: error instanceof Error ? error.message : String(error),
+			url: request.url,
+		}, "Token verification failed");
 		return reply.status(401).send({
 			success: false,
 			message: "Invalid or expired token",

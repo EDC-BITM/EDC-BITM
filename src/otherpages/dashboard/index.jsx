@@ -224,8 +224,7 @@ const Dashboard = () => {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-bold mb-2 text-gray-900 flex items-center gap-2">
-                <Bell className="text-yellow-600" size={28} />
-                Article Management
+                Welcome back, {user?.name}! 👋
               </h2>
               <p className="text-gray-600">
                 Manage articles for your organization. Only one article can be
