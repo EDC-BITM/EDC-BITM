@@ -324,6 +324,4 @@ Common HTTP status codes:
 
 MIT
 
-## 👨‍💻 Author
 
-Built with ❤️ using Fastify, Prisma, and MongoDB
