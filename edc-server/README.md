@@ -84,35 +84,7 @@ http://localhost:8080/api
 
 ### Authentication Endpoints
 
-#### Register
-```http
-POST /api/auth/register
-Content-Type: application/json
 
-{
-  "email": "user@example.com",
-  "name": "John Doe",
-  "password": "SecurePass123"
-}
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "message": "User registered successfully",
-  "data": {
-    "user": {
-      "id": "...",
-      "email": "user@example.com",
-      "name": "John Doe",
-      "role": "USER",
-      "createdAt": "2025-11-05T..."
-    },
-    "accessToken": "eyJhbGc..."
-  }
-}
-```
 
 #### Login
 ```http
