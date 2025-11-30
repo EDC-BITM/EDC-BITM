@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  edc-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: edc-server
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+      - PORT=8080
+      - HOST=0.0.0.0
+      - DATABASE_URL=${DATABASE_URL}
+      - JWT_SECRET=${JWT_SECRET}
+      - REFRESH_SECRET=${REFRESH_SECRET}
+      - COOKIE_SECRET=${COOKIE_SECRET}
+      - CORS_ORIGIN=${CORS_ORIGIN}
+      - LOG_LEVEL=info
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
