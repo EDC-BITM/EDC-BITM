@@ -10,8 +10,10 @@ COPY package.json yarn.lock ./
 # Install dependencies
 RUN yarn install --frozen-lockfile
 
-# Copy prisma schema
+# Copy prisma schema and config
 COPY prisma ./prisma/
+COPY prisma.config.ts ./
+
 
 # Generate Prisma client
 RUN yarn prisma generate
@@ -34,8 +36,14 @@ COPY package.json yarn.lock ./
 # Install only production dependencies
 RUN yarn install --production --frozen-lockfile
 
-# Copy prisma schema and generate client
+# Copy prisma schema and config
 COPY prisma ./prisma/
+COPY prisma.config.ts ./
+
+# Set a dummy DATABASE_URL for build time
+ENV DATABASE_URL="mongodb://dummy:dummy@localhost:27017/dummy?retryWrites=true&w=majority"
+
+# Generate Prisma client
 RUN yarn prisma generate
 
 # Copy built files from builder
