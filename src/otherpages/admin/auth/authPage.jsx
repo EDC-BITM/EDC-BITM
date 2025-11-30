@@ -48,10 +48,7 @@ const AuthPage = () => {
       navigate("/admin/dashboard");
     } catch (error) {
       console.error("Authentication error:", error);
-      setAuthError(
-        error.message ||
-          "Failed to authenticate. Please check your credentials."
-      );
+      setAuthError("Failed to authenticate. Please check your credentials.");
     }
   };
 

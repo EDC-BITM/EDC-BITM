@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 
 import NavBar from "./components/layout/Navbar.jsx";
 import Footer from "./components/footer/Footer.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Home from "./Home.jsx";
 import Speakerpage from "./otherpages/Speakerpage/Speakerpage.jsx";
 import Eventspage from "./otherpages/Eventspage/Eventspage.jsx";
@@ -112,11 +113,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin/dashboard",
-    element: <Dashboard />,
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/admin/editor/:id",
-    element: <EditorPage />,
+    element: (
+      <ProtectedRoute>
+        <EditorPage />
+      </ProtectedRoute>
+    ),
   },
 ]);
 
