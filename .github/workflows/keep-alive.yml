@@ -1,0 +1,29 @@
+name: Keep Server Alive
+
+on:
+  schedule:
+    # Runs every 10 minutes
+    - cron: '*/10 * * * *'
+  workflow_dispatch: 
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Ping Server
+        run: |
+          echo "Pinging server at $(date)"
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://edc-bitm.onrender.com/ping)
+          
+          if [ $response -eq 200 ]; then
+            echo "✅ Server is alive! Response: $response"
+          else
+            echo "⚠️ Server returned: $response"
+            exit 1
+          fi
+      
+      - name: Log Response
+        if: always()
+        run: |
+          echo "Ping completed at $(date)"
