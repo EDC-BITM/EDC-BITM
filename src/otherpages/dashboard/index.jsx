@@ -553,31 +553,35 @@ const Dashboard = () => {
             <div>
               <p className="text-sm text-gray-500 mb-1">Role</p>
               <p className="font-medium text-gray-900">
-                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                  user?.role === 'ADMIN' 
-                    ? 'bg-purple-100 text-purple-800 border border-purple-200' 
-                    : 'bg-blue-100 text-blue-800 border border-blue-200'
-                }`}>
-                  {user?.role || 'USER'}
+                <span
+                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                    user?.role === "ADMIN"
+                      ? "bg-purple-100 text-purple-800 border border-purple-200"
+                      : "bg-blue-100 text-blue-800 border border-blue-200"
+                  }`}
+                >
+                  {user?.role || "USER"}
                 </span>
               </p>
             </div>
             <div>
               <p className="text-sm text-gray-500 mb-1">Email Verified</p>
               <p className="font-medium text-gray-900">
-                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                  user?.isEmailVerified 
-                    ? 'bg-green-100 text-green-800 border border-green-200' 
-                    : 'bg-yellow-100 text-yellow-800 border border-yellow-200'
-                }`}>
-                  {user?.isEmailVerified ? '✓ Verified' : '✗ Not Verified'}
+                <span
+                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                    user?.isEmailVerified
+                      ? "bg-green-100 text-green-800 border border-green-200"
+                      : "bg-yellow-100 text-yellow-800 border border-yellow-200"
+                  }`}
+                >
+                  {user?.isEmailVerified ? "✓ Verified" : "✗ Not Verified"}
                 </span>
               </p>
             </div>
             <div>
               <p className="text-sm text-gray-500 mb-1">User Since</p>
               <p className="font-medium text-gray-900">
-                {user?.createdAt ? formatDate(user.createdAt) : 'N/A'}
+                {user?.createdAt ? formatDate(user.createdAt) : "N/A"}
               </p>
             </div>
             <div className="md:col-span-2">
