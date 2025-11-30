@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/Events", label: "Events" },
   { href: "/Speakers", label: "Speakers" },
+  { href: "/announcement", label: "Announcements" },
   { href: "/Team", label: "Team" },
   { href: "/Startups", label: "Startups" },
 ];
@@ -17,6 +18,9 @@ const NavBar = () => {
   const pathname = useLocation().pathname;
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // Check if current page needs light navbar (for light backgrounds)
+  const isLightPage = pathname === "/announcement";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,7 +62,9 @@ const NavBar = () => {
     <motion.header
       className={`fixed top-0 left-0 z-50 w-full transition-all ${
         scrolled
-          ? "bg-gradient-to-b from-black/90 via-black/70 to-black/20 shadow-lg backdrop-blur-lg"
+          ? isLightPage
+            ? "bg-gradient-to-b from-white/90 via-white/70 to-white/20 shadow-lg backdrop-blur-lg"
+            : "bg-gradient-to-b from-black/90 via-black/70 to-black/20 shadow-lg backdrop-blur-lg"
           : "bg-transparent"
       }`}
       initial={{ y: -100, opacity: 0 }}
@@ -77,25 +83,44 @@ const NavBar = () => {
             transition={{ type: "spring", stiffness: 300 }}
             className="drop-shadow-lg"
           />
-          <span className="hidden text-sm leading-tight font-semibold text-white sm:block group-hover:text-yellow-400 transition-colors duration-300">
+          <span
+            className={`hidden text-sm leading-tight font-semibold sm:block transition-colors duration-300 ${
+              isLightPage
+                ? "text-gray-900 group-hover:text-yellow-500"
+                : "text-white group-hover:text-yellow-400"
+            }`}
+          >
             Entrepreneurship <br />
             Development Cell
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden space-x-8 text-base font-semibold text-white md:flex">
+        <nav
+          className={`hidden space-x-8 text-base font-semibold md:flex ${
+            isLightPage ? "text-gray-900" : "text-white"
+          }`}
+        >
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               to={href}
               className={`relative px-2 py-1 transition-all duration-300
-                after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:rounded-b-full after:bg-yellow-400 after:transition-all after:duration-300 after:content-['']
-                hover:text-yellow-400 hover:after:w-full hover:after:shadow-[0_2px_8px_rgba(250,204,21,0.7)]
+                after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:rounded-b-full after:transition-all after:duration-300 after:content-['']
                 ${
-                  pathname === href
-                    ? "text-yellow-400 after:w-full after:shadow-[0_2px_8px_rgba(250,204,21,0.5)]"
-                    : ""
+                  isLightPage
+                    ? `after:bg-yellow-500 hover:text-yellow-600 hover:after:w-full hover:after:shadow-[0_2px_8px_rgba(234,179,8,0.7)]
+                       ${
+                         pathname === href
+                           ? "text-yellow-600 after:w-full after:shadow-[0_2px_8px_rgba(234,179,8,0.5)]"
+                           : ""
+                       }`
+                    : `after:bg-yellow-400 hover:text-yellow-400 hover:after:w-full hover:after:shadow-[0_2px_8px_rgba(250,204,21,0.7)]
+                       ${
+                         pathname === href
+                           ? "text-yellow-400 after:w-full after:shadow-[0_2px_8px_rgba(250,204,21,0.5)]"
+                           : ""
+                       }`
                 }
               `}
               style={{ letterSpacing: "0.02em" }}
@@ -107,7 +132,11 @@ const NavBar = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="text-white md:hidden rounded-full p-2 hover:bg-white/10 transition flex items-center justify-center z-[60]"
+          className={`md:hidden rounded-full p-2 transition flex items-center justify-center z-[60] ${
+            isLightPage
+              ? "text-gray-900 hover:bg-gray-900/10"
+              : "text-white hover:bg-white/10"
+          }`}
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >

@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 
 import NavBar from "./components/layout/Navbar.jsx";
 import Footer from "./components/footer/Footer.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Home from "./Home.jsx";
 import Speakerpage from "./otherpages/Speakerpage/Speakerpage.jsx";
 import Eventspage from "./otherpages/Eventspage/Eventspage.jsx";
@@ -15,6 +16,10 @@ import Teamspage from "./otherpages/Teamspage/team.jsx";
 import Startups from "./otherpages/Startupspage/Startups.jsx";
 import IATPage from "./otherpages/IAT/IATPage.jsx";
 import RecruitmentPage from "./otherpages/Recruitment/RecruitmentPage.jsx";
+import AuthPage from "./otherpages/admin/auth/authPage.jsx";
+import Dashboard from "./otherpages/dashboard/index.jsx";
+import EditorPage from "./otherpages/admin/EditorPage.jsx";
+import AnnouncementPage from "./otherpages/Announcement/AnnouncementPage.jsx";
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -97,6 +102,30 @@ const router = createBrowserRouter([
   {
     path: "/recruitment",
     element: <RecruitmentPage />,
+  },
+  {
+    path: "/announcement",
+    element: <RouteLayout Component={AnnouncementPage} />,
+  },
+  {
+    path: "/admin/auth",
+    element: <AuthPage />,
+  },
+  {
+    path: "/admin/dashboard",
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/admin/editor/:id",
+    element: (
+      <ProtectedRoute>
+        <EditorPage />
+      </ProtectedRoute>
+    ),
   },
 ]);
 
