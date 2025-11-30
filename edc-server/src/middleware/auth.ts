@@ -29,6 +29,13 @@ export async function authenticate(
 		// Try to get token from cookie first, fallback to Authorization header
 		let token = getCookieValue("accessToken");
 		
+		// Log cookie presence for debugging
+		request.log?.info({
+			hasCookie: !!request.headers.cookie,
+			hasAccessToken: !!token,
+			cookieHeader: request.headers.cookie ? "present" : "missing",
+		}, "Auth middleware - cookie check");
+		
 		if (!token) {
 			const authHeader = request.headers.authorization;
 			if (authHeader && authHeader.startsWith("Bearer ")) {
@@ -37,6 +44,7 @@ export async function authenticate(
 		}
 
 		if (!token) {
+			request.log?.warn("No token provided in cookies or headers");
 			return reply.status(401).send({
 				success: false,
 				message: "No token provided",
@@ -47,6 +55,7 @@ export async function authenticate(
 
 		request.user = payload;
 	} catch (error) {
+		request.log?.error(error, "Token verification failed");
 		return reply.status(401).send({
 			success: false,
 			message: "Invalid or expired token",

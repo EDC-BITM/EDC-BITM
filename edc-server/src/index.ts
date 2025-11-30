@@ -35,12 +35,15 @@ await server.register(cors, {
 			const allowedOrigins = [
 				process.env.CORS_ORIGIN,
 				process.env.FRONTEND_URL,
-				"https://edcbitmesra.in/",
+				"https://edcbitmesra.in",
 			].filter(Boolean);
+			
+			server.log.info({ origin, allowedOrigins }, "CORS origin check");
 			
 			if (!origin || allowedOrigins.includes(origin)) {
 				cb(null, true);
 			} else {
+				server.log.warn({ origin, allowedOrigins }, "CORS rejected origin");
 				cb(new Error("Not allowed by CORS"), false);
 			}
 		}
@@ -59,6 +62,20 @@ await server.register(cors, {
 await server.register(cookie, {
 	secret: process.env.COOKIE_SECRET || "your-cookie-secret-key",
 	parseOptions: {},
+});
+
+// Debug middleware to log cookies on each request
+server.addHook("onRequest", async (request, reply) => {
+	const cookies = request.headers.cookie;
+	if (request.url.includes("/api/")) {
+		server.log.info({
+			url: request.url,
+			method: request.method,
+			origin: request.headers.origin,
+			hasCookies: !!cookies,
+			cookieHeader: cookies ? "present" : "missing",
+		}, "Request debug info");
+	}
 });
 
 // Health check routes

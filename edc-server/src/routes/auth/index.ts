@@ -241,6 +241,13 @@ export default async function authRoutes(fastify: FastifyInstance) {
 				`refreshToken=${refreshToken}; ${loginRefreshCookieOptions}`,
 			]);
 
+			fastify.log.info({
+				cookiesSet: true,
+				accessCookieOptions: loginAccessCookieOptions,
+				refreshCookieOptions: loginRefreshCookieOptions,
+				env: process.env.NODE_ENV,
+			}, "Login - cookies set");
+
 			return reply.send({
 				success: true,
 				message: "Login successful",
