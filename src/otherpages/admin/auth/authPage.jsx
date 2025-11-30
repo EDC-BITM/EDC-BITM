@@ -179,16 +179,6 @@ const AuthPage = () => {
                 </button>
               </div>
             </form>
-
-            <div className="mt-6 text-center text-sm text-zinc-400">
-              Don&apos;t have an account?{" "}
-              <a
-                href="#"
-                className="text-yellow-400 hover:text-yellow-300 transition-colors"
-              >
-                Request access
-              </a>
-            </div>
           </div>
         </div>
       </div>
