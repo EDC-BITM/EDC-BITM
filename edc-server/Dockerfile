@@ -40,9 +40,6 @@ RUN yarn install --production --frozen-lockfile
 COPY prisma ./prisma/
 COPY prisma.config.ts ./
 
-# Set a dummy DATABASE_URL for build time
-ENV DATABASE_URL="mongodb://dummy:dummy@localhost:27017/dummy?retryWrites=true&w=majority"
-
 # Generate Prisma client
 RUN yarn prisma generate
 
@@ -56,4 +53,4 @@ EXPOSE 8080
 ENV NODE_ENV=production
 
 # Start the application
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/src/index.js"]
