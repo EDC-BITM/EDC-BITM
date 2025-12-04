@@ -15,7 +15,7 @@ function Socials() {
           height={cldImageData.Home.socials[0].height}
           width={cldImageData.Home.socials[0].width}
         />
-        <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-xs" />
       </div>
 
       {/* Content section */}
