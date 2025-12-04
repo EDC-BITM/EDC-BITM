@@ -329,8 +329,12 @@ const AnnouncementPage = () => {
     );
   }
 
-  // No published article
-  if (!isLoading && !error && !publishedArticle) {
+  // No published article - check for both null and undefined
+  if (
+    !isLoading &&
+    !error &&
+    (!publishedArticle || Object.keys(publishedArticle).length === 0)
+  ) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center relative overflow-hidden">
         {/* Background blobs */}
