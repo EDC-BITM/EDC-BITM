@@ -173,7 +173,7 @@ const Startups = () => {
   ];
 
   return (
-    <div className="bg-gray-100 font-sans relative text-gray-800 overflow-x-hidden">
+    <div className="bg-gray-100 relative text-gray-800 overflow-x-hidden">
       <div className="relative w-full h-[54rem] md:h-[700px] lg:h-[800px] overflow-hidden">
         <CldImage
           src="startuphome_p6blhu"
@@ -189,8 +189,8 @@ const Startups = () => {
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4 sm:px-6">
           <HoverTextTranslateEffect
-            firstLine={" Innovating From The"}
-            secondLine={"Heart Where Ideas Meet Impact"}
+            firstLine={"Innovating From The Heart"}
+            secondLine={"Where Ideas Meet Impact"}
             className="text-3xl tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-50/90 mb-4"
           />
 

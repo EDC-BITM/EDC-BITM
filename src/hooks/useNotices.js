@@ -7,6 +7,7 @@ import {
   deleteNotice,
   toggleNoticeStatus,
   getPublishedNotice,
+  getAnnouncement,
 } from "@/services/noticeService";
 
 // Query keys
@@ -45,7 +46,7 @@ export const useNotice = (id) => {
 export const usePublishedNotice = () => {
   return useQuery({
     queryKey: NOTICE_KEYS.published,
-    queryFn: getPublishedNotice,
+    queryFn: getAnnouncement,
     staleTime: 0, // Don't consider data stale - always refetch
     gcTime: 0, // React Query v5 uses gcTime instead of cacheTime
     refetchOnMount: "always", // Always refetch when component mounts

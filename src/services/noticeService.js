@@ -1,4 +1,4 @@
-import { articles, auth } from "@/utils/api";
+import { articles, auth, client } from "@/utils/api";
 
 /**
  * Fetch all notices
@@ -146,6 +146,43 @@ export const getPublishedNotice = async () => {
     return published[0] || null;
   } catch (error) {
     console.error("Error fetching published notice:", error);
+    throw error;
+  }
+};
+
+export const getAnnouncement = async () => {
+  try {
+    const response = await client.get("articles/announcement");
+    const payload = response?.data;
+    let record = payload;
+
+    if (
+      payload &&
+      typeof payload === "object" &&
+      payload.success &&
+      payload.data
+    ) {
+      record = payload.data;
+    }
+
+    if (!record) return null;
+
+    return {
+      ...record,
+      status: record.published ? "published" : "draft",
+      created: record.createdAt || record.created,
+      updated: record.updatedAt || record.updated,
+    };
+  } catch (error) {
+    // If it's a 404 or the announcement doesn't exist, return null instead of throwing
+    if (
+      error.response &&
+      (error.response.status === 404 || error.response.status === 400)
+    ) {
+      console.log("No published announcement found");
+      return null;
+    }
+    console.error("Error fetching announcement:", error);
     throw error;
   }
 };

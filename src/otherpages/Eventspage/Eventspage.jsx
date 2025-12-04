@@ -91,34 +91,45 @@ function Eventspage() {
             />
 
             {/* Overlay Text on Image */}
-            <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center">
-              <h1 className="text-4xl sm:text-5xl uppercase font-extrabold sm:p-4 text-white">
-                <motion.div
-                  initial="show"
-                  whileHover="hover"
-                  className="overflow-hidden cursor-default lg:h-14 relative"
-                >
-                  <motion.div className="absolute inset-0" variants={upVariant}>
-                    Celebrating moments that sparked change
-                  </motion.div>
-                  <motion.div variants={downVariant}>
-                    Celebrating moments that sparked change
-                  </motion.div>
-                </motion.div>
+            <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center px-4">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+              >
+                Celebrating Moments
+                <br />
+                That Sparked Change
+              </motion.h1>
 
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl"
+              >
+                Through events that inspire, connect, and lead
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="absolute bottom-8"
+              >
                 <motion.div
-                  initial="show"
-                  whileHover="hover"
-                  className="overflow-hidden cursor-default lg:h-14 relative"
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center pt-2"
                 >
-                  <motion.div className="absolute inset-0" variants={upVariant}>
-                    Through events that inspire connect and lead
-                  </motion.div>
-                  <motion.div variants={downVariant}>
-                    Through events that inspire connect and lead
-                  </motion.div>
+                  <div className="w-1 h-2 bg-white/80 rounded-full" />
                 </motion.div>
-              </h1>
+              </motion.div>
             </div>
           </div>
         </a>

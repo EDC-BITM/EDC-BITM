@@ -63,7 +63,7 @@ const Footer = () => {
           to_name: "TEAM EDC",
           message: message,
         },
-        serviceConfig.user_ID,
+        serviceConfig.user_ID
       )
       .then((r) => console.log("Message sent successfully", r))
       .catch((error) => console.error("Error sending message:", error))
@@ -122,14 +122,14 @@ const Footer = () => {
             </Link>
 
             <form onSubmit={handleSubmit} className="w-full">
-              <div className="flex h-12 text-black rounded-full overflow-hidden">
+              <div className="flex h-12 rounded-full overflow-hidden">
                 <input
                   type="text"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Send us a message..."
                   required
-                  className="flex-1 px-4 outline-none"
+                  className="flex-1 px-4 outline-none bg-white text-gray-900 placeholder:text-gray-500"
                   maxLength={200}
                 />
                 <button
