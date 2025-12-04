@@ -86,10 +86,8 @@ const Dashboard = () => {
       setShowConfirmDialog(false);
       setPendingPublish(null);
     } catch (error) {
-      toast.error(
-        `Failed to ${pendingPublish.action} article. Please try again.`
-      );
-      console.error(error);
+      toast.error(error.response.data?.message || "Failed to update article status.");
+      
     }
   };
 
