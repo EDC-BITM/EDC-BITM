@@ -124,33 +124,41 @@ server.setErrorHandler((error, request, reply) => {
 	}
 
 	// Handle Prisma errors
-	if (error.message.includes("Unique constraint")) {
-		return reply.status(409).send({
-			success: false,
-			message: "A record with this information already exists",
-		});
-	}
+	if (typeof error === "object" && error !== null && "message" in error && typeof (error as any).message === "string") {
+		if ((error as any).message.includes("Unique constraint")) {
+			return reply.status(409).send({
+				success: false,
+				message: "A record with this information already exists",
+			});
+		}
 
-	if (error.message.includes("Record to update not found")) {
-		return reply.status(404).send({
-			success: false,
-			message: "Record not found",
-		});
+		if ((error as any).message.includes("Record to update not found")) {
+			return reply.status(404).send({
+				success: false,
+				message: "Record not found",
+			});
+		}
 	}
 
 	// Handle validation errors
-	if (error.validation) {
+	if (typeof error === "object" && error !== null && "validation" in error) {
 		return reply.status(400).send({
 			success: false,
 			message: "Validation error",
-			errors: error.validation,
+			errors: (error as any).validation,
 		});
 	}
 
 	// Default error response
-	return reply.status(error.statusCode || 500).send({
+	const statusCode = typeof error === "object" && error !== null && "statusCode" in error && typeof (error as any).statusCode === "number"
+		? (error as any).statusCode
+		: 500;
+	const message = typeof error === "object" && error !== null && "message" in error && typeof (error as any).message === "string"
+		? (error as any).message
+		: "Internal server error";
+	return reply.status(statusCode).send({
 		success: false,
-		message: error.message || "Internal server error",
+		message,
 	});
 });
 
