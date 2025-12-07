@@ -51,7 +51,7 @@ export const teamMemberSchema = z.object({
     .optional()
     .nullable()
     .refine(
-      (val) => !val || /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im.test(val),
+      (val) => !val || /^[+]?[0-9]{1,4}?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,4}[-\s.]?[0-9]{1,9}$/im.test(val),
       'Invalid phone number format'
     ),
   batch: z.string().max(10).optional().nullable(),
@@ -82,9 +82,7 @@ export const submissionSchema = z.object({
     .min(20, 'Solution must be at least 20 characters')
     .max(2000, 'Solution must be less than 2000 characters'),
   currentStage: z.enum(['IDEA', 'PROTOTYPE', 'EARLY_CUSTOMERS', 'REVENUE'], {
-    errorMap: () => ({
-      message: 'Current stage must be one of: IDEA, PROTOTYPE, EARLY_CUSTOMERS, REVENUE',
-    }),
+    message: 'Current stage must be one of: IDEA, PROTOTYPE, EARLY_CUSTOMERS, REVENUE',
   }),
  batch: z
     .string()
@@ -101,9 +99,8 @@ export const submissionSchema = z.object({
     .optional()
     .nullable()
     .refine(
-      (val) =>
-        !val || /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im.test(val),
-      'Invalid phone number format'
+      (val) => !val || /^[0-9]{10}$/.test(val),
+      'Invalid contact number format'
     ),
   uniqueness: z
     .string()
@@ -186,13 +183,17 @@ export const validateSubmission = async (
       return reply.code(400).send({
         success: false,
         message: 'Validation failed',
-        errors: error.errors.map((e) => ({
-          field: e.path.join('.'),
-          message: e.message,
+        errors: error.issues.map((issue: z.ZodIssue) => ({
+          field: issue.path.join('.'),
+          message: issue.message,
+          code: issue.code,
         })),
       });
     }
-    throw error;
+    return reply.code(500).send({
+      success: false,
+      message: 'Validation error occurred',
+    });
   }
 };
 
@@ -209,13 +210,17 @@ export const validateSubmissionUpdate = async (
       return reply.code(400).send({
         success: false,
         message: 'Validation failed',
-        errors: error.errors.map((e) => ({
-          field: e.path.join('.'),
-          message: e.message,
+        errors: error.issues.map((issue: z.ZodIssue) => ({
+          field: issue.path.join('.'),
+          message: issue.message,
+          code: issue.code,
         })),
       });
     }
-    throw error;
+    return reply.code(500).send({
+      success: false,
+      message: 'Validation error occurred',
+    });
   }
 };
 
@@ -223,7 +228,7 @@ export const handleValidationError = (error: z.ZodError) => {
   return {
     success: false,
     message: 'Validation failed',
-    errors: error.errors.map((e) => ({
+    errors: error.issues.map((e: z.ZodIssue) => ({
       field: e.path.join('.'),
       message: e.message,
       code: e.code,

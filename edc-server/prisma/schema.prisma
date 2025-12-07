@@ -60,3 +60,73 @@ enum Role {
   ADMIN
   MODERATOR
 }
+
+enum StartupStage {
+  IDEA
+  PROTOTYPE
+  EARLY_CUSTOMERS
+  REVENUE
+}
+
+model Submission {
+  id             String       @id @default(auto()) @map("_id") @db.ObjectId
+
+  // Founder Information
+  name           String
+  batch          String?
+  rollNumber     String?
+  contactNumber  String?
+  email          String       @unique
+
+  // Startup core fields
+  title               String
+  oneLiner            String
+  problemStatement    String
+  solution            String
+  
+  // Market & Business
+  uniqueness          String?
+  marketSize          String?
+  targetCustomer      String?
+  businessModel       String?
+  
+  // Technical
+  currentStage        StartupStage
+  techStack           String?
+  competitors         String?
+
+  // Optional links
+  websiteUrl          String?
+  demoUrl             String?
+  pitchDeckUrl        String?
+  otherLinks          String?
+
+  // Extra info
+  additionalInfo      String?
+  specificGuidance    String?
+
+  // Relations
+  teamMembers         TeamMember[]
+
+  createdAt           DateTime    @default(now())
+  updatedAt           DateTime    @updatedAt
+
+  @@index([createdAt])
+}
+
+model TeamMember {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  submissionId  String    @db.ObjectId
+  submission    Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  name          String
+  email         String?
+  contactNumber String?
+  batch         String?
+  rollNumber    String?
+  role          String?
+
+  createdAt     DateTime  @default(now())
+
+  @@index([submissionId])
+}

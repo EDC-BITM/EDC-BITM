@@ -26,8 +26,6 @@ export async function submissionRoutes(fastify: FastifyInstance) {
     '/',
     {
       schema: {
-        description: 'Create a new startup submission',
-        tags: ['Submissions'],
         body: {
           type: 'object',
           required: [
@@ -83,6 +81,7 @@ export async function submissionRoutes(fastify: FastifyInstance) {
     },
     async (request, reply) => {
       await validateSubmission(request, reply);
+      if (reply.sent) return; // Stop if validation already sent a response
       return createSubmission(request, reply);
     }
   );
@@ -99,8 +98,6 @@ export async function submissionRoutes(fastify: FastifyInstance) {
     '/',
     {
       schema: {
-        description: 'Get all submissions with pagination and filtering',
-        tags: ['Submissions'],
         querystring: {
           type: 'object',
           properties: {
@@ -136,8 +133,6 @@ export async function submissionRoutes(fastify: FastifyInstance) {
     '/:id',
     {
       schema: {
-        description: 'Get a submission by ID',
-        tags: ['Submissions'],
         params: {
           type: 'object',
           required: ['id'],
@@ -170,8 +165,6 @@ export async function submissionRoutes(fastify: FastifyInstance) {
     '/user/:email',
     {
       schema: {
-        description: 'Get submissions by email',
-        tags: ['Submissions'],
         params: {
           type: 'object',
           required: ['email'],
@@ -203,8 +196,6 @@ export async function submissionRoutes(fastify: FastifyInstance) {
     '/:id',
     {
       schema: {
-        description: 'Update a submission',
-        tags: ['Submissions'],
         params: {
           type: 'object',
           required: ['id'],
@@ -242,6 +233,7 @@ export async function submissionRoutes(fastify: FastifyInstance) {
     },
     async (request, reply) => {
       await validateSubmissionUpdate(request, reply);
+      if (reply.sent) return; // Stop if validation already sent a response
       return updateSubmission(request, reply);
     }
   );
@@ -253,8 +245,6 @@ export async function submissionRoutes(fastify: FastifyInstance) {
     '/:id',
     {
       schema: {
-        description: 'Delete a submission',
-        tags: ['Submissions'],
         params: {
           type: 'object',
           required: ['id'],
@@ -282,8 +272,6 @@ export async function submissionRoutes(fastify: FastifyInstance) {
     '/stats/overview',
     {
       schema: {
-        description: 'Get submission statistics',
-        tags: ['Statistics'],
         response: {
           200: {
             description: 'Submission statistics',

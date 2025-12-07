@@ -2,6 +2,7 @@ import fastify from "fastify";
 import cookie from "@fastify/cookie";
 import cors from "@fastify/cors";
 import dotenv from "dotenv";
+import { z } from "zod";
 import authRoutes from "./routes/auth/index.js";
 import articleRoutes from "./routes/article/index.js";
 import { submissionRoutes } from "./routes/submission/routes.js";
@@ -108,6 +109,19 @@ await server.register(submissionRoutes, { prefix: "/api/submissions" });
 // Global error handler
 server.setErrorHandler((error, request, reply) => {
 	server.log.error(error);
+
+	// Handle Zod validation errors
+	if (error instanceof z.ZodError) {
+		return reply.status(400).send({
+			success: false,
+			message: "Validation failed",
+			errors: error.issues.map((issue) => ({
+				field: issue.path.join('.'),
+				message: issue.message,
+				code: issue.code,
+			})),
+		});
+	}
 
 	// Handle Prisma errors
 	if (error.message.includes("Unique constraint")) {
