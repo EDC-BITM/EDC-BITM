@@ -1,16 +1,31 @@
-import { defineConfig } from "prisma/config";
+import { defineConfig } from "@prisma/config";
 import { config } from "dotenv";
+import path from "path";
 
 // Load environment variables
-config();
+config({ path: path.resolve(process.cwd(), '.env') });
 
-export default defineConfig({
+// Main database configuration
+export const mainDbConfig = {
   schema: "prisma/schema.prisma",
   migrations: {
     path: "prisma/migrations",
   },
-  engine: "classic",
   datasource: {
-    url: process.env.DATABASE_URL || "",
+    url: process.env.DATABASE_URL,
   },
-});
+};
+
+// Submission database configuration
+export const submissionDbConfig = {
+  schema: "prisma/submission.prisma",
+  migrations: {
+    path: "prisma/migrations/submission",
+  },
+  datasource: {
+    url: process.env.NEON_DATABASE_URL,
+  },
+};
+
+// Export default configuration (main database)
+export default defineConfig(mainDbConfig);

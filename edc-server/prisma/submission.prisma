@@ -1,0 +1,133 @@
+// prisma/postgres/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("NEON_DATABASE_URL")
+}
+
+
+model User {
+  id                  String    @id @default(cuid())
+  email               String    @unique
+  name                String
+  password            String
+  role                Role      @default(USER)
+  isEmailVerified     Boolean   @default(false)
+  emailVerifyToken    String?
+  resetPasswordToken  String?
+  resetPasswordExpires DateTime?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  articles            Article[]
+  refreshTokens       RefreshToken[]
+
+  @@index([email])
+}
+
+model Article {
+  id        String   @id @default(cuid())
+  title     String
+  content   Json
+  published Boolean  @default(false)
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([authorId])
+  @@index([published])
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+enum Role {
+  USER
+  ADMIN
+  MODERATOR
+}
+
+enum StartupStage {
+  IDEA
+  PROTOTYPE
+  EARLY_CUSTOMERS
+  REVENUE
+}
+
+model Submission {
+  id             String       @id @default(cuid())
+
+  // Founder Information
+  name           String
+  batch          String?
+  rollNumber     String?
+  contactNumber  String?
+  email          String       @unique
+
+  // Startup core fields
+  title               String
+  oneLiner            String
+  problemStatement    String
+  solution            String
+  
+  // Market & Business
+  uniqueness          String?
+  marketSize          String?
+  targetCustomer      String?
+  businessModel       String?
+  
+  // Technical
+  currentStage        StartupStage
+  techStack           String?
+  competitors         String?
+
+  // Optional links
+  websiteUrl          String?
+  demoUrl             String?
+  pitchDeckUrl        String?
+  otherLinks          String?
+
+  // Extra info
+  additionalInfo      String?
+  specificGuidance    String?
+
+  // Relations
+  teamMembers         TeamMember[]
+
+  createdAt           DateTime    @default(now())
+  updatedAt           DateTime    @updatedAt
+
+  @@index([email])
+  @@index([createdAt])
+}
+
+model TeamMember {
+  id            String     @id @default(cuid())
+  submissionId  String
+  submission    Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  name          String
+  email         String?
+  contactNumber String?
+  batch         String?
+  rollNumber    String?
+  role          String?
+
+  createdAt     DateTime  @default(now())
+
+  @@index([submissionId])
+}

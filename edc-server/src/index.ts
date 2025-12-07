@@ -4,7 +4,7 @@ import cors from "@fastify/cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth/index.js";
 import articleRoutes from "./routes/article/index.js";
-
+import { submissionRoutes } from "./routes/submission/routes.js";
 // Load environment variables
 dotenv.config();
 
@@ -103,6 +103,7 @@ server.get("/ping", async () => {
 // Register routes
 await server.register(authRoutes, { prefix: "/api/auth" });
 await server.register(articleRoutes, { prefix: "/api/articles" });
+await server.register(submissionRoutes, { prefix: "/api/submissions" });
 
 // Global error handler
 server.setErrorHandler((error, request, reply) => {
