@@ -20,6 +20,7 @@ import AuthPage from "./otherpages/admin/auth/authPage.jsx";
 import Dashboard from "./otherpages/dashboard/index.jsx";
 import EditorPage from "./otherpages/admin/EditorPage.jsx";
 import AnnouncementPage from "./otherpages/Announcement/AnnouncementPage.jsx";
+import SubmissionForm from "./otherpages/Submissions/SubmissionForm.jsx";
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -106,6 +107,10 @@ const router = createBrowserRouter([
   {
     path: "/announcement",
     element: <RouteLayout Component={AnnouncementPage} />,
+  },
+  {
+    path: "/Submissions",
+    element: <RouteLayout Component={SubmissionForm} />,
   },
   {
     path: "/admin/auth",
