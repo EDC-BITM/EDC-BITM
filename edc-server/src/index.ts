@@ -2,6 +2,7 @@ import fastify from "fastify";
 import cookie from "@fastify/cookie";
 import cors from "@fastify/cors";
 import dotenv from "dotenv";
+import { z } from "zod";
 import authRoutes from "./routes/auth/index.js";
 import articleRoutes from "./routes/article/index.js";
 import { submissionRoutes } from "./routes/submission/routes.js";
@@ -109,34 +110,55 @@ await server.register(submissionRoutes, { prefix: "/api/submissions" });
 server.setErrorHandler((error, request, reply) => {
 	server.log.error(error);
 
-	// Handle Prisma errors
-	if (error.message.includes("Unique constraint")) {
-		return reply.status(409).send({
+	// Handle Zod validation errors
+	if (error instanceof z.ZodError) {
+		return reply.status(400).send({
 			success: false,
-			message: "A record with this information already exists",
+			message: "Validation failed",
+			errors: error.issues.map((issue) => ({
+				field: issue.path.join('.'),
+				message: issue.message,
+				code: issue.code,
+			})),
 		});
 	}
 
-	if (error.message.includes("Record to update not found")) {
-		return reply.status(404).send({
-			success: false,
-			message: "Record not found",
-		});
+	// Handle Prisma errors
+	if (typeof error === "object" && error !== null && "message" in error && typeof (error as any).message === "string") {
+		if ((error as any).message.includes("Unique constraint")) {
+			return reply.status(409).send({
+				success: false,
+				message: "A record with this information already exists",
+			});
+		}
+
+		if ((error as any).message.includes("Record to update not found")) {
+			return reply.status(404).send({
+				success: false,
+				message: "Record not found",
+			});
+		}
 	}
 
 	// Handle validation errors
-	if (error.validation) {
+	if (typeof error === "object" && error !== null && "validation" in error) {
 		return reply.status(400).send({
 			success: false,
 			message: "Validation error",
-			errors: error.validation,
+			errors: (error as any).validation,
 		});
 	}
 
 	// Default error response
-	return reply.status(error.statusCode || 500).send({
+	const statusCode = typeof error === "object" && error !== null && "statusCode" in error && typeof (error as any).statusCode === "number"
+		? (error as any).statusCode
+		: 500;
+	const message = typeof error === "object" && error !== null && "message" in error && typeof (error as any).message === "string"
+		? (error as any).message
+		: "Internal server error";
+	return reply.status(statusCode).send({
 		success: false,
-		message: error.message || "Internal server error",
+		message,
 	});
 });
 

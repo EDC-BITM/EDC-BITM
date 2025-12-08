@@ -16,16 +16,5 @@ export const mainDbConfig = {
   },
 };
 
-// Submission database configuration
-export const submissionDbConfig = {
-  schema: "prisma/submission.prisma",
-  migrations: {
-    path: "prisma/migrations/submission",
-  },
-  datasource: {
-    url: process.env.NEON_DATABASE_URL,
-  },
-};
 
-// Export default configuration (main database)
 export default defineConfig(mainDbConfig);

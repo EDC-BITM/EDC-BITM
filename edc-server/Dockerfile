@@ -53,4 +53,4 @@ EXPOSE 8080
 ENV NODE_ENV=production
 
 # Start the application
-CMD ["node", "dist/src/index.js"]
+CMD ["node", "dist/index.js"]

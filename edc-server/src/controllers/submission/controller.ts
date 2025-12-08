@@ -1,4 +1,4 @@
-import Fastify, { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
+import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
 import { PrismaClient } from '@prisma/client';
 import { z } from 'zod';
 
@@ -6,17 +6,17 @@ const prisma = new PrismaClient();
 
 const teamMemberSchema = z.object({
   name: z.string().min(1, 'Team member name required'),
-  email: z.string().email('Valid email required').optional().nullable(),
-  contactNumber: z.string().optional().nullable(),
-  batch: z.string().optional().nullable(),
-  rollNumber: z.string().optional().nullable(),
-  role: z.string().optional().nullable(),
+  email: z.email('Valid email required').optional(),
+  contactNumber: z.string().optional(),
+  batch: z.string().optional(),
+  rollNumber: z.string().optional(),
+  role: z.string().optional(),
 });
 
 const submissionSchema = z.object({
   // Required fields
   name: z.string().min(1, 'Name required'),
-  email: z.string().email('Valid email required'),
+  email: z.email('Valid email required'),
   title: z.string().min(5, 'Title must be at least 5 characters'),
   oneLiner: z.string().min(1, 'One-liner required'),
   problemStatement: z.string().min(10, 'Problem statement required'),
@@ -33,15 +33,15 @@ const submissionSchema = z.object({
   businessModel: z.string().optional().nullable(),
   techStack: z.string().optional().nullable(),
   competitors: z.string().optional().nullable(),
-  websiteUrl: z.string().url().optional().nullable(),
-  demoUrl: z.string().url().optional().nullable(),
-  pitchDeckUrl: z.string().url().optional().nullable(),
+  websiteUrl: z.url().optional().nullable(),
+  demoUrl: z.url().optional().nullable(),
+  pitchDeckUrl: z.url().optional().nullable(),
   otherLinks: z.string().optional().nullable(),
   additionalInfo: z.string().optional().nullable(),
   specificGuidance: z.string().optional().nullable(),
 
  
-  teamMembers: z.array(teamMemberSchema).optional().default([]),
+  teamMembers: z.array(teamMemberSchema).min(1, 'At least one team member required'),
 });
 
 
@@ -50,7 +50,8 @@ export const createSubmission = async (
   reply: FastifyReply
 ) => {
   try {
-    const validatedData = submissionSchema.parse(request.body);
+    // Data is already validated by middleware, so we can use it directly
+    const validatedData = request.body as z.infer<typeof submissionSchema>;
 
     const submission = await prisma.submission.create({
       data: {
@@ -60,24 +61,31 @@ export const createSubmission = async (
         oneLiner: validatedData.oneLiner,
         problemStatement: validatedData.problemStatement,
         solution: validatedData.solution,
-        batch: validatedData.batch,
-        rollNumber: validatedData.rollNumber,
-        contactNumber: validatedData.contactNumber,
-        uniqueness: validatedData.uniqueness,
-        marketSize: validatedData.marketSize,
-        targetCustomer: validatedData.targetCustomer,
-        businessModel: validatedData.businessModel,
+        batch: validatedData.batch ?? null,
+        rollNumber: validatedData.rollNumber ?? null,
+        contactNumber: validatedData.contactNumber ?? null,
+        uniqueness: validatedData.uniqueness ?? null,
+        marketSize: validatedData.marketSize ?? null,
+        targetCustomer: validatedData.targetCustomer ?? null,
+        businessModel: validatedData.businessModel ?? null,
         currentStage: validatedData.currentStage,
-        techStack: validatedData.techStack,
-        competitors: validatedData.competitors,
-        websiteUrl: validatedData.websiteUrl,
-        demoUrl: validatedData.demoUrl,
-        pitchDeckUrl: validatedData.pitchDeckUrl,
-        otherLinks: validatedData.otherLinks,
-        additionalInfo: validatedData.additionalInfo,
-        specificGuidance: validatedData.specificGuidance,
+        techStack: validatedData.techStack ?? null,
+        competitors: validatedData.competitors ?? null,
+        websiteUrl: validatedData.websiteUrl ?? null,
+        demoUrl: validatedData.demoUrl ?? null,
+        pitchDeckUrl: validatedData.pitchDeckUrl ?? null,
+        otherLinks: validatedData.otherLinks ?? null,
+        additionalInfo: validatedData.additionalInfo ?? null,
+        specificGuidance: validatedData.specificGuidance ?? null,
         teamMembers: {
-          create: validatedData.teamMembers || [],
+          create: validatedData.teamMembers.map((member) => ({
+            ...member,
+            email: member.email ?? null,
+            contactNumber: member.contactNumber ?? null,
+            batch: member.batch ?? null,
+            rollNumber: member.rollNumber ?? null,
+            role: member.role ?? null,
+          })),
         },
       },
       include: {
@@ -91,24 +99,21 @@ export const createSubmission = async (
       message: 'Submission created successfully',
     });
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return reply.code(400).send({
-        success: false,
-        errors: error.errors,
-      });
+    // Handle Prisma errors
+    if (error instanceof Error) {
+      if (error.message.includes('Unique constraint')) {
+        return reply.code(409).send({
+          success: false,
+          message: 'A submission with this email already exists',
+        });
+      }
     }
 
-    if (error instanceof Error && error.message.includes('Unique constraint')) {
-      return reply.code(409).send({
-        success: false,
-        message: 'Email already exists',
-      });
-    }
-
+    // Log and return generic error
     console.error('Error creating submission:', error);
     return reply.code(500).send({
       success: false,
-      message: 'Failed to create submission',
+      message: 'Failed to create submission. Please try again.',
     });
   }
 };
@@ -170,7 +175,7 @@ export const getAllSubmissions = async (
     console.error('Error fetching submissions:', error);
     return reply.code(500).send({
       success: false,
-      message: 'Failed to fetch submissions',
+      message: 'Failed to fetch submissions. Please try again.',
     });
   }
 };
@@ -207,7 +212,7 @@ export const getSubmissionById = async (
     console.error('Error fetching submission:', error);
     return reply.code(500).send({
       success: false,
-      message: 'Failed to fetch submission',
+      message: 'Failed to fetch submission. Please try again.',
     });
   }
 };
@@ -240,7 +245,7 @@ export const getSubmissionsByEmail = async (
     console.error('Error fetching submissions by email:', error);
     return reply.code(500).send({
       success: false,
-      message: 'Failed to fetch submissions',
+      message: 'Failed to fetch submissions. Please try again.',
     });
   }
 };
@@ -252,11 +257,19 @@ export const updateSubmission = async (
   reply: FastifyReply
 ) => {
   try {
-    const validatedData = submissionSchema.partial().parse(request.body);
+    // Data is already validated by middleware
+    const validatedData = request.body as Partial<z.infer<typeof submissionSchema>>;
+
+    // remove undefined values to avoid typeScript strict optional issues
+    const updateData = Object.fromEntries(
+      Object.entries(validatedData)
+        .filter(([key, value]) => value !== undefined && key !== 'teamMembers')
+        .map(([key, value]) => [key, value ?? null])
+    );
 
     const submission = await prisma.submission.update({
       where: { id: request.params.id },
-      data: validatedData,
+      data: updateData,
       include: {
         teamMembers: true,
       },
@@ -268,14 +281,7 @@ export const updateSubmission = async (
       message: 'Submission updated successfully',
     });
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return reply.code(400).send({
-        success: false,
-        errors: error.errors,
-      });
-    }
-
-    if (error instanceof Error && error.message.includes('not found')) {
+    if (error instanceof Error && error.message.includes('Record to update not found')) {
       return reply.code(404).send({
         success: false,
         message: 'Submission not found',
@@ -285,7 +291,7 @@ export const updateSubmission = async (
     console.error('Error updating submission:', error);
     return reply.code(500).send({
       success: false,
-      message: 'Failed to update submission',
+      message: 'Failed to update submission. Please try again.',
     });
   }
 };
@@ -307,7 +313,7 @@ export const deleteSubmission = async (
       message: 'Submission deleted successfully',
     });
   } catch (error) {
-    if (error instanceof Error && error.message.includes('not found')) {
+    if (error instanceof Error && error.message.includes('Record to delete does not exist')) {
       return reply.code(404).send({
         success: false,
         message: 'Submission not found',
@@ -317,7 +323,7 @@ export const deleteSubmission = async (
     console.error('Error deleting submission:', error);
     return reply.code(500).send({
       success: false,
-      message: 'Failed to delete submission',
+      message: 'Failed to delete submission. Please try again.',
     });
   }
 };
@@ -335,11 +341,26 @@ export const getSubmissionStats = async (
       _count: true,
     });
 
-    const stats = {
+    interface StageCount {
+      stage: string;
+      count: number;
+    }
+
+    interface SubmissionStats {
+      total: number;
+      byStage: StageCount[];
+    }
+
+    interface GroupedStage {
+      currentStage: string;
+      _count: number;
+    }
+
+    const stats: SubmissionStats = {
       total,
-      byStage: byStage.map((s) => ({
-        stage: s.currentStage,
-        count: s._count,
+      byStage: (byStage as GroupedStage[]).map((s: GroupedStage): StageCount => ({
+      stage: s.currentStage,
+      count: s._count,
       })),
     };
 
@@ -351,7 +372,7 @@ export const getSubmissionStats = async (
     console.error('Error fetching statistics:', error);
     return reply.code(500).send({
       success: false,
-      message: 'Failed to fetch statistics',
+      message: 'Failed to fetch statistics. Please try again.',
     });
   }
 };
