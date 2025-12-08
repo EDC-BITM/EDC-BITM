@@ -330,83 +330,91 @@ const SubmissionForm = ({ onSuccess }) => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FED853' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '60px 60px'
-          }}></div>
+      {/* Hero Section - Updated with background image */}
+      <div className="relative w-full flex items-center justify-center min-h-screen overflow-hidden">
+        {/* Background Image with Gradient */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <img 
+            src="/Submission_Hero.png" 
+            alt="EDC Startup Submission Background"
+            className="w-full h-full object-cover scale-105 brightness-80 custom-object-right-mobile"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60" />
         </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#FED853] to-[#FED853]/80 rounded-2xl mb-8 shadow-2xl">
-              <Rocket className="w-10 h-10 text-gray-900" />
-            </div>
+        
+        {/* Animated Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center w-full px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+          {/* Animated Heading */}
+          <div className="animate-fade-in-up">
+            {/* <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-[#FED853] to-[#FED853]/80 rounded-2xl mb-8 shadow-2xl animate-pulse-slow">
+              <Rocket className="w-12 h-12 text-gray-900" />
+            </div> */}
             
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-[#FED853] to-[#FED853]/80 bg-clip-text text-transparent">
-                Entrepreneurship Development Cell
+            <h1 className="text-5xl md:text-7xl font-extrabold uppercase text-white drop-shadow-lg text-center mb-6 leading-tight animate-fade-in-up">
+              <span className="bg-gradient-to-r from-[#FED853] via-[#FED853]/90 to-[#FED853]/80 bg-clip-text text-transparent">
+                EDC Is Open To Ideas
               </span>
             </h1>
             
-            <p className="text-2xl md:text-3xl text-gray-200 mb-8 max-w-3xl mx-auto">
-              Turning Ideas Into Successful Ventures
-            </p>
+            {/* <p className="text-2xl md:text-3xl text-gray-200 mb-8 max-w-3xl mx-auto text-center animate-fade-in-up animation-delay-200">
+              Submit your startup for pre-incubation and get expert mentorship, funding, and resources
+            </p> */}
             
-            <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
-              EDC is your launchpad to entrepreneurial success. We provide mentorship, resources, 
-              and funding opportunities to help your startup thrive in today's competitive landscape.
+            <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto text-center animate-fade-in-up animation-delay-300">
+              Entrepreneurship Development Cell at BIT Mesra is your launchpad to transform ideas into successful ventures. 
+              We provide the ecosystem, mentorship, and opportunities to help your startup thrive.
             </p>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <div className="flex items-center gap-3 text-white">
-                <Shield className="w-6 h-6 text-[#FED853]" />
-                <span className="text-lg">Expert Mentorship</span>
-              </div>
-              <div className="flex items-center gap-3 text-white">
-                <Award className="w-6 h-6 text-[#FED853]" />
-                <span className="text-lg">Funding Opportunities</span>
-              </div>
-              <div className="flex items-center gap-3 text-white">
-                <Clock className="w-6 h-6 text-[#FED853]" />
-                <span className="text-lg">Fast-track Growth</span>
-              </div>
+          {/* Features */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-fade-in-up animation-delay-400">
+            <div className="flex items-center gap-3 text-white bg-white/10 backdrop-blur-sm px-6 py-3 rounded-xl">
+              <Shield className="w-6 h-6 text-[#FED853]" />
+              <span className="text-lg font-medium">Expert Mentorship</span>
             </div>
+            <div className="flex items-center gap-3 text-white bg-white/10 backdrop-blur-sm px-6 py-3 rounded-xl">
+              <Award className="w-6 h-6 text-[#FED853]" />
+              <span className="text-lg font-medium">Funding Opportunities</span>
+            </div>
+            <div className="flex items-center gap-3 text-white bg-white/10 backdrop-blur-sm px-6 py-3 rounded-xl">
+              <Clock className="w-6 h-6 text-[#FED853]" />
+              <span className="text-lg font-medium">Fast-track Growth</span>
+            </div>
+          </div>
 
-            <div className="max-w-xl mx-auto">
-              <div className="bg-gradient-to-r from-[#FED853]/20 to-transparent p-6 rounded-2xl border border-[#FED853]/30 mb-8">
-                <h3 className="text-xl font-bold text-white mb-3">
-                  🚀 Submit Your Ideas for Pre-Incubation
-                </h3>
-                <p className="text-gray-200">
-                  EDC will help you grow. Share your innovative ideas and get access to our complete 
-                  startup support ecosystem including mentorship, funding, and networking opportunities.
-                </p>
-              </div>
-              
-              <button
-                onClick={scrollToForm}
-                className="group px-8 py-4 bg-gradient-to-r from-[#FED853] to-[#FED853]/90 text-gray-900 font-bold text-lg rounded-xl hover:from-[#FED853]/90 hover:to-[#FED853]/80 transition-all shadow-2xl hover:shadow-3xl flex items-center gap-3 mx-auto animate-bounce hover:animate-none"
-              >
-                <span>Start Your Application</span>
-                <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
-              </button>
+          {/* CTA Section */}
+          <div className="max-w-xl mx-auto animate-fade-in-up animation-delay-500">
+            <div className="bg-gradient-to-r from-[#FED853]/20 to-transparent p-6 rounded-2xl border border-[#FED853]/30 mb-8 backdrop-blur-sm">
+              <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                <Rocket className="w-5 h-5" />
+                Submit Your Ideas for Pre-Incubation
+              </h3>
+              <p className="text-gray-200">
+                EDC will help you grow. Share your innovative ideas and get access to our complete 
+                startup support ecosystem including mentorship, funding, and networking opportunities.
+              </p>
             </div>
+            
+            <button
+              onClick={scrollToForm}
+              className="group px-8 py-4 bg-gradient-to-r from-[#FED853] to-[#FED853]/90 text-gray-900 font-bold text-lg rounded-xl hover:from-[#FED853]/90 hover:to-[#FED853]/80 transition-all shadow-2xl hover:shadow-3xl flex items-center gap-3 mx-auto animate-bounce hover:animate-none"
+            >
+              <span>Start Your Application</span>
+              <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+            </button>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-pulse">
-          <ChevronDown className="w-6 h-6 text-[#FED853]" />
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+          <ChevronDown className="w-8 h-8 text-[#FED853]" />
         </div>
       </div>
 
       {/* Main Form Section */}
       <div id="submission-form" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Startup Submission Form
           </h2>
@@ -1098,12 +1106,82 @@ const SubmissionForm = ({ onSuccess }) => {
       {/* Footer */}
       <div className="bg-gray-900 text-white py-8 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-lg mb-2">Entrepreneurship Development Cell</p>
+          <p className="text-lg mb-2">Entrepreneurship Development Cell - BIT Mesra</p>
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} All rights reserved. Turning ideas into successful ventures.
           </p>
         </div>
       </div>
+
+      {/* Add custom animations */}
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes pulseSlow {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.7;
+          }
+        }
+        
+        @keyframes bounceSlow {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+        
+        .animate-fade-in-up {
+          animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .animate-pulse-slow {
+          animation: pulseSlow 3s infinite;
+        }
+        
+        .animate-bounce-slow {
+          animation: bounceSlow 2s infinite;
+        }
+        
+        .animation-delay-200 {
+          animation-delay: 200ms;
+        }
+        
+        .animation-delay-300 {
+          animation-delay: 300ms;
+        }
+        
+        .animation-delay-400 {
+          animation-delay: 400ms;
+        }
+        
+        .animation-delay-500 {
+          animation-delay: 500ms;
+        }
+        
+        .custom-object-right-mobile {
+          object-position: center;
+        }
+        
+        @media (min-width: 768px) {
+          .custom-object-right-mobile {
+            object-position: center;
+          }
+        }
+      `}</style>
     </div>
   );
 };
