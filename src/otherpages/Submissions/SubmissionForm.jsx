@@ -58,6 +58,8 @@ const SubmissionForm = ({ onSuccess }) => {
     { id: 'additional', label: 'Additional', icon: FileText, required: [] },
   ];
 
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+
   // Update section completion when formData changes
   useEffect(() => {
     const updateCompletion = () => {
@@ -243,7 +245,7 @@ const SubmissionForm = ({ onSuccess }) => {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/api/submissions', {
+      const response = await fetch(`${API_URL}/submissions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
