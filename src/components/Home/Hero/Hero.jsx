@@ -28,7 +28,7 @@ const IATLink = () => {
   );
 };
 
-const RecruitmentButton = () => {
+const SubmissionButton = () => {
   // Animation variants for the button
   const buttonVariants = {
     hover: {
@@ -45,48 +45,30 @@ const RecruitmentButton = () => {
     },
   };
 
-  // Animation variants for the blinking effect
-  const pulseVariants = {
-    animate: {
-      boxShadow: [
-        "0px 0px 0px rgba(255, 255, 255, 0)",
-        "0px 0px 20px rgba(255, 255, 255, 0.7)",
-        "0px 0px 0px rgba(255, 255, 255, 0)",
-      ],
-      transition: {
-        repeat: Infinity,
-        duration: 2.5,
-      },
-    },
-  };
-
-  // Animation for the "RECRUITING" text
+  // Animation for the "Share your ideas" text
   const textVariants = {
     animate: {
-      opacity: [0.7, 1, 0.7],
+      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
       transition: {
         repeat: Infinity,
-        duration: 1.8,
+        duration: 5,
+        ease: "linear",
       },
     },
   };
 
   return (
-    <a
-      target="_blank"
-      href="https://forms.gle/nBEbxg5HRCamcyzi7"
-      className="relative z-20"
-    >
+    <NavLink to="/submissions" className="relative z-20">
       <motion.div
-        className="backdrop-blur-md bg-black/30 text-white font-bold py-3 px-6 rounded-lg
-                   shadow-lg flex items-center gap-3 overflow-hidden border border-white/50"
+        className="backdrop-blur-md bg-black/40 text-white font-bold py-3 px-6 rounded-lg
+                  shadow-lg flex items-center gap-4 overflow-hidden border border-white/30"
         initial={{ opacity: 0, y: -20 }}
         animate={{
           opacity: 1,
           y: 0,
           boxShadow: [
             "0px 0px 0px rgba(255, 255, 255, 0)",
-            "0px 0px 20px rgba(255, 255, 255, 0.7)",
+            "0px 0px 15px rgba(255, 165, 0, 0.5)", // Orangeish glow for startup/rocket theme
             "0px 0px 0px rgba(255, 255, 255, 0)",
           ],
         }}
@@ -99,37 +81,50 @@ const RecruitmentButton = () => {
         whileTap="tap"
         variants={buttonVariants}
       >
-        <motion.div className="relative z-10 text-lg tracking-wider flex items-center gap-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        <motion.div className="relative z-10 flex items-center gap-3">
+          {/* Rocket Icon */}
+          <motion.div
+            animate={{
+              y: [0, -3, 0],
+              rotate: [0, 5, 0],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+              ease: "easeInOut",
+            }}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M13 10V3L4 14h7v7l9-11h-7z"
-            />
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 text-yellow-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+              />
+            </svg>
+          </motion.div>
 
           <div className="flex flex-col items-start">
-            <span className="text-sm uppercase tracking-widest opacity-80">
-              We are
+            <span className="text-[10px] sm:text-xs uppercase tracking-widest opacity-90 text-gray-300">
+              Got a groundbreaking vision?
             </span>
             <motion.span
-              className="text-xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300"
+              className="text-sm sm:text-base font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-white to-yellow-200 bg-[length:200%_auto]"
               variants={textVariants}
               animate="animate"
             >
-              RECRUITING
+              SHARE YOUR IDEAS RIGHT HERE
             </motion.span>
           </div>
         </motion.div>
       </motion.div>
-    </a>
+    </NavLink>
   );
 };
 
@@ -172,8 +167,8 @@ function Hero() {
           </div>
         </div> */}
 
-        {/* Recruitment Button */}
-        <div className="mt-6 relative">
+        {/* Submission Button */}
+        <div className="mt-8 relative">
           <motion.div
             className="relative"
             initial={{ scale: 0 }}
@@ -185,18 +180,19 @@ function Hero() {
               delay: 0.3,
             }}
           >
+            {/* Notification Dot - Pulse effect for 'New' */}
             <motion.div
-              className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-yellow-500 rounded-full"
+              className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-orange-500 rounded-full z-30"
               initial={{ scale: 0 }}
-              animate={{ scale: [1, 1.5, 1] }}
+              animate={{ scale: [1, 1.3, 1] }}
               transition={{
                 delay: 1,
                 repeat: Infinity,
                 repeatType: "reverse",
-                duration: 1,
+                duration: 1.5,
               }}
             />
-            <RecruitmentButton />
+            <SubmissionButton />
           </motion.div>
         </div>
 
