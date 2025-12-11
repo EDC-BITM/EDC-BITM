@@ -10,7 +10,6 @@ const navLinks = [
   { href: "/Events", label: "Events" },
   { href: "/Speakers", label: "Speakers" },
   { href: "/announcement", label: "Announcement" },
-  { href: "/Submissions", label: "Get Pre-Incubated" },
   { href: "/Team", label: "Team" },
   { href: "/Startups", label: "Startups" },
 ];
@@ -98,7 +97,7 @@ const NavBar = () => {
 
         {/* Desktop Navigation */}
         <nav
-          className={`hidden space-x-8 text-base font-semibold md:flex ${
+          className={`hidden items-center space-x-8 text-base font-semibold md:flex ${
             isLightPage ? "text-gray-900" : "text-white"
           }`}
         >
@@ -130,6 +129,50 @@ const NavBar = () => {
             </Link>
           ))}
         </nav>
+
+        {/* Desktop CTA Button */}
+        <motion.div 
+          className="hidden md:flex items-center"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Link
+            to="/Submissions"
+            className="relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 overflow-hidden group"
+            style={{
+              background: 'rgba(254, 216, 83, 0.15)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(254, 216, 83, 0.3)',
+              color: '#FED853'
+            }}
+          >
+            {/* Shine effect */}
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FED853]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+            
+            {/* Glow effect */}
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#FED853]/0 via-[#FED853]/10 to-[#FED853]/0 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            
+            {/* Button text */}
+            <span className="relative flex items-center gap-2">
+              Get Pre-Incubated
+              <motion.svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                className="group-hover:translate-x-1 transition-transform"
+              >
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </motion.svg>
+            </span>
+          </Link>
+        </motion.div>
 
         {/* Mobile Menu Toggle */}
         <button
@@ -233,6 +276,57 @@ const NavBar = () => {
                       </Link>
                     </motion.div>
                   ))}
+                  
+                  {/* Mobile CTA Button */}
+                  <motion.div
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{
+                      delay: 0.1 + navLinks.length * 0.1,
+                      type: "spring",
+                      damping: 20,
+                      stiffness: 100,
+                    }}
+                    className="w-full mt-8"
+                  >
+                    <Link
+                      to="/Submissions"
+                      onClick={() => {
+                        setIsOpen(false);
+                        window.scrollTo(0, 0);
+                      }}
+                      className="relative block w-full text-center py-5 rounded-full font-bold text-lg transition-all duration-300 overflow-hidden group"
+                      style={{
+                        background: 'rgba(254, 216, 83, 0.15)',
+                        backdropFilter: 'blur(10px)',
+                        border: '1px solid rgba(254, 216, 83, 0.3)',
+                        color: '#FED853'
+                      }}
+                    >
+                      {/* Shine effect */}
+                      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FED853]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                      
+                      {/* Button text */}
+                      <span className="relative flex items-center justify-center gap-3">
+                        Get Pre-Incubated
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          width="20" 
+                          height="20" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          strokeWidth="2" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round"
+                          className="group-hover:translate-x-1 transition-transform"
+                        >
+                          <path d="M5 12h14"/>
+                          <path d="m12 5 7 7-7 7"/>
+                        </svg>
+                      </span>
+                    </Link>
+                  </motion.div>
                 </div>
 
                 <motion.div

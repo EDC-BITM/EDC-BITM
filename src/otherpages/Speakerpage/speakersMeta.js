@@ -185,7 +185,7 @@ const speakersMeta = [
   {
     key: "nidhi",
     publicId: "nidhi_yh91c9",
-    name: "Nidhi Bhatia",
+    name: "Nidhi Banthia Mehta",
     title: "Business coach & influencer",
     twitter: "https://x.com/Bollybeatz",
     linkedin:
