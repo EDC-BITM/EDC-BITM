@@ -67,8 +67,8 @@ export const submissionSchema = z.object({
   email: z.string().email('Valid email required').toLowerCase(),
   title: z
     .string()
-    .min(5, 'Title must be at least 5 characters')
-    .max(255, 'Title must be less than 255 characters'),
+    .min(2, 'Title must be at least 2 characters')
+    .max(50, 'Title must be less than 50 characters'),
   oneLiner: z
     .string()
     .min(10, 'One-liner must be at least 10 characters')
@@ -176,23 +176,32 @@ export const validateSubmission = async (
   reply: FastifyReply
 ) => {
   try {
-    const validated = submissionSchema.parse(request.body);
-    request.body = validated;
-  } catch (error) {
-    if (error instanceof z.ZodError) {
+    const data = request.body;
+    console.log('Received submission data:', JSON.stringify(data, null, 2));
+    
+    const result = submissionSchema.safeParse(data);
+
+    if (!result.success) {
+      const validationErrors = handleValidationError(result.error);
+      console.error('Validation failed with errors:', JSON.stringify(validationErrors, null, 2));
+      
       return reply.code(400).send({
         success: false,
         message: 'Validation failed',
-        errors: error.issues.map((issue: z.ZodIssue) => ({
-          field: issue.path.join('.'),
-          message: issue.message,
-          code: issue.code,
-        })),
+        errors: validationErrors,
+        receivedData: data 
       });
     }
+
+    console.log('Validation successful, proceeding with data:', JSON.stringify(result.data, null, 2));
+    
+    request.body = result.data;
+  } catch (error) {
+    console.error('Unexpected validation error:', error);
     return reply.code(500).send({
       success: false,
-      message: 'Validation error occurred',
+      message: 'Internal server error during validation',
+      error: error instanceof Error ? error.message : 'Unknown error'
     });
   }
 };
@@ -225,15 +234,21 @@ export const validateSubmissionUpdate = async (
 };
 
 export const handleValidationError = (error: z.ZodError) => {
-  return {
-    success: false,
-    message: 'Validation failed',
-    errors: error.issues.map((e: z.ZodIssue) => ({
-      field: e.path.join('.'),
-      message: e.message,
-      code: e.code,
-    })),
-  };
+  const errors = error.issues.map((issue) => {
+    const path = issue.path.join('.');
+    console.log(`Validation error for field '${path}':`, issue.message);
+    
+    
+    const message = issue.message;
+
+    return {
+      field: path,
+      code: issue.code,
+      message,
+    };
+  });
+  
+  return errors;
 };
 
 
