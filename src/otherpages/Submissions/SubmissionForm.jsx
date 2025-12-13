@@ -114,11 +114,45 @@ const SubmissionForm = ({ onSuccess }) => {
       }
     });
 
-    // Email validation for founder section
-    if (sectionId === 'founder' && formData.email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
-        errors.email = 'Please enter a valid email address';
+    // Email & additional validation for founder section
+    if (sectionId === 'founder') {
+      if (formData.email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+          errors.email = 'Please enter a valid email address';
+          isValid = false;
+        }
+      }
+
+      if (formData.contactNumber && !/^[0-9]{10}$/.test(formData.contactNumber.trim())) {
+        errors.contactNumber = 'Contact number must be exactly 10 digits';
+        isValid = false;
+      }
+    }
+
+    // Length validation for startup fields to mirror backend rules
+    if (sectionId === 'startup') {
+      const titleLength = formData.title?.trim().length || 0;
+      if (titleLength && (titleLength < 2 || titleLength > 50)) {
+        errors.title = 'Startup title must be between 2 and 50 characters';
+        isValid = false;
+      }
+
+      const oneLinerLength = formData.oneLiner?.trim().length || 0;
+      if (oneLinerLength && (oneLinerLength < 10 || oneLinerLength > 500)) {
+        errors.oneLiner = 'One-liner must be between 10 and 500 characters';
+        isValid = false;
+      }
+
+      const problemLength = formData.problemStatement?.trim().length || 0;
+      if (problemLength && (problemLength < 20 || problemLength > 2000)) {
+        errors.problemStatement = 'Problem statement must be between 20 and 2000 characters';
+        isValid = false;
+      }
+
+      const solutionLength = formData.solution?.trim().length || 0;
+      if (solutionLength && (solutionLength < 20 || solutionLength > 2000)) {
+        errors.solution = 'Solution must be between 20 and 2000 characters';
         isValid = false;
       }
     }
@@ -604,15 +638,23 @@ const SubmissionForm = ({ onSuccess }) => {
                       <div>
                         <label className="block text-sm font-medium text-gray-900 mb-2">
                           Contact Number
+                          {sectionErrors.founder?.contactNumber && (
+                            <span className="text-red-500 text-sm ml-2">
+                              {sectionErrors.founder.contactNumber}
+                            </span>
+                          )}
                         </label>
                         <input
                           type="tel"
                           name="contactNumber"
                           value={formData.contactNumber}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FED853] focus:border-transparent transition"
+                          className={`w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FED853] focus:border-transparent transition ${
+                            sectionErrors.founder?.contactNumber ? 'border-red-300' : ''
+                          }`}
                           placeholder="+91 99xxxxxxxx"
                         />
+                        <p className="mt-1 text-xs text-gray-500">Exactly 10 digits</p>
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-900 mb-2">
@@ -651,7 +693,9 @@ const SubmissionForm = ({ onSuccess }) => {
                       <label className="block text-sm font-medium text-gray-900 mb-2">
                         Startup Title *
                         {sectionErrors.startup?.title && (
-                          <span className="text-red-500 text-sm ml-2">(Required)</span>
+                          <span className="text-red-500 text-sm ml-2">
+                            {sectionErrors.startup.title}
+                          </span>
                         )}
                       </label>
                       <input
@@ -665,12 +709,15 @@ const SubmissionForm = ({ onSuccess }) => {
                         }`}
                         placeholder="Enter your startup name"
                       />
+                      <p className="mt-1 text-xs text-gray-500">2–50 characters</p>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-900 mb-2">
                         One-liner Description *
                         {sectionErrors.startup?.oneLiner && (
-                          <span className="text-red-500 text-sm ml-2">(Required)</span>
+                          <span className="text-red-500 text-sm ml-2">
+                            {sectionErrors.startup.oneLiner}
+                          </span>
                         )}
                       </label>
                       <input
@@ -684,12 +731,15 @@ const SubmissionForm = ({ onSuccess }) => {
                         }`}
                         placeholder="Briefly describe your startup in one sentence"
                       />
+                      <p className="mt-1 text-xs text-gray-500">10–500 characters</p>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-900 mb-2">
                         Problem Statement *
                         {sectionErrors.startup?.problemStatement && (
-                          <span className="text-red-500 text-sm ml-2">(Required)</span>
+                          <span className="text-red-500 text-sm ml-2">
+                            {sectionErrors.startup.problemStatement}
+                          </span>
                         )}
                       </label>
                       <textarea
@@ -703,12 +753,15 @@ const SubmissionForm = ({ onSuccess }) => {
                         }`}
                         placeholder="What problem are you solving?"
                       />
+                      <p className="mt-1 text-xs text-gray-500">20–2000 characters</p>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-900 mb-2">
                         Your Solution *
                         {sectionErrors.startup?.solution && (
-                          <span className="text-red-500 text-sm ml-2">(Required)</span>
+                          <span className="text-red-500 text-sm ml-2">
+                            {sectionErrors.startup.solution}
+                          </span>
                         )}
                       </label>
                       <textarea
@@ -722,6 +775,7 @@ const SubmissionForm = ({ onSuccess }) => {
                         }`}
                         placeholder="How does your startup solve this problem?"
                       />
+                      <p className="mt-1 text-xs text-gray-500">20–2000 characters</p>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-900 mb-2">
