@@ -37,6 +37,7 @@ await server.register(cors, {
 				process.env.CORS_ORIGIN,
 				process.env.FRONTEND_URL,
 				"https://edcbitmesra.in",
+				"https://www.edcbitmesra.in",
 			].filter(Boolean);
 			
 			server.log.info({ origin, allowedOrigins }, "CORS origin check");
