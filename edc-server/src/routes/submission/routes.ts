@@ -72,7 +72,10 @@ export async function submissionRoutes(fastify: FastifyInstance) {
             type: 'object',
             properties: {
               success: { type: 'boolean' },
-              data: { type: 'object' },
+              data: { 
+                type: 'object',
+                additionalProperties: true
+              },
               message: { type: 'string' },
             },
           },
