@@ -51,51 +51,93 @@ export const createSubmission = async (
 ) => {
   try {
     // Data is already validated by middleware, so we can use it directly
-    const validatedData = request.body as z.infer<typeof submissionSchema>;
+    const validatedData = request.body as any;
+
+    console.log('Creating submission with data:', JSON.stringify(validatedData, null, 2));
+
+    // Build the data object conditionally
+    const createData: any = {
+      name: validatedData.name,
+      email: validatedData.email,
+      title: validatedData.title,
+      oneLiner: validatedData.oneLiner,
+      problemStatement: validatedData.problemStatement,
+      solution: validatedData.solution,
+      batch: validatedData.batch ?? null,
+      rollNumber: validatedData.rollNumber ?? null,
+      contactNumber: validatedData.contactNumber ?? null,
+      uniqueness: validatedData.uniqueness ?? null,
+      marketSize: validatedData.marketSize ?? null,
+      targetCustomer: validatedData.targetCustomer ?? null,
+      businessModel: validatedData.businessModel ?? null,
+      currentStage: validatedData.currentStage,
+      techStack: validatedData.techStack ?? null,
+      competitors: validatedData.competitors ?? null,
+      websiteUrl: validatedData.websiteUrl ?? null,
+      demoUrl: validatedData.demoUrl ?? null,
+      pitchDeckUrl: validatedData.pitchDeckUrl ?? null,
+      otherLinks: validatedData.otherLinks ?? null,
+      additionalInfo: validatedData.additionalInfo ?? null,
+      specificGuidance: validatedData.specificGuidance ?? null,
+    };
+
+    // Only add teamMembers if they exist
+    if (validatedData.teamMembers && validatedData.teamMembers.length > 0) {
+      createData.teamMembers = {
+        create: validatedData.teamMembers.map((member: any) => ({
+          name: member.name,
+          email: member.email ?? null,
+          contactNumber: member.contactNumber ?? null,
+          batch: member.batch ?? null,
+          rollNumber: member.rollNumber ?? null,
+          role: member.role ?? null,
+        })),
+      };
+    }
 
     const submission = await prisma.submission.create({
-      data: {
-        name: validatedData.name,
-        email: validatedData.email,
-        title: validatedData.title,
-        oneLiner: validatedData.oneLiner,
-        problemStatement: validatedData.problemStatement,
-        solution: validatedData.solution,
-        batch: validatedData.batch ?? null,
-        rollNumber: validatedData.rollNumber ?? null,
-        contactNumber: validatedData.contactNumber ?? null,
-        uniqueness: validatedData.uniqueness ?? null,
-        marketSize: validatedData.marketSize ?? null,
-        targetCustomer: validatedData.targetCustomer ?? null,
-        businessModel: validatedData.businessModel ?? null,
-        currentStage: validatedData.currentStage,
-        techStack: validatedData.techStack ?? null,
-        competitors: validatedData.competitors ?? null,
-        websiteUrl: validatedData.websiteUrl ?? null,
-        demoUrl: validatedData.demoUrl ?? null,
-        pitchDeckUrl: validatedData.pitchDeckUrl ?? null,
-        otherLinks: validatedData.otherLinks ?? null,
-        additionalInfo: validatedData.additionalInfo ?? null,
-        specificGuidance: validatedData.specificGuidance ?? null,
-        teamMembers: {
-          create: validatedData.teamMembers.map((member) => ({
-            ...member,
-            email: member.email ?? null,
-            contactNumber: member.contactNumber ?? null,
-            batch: member.batch ?? null,
-            rollNumber: member.rollNumber ?? null,
-            role: member.role ?? null,
-          })),
-        },
-      },
+      data: createData,
       include: {
         teamMembers: true,
       },
     });
 
+
+    // Convert to plain object to avoid serialization issues
+    const responseData = {
+      id: submission.id,
+      name: submission.name,
+      email: submission.email,
+      title: submission.title,
+      oneLiner: submission.oneLiner,
+      problemStatement: submission.problemStatement,
+      solution: submission.solution,
+      currentStage: submission.currentStage,
+      batch: submission.batch,
+      rollNumber: submission.rollNumber,
+      contactNumber: submission.contactNumber,
+      uniqueness: submission.uniqueness,
+      marketSize: submission.marketSize,
+      targetCustomer: submission.targetCustomer,
+      businessModel: submission.businessModel,
+      techStack: submission.techStack,
+      competitors: submission.competitors,
+      websiteUrl: submission.websiteUrl,
+      demoUrl: submission.demoUrl,
+      pitchDeckUrl: submission.pitchDeckUrl,
+      otherLinks: submission.otherLinks,
+      additionalInfo: submission.additionalInfo,
+      specificGuidance: submission.specificGuidance,
+      teamMembers: submission.teamMembers || [],
+      createdAt: submission.createdAt,
+      updatedAt: submission.updatedAt,
+    };
+
+    console.log('Response data being sent:', JSON.stringify(responseData, null, 2));
+
     return reply.code(201).send({
       success: true,
-      data: submission,
+      data: responseData,
       message: 'Submission created successfully',
     });
   } catch (error) {
