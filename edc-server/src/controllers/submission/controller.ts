@@ -188,6 +188,8 @@ export const getAllSubmissions = async (
       };
     }
 
+    console.log('Fetching submissions with params:', { page, limit, skip, where });
+
     const [submissions, total] = await Promise.all([
       prisma.submission.findMany({
         where,
@@ -202,6 +204,8 @@ export const getAllSubmissions = async (
       }),
       prisma.submission.count({ where }),
     ]);
+
+    console.log('Found submissions:', submissions.length, 'Total:', total);
 
     return reply.send({
       success: true,
@@ -232,6 +236,8 @@ export const getSubmissionById = async (
   reply: FastifyReply
 ) => {
   try {
+    console.log('Fetching submission with ID:', request.params.id);
+    
     const submission = await prisma.submission.findUnique({
       where: { id: request.params.id },
       include: {
@@ -239,16 +245,24 @@ export const getSubmissionById = async (
       },
     });
 
+    console.log('Found submission:', submission ? 'Yes' : 'No');
+    console.log('Submission data:', JSON.stringify(submission, null, 2));
+
     if (!submission) {
+      console.log('Submission not found, returning 404');
       return reply.code(404).send({
         success: false,
         message: 'Submission not found',
       });
     }
 
+    // Convert to plain object to avoid serialization issues
+    const responseData = JSON.parse(JSON.stringify(submission));
+    console.log('Sending response data:', responseData);
+
     return reply.send({
       success: true,
-      data: submission,
+      data: responseData,
     });
   } catch (error) {
     console.error('Error fetching submission:', error);
@@ -346,6 +360,13 @@ export const deleteSubmission = async (
   reply: FastifyReply
 ) => {
   try {
+    if ((request as any).user?.role !== 'ADMIN') {
+      return reply.code(403).send({
+        success: false,
+        message: 'Unauthorized: Only admins can delete submissions',
+      });
+    }
+
     await prisma.submission.delete({
       where: { id: request.params.id },
     });

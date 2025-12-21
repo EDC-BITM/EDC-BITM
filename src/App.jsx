@@ -17,11 +17,13 @@ import Startups from "./otherpages/Startupspage/Startups.jsx";
 import IATPage from "./otherpages/IAT/IATPage.jsx";
 import RecruitmentPage from "./otherpages/Recruitment/RecruitmentPage.jsx";
 import AuthPage from "./otherpages/admin/auth/authPage.jsx";
-import Dashboard from "./otherpages/dashboard/index.jsx";
+import Dashboard from "./otherpages/admin/dashboard/index.jsx";
 import EditorPage from "./otherpages/admin/EditorPage.jsx";
 import AnnouncementPage from "./otherpages/Announcement/AnnouncementPage.jsx";
 import SubmissionForm from "./otherpages/Submissions/SubmissionForm.jsx";
 import SubmissionSuccess from "./otherpages/Submissions/SubmissionSuccess.jsx";
+import SubmissionList from "./otherpages/admin/Submissions/SubmissionList.jsx";
+import SubmissionDetail from "./otherpages/admin/Submissions/SubmissionDetail.jsx";
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -134,6 +136,22 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <EditorPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/admin/submissions",
+    element: (
+      <ProtectedRoute>
+        <SubmissionList />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/admin/submissions/:id",
+    element: (
+      <ProtectedRoute>
+        <SubmissionDetail />
       </ProtectedRoute>
     ),
   },
