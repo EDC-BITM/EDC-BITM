@@ -28,6 +28,7 @@ const Dashboard = () => {
   const [filterStatus, setFilterStatus] = useState("all"); // all, published, draft
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [pendingPublish, setPendingPublish] = useState(null);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   // React Query hooks
   const { data: articles = [], isLoading, error } = useNotices();
@@ -35,6 +36,7 @@ const Dashboard = () => {
   const toggleStatusMutation = useToggleNoticeStatus();
 
   const handleLogout = async () => {
+    setIsLoggingOut(true);
     await auth.logout();
     navigate("/admin/auth");
   };
@@ -86,8 +88,9 @@ const Dashboard = () => {
       setShowConfirmDialog(false);
       setPendingPublish(null);
     } catch (error) {
-      toast.error(error.response.data?.message || "Failed to update article status.");
-      
+      toast.error(
+        error.response.data?.message || "Failed to update article status."
+      );
     }
   };
 
@@ -201,15 +204,29 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
+            <button
+              onClick={() => navigate("/admin/submissions")}
+              className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors text-sm font-medium"
+            >
+              View Submissions
+            </button>
             <div className="text-right hidden sm:block">
               <p className="text-sm font-medium text-gray-900">{user?.name}</p>
               <p className="text-xs text-gray-500">{user?.email}</p>
             </div>
             <button
               onClick={handleLogout}
-              className="px-4 py-2 bg-red-50 text-red-600 rounded-lg border border-red-200 hover:bg-red-100 transition-colors text-sm font-medium"
+              disabled={isLoggingOut}
+              className="px-4 py-2 bg-red-50 text-red-600 rounded-lg border border-red-200 hover:bg-red-100 transition-colors text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
-              Logout
+              {isLoggingOut ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Logging out...
+                </>
+              ) : (
+                "Logout"
+              )}
             </button>
           </div>
         </div>
