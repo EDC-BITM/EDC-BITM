@@ -262,18 +262,6 @@
         }
       },
       {
-        "id": "subham",
-        "name": "Subham Giri",
-        "title": "Joint Secretary",
-        "image": "/subham.png",
-        "publicId": "subham_r3msox",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/subham-giri-676722287/",
-          "instagram": "https://www.instagram.com/subham_giri_23/",
-          "email": "btech10864.23@bitmesra.ac.in"
-        }
-      },
-      {
         "id": "rahul",
         "name": "Rahul Kumar Mishra",
         "title": "Joint Treasurer",
@@ -523,18 +511,6 @@
           "email": "btech10868.23@bitmesra.ac.in"
         }
       },
-      {
-        "id": "mayur",
-        "name": "Purushottam Mayur",
-        "title": "Logistics & Resources Head",
-        "image": "/mayur.png",
-        "publicId": "mayur_q1tofd",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/purushottam-mayur-87936a251/",
-          "instagram": "https://www.instagram.com/sarcastic.mac/",
-          "email": "btech10874.23@bitmesra.ac.in"
-        }
-      }
     ],
     "seniorExecutiveMembers": [
       {
