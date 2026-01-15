@@ -6,16 +6,19 @@ const BlogLayout = ({ children, title, date, author }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-black text-white pt-5 pb-12 px-4 sm:px-6 lg:px-8 overflow-y-auto">
+    <div className="min-h-screen bg-black text-white pt-32 pb-12 px-4 sm:px-6 lg:px-8 overflow-y-auto">
       <div className="max-w-3xl mx-auto">
         {/* Back Button */}
         <motion.button
           onClick={() => navigate("/Blogs")}
-          className="flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors mb-8 group"
+          className="flex items-center cursor-pointer gap-2 text-yellow-400 hover:text-yellow-300 transition-colors mb-8 group"
           initial={{ x: -10, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
         >
-          <MoveLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+          <MoveLeft
+            size={20}
+            className="group-hover:-translate-x-1 transition-transform"
+          />
           Back to Blogs
         </motion.button>
 
@@ -44,6 +47,7 @@ const BlogLayout = ({ children, title, date, author }) => {
             prose-strong:text-yellow-400
             prose-code:text-yellow-300 prose-code:bg-white/5 prose-code:px-1 prose-code:rounded
             prose-li:text-gray-300
+            prose-blockquote:border-l-yellow-500 prose-blockquote:bg-white/5 prose-blockquote:p-4 prose-blockquote:rounded-r-lg prose-blockquote:text-gray-300
             prose-a:text-yellow-400 prose-a:no-underline hover:prose-a:underline
             prose-img:rounded-2xl prose-img:shadow-2xl"
           initial={{ y: 20, opacity: 0 }}

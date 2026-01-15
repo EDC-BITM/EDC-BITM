@@ -6,14 +6,25 @@ const postFiles = import.meta.glob("./posts/*.mdx", { eager: true });
 
 const posts = Object.entries(postFiles).map(([path, module]) => {
   const slug = path.split("/").pop().replace(".mdx", "");
+  const fm = module.frontmatter || {};
   return {
     slug,
-    title: module.title || slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" "),
-    date: module.date || "Jan 1, 2024",
-    excerpt: module.excerpt || "Click to read more about this topic from EDC BITM.",
-    author:  "EDC BITM",
+    title:
+      fm.title ||
+      module.title ||
+      slug
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" "),
+    date: fm.date || module.date || "Jan 1, 2024",
+    excerpt:
+      fm.excerpt ||
+      module.description ||
+      module.excerpt ||
+      "Click to read more about this topic from EDC BITM.",
+    author: fm.author || module.author || "EDC BITM",
     component: module.default,
-    card_title: module.card_title
+    card_title: fm.title || module.card_title || fm.title,
   };
 });
 
@@ -21,7 +32,7 @@ const Blogs = () => {
   return (
     <div className="min-h-screen bg-black text-white pt-32 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,7 +54,7 @@ const Blogs = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Link 
+              <Link
                 to={`/Blogs/${post.slug}`}
                 className="group block h-full p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-yellow-500/50 hover:bg-white/[0.08] transition-all duration-300"
               >
@@ -58,18 +69,21 @@ const Blogs = () => {
                       {post.author}
                     </span>
                   </div>
-                  
+
                   <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors line-clamp-2 leading-tight">
                     {post.card_title}
                   </h2>
-                  
+
                   <p className="text-gray-400 mb-8 line-clamp-3 leading-relaxed">
                     {post.excerpt}
                   </p>
-                  
+
                   <div className="mt-auto flex items-center gap-2 text-yellow-400 font-semibold group/btn">
                     Read Article
-                    <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
+                    <ArrowRight
+                      size={18}
+                      className="group-hover/btn:translate-x-1 transition-transform"
+                    />
                   </div>
                 </div>
               </Link>

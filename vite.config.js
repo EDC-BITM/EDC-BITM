@@ -11,13 +11,15 @@ const __dirname = path.dirname(__filename);
 
 import mdx from "@mdx-js/rollup";
 import remarkGfm from "remark-gfm";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     mdx({
-      remarkPlugins: [remarkGfm],
+      remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],
     }),
     svgr(),
     imagetools(),
