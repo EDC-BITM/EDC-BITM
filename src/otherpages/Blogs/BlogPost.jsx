@@ -4,13 +4,33 @@ import NavBar from "../../components/layout/Navbar";
 import Footer from "../../components/footer/Footer";
 import BlogLayout from "./BlogLayout";
 
+const slugMap = {
+  "Aadarsh": "MyOperator",
+  "AaryanChoudhary": "WhiteHatJr",
+  "AdityaMishra": "CRMNEXT",
+  "AyeshaAkhtar": "DocOpd",
+  "NityanandSingh": "Lenscart",
+  "PriyanshuSinha": "DBSync",
+  "SattwikJana": "Cropin",
+  "ShrijaPandey": "Eko",
+  "ShubhGhatak": "Khabri",
+  "alok": "RedBlock"
+};
+
 const BlogPost = () => {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const [postModule, setPostModule] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    
+    if (slugMap[slug]) {
+      navigate(`/Blogs/${slugMap[slug]}`, { replace: true });
+      return;
+    }
+
     setIsLoading(true);
     // Dynamic import to load the MDX module
     import(`./posts/${slug}.mdx`)
