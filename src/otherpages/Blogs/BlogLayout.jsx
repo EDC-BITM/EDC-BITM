@@ -35,7 +35,7 @@ const BlogLayout = ({ children, title, date, author }) => {
           <div className="flex items-center gap-4 text-gray-400 text-sm">
             <span>{date}</span>
             <span className="w-1 h-1 bg-yellow-500 rounded-full"></span>
-            <span>By {"EDC BITM"}</span>
+            <span>By {author}</span>
           </div>
         </motion.header>
 
