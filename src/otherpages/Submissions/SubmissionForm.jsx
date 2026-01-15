@@ -1017,7 +1017,94 @@ const SubmissionForm = ({ onSuccess }) => {
                       <label className="block text-sm font-medium text-gray-900 mb-2">
                         Current Stage <span className="text-red-500">*</span>
                       </label>
+<<<<<<< HEAD
                       <Controller
+=======
+                      <input
+                        type="text"
+                        name="title"
+                        value={formData.title}
+                        onChange={handleInputChange}
+                        required
+                        className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FED853] focus:border-transparent transition ${
+                          sectionErrors.startup?.title ? 'border-red-300' : 'border-gray-300'
+                        }`}
+                        placeholder="Enter your startup name"
+                      />
+                      <p className="mt-1 text-xs text-gray-500">5–50 characters</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        One-liner Description *
+                        {sectionErrors.startup?.oneLiner && (
+                          <span className="text-red-500 text-sm ml-2">
+                            {sectionErrors.startup.oneLiner}
+                          </span>
+                        )}
+                      </label>
+                      <input
+                        type="text"
+                        name="oneLiner"
+                        value={formData.oneLiner}
+                        onChange={handleInputChange}
+                        required
+                        className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FED853] focus:border-transparent transition ${
+                          sectionErrors.startup?.oneLiner ? 'border-red-300' : 'border-gray-300'
+                        }`}
+                        placeholder="Briefly describe your startup in one sentence"
+                      />
+                      <p className="mt-1 text-xs text-gray-500">10–500 characters</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Problem Statement *
+                        {sectionErrors.startup?.problemStatement && (
+                          <span className="text-red-500 text-sm ml-2">
+                            {sectionErrors.startup.problemStatement}
+                          </span>
+                        )}
+                      </label>
+                      <textarea
+                        name="problemStatement"
+                        value={formData.problemStatement}
+                        onChange={handleInputChange}
+                        required
+                        rows="4"
+                        className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FED853] focus:border-transparent transition resize-none ${
+                          sectionErrors.startup?.problemStatement ? 'border-red-300' : 'border-gray-300'
+                        }`}
+                        placeholder="What problem are you solving?"
+                      />
+                      <p className="mt-1 text-xs text-gray-500">20–2000 characters</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Your Solution *
+                        {sectionErrors.startup?.solution && (
+                          <span className="text-red-500 text-sm ml-2">
+                            {sectionErrors.startup.solution}
+                          </span>
+                        )}
+                      </label>
+                      <textarea
+                        name="solution"
+                        value={formData.solution}
+                        onChange={handleInputChange}
+                        required
+                        rows="4"
+                        className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FED853] focus:border-transparent transition resize-none ${
+                          sectionErrors.startup?.solution ? 'border-red-300' : 'border-gray-300'
+                        }`}
+                        placeholder="How does your startup solve this problem?"
+                      />
+                      <p className="mt-1 text-xs text-gray-500">20–2000 characters</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Current Stage *
+                      </label>
+                      <select
+>>>>>>> b239597 (feat: added blogs page and resolved conflicts)
                         name="currentStage"
                         control={control}
                         render={({ field }) => (
