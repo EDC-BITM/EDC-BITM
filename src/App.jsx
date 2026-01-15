@@ -24,6 +24,8 @@ import SubmissionForm from "./otherpages/Submissions/SubmissionForm.jsx";
 import SubmissionSuccess from "./otherpages/Submissions/SubmissionSuccess.jsx";
 import SubmissionList from "./otherpages/admin/Submissions/SubmissionList.jsx";
 import SubmissionDetail from "./otherpages/admin/Submissions/SubmissionDetail.jsx";
+import Blogs from "./otherpages/Blogs/Blogs.jsx";
+import BlogPost from "./otherpages/Blogs/BlogPost.jsx";
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -118,6 +120,14 @@ const router = createBrowserRouter([
   {
     path: "/submission-success",
     element: <SubmissionSuccess />,
+  },
+  {
+    path: "/Blogs",
+    element: <RouteLayout Component={Blogs} />,
+  },
+  {
+    path: "/Blogs/:slug",
+    element: <BlogPost />,
   },
   {
     path: "/admin/auth",

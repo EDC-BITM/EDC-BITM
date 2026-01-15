@@ -9,9 +9,20 @@ import tailwindcss from "@tailwindcss/vite";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+import mdx from "@mdx-js/rollup";
+import remarkGfm from "remark-gfm";
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), svgr(), imagetools(), tailwindcss()],
+  plugins: [
+    react(),
+    mdx({
+      remarkPlugins: [remarkGfm],
+    }),
+    svgr(),
+    imagetools(),
+    tailwindcss(),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
