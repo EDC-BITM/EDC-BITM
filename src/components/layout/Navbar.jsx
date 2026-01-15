@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/announcement", label: "Announcement" },
   { href: "/Team", label: "Team" },
   { href: "/Startups", label: "Startups" },
+  { href: "/Blogs", label: "Blogs" },
 ];
 
 const NavBar = () => {
