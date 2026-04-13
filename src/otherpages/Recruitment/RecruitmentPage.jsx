@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function RecruitmentRedirect() {
   useEffect(() => {
-    window.location.href = "https://forms.gle/nBEbxg5HRCamcyzi7";
+    window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSeodb7zdR1ZpC27HNQ9tU3pDHXAS5lPk5mHgQXEVKaGvjCJ5g/viewform?usp=dialog";
   }, []);
 
   return (
