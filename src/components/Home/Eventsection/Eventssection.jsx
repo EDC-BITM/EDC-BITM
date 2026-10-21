@@ -1,29 +1,16 @@
-import img1 from "../Eventsection/Ev1.webp";
-import img2 from "../Eventsection/Ev2.jpeg";
-import img3 from "../Eventsection/Ev3.jpeg";
+import CldImageData from "@/data/CldImage.json";
+import CldImage from "@/components/Images/CldImage";
 import { Link } from "react-router-dom";
 import FadeUpAnimation from "@animations/FadeUp.jsx";
 import { motion } from "framer-motion";
 
-const events = [
-  {
-    img: img3,
-    title: "Innovate-A-Thon",
-    subtitle: "Premier Entrepreneurial Fest",
-  },
-  {
-    img: img1,
-    title: "E-Summit",
-    subtitle: "Cultivate inventive startups",
-  },
-  {
-    img: img2,
-    title: "BIT-NISHAN",
-    subtitle: "Encourage problem-solving",
-  },
-];
+{/*removed old local upload of flagship events*/}
 
 function Eventsection() {
+
+  {/*upload via cloud*/}
+  const events = CldImageData.Home.flagshipEvents;
+    
   return (
     <FadeUpAnimation>
       <div className="glass-morphic lg:m-20 m-4 p-4 lg:p-12 shadow-2xl rounded-2xl ">
@@ -47,11 +34,14 @@ function Eventsection() {
                 whileHover="hover"
                 initial="initial"
               >
-                <img
-                  loading="lazy"
-                  src={event.img}
+                {/*changed to cloudinary*/}
+                <CldImage
+                  src={event.publicId}
                   alt={event.title}
-                  className="w-full h-auto rounded-lg"
+                  width={event.width}
+                  height={event.height}
+                  loading="lazy"
+                  className="w-full h-auto rounded-lg overflow-hidden"
                 />
                 <motion.div
                   className="event-details absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-5 rounded-t-2xl text-center"

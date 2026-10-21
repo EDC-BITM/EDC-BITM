@@ -20,9 +20,6 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Check if current page needs light navbar (for light backgrounds)
-  const isLightPage = pathname === "/announcement" || pathname === "/Blogs" || pathname.startsWith("/Blogs/");
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -61,12 +58,10 @@ const NavBar = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 z-50 w-full transition-all ${
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? isLightPage
-            ? "bg-gradient-to-b from-white/90 via-white/70 to-white/20 shadow-lg backdrop-blur-lg"
-            : "bg-gradient-to-b from-black/90 via-black/70 to-black/20 shadow-lg backdrop-blur-lg"
-          : "bg-transparent"
+          ? "bg-gradient-to-b from-black/90 via-black/70 to-black/20 shadow-lg backdrop-blur-lg"
+          : "bg-gradient-to-b from-black/85 via-black/50 to-transparent"
       }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -84,13 +79,7 @@ const NavBar = () => {
             transition={{ type: "spring", stiffness: 300 }}
             className="drop-shadow-lg"
           />
-          <span
-            className={`hidden text-sm leading-tight font-semibold sm:block transition-colors duration-300 ${
-              isLightPage
-                ? "text-gray-900 group-hover:text-yellow-500"
-                : "text-white group-hover:text-yellow-400"
-            }`}
-          >
+          <span className="hidden text-sm leading-tight font-semibold sm:block transition-colors duration-300 text-white group-hover:text-yellow-400">
             Entrepreneurship <br />
             Development Cell
           </span>
@@ -183,11 +172,7 @@ const NavBar = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          className={`md:hidden rounded-full p-2 transition flex items-center justify-center z-[60] ${
-            isLightPage
-              ? "text-gray-900 hover:bg-gray-900/10"
-              : "text-white hover:bg-white/10"
-          }`}
+          className="md:hidden rounded-full p-2 transition flex items-center justify-center z-[60] text-white hover:bg-white/10"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
