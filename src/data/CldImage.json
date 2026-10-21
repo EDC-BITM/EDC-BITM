@@ -2,7 +2,7 @@
   "Home": {
     "hero": [
       {
-        "publicId": "edc_group_v3eqr7",
+        "publicId": "hero-bg_ov6n9w",
         "alt": "Hero Image",
         "width": 2560,
         "height": 1440
@@ -16,7 +16,7 @@
         "height": 600
       },
       {
-        "publicId": "stats1_vkikqk",
+        "publicId": "striver_pf7nfz",
         "alt": "Stats Image",
         "width": 1200,
         "height": 600
@@ -24,31 +24,31 @@
     ],
     "slider": [
       {
-        "publicId": "6_nmvaux",
+        "publicId": "Copy_of_IMG_2532_kyiyoa",
         "alt": "slider_img_1",
         "width": 970,
         "height": 1350
       },
       {
-        "publicId": "7_tfiktc",
+        "publicId": "Copy_of_IMG_3138_n5ncga",
         "alt": "slider_img_2",
         "width": 970,
         "height": 1350
       },
       {
-        "publicId": "6_j9htxz",
+        "publicId": "Copy_of__MG_1900_zroval",
         "alt": "slider_img_3",
         "width": 970,
         "height": 1350
       },
       {
-        "publicId": "2_auifji",
+        "publicId": "IMG_3635_qujx5l",
         "alt": "slider_img_4",
         "width": 970,
         "height": 1350
       },
       {
-        "publicId": "5_oeqxp6",
+        "publicId": "IMG_5751_nhdu55",
         "alt": "slider_img_5",
         "width": 970,
         "height": 1350
@@ -72,16 +72,36 @@
         "height": 1350
       },
       {
-        "publicId": "3_jdv57g",
+        "publicId": "Copy_of_IMG_2922_hhqvq5",
         "alt": "slider_img_9",
         "width": 970,
         "height": 1350
       },
       {
-        "publicId": "2_ikwcnr",
+        "publicId": "Screenshot_2026-10-21_161310_nx0t1f",
         "alt": "slider_img_10",
         "width": 970,
         "height": 1350
+      }
+    ],
+    "flagshipEvents":[
+      {
+        "publicId": "Gemini_Generated_Image_rvlfzlrvlfzlrvlf_b12q21",
+        "title": "Innovate-A-Thon",
+        "width": 1680,
+        "height": 1024
+      },
+      {
+        "publicId": "Gemini_Generated_Image_tv9ms1tv9ms1tv9m_jf4yhp",
+        "title": "E-Summit",
+        "width": 1680,
+        "height": 980
+      },
+      {
+        "publicId": "Gemini_Generated_Image_9qiknz9qiknz9qik_por2v0",
+        "title": "BIT-NISHAN",
+        "width": 1680,
+        "height": 978
       }
     ],
     "pastSpeakers": [
@@ -132,6 +152,38 @@
         "height": 275,
         "name": "Aman Dhattarwal",
         "description": "Founder - Apni Kaksha"
+      },
+      {
+        "publicId": "godji_circle_slightly_smaller_1024x1024_wvvhtn",
+        "alt": "Raj Vikramaditya (Striver)",
+        "width": 275,
+        "height": 275,
+        "name": "Raj Vikramaditya (Striver)",
+        "description": "Founder - Take U Forward"
+      },
+      {
+        "publicId": "gajju_circle_slightly_smaller_1024x1024_zthuro",
+        "alt": "Dr. Gajendra Purohit",
+        "width": 275,
+        "height": 275,
+        "name": "Dr. Gajendra Purohit",
+        "description": "Founder - MathsCare"
+      },
+      {
+        "publicId": "paritosh_circle_slightly_smaller_1024x1024_hbayur",
+        "alt": "Paritosh Anand",
+        "width": 275,
+        "height": 275,
+        "name": "Paritosh Anand",
+        "description": "Content Creator & Entrepreneur"
+      },
+      {
+        "publicId": "ishaan_circle_slightly_smaller_1024x1024_hhdyyo",
+        "alt": "Ishan Sharma",
+        "width": 275,
+        "height": 275,
+        "name": "Ishan Sharma",
+        "description": "Content Creator & Entrepreneur"
       }
     ],
     "socials": [
