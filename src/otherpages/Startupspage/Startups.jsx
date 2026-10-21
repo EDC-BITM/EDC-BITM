@@ -32,20 +32,18 @@ function StartupCard({
   startup,
   index,
   isPassed,
-  isHovered,
-  onHover,
-  onLeave,
   setNodeRef,
 }) {
   const isEven = index % 2 === 0;
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className={`relative flex flex-col md:flex-row items-start md:items-center ${
+      className={`group relative flex flex-col md:flex-row items-start md:items-center ${
         isEven ? "md:flex-row-reverse" : ""
       }`}
-      onMouseEnter={onHover}
-      onMouseLeave={onLeave}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Year Badge on the Spine with scroll glow and hover pop */}
       <div
@@ -54,13 +52,13 @@ function StartupCard({
       >
         <motion.div
           animate={{
-            scale: isHovered ? 1.15 : isPassed ? 1.08 : 1,
+            scale: isHovered ? 1.08 : isPassed ? 1.05 : 1,
             backgroundColor: isPassed || isHovered ? "#FED853" : "#FFFFFF",
             borderColor: isPassed || isHovered ? "#F59E0B" : "#1F2937",
             color: isPassed || isHovered ? "#000000" : "#111827",
           }}
-          transition={{ type: "spring", stiffness: 350, damping: 24 }}
-          className={`flex items-center justify-center w-12 h-12 rounded-full font-black text-xs border-2 transition-shadow duration-300 ${
+          transition={{ type: "spring", stiffness: 450, damping: 28 }}
+          className={`flex items-center justify-center w-12 h-12 rounded-full font-black text-xs border-2 transition-shadow duration-150 ${
             isPassed || isHovered
               ? "shadow-lg shadow-amber-400/50 ring-4 ring-amber-400/30"
               : "shadow-sm border-gray-800"
@@ -73,21 +71,31 @@ function StartupCard({
       {/* Desktop spacer on the opposite side */}
       <div className="hidden md:block md:w-1/2" />
 
-      {/* Venture Card with direction-aware entrance */}
+      {/* Venture Card with smooth scroll entrance */}
       <div
         className={`w-full pl-16 md:pl-0 md:w-1/2 ${
           isEven ? "md:pr-10" : "md:pl-10"
         }`}
       >
         <motion.article
-          initial={{ opacity: 0, x: isEven ? -28 : 28, y: 16 }}
-          whileInView={{ opacity: 1, x: 0, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          whileHover={{ y: -6, transition: { duration: 0.25 } }}
-          className={`p-5 sm:p-6 rounded-2xl border transition-all duration-300 ${
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{
+            duration: 0.6,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          whileHover={{
+            y: -3,
+            transition: { type: "spring", stiffness: 500, damping: 28 },
+          }}
+          className={`p-5 sm:p-6 rounded-2xl border transition-[border-color,box-shadow,background-color] duration-150 ${
             startup.isBreakthrough
-              ? "bg-gradient-to-b from-amber-50/70 via-white to-white border-amber-300 shadow-xl shadow-amber-500/10 hover:shadow-2xl hover:border-amber-400"
+              ? isPassed
+                ? "bg-gradient-to-b from-amber-100/80 via-white to-white border-amber-400 shadow-2xl shadow-amber-500/15 ring-2 ring-amber-400/20"
+                : "bg-gradient-to-b from-amber-50/70 via-white to-white border-amber-300 shadow-xl shadow-amber-500/10 hover:shadow-2xl hover:border-amber-400"
+              : isPassed
+              ? "bg-white/95 backdrop-blur-xl border-amber-300/80 shadow-xl shadow-amber-500/5 hover:border-amber-400 hover:shadow-2xl"
               : "bg-white/90 backdrop-blur-xl border-gray-200/90 shadow-lg shadow-gray-200/50 hover:shadow-xl hover:border-gray-300"
           }`}
         >
@@ -101,7 +109,7 @@ function StartupCard({
 
           {/* Card Header: Logo, Name, and Badges */}
           <div className="flex items-start gap-3.5 sm:gap-4">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white p-2 sm:p-2.5 border border-gray-200 shadow-sm flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white p-2 sm:p-2.5 border border-gray-200 shadow-sm flex items-center justify-center flex-shrink-0 group-hover:border-gray-300 transition-colors duration-150">
               <img
                 src={startup.logo}
                 alt={`${startup.company} logo`}
@@ -111,7 +119,7 @@ function StartupCard({
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-baseline justify-between gap-2">
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 tracking-tight truncate">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 tracking-tight truncate group-hover:text-black transition-colors duration-150">
                   {startup.company}
                 </h3>
                 <span className="text-xs font-bold text-gray-400 font-mono flex-shrink-0">
@@ -147,7 +155,7 @@ function StartupCard({
               href={startup.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-gray-700 hover:text-black font-semibold transition-colors"
+              className="inline-flex items-center gap-1 text-gray-700 hover:text-black font-semibold transition-colors duration-150"
             >
               <Globe className="w-3.5 h-3.5 text-gray-400" />
               <span>Official Website</span>
@@ -157,11 +165,11 @@ function StartupCard({
             {startup.blogSlug && (
               <Link
                 to={`/Blogs/${startup.blogSlug}`}
-                className="inline-flex items-center gap-1 text-amber-800 hover:text-amber-950 font-bold transition-colors"
+                className="inline-flex items-center gap-1 text-amber-800 hover:text-amber-950 font-bold transition-colors duration-150 group/link"
               >
                 <BookOpen className="w-3.5 h-3.5 text-amber-600" />
                 <span>Read Founder Story</span>
-                <ArrowUpRight className="w-3 h-3" />
+                <ArrowUpRight className="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-150" />
               </Link>
             )}
           </div>
@@ -178,7 +186,6 @@ function EraTimelineSection({ era, startupsInEra }) {
   const nodeRefs = useRef({});
   const [nodeThresholds, setNodeThresholds] = useState({});
   const [currentProgress, setCurrentProgress] = useState(0);
-  const [hoveredStartupId, setHoveredStartupId] = useState(null);
 
   // Scroll animation: track progress through this era's timeline
   const { scrollYProgress } = useScroll({
@@ -254,7 +261,7 @@ function EraTimelineSection({ era, startupsInEra }) {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="mb-14 text-center max-w-2xl mx-auto"
       >
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-xs font-bold text-amber-900 mb-3 shadow-2xs">
@@ -307,9 +314,6 @@ function EraTimelineSection({ era, startupsInEra }) {
                 startup={startup}
                 index={index}
                 isPassed={isPassed}
-                isHovered={hoveredStartupId === startup.id}
-                onHover={() => setHoveredStartupId(startup.id)}
-                onLeave={() => setHoveredStartupId(null)}
                 setNodeRef={(el) => {
                   if (el) {
                     nodeRefs.current[startup.id] = el;
