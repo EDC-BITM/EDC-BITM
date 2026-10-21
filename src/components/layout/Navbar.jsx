@@ -21,7 +21,8 @@ const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   // Check if current page needs light navbar (for light backgrounds)
-  const isLightPage = pathname === "/announcement";
+  const isLightPage =
+    pathname === "/announcement" || pathname.toLowerCase() === "/startups";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -141,10 +142,10 @@ const NavBar = () => {
             to="/Submissions"
             className="relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 overflow-hidden group"
             style={{
-              background: 'rgba(254, 216, 83, 0.15)',
+              background: isLightPage ? '#FED853' : 'rgba(254, 216, 83, 0.15)',
               backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(254, 216, 83, 0.3)',
-              color: '#FED853'
+              border: isLightPage ? '1px solid rgba(234, 179, 8, 0.6)' : '1px solid rgba(254, 216, 83, 0.3)',
+              color: isLightPage ? '#000000' : '#FED853'
             }}
           >
             {/* Shine effect */}
