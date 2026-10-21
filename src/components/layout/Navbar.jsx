@@ -20,10 +20,6 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Check if current page needs light navbar (for light backgrounds)
-  const isLightPage =
-    pathname === "/announcement" || pathname.toLowerCase() === "/startups";
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -62,12 +58,10 @@ const NavBar = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 z-50 w-full transition-all ${
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? isLightPage
-            ? "bg-gradient-to-b from-white/90 via-white/70 to-white/20 shadow-lg backdrop-blur-lg"
-            : "bg-gradient-to-b from-black/90 via-black/70 to-black/20 shadow-lg backdrop-blur-lg"
-          : "bg-transparent"
+          ? "bg-gradient-to-b from-black/90 via-black/70 to-black/20 shadow-lg backdrop-blur-lg"
+          : "bg-gradient-to-b from-black/85 via-black/50 to-transparent"
       }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -85,51 +79,35 @@ const NavBar = () => {
             transition={{ type: "spring", stiffness: 300 }}
             className="drop-shadow-lg"
           />
-          <span
-            className={`hidden text-sm leading-tight font-semibold sm:block transition-colors duration-300 ${
-              isLightPage
-                ? "text-gray-900 group-hover:text-yellow-500"
-                : "text-white group-hover:text-yellow-400"
-            }`}
-          >
+          <span className="hidden text-sm leading-tight font-semibold sm:block transition-colors duration-300 text-white group-hover:text-yellow-400">
             Entrepreneurship <br />
             Development Cell
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav
-          className={`hidden items-center space-x-8 text-base font-semibold md:flex ${
-            isLightPage ? "text-gray-900" : "text-white"
-          }`}
-        >
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              to={href}
-              className={`relative px-2 py-1 transition-all duration-300
-                after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:rounded-b-full after:transition-all after:duration-300 after:content-['']
-                ${
-                  isLightPage
-                    ? `after:bg-yellow-500 hover:text-yellow-600 hover:after:w-full hover:after:shadow-[0_2px_8px_rgba(234,179,8,0.7)]
-                       ${
-                         pathname === href
-                           ? "text-yellow-600 after:w-full after:shadow-[0_2px_8px_rgba(234,179,8,0.5)]"
-                           : ""
-                       }`
-                    : `after:bg-yellow-400 hover:text-yellow-400 hover:after:w-full hover:after:shadow-[0_2px_8px_rgba(250,204,21,0.7)]
-                       ${
-                         pathname === href
-                           ? "text-yellow-400 after:w-full after:shadow-[0_2px_8px_rgba(250,204,21,0.5)]"
-                           : ""
-                       }`
-                }
-              `}
-              style={{ letterSpacing: "0.02em" }}
-            >
-              <motion.span whileHover={{ scale: 1.08 }}>{label}</motion.span>
-            </Link>
-          ))}
+        <nav className="hidden items-center space-x-8 text-base font-semibold md:flex text-white">
+          {navLinks.map(({ href, label }) => {
+            const isActive = pathname.toLowerCase() === href.toLowerCase();
+            return (
+              <Link
+                key={href}
+                to={href}
+                className={`relative px-2 py-1 transition-all duration-300
+                  after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:rounded-b-full after:transition-all after:duration-300 after:content-['']
+                  after:bg-yellow-400 hover:text-yellow-400 hover:after:w-full hover:after:shadow-[0_2px_8px_rgba(250,204,21,0.7)]
+                  ${
+                    isActive
+                      ? "text-yellow-400 after:w-full after:shadow-[0_2px_8px_rgba(250,204,21,0.5)]"
+                      : ""
+                  }
+                `}
+                style={{ letterSpacing: "0.02em" }}
+              >
+                <motion.span whileHover={{ scale: 1.08 }}>{label}</motion.span>
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Desktop CTA Button */}
@@ -178,11 +156,7 @@ const NavBar = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          className={`md:hidden rounded-full p-2 transition flex items-center justify-center z-[60] ${
-            isLightPage
-              ? "text-gray-900 hover:bg-gray-900/10"
-              : "text-white hover:bg-white/10"
-          }`}
+          className="md:hidden rounded-full p-2 transition flex items-center justify-center z-[60] text-white hover:bg-white/10"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
