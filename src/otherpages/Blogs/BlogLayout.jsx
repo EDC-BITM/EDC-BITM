@@ -6,12 +6,12 @@ const BlogLayout = ({ children, title, date, author }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-black text-white pt-32 pb-12 px-4 sm:px-6 lg:px-8 overflow-y-auto">
+    <div className="min-h-screen bg-white text-gray-900 pt-32 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         {/* Back Button */}
         <motion.button
           onClick={() => navigate("/Blogs")}
-          className="flex items-center cursor-pointer gap-2 text-yellow-400 hover:text-yellow-300 transition-colors mb-8 group"
+          className="flex items-center cursor-pointer gap-2 text-[#D4A017] hover:text-[#B8860B] transition-colors mb-8 group font-semibold text-sm"
           initial={{ x: -10, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
         >
@@ -29,26 +29,27 @@ const BlogLayout = ({ children, title, date, author }) => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1 }}
         >
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">
             {title}
           </h1>
-          <div className="flex items-center gap-4 text-gray-400 text-sm">
-            <span>{date}</span>
-            <span className="w-1 h-1 bg-yellow-500 rounded-full"></span>
-            <span>By {author}</span>
+          <div className="flex items-center gap-3 text-sm">
+            <span className="text-gray-400">By</span>
+            <span className="font-semibold text-gray-700">{author}</span>
+            <span className="w-1 h-1 bg-[#FED853] rounded-full" />
+            <span className="text-gray-400">{date}</span>
           </div>
         </motion.header>
 
         {/* Blog Content */}
         <motion.article
-          className="prose prose-invert prose-yellow max-w-none 
-            prose-headings:text-white prose-headings:font-bold
-            prose-p:text-gray-300 prose-p:leading-relaxed
-            prose-strong:text-yellow-400
-            prose-code:text-yellow-300 prose-code:bg-white/5 prose-code:px-1 prose-code:rounded
-            prose-li:text-gray-300
-            prose-blockquote:border-l-yellow-500 prose-blockquote:bg-white/5 prose-blockquote:p-4 prose-blockquote:rounded-r-lg prose-blockquote:text-gray-300
-            prose-a:text-yellow-400 prose-a:no-underline hover:prose-a:underline
+          className="prose prose-gray max-w-none 
+            prose-headings:text-gray-900 prose-headings:font-bold
+            prose-p:text-gray-600 prose-p:leading-relaxed
+            prose-strong:text-[#D4A017]
+            prose-code:text-gray-800 prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded
+            prose-li:text-gray-600
+            prose-blockquote:border-l-[#FED853] prose-blockquote:bg-gray-50 prose-blockquote:p-4 prose-blockquote:rounded-r-lg prose-blockquote:text-gray-600
+            prose-a:text-[#D4A017] prose-a:no-underline hover:prose-a:underline
             prose-img:rounded-2xl prose-img:shadow-2xl"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

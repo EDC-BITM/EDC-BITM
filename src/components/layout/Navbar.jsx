@@ -21,7 +21,7 @@ const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   // Check if current page needs light navbar (for light backgrounds)
-  const isLightPage = pathname === "/announcement";
+  const isLightPage = pathname === "/announcement" || pathname === "/Blogs" || pathname.startsWith("/Blogs/");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,7 +102,12 @@ const NavBar = () => {
             isLightPage ? "text-gray-900" : "text-white"
           }`}
         >
-          {navLinks.map(({ href, label }) => (
+          {navLinks.map(({ href, label }) => {
+            const isActive =
+              href === "/"
+                ? pathname === "/"
+                : pathname === href || pathname.startsWith(href + "/");
+            return (
             <Link
               key={href}
               to={href}
@@ -112,13 +117,13 @@ const NavBar = () => {
                   isLightPage
                     ? `after:bg-yellow-500 hover:text-yellow-600 hover:after:w-full hover:after:shadow-[0_2px_8px_rgba(234,179,8,0.7)]
                        ${
-                         pathname === href
+                         isActive
                            ? "text-yellow-600 after:w-full after:shadow-[0_2px_8px_rgba(234,179,8,0.5)]"
                            : ""
                        }`
                     : `after:bg-yellow-400 hover:text-yellow-400 hover:after:w-full hover:after:shadow-[0_2px_8px_rgba(250,204,21,0.7)]
                        ${
-                         pathname === href
+                         isActive
                            ? "text-yellow-400 after:w-full after:shadow-[0_2px_8px_rgba(250,204,21,0.5)]"
                            : ""
                        }`
@@ -128,7 +133,8 @@ const NavBar = () => {
             >
               <motion.span whileHover={{ scale: 1.08 }}>{label}</motion.span>
             </Link>
-          ))}
+            );
+          })}
         </nav>
 
         {/* Desktop CTA Button */}
@@ -226,7 +232,12 @@ const NavBar = () => {
                   className="flex-1 flex flex-col justify-center items-center"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  {navLinks.map(({ href, label }, idx) => (
+                  {navLinks.map(({ href, label }, idx) => {
+                    const isActive =
+                      href === "/"
+                        ? pathname === "/"
+                        : pathname === href || pathname.startsWith(href + "/");
+                    return (
                     <motion.div
                       key={href}
                       initial={{ y: 50, opacity: 0 }}
@@ -247,7 +258,7 @@ const NavBar = () => {
                         }}
                         className={`relative text-center block w-full text-2xl font-bold py-4 transition-all duration-300
                           ${
-                            pathname === href
+                            isActive
                               ? "text-yellow-400"
                               : "text-white hover:text-yellow-400"
                           }
@@ -262,7 +273,7 @@ const NavBar = () => {
                           className="flex items-center justify-center"
                         >
                           <span>{label}</span>
-                          {pathname === href && (
+                          {isActive && (
                             <motion.div
                               layoutId="activeIndicator"
                               className="absolute -left-4 w-2 h-2 rounded-full bg-yellow-400"
@@ -276,7 +287,8 @@ const NavBar = () => {
                         </motion.div>
                       </Link>
                     </motion.div>
-                  ))}
+                  );
+                  })}
                   
                   {/* Mobile CTA Button */}
                   <motion.div
@@ -336,7 +348,7 @@ const NavBar = () => {
                   transition={{ delay: 0.5 }}
                   className="mt-auto text-center text-white/60 text-sm"
                 >
-                  © {new Date().getFullYear()} EDC BITM
+                  Ãƒâ€šÃ‚Â© {new Date().getFullYear()} EDC BITM
                 </motion.div>
               </div>
             </motion.div>
