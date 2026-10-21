@@ -52,6 +52,13 @@ body {
   .animation-delay-500 {
     animation-delay: 500ms;
   }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 body {
