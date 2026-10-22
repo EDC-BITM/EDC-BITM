@@ -184,6 +184,46 @@
         "height": 275,
         "name": "Ishan Sharma",
         "description": "Content Creator & Entrepreneur"
+      },
+      {
+        "publicId": "amit_dtmyjr",
+        "alt": "Amit Kumar",
+        "width": 275,
+        "height": 275,
+        "name": "Amit Kumar",
+        "description": "Easebuzz"
+      },
+      {
+        "publicId": "madhur_en9alh",
+        "alt": "Madhur Garg",
+        "width": 275,
+        "height": 275,
+        "name": "Madhur Garg",
+        "description": "Inc42"
+      },
+      {
+        "publicId": "vaidya_yubibh",
+        "alt": "V. Vaidyanathan",
+        "width": 275,
+        "height": 275,
+        "name": "V. Vaidyanathan",
+        "description": "MD & CEO - IDFC First Bank"
+      },
+      {
+        "publicId": "srushti_box99g",
+        "alt": "Srushti Raybhoge",
+        "width": 275,
+        "height": 275,
+        "name": "Srushti Raybhoge",
+        "description": "SDE 2 at Addepar"
+      },
+      {
+        "publicId": "manisha_uqotve",
+        "alt": "Dr. Manisha Oraon",
+        "width": 275,
+        "height": 275,
+        "name": "Dr. Manisha Oraon",
+        "description": "Co-Founder - The Open Field"
       }
     ],
     "socials": [
@@ -264,7 +304,103 @@
         "publicId": "mahindra-suv1293_kobvkn",
         "width": 866,
         "height": 650
+      },
+      {
+        "publicId": "Swipe_Wordmark_with_Orange_and_Green_Accents_fbruxx",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "Hindal_Sunburst_Emblem_kvwbrt",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "adpro_a5rgzi",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "651b9c8fa3255cf8ca0c191f_EazyDiner_Logo_Text_ncmiit",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "ONGC_Logo.svg_bmsqyh",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "Samford_Hospital_Logo_with_Emblem_mbiom2",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "logo-toyota-transparent-19_vurfzs",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "Balshali-TMT-English-1-07-2_oplarg",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "Plum_large_logo_5baa6978-8dd4-49e1-8102-c7d5f6a16585_iihp6c",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "Weebee_Striped_Logo_sbjoki",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "Groovenexus_Spotlight_Logo_heh3l0",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "dainik-jagran-logo-png_seeklogo-403739_hxyuhx",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "Startup_News.fyi_Badge_tgo59v",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "EaseMyTrip_Logo_x5qcqo",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "Salts._Future_of_Wellness_Logo_zokbjc",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "unnamed_qdbqlj",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "VaultPrint_Secure_Printer_Logo_xodaep",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "quickwork_ymxcok",
+        "width": 866,
+        "height": 650
+      },
+      {
+        "publicId": "utho-logo_nhbxkf",
+        "width": 866,
+        "height": 650
       }
+      
     ]
   },
 
