@@ -264,7 +264,7 @@
         "width": 1200,
         "height": 600,
         "title": "NATIONAL STARTUP DAY",
-        "venue": "CAT HALL",
+        "venue": "SEMINAR HALL 1",
         "date": "16/01/26"
       },
       {
@@ -337,8 +337,8 @@
         "width": 1200,
         "height": 600,
         "title": "PRIYANKA ARORA",
-        "venue": "CAT HALL",
-        "date": "2026"
+        "venue": "SEMINAR HALL 1",
+        "date": "12/04/26"
       },
       {
         "key": 7,
@@ -347,60 +347,60 @@
         "width": 1200,
         "height": 600,
         "title": "JAY MEHTA",
-        "venue": "CAT HALL",
-        "date": "2026"
+        "venue": "ZOOM MEETING",
+        "date": "26/05/26"
       }
     ],
     "informalEvents": [
       {
         "key": 1,
-        "publicId": "event20_fvt9vz",
-        "alt": "Event Image",
+        "publicId": "maze-of-markets_pqzs0f",
+        "alt": "Maze of Markets Event",
         "width": 1200,
         "height": 600,
-        "title": "BAZAAR CLASH",
-        "venue": "ROOM 220",
-        "date": "31/01/25"
+        "title": "MAZE OF MARKETS",
+        "venue": "LH-1",
+        "date": "10/02/26"
       },
       {
         "key": 2,
-        "publicId": "event22_n9fvpw",
-        "alt": "Event Image",
+        "publicId": "IPL-Auction_bbbzw8",
+        "alt": "IPL Auction Event",
         "width": 1200,
         "height": 600,
         "title": "IPL AUCTION",
         "venue": "LH-1",
-        "date": "01/02/25"
+        "date": "21/03/26"
       },
       {
         "key": 3,
-        "publicId": "event19_b9o8kq",
-        "alt": "Event Image",
+        "publicId": "fault-lines_yptpqi",
+        "alt": "Fault Lines Event",
         "width": 1200,
         "height": 600,
-        "title": "BGMI TOURNAMENT",
-        "venue": "",
-        "date": "01/02/25"
+        "title": "FAULT LINES",
+        "venue": "LH2",
+        "date": "10/02/26"
       },
       {
         "key": 4,
-        "publicId": "event23_rdsl7o",
-        "alt": "Event Image",
+        "publicId": "intelligent-investor_m1v0ro",
+        "alt": "Intelligent Investor Event",
         "width": 1200,
         "height": 600,
         "title": "INTELLIGENT INVESTOR",
-        "venue": "ROOM219",
-        "date": "31/01/25"
+        "venue": "ROOM 231",
+        "date": "10/02/26"
       },
       {
         "key": 5,
-        "publicId": "event25_q45dbw",
-        "alt": "Event Image",
+        "publicId": "UI-UX-Arena_svfzst",
+        "alt": "UI/UX Arena Event",
         "width": 1200,
         "height": 600,
         "title": "UI/UX ARENA",
-        "venue": "ROOM 220",
-        "date": "02/02/25"
+        "venue": "ROOM 233A",
+        "date": "10/02/26"
       }
     ]
   }
