@@ -239,43 +239,43 @@
       },
       {
         "key": 2,
-        "publicId": "event21_utq4ch",
-        "alt": "Event Image",
+        "publicId": "bplan_gfmo55",
+        "alt": "Business Plan Event",
         "width": 1200,
         "height": 600,
-        "title": "B-PLAN COMPETITION",
-        "venue": "SEMINAR HALL-1",
-        "date": "01/02/25"
+        "title": "BUSINESS PLAN",
+        "venue": "SEMINAR HALL 1",
+        "date": "10/02/26"
       },
       {
         "key": 3,
-        "publicId": "event29_shzcpa",
-        "alt": "Event Image",
+        "publicId": "c_pad,w_747,h_930,b_auto/break-the-pattern_hzyrhc",
+        "alt": "Break The Pattern Event",
         "width": 1200,
         "height": 600,
-        "title": "PITCH SUMMIT",
-        "venue": "SEMINAR HALL-1",
-        "date": "15/04/25"
+        "title": "BREAK THE PATTERN",
+        "venue": "CAT HALL, BIT MESRA",
+        "date": "14/03/26"
       },
       {
         "key": 4,
-        "publicId": "event18_svwacz",
-        "alt": "Event Image",
+        "publicId": "national_starupday_dfhx7n",
+        "alt": "National Startup Day Event",
         "width": 1200,
         "height": 600,
-        "title": "UI/UX WORKSHOP",
-        "venue": "ROOM 220",
-        "date": "25/01/25"
+        "title": "NATIONAL STARTUP DAY",
+        "venue": "CAT HALL",
+        "date": "16/01/26"
       },
       {
         "key": 5,
-        "publicId": "event15_lyjfy6",
-        "alt": "Event Image",
+        "publicId": "investor-summit_eoctgn",
+        "alt": "Investors Summit Event",
         "width": 1200,
         "height": 600,
-        "title": "STARTUP EXPO",
-        "venue": "SHORBAGH",
-        "date": "01/02/25"
+        "title": "INVESTORS SUMMIT",
+        "venue": "SHORBAGH 1",
+        "date": "10/02/26"
       }
     ],
 
