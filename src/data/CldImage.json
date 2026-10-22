@@ -282,53 +282,53 @@
     "semiFormalEvents": [
       {
         "key": 1,
-        "publicId": "event32_xe0trx",
-        "alt": "Event Image",
+        "publicId": "ishan_y1fcxw",
+        "alt": "Ishan Sharma Event",
         "width": 1200,
         "height": 600,
-        "title": "BEHIND THE FRAMES",
+        "title": "ISHAN SHARMA",
         "venue": "CAT HALL",
-        "date": "15/02/25"
+        "date": "15/02/26"
       },
       {
         "key": 2,
-        "publicId": "event27_ltmhbx",
-        "alt": "Event Image",
+        "publicId": "paritosh_wdapxm",
+        "alt": "Paritosh Anand Event",
         "width": 1200,
         "height": 600,
-        "title": "STELLER FIRESIDE CHAT",
+        "title": "PARITOSH ANAND",
         "venue": "CAT HALL",
-        "date": "02/02/25"
+        "date": "13/02/26"
       },
       {
         "key": 3,
-        "publicId": "event30_rifjcn",
-        "alt": "Event Image",
+        "publicId": "amit-kumar_kcjxpx",
+        "alt": "Amit Kumar Event",
         "width": 1200,
         "height": 600,
-        "title": "LIVE SESSION",
-        "venue": "GOOGLE MEET",
-        "date": "10/03/25"
+        "title": "AMIT KUMAR",
+        "venue": "CAT HALL",
+        "date": "14/02/26"
       },
       {
         "key": 4,
-        "publicId": "event31_odwb8w",
-        "alt": "Event Image",
+        "publicId": "vaidyanathan_rakr4a",
+        "alt": "V. Vaidyanathan Event",
         "width": 1200,
         "height": 600,
-        "title": "GROW SESSION",
+        "title": "V. VAIDYANATHAN",
         "venue": "CAT HALL",
-        "date": "20/02/25"
+        "date": "13/02/26"
       },
       {
         "key": 5,
-        "publicId": "event26_owtrko",
-        "alt": "Event Image",
+        "publicId": "ad-venture_bdi2hi",
+        "alt": "Ad-Venture Event",
         "width": 1200,
         "height": 600,
-        "title": "AD VENTURE",
-        "venue": "ROOM 217",
-        "date": "28/01/25"
+        "title": "AD-VENTURE",
+        "venue": "LH2",
+        "date": "10/02/26"
       }
     ],
     "informalEvents": [
