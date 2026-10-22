@@ -329,6 +329,26 @@
         "title": "AD-VENTURE",
         "venue": "LH2",
         "date": "10/02/26"
+      },
+      {
+        "key": 6,
+        "publicId": "priyanka-arora_ix1qbp",
+        "alt": "Priyanka Arora Event",
+        "width": 1200,
+        "height": 600,
+        "title": "PRIYANKA ARORA",
+        "venue": "CAT HALL",
+        "date": "2026"
+      },
+      {
+        "key": 7,
+        "publicId": "jay-mehta_u42rs4",
+        "alt": "Jay Mehta Event",
+        "width": 1200,
+        "height": 600,
+        "title": "JAY MEHTA",
+        "venue": "CAT HALL",
+        "date": "2026"
       }
     ],
     "informalEvents": [
