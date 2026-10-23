@@ -34,6 +34,7 @@
     "clsx": "^2.1.1",
     "emailjs": "^4.0.3",
     "framer-motion": "^12.23.9",
+    "gsap": "^3.15.0",
     "lexical": "^0.38.1",
     "lucide-react": "^0.548.0",
     "ogl": "^1.0.11",

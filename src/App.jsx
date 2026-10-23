@@ -35,7 +35,7 @@ const PageWrapper = ({ children }) => {
       <motion.div
         key={location.pathname}
         initial={{
-          y: 50,
+          y: 0,
           opacity: 0,
         }}
         animate={{

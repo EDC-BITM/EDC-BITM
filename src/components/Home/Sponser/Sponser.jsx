@@ -1,5 +1,5 @@
-import { useRef, useState, useEffect } from "react";
-import { motion, useAnimationFrame } from "framer-motion";
+import { useRef, useEffect } from "react";
+import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
 import FadeUpAnimation from "@animations/FadeUp.jsx";
 import CldImageData from "@/data/CldImage.json";
 
@@ -7,27 +7,38 @@ export default function Sponser() {
   const sponsors = CldImageData.Home.sponsors;
   const repeated = [...sponsors, ...sponsors];
 
+  {/*the logos are now displayed in a continuous loop twice , earlier it was using half the width as the loop distance -- fixed
+    The fix measures the actual position where the repeated set begins, then loops at that exact point. 
+    It also moves the animation position with Framer Motion instead of updating React state (removed use state for same) on every animation frame,
+     reducing unnecessary rerenders(was making unnecessary updates) */}
+
   const containerRef = useRef(null);
-  const [x, setX] = useState(0);
+  const x = useMotionValue(0);
   const speed = 1.0;
-  const [contentWidth, setContentWidth] = useState(0);
+  const contentWidth = useRef(0);
 
   useEffect(() => {
     function updateWidth() {
-      if (containerRef.current) {
-        setContentWidth(containerRef.current.scrollWidth / 2);
+      const container = containerRef.current;
+      const firstDuplicate = container?.children[sponsors.length];
+      if (container && firstDuplicate) {
+        const containerLeft = container.getBoundingClientRect().left;
+        contentWidth.current =
+          firstDuplicate.getBoundingClientRect().left - containerLeft;
       }
     }
     updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  }, []);
+    const observer = new ResizeObserver(updateWidth);
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, [sponsors.length]);
 
   useAnimationFrame(() => {
-    setX((prev) => {
-      const next = prev - speed;
-      return next <= -contentWidth ? 0 : next;
-    });
+    const width = contentWidth.current;
+    if (width <= 0) return;
+
+    const next = x.get() - speed;
+    x.set(next <= -width ? next + width : next);
   });
 
   return (
