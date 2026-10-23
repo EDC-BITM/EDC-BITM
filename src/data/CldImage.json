@@ -444,148 +444,168 @@
       },
       {
         "key": 2,
-        "publicId": "event21_utq4ch",
-        "alt": "Event Image",
+        "publicId": "bplan_gfmo55",
+        "alt": "Business Plan Event",
         "width": 1200,
         "height": 600,
-        "title": "B-PLAN COMPETITION",
-        "venue": "SEMINAR HALL-1",
-        "date": "01/02/25"
+        "title": "BUSINESS PLAN",
+        "venue": "SEMINAR HALL 1",
+        "date": "10/02/26"
       },
       {
         "key": 3,
-        "publicId": "event29_shzcpa",
-        "alt": "Event Image",
+        "publicId": "c_pad,w_747,h_930,b_auto/break-the-pattern_hzyrhc",
+        "alt": "Break The Pattern Event",
         "width": 1200,
         "height": 600,
-        "title": "PITCH SUMMIT",
-        "venue": "SEMINAR HALL-1",
-        "date": "15/04/25"
+        "title": "BREAK THE PATTERN",
+        "venue": "CAT HALL, BIT MESRA",
+        "date": "14/03/26"
       },
       {
         "key": 4,
-        "publicId": "event18_svwacz",
-        "alt": "Event Image",
+        "publicId": "national_starupday_dfhx7n",
+        "alt": "National Startup Day Event",
         "width": 1200,
         "height": 600,
-        "title": "UI/UX WORKSHOP",
-        "venue": "ROOM 220",
-        "date": "25/01/25"
+        "title": "NATIONAL STARTUP DAY",
+        "venue": "SEMINAR HALL 1",
+        "date": "16/01/26"
       },
       {
         "key": 5,
-        "publicId": "event15_lyjfy6",
-        "alt": "Event Image",
+        "publicId": "investor-summit_eoctgn",
+        "alt": "Investors Summit Event",
         "width": 1200,
         "height": 600,
-        "title": "STARTUP EXPO",
-        "venue": "SHORBAGH",
-        "date": "01/02/25"
+        "title": "INVESTORS SUMMIT",
+        "venue": "SHORBAGH 1",
+        "date": "10/02/26"
       }
     ],
 
     "semiFormalEvents": [
       {
         "key": 1,
-        "publicId": "event32_xe0trx",
-        "alt": "Event Image",
+        "publicId": "ishan_y1fcxw",
+        "alt": "Ishan Sharma Event",
         "width": 1200,
         "height": 600,
-        "title": "BEHIND THE FRAMES",
+        "title": "ISHAN SHARMA",
         "venue": "CAT HALL",
-        "date": "15/02/25"
+        "date": "15/02/26"
       },
       {
         "key": 2,
-        "publicId": "event27_ltmhbx",
-        "alt": "Event Image",
+        "publicId": "paritosh_wdapxm",
+        "alt": "Paritosh Anand Event",
         "width": 1200,
         "height": 600,
-        "title": "STELLER FIRESIDE CHAT",
+        "title": "PARITOSH ANAND",
         "venue": "CAT HALL",
-        "date": "02/02/25"
+        "date": "13/02/26"
       },
       {
         "key": 3,
-        "publicId": "event30_rifjcn",
-        "alt": "Event Image",
+        "publicId": "amit-kumar_kcjxpx",
+        "alt": "Amit Kumar Event",
         "width": 1200,
         "height": 600,
-        "title": "LIVE SESSION",
-        "venue": "GOOGLE MEET",
-        "date": "10/03/25"
+        "title": "AMIT KUMAR",
+        "venue": "CAT HALL",
+        "date": "14/02/26"
       },
       {
         "key": 4,
-        "publicId": "event31_odwb8w",
-        "alt": "Event Image",
+        "publicId": "vaidyanathan_rakr4a",
+        "alt": "V. Vaidyanathan Event",
         "width": 1200,
         "height": 600,
-        "title": "GROW SESSION",
+        "title": "V. VAIDYANATHAN",
         "venue": "CAT HALL",
-        "date": "20/02/25"
+        "date": "13/02/26"
       },
       {
         "key": 5,
-        "publicId": "event26_owtrko",
-        "alt": "Event Image",
+        "publicId": "ad-venture_bdi2hi",
+        "alt": "Ad-Venture Event",
         "width": 1200,
         "height": 600,
-        "title": "AD VENTURE",
-        "venue": "ROOM 217",
-        "date": "28/01/25"
+        "title": "AD-VENTURE",
+        "venue": "LH2",
+        "date": "10/02/26"
+      },
+      {
+        "key": 6,
+        "publicId": "priyanka-arora_ix1qbp",
+        "alt": "Priyanka Arora Event",
+        "width": 1200,
+        "height": 600,
+        "title": "PRIYANKA ARORA",
+        "venue": "SEMINAR HALL 1",
+        "date": "12/04/26"
+      },
+      {
+        "key": 7,
+        "publicId": "jay-mehta_u42rs4",
+        "alt": "Jay Mehta Event",
+        "width": 1200,
+        "height": 600,
+        "title": "JAY MEHTA",
+        "venue": "ZOOM MEETING",
+        "date": "26/05/26"
       }
     ],
     "informalEvents": [
       {
         "key": 1,
-        "publicId": "event20_fvt9vz",
-        "alt": "Event Image",
+        "publicId": "maze-of-markets_pqzs0f",
+        "alt": "Maze of Markets Event",
         "width": 1200,
         "height": 600,
-        "title": "BAZAAR CLASH",
-        "venue": "ROOM 220",
-        "date": "31/01/25"
+        "title": "MAZE OF MARKETS",
+        "venue": "LH-1",
+        "date": "10/02/26"
       },
       {
         "key": 2,
-        "publicId": "event22_n9fvpw",
-        "alt": "Event Image",
+        "publicId": "IPL-Auction_bbbzw8",
+        "alt": "IPL Auction Event",
         "width": 1200,
         "height": 600,
         "title": "IPL AUCTION",
         "venue": "LH-1",
-        "date": "01/02/25"
+        "date": "21/03/26"
       },
       {
         "key": 3,
-        "publicId": "event19_b9o8kq",
-        "alt": "Event Image",
+        "publicId": "fault-lines_yptpqi",
+        "alt": "Fault Lines Event",
         "width": 1200,
         "height": 600,
-        "title": "BGMI TOURNAMENT",
-        "venue": "",
-        "date": "01/02/25"
+        "title": "FAULT LINES",
+        "venue": "LH2",
+        "date": "10/02/26"
       },
       {
         "key": 4,
-        "publicId": "event23_rdsl7o",
-        "alt": "Event Image",
+        "publicId": "intelligent-investor_m1v0ro",
+        "alt": "Intelligent Investor Event",
         "width": 1200,
         "height": 600,
         "title": "INTELLIGENT INVESTOR",
-        "venue": "ROOM219",
-        "date": "31/01/25"
+        "venue": "ROOM 231",
+        "date": "10/02/26"
       },
       {
         "key": 5,
-        "publicId": "event25_q45dbw",
-        "alt": "Event Image",
+        "publicId": "UI-UX-Arena_svfzst",
+        "alt": "UI/UX Arena Event",
         "width": 1200,
         "height": 600,
         "title": "UI/UX ARENA",
-        "venue": "ROOM 220",
-        "date": "02/02/25"
+        "venue": "ROOM 233A",
+        "date": "10/02/26"
       }
     ]
   }

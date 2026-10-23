@@ -44,7 +44,7 @@
   }
 
   .event-card {
-    @apply relative w-[300px] rounded-[27px] overflow-hidden shadow-lg transition-transform duration-300 mt-4;
+    @apply relative w-[300px] h-[375px] rounded-[27px] overflow-hidden shadow-lg transition-transform duration-300 mt-4;
   }
 
   .event-card:hover {
@@ -52,7 +52,7 @@
   }
 
   .event-image {
-    @apply w-full h-auto;
+    @apply w-full h-full object-cover;
   }
 
   .event-details {
