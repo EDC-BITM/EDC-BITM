@@ -168,7 +168,7 @@ function Hero() {
         </div> */}
 
         {/* Submission Button */}
-        <div className="mt-24 relative">
+        <div className="mt-32 md:mt-40 relative">
           <motion.div
             className="relative"
             initial={{ scale: 0 }}

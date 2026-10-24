@@ -2,7 +2,7 @@ import CldImageData from "@/data/CldImage.json";
 import CldImage from "@/components/Images/CldImage";
 import { Link } from "react-router-dom";
 import FadeUpAnimation from "@animations/FadeUp.jsx";
-import { motion } from "framer-motion";
+import FlipCard from "./FlipCard.jsx";
 
 {/*removed old local upload of flagship events*/}
 
@@ -23,44 +23,47 @@ function Eventsection() {
             Our Flagship Events
           </h1>
         </div>
-        <div className="flex flex-wrap justify-center space-x-4 md:space-x-6 lg:space-x-8">
+        <div className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-6 md:mt-12 lg:gap-x-16">
           {events.map((event, idx) => (
             <div
               key={idx}
               className="flex justify-center items-center mb-5 transition ease-in-out hover:scale-105"
             >
-              <motion.div
-                className="event-card relative w-64 md:w-72 lg:w-72 rounded-xl overflow-hidden p-1.5 shadow-md mt-4"
-                whileHover="hover"
-                initial="initial"
-              >
-                {/*changed to cloudinary*/}
-                <CldImage
-                  src={event.publicId}
-                  alt={event.title}
-                  width={event.width}
-                  height={event.height}
-                  loading="lazy"
-                  className="w-full h-auto rounded-lg overflow-hidden"
-                />
-                <motion.div
-                  className="event-details absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-5 rounded-t-2xl text-center"
-                  variants={{
-                    initial: { y: 100, opacity: 0 },
-                    hover: { y: 0, opacity: 1 },
-                  }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                >
-                  <div className="grid grid-rows-2 gap-2">
-                    <h2 className="font-medium text-lg mb-0 text-black">
-                      {event.title}
-                    </h2>
-                    <p className="text-sm mb-2 text-gray-600">
-                      {event.subtitle}
-                    </p>
+              <FlipCard
+                ariaLabel={`${event.title} event details`}
+                axis="y"
+                back={
+                  <div
+                    className={`flex h-full flex-col items-center justify-center gap-4 p-6 text-center text-gray-900 ${
+                      event.title === "Innovate-A-Thon"
+                        ? "bg-sky-100"
+                        : event.title === "E-Summit"
+                          ? "bg-purple-100"
+                          : "bg-gray-200"
+                    }`}
+                  >
+                    <h2 className="text-2xl font-bold">{event.title}</h2>
+                    {event.description ? (
+                      <p className="text-sm text-gray-600">{event.description}</p>
+                    ) : null}
                   </div>
-                </motion.div>
-              </motion.div>
+                }
+                front={
+                  <CldImage
+                    src={event.publicId}
+                    alt={event.title}
+                    width={750}
+                    height={1050}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                }
+                height={350}
+                radius={16}
+                width={250}
+                background="#ffffff"
+                color="#171923"
+              />
             </div>
           ))}
         </div>

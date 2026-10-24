@@ -103,20 +103,23 @@
     ],
     "flagshipEvents":[
       {
-        "publicId": "Gemini_Generated_Image_rvlfzlrvlfzlrvlf_b12q21",
+        "publicId": "innovate_a_thon_300x400_yvcspy",
         "title": "Innovate-A-Thon",
+        "description": "A fast-paced innovation challenge where student teams develop creative solutions to real-world problems.",
         "width": 1680,
         "height": 1024
       },
       {
-        "publicId": "Gemini_Generated_Image_tv9ms1tv9ms1tv9m_jf4yhp",
+        "publicId": "esummit_general_200x267_t7rrg2",
         "title": "E-Summit",
+        "description": "A flagship gathering for aspiring entrepreneurs, featuring inspiring ideas, startup showcases, and opportunities to connect.",
         "width": 1680,
         "height": 980
       },
       {
-        "publicId": "Gemini_Generated_Image_9qiknz9qiknz9qik_por2v0",
+        "publicId": "bit_nishaan_300x400_bsxxvd",
         "title": "BIT-NISHAN",
+        "description": "A campus celebration of creativity and talent, bringing students together through engaging experiences.",
         "width": 1680,
         "height": 978
       }
