@@ -4,7 +4,7 @@ const speakersMeta = [
     key: "vaidyanathan",
     publicId: "vaidyanathan_speaker",
     name: "V. Vaidyanathan",
-    title: "MD & CEO â€“ IDFC FIRST Bank",
+    title: "MD & CEO – IDFC FIRST Bank",
     twitter: "",
     linkedin: "https://www.linkedin.com/in/vaidyanathanv/",
     instagram: "",
@@ -13,7 +13,7 @@ const speakersMeta = [
     key: "ishan_sharma",
     publicId: "ishan_sharma_speaker",
     name: "Ishan Sharma",
-    title: "Content Creator & Coâ€‘founder â€“ MarkitUp",
+    title: "Content Creator & Co‑founder – MarkitUp",
     twitter: "",
     linkedin: "https://www.linkedin.com/in/ishansharma7390/",
     instagram: "https://www.instagram.com/ishansharma7390/",
@@ -22,7 +22,7 @@ const speakersMeta = [
     key: "paritosh_anand",
     publicId: "paritosh_anand_speaker",
     name: "Paritosh Anand",
-    title: "Founder â€“ We Smile Media",
+    title: "Founder – We Smile Media",
     twitter: "",
     linkedin: "https://www.linkedin.com/in/iamparitoshanand/",
     instagram: "https://www.instagram.com/iamparitoshanand/",
@@ -31,7 +31,7 @@ const speakersMeta = [
     key: "amit_kumar",
     publicId: "amit_kumar_speaker",
     name: "Amit Kumar",
-    title: "Coâ€‘founder & CEO â€“ Easebuzz",
+    title: "Co‑founder & CEO – Easebuzz",
     twitter: "",
     linkedin: "https://www.linkedin.com/in/amit-kumar-5b675931/",
     instagram: "",
@@ -40,7 +40,7 @@ const speakersMeta = [
     key: "madhur_garg",
     publicId: "madhur_garg_speaker",
     name: "Madhur Garg",
-    title: "Founder's Office â€“ Inc42",
+    title: "Founder's Office – Inc42",
     twitter: "",
     linkedin: "https://www.linkedin.com/in/madhurgarg96/",
     instagram: "",
@@ -59,7 +59,7 @@ const speakersMeta = [
     key: "striver",
     publicId: "striver_nnyfgi",
     name: "Striver (Raj Vikramaditya)",
-    title: "Founder â€“ TakeUForward",
+    title: "Founder – TakeUForward",
     twitter: null,
     linkedin: "https://www.linkedin.com/in/rajstriver/?originalSubdomain=in",
     instagram: "https://www.instagram.com/striver_79/?hl=en",
@@ -67,8 +67,8 @@ const speakersMeta = [
   {
     key: "aman",
     publicId: "aman_difyip",
-    name: "Amanâ€¯Dhattarwal",
-    title: "Founder â€“ Apniâ€¯Kaksha",
+    name: "Aman Dhattarwal",
+    title: "Founder – Apni Kaksha",
     twitter: "https://x.com/amandhattarwal?lang=en",
     linkedin:
       "https://www.linkedin.com/in/dhattarwalaman/?originalSubdomain=in",
@@ -77,8 +77,8 @@ const speakersMeta = [
   {
     key: "amit",
     publicId: "amit_s3sffl",
-    name: "Amitâ€¯Chaudhary",
-    title: "Founder â€“ Lenskart",
+    name: "Amit Chaudhary",
+    title: "Founder – Lenskart",
     twitter: "",
     linkedin: "https://www.linkedin.com/in/4daxis/?originalSubdomain=in",
     instagram: "https://www.instagram.com/4daxis/?hl=en",
@@ -86,7 +86,7 @@ const speakersMeta = [
   {
     key: "vijender",
     publicId: "vijender_izy2pb",
-    name: "Dr.â€¯Vijender Chauhan",
+    name: "Dr. Vijender Chauhan",
     title: "Public Speaker",
     twitter: "https://x.com/masijeevi?lang=en",
     linkedin:
@@ -96,8 +96,8 @@ const speakersMeta = [
   {
     key: "karan",
     publicId: "karan_exhgfa",
-    name: "Karanâ€¯Bajaj",
-    title: "Founder â€“ WhiteHat Jr.",
+    name: "Karan Bajaj",
+    title: "Founder – WhiteHat Jr.",
     twitter: "",
     linkedin:
       "https://www.linkedin.com/in/karan-bajaj-8806191/?originalSubdomain=in",
@@ -106,8 +106,8 @@ const speakersMeta = [
   {
     key: "ashutoshh",
     publicId: "ashutoshh_koemma",
-    name: "Ashutoshâ€¯Naik",
-    title: "Chiefâ€¯Complianceâ€¯Officer (CCO) atâ€¯Groww",
+    name: "Ashutosh Naik",
+    title: "Chief Compliance Officer (CCO) at Groww",
     twitter: "",
     linkedin:
       "https://www.linkedin.com/in/ashutosh-naik-187a8b2a/?originalSubdomain=in",
@@ -116,8 +116,8 @@ const speakersMeta = [
   {
     key: "ravi",
     publicId: "ravi_ah3ckf",
-    name: "Raviâ€¯Kâ€¯Ranjan",
-    title: "Exâ€¯SharkÂ Tank",
+    name: "Ravi K Ranjan",
+    title: "Ex Shark Tank",
     twitter: "",
     linkedin: "https://www.linkedin.com/in/itsraviranjan/?originalSubdomain=ae",
     instagram: "",
@@ -125,8 +125,8 @@ const speakersMeta = [
   {
     key: "sairaj",
     publicId: "sairaj_pyvrqz",
-    name: "Sairajâ€¯Dhond",
-    title: "Coâ€‘founder ofâ€¯WakaoÂ Foods",
+    name: "Sairaj Dhond",
+    title: "Co‑founder of Wakao Foods",
     twitter: "http://x.com/sairajdhond?lang=en",
     linkedin:
       "https://www.linkedin.com/in/sairajdhondfounderwakaofoods/?originalSubdomain=in",
@@ -135,8 +135,8 @@ const speakersMeta = [
   {
     key: "upasana",
     publicId: "upasana_bth4tu",
-    name: "Upasanaâ€¯Makati",
-    title: "Founder ofâ€¯WhiteÂ Print",
+    name: "Upasana Makati",
+    title: "Founder of White Print",
     twitter: "https://x.com/upasana_m?lang=en",
     linkedin: "https://www.linkedin.com/in/upasanamakati/?originalSubdomain=in",
     instagram: "https://www.instagram.com/upasanamakati/?hl=en",
@@ -144,8 +144,8 @@ const speakersMeta = [
   {
     key: "muskaan",
     publicId: "muskaan_ti89ed",
-    name: "Muskaanâ€¯Sancheti",
-    title: "Coâ€‘founder ofâ€¯The State Plate",
+    name: "Muskaan Sancheti",
+    title: "Co‑founder of The State Plate",
     twitter: "https://x.com/heyitsmushh",
     linkedin:
       "https://www.linkedin.com/in/muskaan-sancheti/?originalSubdomain=in",
@@ -154,8 +154,8 @@ const speakersMeta = [
   {
     key: "pawan",
     publicId: "pawan_wa1fvb",
-    name: "Pawanâ€¯Kumarâ€¯Rai",
-    title: "Founder â€“ Dittoâ€¯Insurance",
+    name: "Pawan Kumar Rai",
+    title: "Founder – Ditto Insurance",
     twitter: "https://x.com/prai2303?lang=en",
     linkedin:
       "https://www.linkedin.com/in/pawan-kumar-rai-2a437a61/?originalSubdomain=in",
@@ -164,7 +164,7 @@ const speakersMeta = [
   {
     key: "rishabhjain",
     publicId: "Rishabh_Jain_eegoig",
-    name: "Rishabhâ€¯Jain",
+    name: "Rishabh Jain",
     title: "Labour Law Advisor",
     twitter:
       "https://x.com/rishsamjain?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
@@ -174,7 +174,7 @@ const speakersMeta = [
   {
     key: "akshay",
     publicId: "akshay_to716y",
-    name: "Akshayâ€¯Makar",
+    name: "Akshay Makar",
     title: "Educator",
     twitter: "https://x.com/akshaymakar5?lang=en",
     linkedin: "https://www.linkedin.com/in/akshaymakar/?originalSubdomain=in",
@@ -183,8 +183,8 @@ const speakersMeta = [
   {
     key: "ayush",
     publicId: "ayush_x3vvvr",
-    name: "Ayushâ€¯Jaiswal",
-    title: "Founder â€“ Pesto",
+    name: "Ayush Jaiswal",
+    title: "Founder – Pesto",
     twitter: "https://x.com/aayushjaiswal07?lang=en",
     linkedin: "https://www.linkedin.com/in/aayushjaiswal07/",
     instagram: "https://www.instagram.com/aayushjaiswal07/?hl=en",
@@ -192,8 +192,8 @@ const speakersMeta = [
   {
     key: "vatsal",
     publicId: "vatsal_fdemqf",
-    name: "Vatsalâ€¯Kanakiya",
-    title: "Founder â€“ 100X.VC",
+    name: "Vatsal Kanakiya",
+    title: "Founder – 100X.VC",
     twitter: "https://x.com/vazzupk",
     linkedin: "https://www.linkedin.com/in/vazzup/?originalSubdomain=in",
     instagram: "https://www.instagram.com/vatsalkanakiya/",
@@ -201,8 +201,8 @@ const speakersMeta = [
   {
     key: "richa",
     publicId: "richa_lwgdli",
-    name: "Richaâ€¯Shrivastava",
-    title: "Managing Partner â€“ Maker'sÂ Asylum",
+    name: "Richa Shrivastava",
+    title: "Managing Partner – Maker's Asylum",
     twitter: "",
     linkedin: "https://www.linkedin.com/in/shrivastavaricha/",
     instagram: "https://www.instagram.com/richashrivastava/",
@@ -210,8 +210,8 @@ const speakersMeta = [
   {
     key: "sreedhar",
     publicId: "sreedhar_bny5cu",
-    name: "Sridharâ€¯Jeychandran",
-    title: "Coâ€‘founder â€“ Crio.do",
+    name: "Sridhar Jeychandran",
+    title: "Co‑founder – Crio.do",
     twitter: "",
     linkedin:
       "https://www.linkedin.com/in/sridher-jeyachandran/?originalSubdomain=in",
@@ -220,7 +220,7 @@ const speakersMeta = [
   {
     key: "aditya",
     publicId: "aditya_pjd2tx",
-    name: "Adityaâ€¯Ranjan",
+    name: "Aditya Ranjan",
     title: "Journey of an IAS",
     twitter: "",
     linkedin:
@@ -230,7 +230,7 @@ const speakersMeta = [
   {
     key: "nidhi",
     publicId: "nidhi_yh91c9",
-    name: "Nidhiâ€¯Banthia Mehta",
+    name: "Nidhi Banthia Mehta",
     title: "Business coach & influencer",
     twitter: "https://x.com/Bollybeatz",
     linkedin:
