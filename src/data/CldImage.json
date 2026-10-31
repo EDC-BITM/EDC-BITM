@@ -8,6 +8,50 @@
         "height": 1440
       }
     ],
+    "startups": [
+      {
+        "id": "lenskart",
+        "company": "Lenskart",
+        "founder": "Amit Chaudhary",
+        "description": "A technology-led eyewear retail company transforming access to affordable glasses through omni-channel stores and online commerce.",
+        "founderImagePublicId": "Gemini_Generated_Image_37krva37krva37kr_obgoub"
+      },
+      {
+        "id": "cropin",
+        "company": "Cropin",
+        "founder": "Krishna Kumar",
+        "description": "An agricultural intelligence platform helping enterprises build a more sustainable, resilient and transparent food ecosystem.",
+        "founderImagePublicId": "krishna_a5mmmd"
+      },
+      {
+        "id": "myoperator",
+        "company": "MyOperator",
+        "founder": "Ankit Jain & Team",
+        "description": "A cloud telephony platform that helps businesses communicate with customers through reliable, scalable call-management infrastructure.",
+        "founderImagePublicId": "Gemini_Generated_Image_fdywivfdywivfdyw_pj1msf"
+      },
+      {
+        "id": "whitehatjr",
+        "company": "WhiteHat Jr",
+        "founder": "Karan Bajaj",
+        "description": "An ed-tech platform that pioneered live, one-to-one coding education and brought programming skills to young learners worldwide.",
+        "founderImagePublicId": "Gemini_Generated_Image_ocahymocahymocah_qr0rbj"
+      },
+      {
+        "id": "eko",
+        "company": "Eko",
+        "founder": "Abhinav Sinha",
+        "description": "A branchless banking platform providing accessible payment and financial services to underbanked communities across India.",
+        "founderImagePublicId": "Gemini_Generated_Image_4y4fp84y4fp84y4f_nis5kp"
+      },
+      {
+        "id": "indibni",
+        "company": "Indibni",
+        "founder": "Nitin Jain & Team",
+        "description": "An indigenous culture and social enterprise ecosystem celebrating Indian heritage through design-led merchandise, storytelling, and content.",
+        "founderImagePublicId": "Gemini_Generated_Image_3tm4i83tm4i83tm4_hlhefn"
+      }
+    ],
     "stats": [
       {
         "publicId": "Copy_of_untitled-2_i2gmxu",
@@ -101,7 +145,7 @@
         "height": 1350
       }
     ],
-    "flagshipEvents":[
+    "flagshipEvents": [
       {
         "publicId": "innovate_a_thon_300x400_yvcspy",
         "title": "Innovate-A-Thon",
@@ -420,10 +464,8 @@
         "width": 866,
         "height": 650
       }
-      
     ]
   },
-
   "Events": {
     "hero": [
       {
@@ -433,7 +475,6 @@
         "height": 600
       }
     ],
-
     "formalEvents": [
       {
         "key": 1,
@@ -486,7 +527,6 @@
         "date": "10/02/26"
       }
     ],
-
     "semiFormalEvents": [
       {
         "key": 1,
