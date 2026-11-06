@@ -26,6 +26,7 @@ import { Link } from "react-scroll";
 import { useState } from "react";
 import header_bg from "../Eventspage/header_bg.png";
 import { motion } from "framer-motion";
+import HoverTextTranslateEffect from "@/components/Animations/HoverTextTranslate";
 
 function Eventspage() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -92,16 +93,12 @@ function Eventspage() {
 
             {/* Overlay Text on Image */}
             <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center px-4">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-              >
-                Celebrating Moments
-                <br />
-                That Sparked Change
-              </motion.h1>
+              <div className="w-full flex items-center justify-center text-6xl font-black px-4 sm:px-[50px] pt-[20px] mb-6">
+                <HoverTextTranslateEffect
+                  firstLine="Celebrating Moments"
+                  secondLine="That Sparked Change"
+                />
+              </div>
 
               <motion.p
                 initial={{ opacity: 0 }}
