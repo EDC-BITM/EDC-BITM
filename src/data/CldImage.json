@@ -101,7 +101,7 @@
         "height": 1350
       }
     ],
-    "flagshipEvents":[
+    "flagshipEvents": [
       {
         "publicId": "innovate_a_thon_300x400_yvcspy",
         "title": "Innovate-A-Thon",
@@ -420,10 +420,8 @@
         "width": 866,
         "height": 650
       }
-      
     ]
   },
-
   "Events": {
     "hero": [
       {
@@ -433,7 +431,6 @@
         "height": 600
       }
     ],
-
     "formalEvents": [
       {
         "key": 1,
@@ -443,7 +440,8 @@
         "height": 600,
         "title": "INNOVATION WEBINAR",
         "venue": "GOOGLE MEET",
-        "date": "15/05/25"
+        "date": "15/05/25",
+        "description": "A workshop by ThinkStartup, Samsung India & FITT-IIT Delhi under Samsung Solve for Tomorrow 2025, empowering innovators to solve real-world problems with prizes up to ₹1 Crore."
       },
       {
         "key": 2,
@@ -453,7 +451,8 @@
         "height": 600,
         "title": "BUSINESS PLAN",
         "venue": "SEMINAR HALL 1",
-        "date": "10/02/26"
+        "date": "10/02/26",
+        "description": "Where raw ideas turn into real businesses. Teams build from scratch, craft high-impact pitch decks, and pitch live to a jury to prove their startup's potential."
       },
       {
         "key": 3,
@@ -463,7 +462,8 @@
         "height": 600,
         "title": "BREAK THE PATTERN",
         "venue": "CAT HALL, BIT MESRA",
-        "date": "14/03/26"
+        "date": "14/03/26",
+        "description": "Built for voices that challenge norms. Organised with GDG Ranchi, Women Techmakers & Technovation to turn ambition into action and leadership into momentum."
       },
       {
         "key": 4,
@@ -473,7 +473,8 @@
         "height": 600,
         "title": "NATIONAL STARTUP DAY",
         "venue": "SEMINAR HALL 1",
-        "date": "16/01/26"
+        "date": "16/01/26",
+        "description": "Driving Eastern India's startup revolution, from policy to pitch decks and capital to campuses, uniting founders, mentors, and ecosystem builders."
       },
       {
         "key": 5,
@@ -483,10 +484,10 @@
         "height": 600,
         "title": "INVESTORS SUMMIT",
         "venue": "SHORBAGH 1",
-        "date": "10/02/26"
+        "date": "10/02/26",
+        "description": "Bridging the gap between garage prototypes and venture-backed realities. Pitch for real equity, face rapid-fire VC due diligence, and secure on-spot LOIs and seed funding."
       }
     ],
-
     "semiFormalEvents": [
       {
         "key": 1,
@@ -496,7 +497,8 @@
         "height": 600,
         "title": "ISHAN SHARMA",
         "venue": "CAT HALL",
-        "date": "15/02/26"
+        "date": "15/02/26",
+        "description": "Content creator and MarkitUp co-founder sharing actionable strategies on digital growth, personal branding, and tech careers."
       },
       {
         "key": 2,
@@ -506,7 +508,8 @@
         "height": 600,
         "title": "PARITOSH ANAND",
         "venue": "CAT HALL",
-        "date": "13/02/26"
+        "date": "13/02/26",
+        "description": "Founder of We Smile Media and creative storyteller delivering motivating insights on modern content creation and building authentic brands."
       },
       {
         "key": 3,
@@ -516,7 +519,8 @@
         "height": 600,
         "title": "AMIT KUMAR",
         "venue": "CAT HALL",
-        "date": "14/02/26"
+        "date": "14/02/26",
+        "description": "Co-founder & CEO of Easebuzz speaking on the evolution of fintech, scalable digital payments, and founder resilience in India."
       },
       {
         "key": 4,
@@ -526,7 +530,8 @@
         "height": 600,
         "title": "V. VAIDYANATHAN",
         "venue": "CAT HALL",
-        "date": "13/02/26"
+        "date": "13/02/26",
+        "description": "MD & CEO of IDFC FIRST Bank sharing invaluable lessons on principled banking, customer focus, and scaling impactful financial institutions."
       },
       {
         "key": 5,
@@ -536,7 +541,8 @@
         "height": 600,
         "title": "AD-VENTURE",
         "venue": "LH2",
-        "date": "10/02/26"
+        "date": "10/02/26",
+        "description": "The lab of brand alchemy. Smash two powerhouse brands together, design their collaborative visual story, and produce a viral reel to win from ₹15,000."
       },
       {
         "key": 6,
@@ -546,7 +552,8 @@
         "height": 600,
         "title": "PRIYANKA ARORA",
         "venue": "SEMINAR HALL 1",
-        "date": "12/04/26"
+        "date": "12/04/26",
+        "description": "Session with Priyanka Arora (VP Marketing, Axis Max Life) on AI & marketing trends, personal employability branding, and scaling startups with new-age tech."
       },
       {
         "key": 7,
@@ -556,7 +563,8 @@
         "height": 600,
         "title": "JAY MEHTA",
         "venue": "ZOOM MEETING",
-        "date": "26/05/26"
+        "date": "26/05/26",
+        "description": "EDC BIT Mesra presents an exclusive investment & equity insights session with Jay Mehta in collaboration by UPSTOX!"
       }
     ],
     "informalEvents": [
@@ -568,7 +576,8 @@
         "height": 600,
         "title": "MAZE OF MARKETS",
         "venue": "LH-1",
-        "date": "10/02/26"
+        "date": "10/02/26",
+        "description": "A business strategy battlefield where teams run a company under market shocks, managing real capital and tough trade-offs where numbers beat narratives."
       },
       {
         "key": 2,
@@ -578,7 +587,8 @@
         "height": 600,
         "title": "IPL AUCTION",
         "venue": "LH-1",
-        "date": "21/03/26"
+        "date": "21/03/26",
+        "description": "A strategic bidding contest where participants manage team budgets, assess player statistics, and construct champion cricket squads."
       },
       {
         "key": 3,
@@ -588,7 +598,8 @@
         "height": 600,
         "title": "FAULT LINES",
         "venue": "LH2",
-        "date": "10/02/26"
+        "date": "10/02/26",
+        "description": "Tests decisions under pressure. Teams navigate high-stakes corporate dilemmas and trade-offs, defending strategic moves live before a critical jury."
       },
       {
         "key": 4,
@@ -598,7 +609,8 @@
         "height": 600,
         "title": "INTELLIGENT INVESTOR",
         "venue": "ROOM 231",
-        "date": "10/02/26"
+        "date": "10/02/26",
+        "description": "A test of logic, discipline, and conviction. Analyze markets with macro indicators, trade virtual equities and derivatives, and defend your investment calls."
       },
       {
         "key": 5,
@@ -608,7 +620,8 @@
         "height": 600,
         "title": "UI/UX ARENA",
         "venue": "ROOM 233A",
-        "date": "10/02/26"
+        "date": "10/02/26",
+        "description": "Not about pretty screens, but ruthless simplicity. Understand user pain points, design intuitive wireframe flows, and justify every pixel with logic."
       }
     ]
   }

@@ -288,10 +288,15 @@ function Eventspage() {
                     }
                     back={
                       <div className="flex h-full w-full flex-col justify-between p-5 bg-gradient-to-br from-zinc-950 via-purple-950/40 to-zinc-900 text-white border border-purple-500/20 rounded-[16px] text-center">
-                        <div className="flex flex-col items-center justify-center flex-1">
-                          <h2 className="text-xl font-bold leading-snug text-white">
+                        <div className="flex flex-col items-center justify-center flex-1 px-1">
+                          <h2 className="text-lg font-bold leading-snug text-white">
                             {event.title}
                           </h2>
+                          {event.description && (
+                            <p className="text-xs text-zinc-300 leading-relaxed text-center mt-2.5">
+                              {event.description}
+                            </p>
+                          )}
                         </div>
                         <div className="flex flex-col gap-2.5 pt-4 border-t border-white/10 text-sm text-left">
                           <div className="flex items-start justify-between gap-2">
@@ -351,10 +356,15 @@ function Eventspage() {
                     }
                     back={
                       <div className="flex h-full w-full flex-col justify-between p-5 bg-gradient-to-br from-zinc-950 via-sky-950/40 to-zinc-900 text-white border border-sky-500/20 rounded-[16px] text-center">
-                        <div className="flex flex-col items-center justify-center flex-1">
-                          <h2 className="text-xl font-bold leading-snug text-white">
+                        <div className="flex flex-col items-center justify-center flex-1 px-1">
+                          <h2 className="text-lg font-bold leading-snug text-white">
                             {event.title}
                           </h2>
+                          {event.description && (
+                            <p className="text-xs text-zinc-300 leading-relaxed text-center mt-2.5">
+                              {event.description}
+                            </p>
+                          )}
                         </div>
                         <div className="flex flex-col gap-2.5 pt-4 border-t border-white/10 text-sm text-left">
                           <div className="flex items-start justify-between gap-2">
@@ -413,10 +423,15 @@ function Eventspage() {
                     }
                     back={
                       <div className="flex h-full w-full flex-col justify-between p-5 bg-gradient-to-br from-zinc-950 via-amber-950/30 to-zinc-900 text-white border border-amber-500/20 rounded-[16px] text-center">
-                        <div className="flex flex-col items-center justify-center flex-1">
-                          <h2 className="text-xl font-bold leading-snug text-white">
+                        <div className="flex flex-col items-center justify-center flex-1 px-1">
+                          <h2 className="text-lg font-bold leading-snug text-white">
                             {event.title}
                           </h2>
+                          {event.description && (
+                            <p className="text-xs text-zinc-300 leading-relaxed text-center mt-2.5">
+                              {event.description}
+                            </p>
+                          )}
                         </div>
                         <div className="flex flex-col gap-2.5 pt-4 border-t border-white/10 text-sm text-left">
                           <div className="flex items-start justify-between gap-2">
