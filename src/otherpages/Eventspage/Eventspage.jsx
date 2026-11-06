@@ -22,11 +22,13 @@ import card5 from "../Eventspage/card5.png";
 import card6 from "../Eventspage/card6.png";
 import cardimg1 from "../Eventspage/cardimg1.png";
 import { text } from "@fortawesome/fontawesome-svg-core";
-import { Link } from "react-scroll";
+import { Link, scroller } from "react-scroll";
 import { useState } from "react";
 import header_bg from "../Eventspage/header_bg.png";
 import { motion } from "framer-motion";
 import HoverTextTranslateEffect from "@/components/Animations/HoverTextTranslate";
+import FlipCard from "@/components/Home/Eventsection/FlipCard.jsx";
+import TiltCard from "@/components/Animations/TiltCard.jsx";
 
 function Eventspage() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -195,38 +197,48 @@ function Eventspage() {
 
         <div className="flex flex-wrap justify-center gap-6 mt-6">
           {AllEvents.map((event, index) => (
-            <div key={index} className="event-card-container relative">
-              <div className="event-card relative">
-                <img src={event.image} alt="Event" className="event-image" />
-                <h2
-                  className={`font-semibold  text-[25px]  absolute top-6 text-center m-4 w-[265px]  ${event.textcolour}`}
-                >
-                  {event.title}
-                </h2>
-                <h3
-                  className={`text-center text-[13px] absolute top-20 w-[300px] ${event.textcolour}`}
-                >
-                  {event.caption}
-                </h3>
-
-                <Link
-                  to={`events-${index + 1}`}
-                  smooth={true}
-                  duration={500}
-                  offset={-70}
-                  onClick={() => setHoveredIndex(index)}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  <button
-                    className={`absolute left-[70px] right-[97px] top-[155px] transition ease-in-out ${
-                      hoveredIndex === index ? "scale-105" : ""
-                    } w-[160px] h-[45px] rounded-full bg-[#ffffff] font-bold`}
+            <div key={index} className="flex justify-center items-center mb-5">
+              <TiltCard
+                width={300}
+                height={375}
+                radius={24}
+                tiltMax={12}
+                hoverScale={1.03}
+              >
+                <div className="relative w-full h-full">
+                  <img
+                    src={event.image}
+                    alt={event.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <h2
+                    className={`font-semibold text-[25px] absolute top-6 text-center left-0 right-0 px-4 ${event.textcolour}`}
                   >
-                    Explore More
-                  </button>
-                </Link>
-              </div>
+                    {event.title}
+                  </h2>
+                  <h3
+                    className={`text-center text-[13px] absolute top-20 left-0 right-0 px-4 ${event.textcolour}`}
+                  >
+                    {event.caption}
+                  </h3>
+                  <div className="absolute left-0 right-0 top-[155px] flex justify-center z-20">
+                    <Link
+                      to={`events-${index + 1}`}
+                      smooth={true}
+                      duration={500}
+                      offset={-70}
+                      className="cursor-pointer"
+                    >
+                      <button
+                        type="button"
+                        className="w-[160px] h-[45px] rounded-full bg-white font-bold text-black text-sm shadow-md transition-transform duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+                      >
+                        Explore More
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </TiltCard>
             </div>
           ))}
         </div>
@@ -257,21 +269,54 @@ function Eventspage() {
 
             <div className="flex flex-wrap justify-center gap-6 mt-6">
               {eventsImage.map((event, index) => (
-                <div key={index} className="event-card-container">
-                  <div className="event-card">
-                    <img
-                      src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419389/${event.publicId}.png`}
-                      alt={event.alt}
-                      className="event-image"
-                    />
-                    <div className="event-details">
-                      <div className="event-header">
-                        <h2>{event.title}</h2>
+                <div key={index} className="flex justify-center items-center mb-5">
+                  <FlipCard
+                    ariaLabel={`${event.title} event details`}
+                    axis="y"
+                    width={260}
+                    height={360}
+                    radius={20}
+                    background="#18181b"
+                    color="#ffffff"
+                    front={
+                      <img
+                        src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419389/${event.publicId}.png`}
+                        alt={event.alt || event.title}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                    }
+                    back={
+                      <div className="flex h-full w-full flex-col justify-between p-6 bg-gradient-to-br from-zinc-950 via-purple-950/40 to-zinc-900 text-white border border-purple-500/20 rounded-[20px] text-center">
+                        <div className="flex flex-col items-center gap-2">
+                          <span className="text-[11px] uppercase tracking-widest text-purple-300 font-semibold px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full">
+                            Formal Event
+                          </span>
+                          <h2 className="text-xl font-bold leading-snug mt-3 text-white">
+                            {event.title}
+                          </h2>
+                        </div>
+                        <div className="flex flex-col gap-2.5 pt-4 border-t border-white/10 text-sm text-left">
+                          <div className="flex items-start justify-between gap-2">
+                            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                              Venue
+                            </span>
+                            <span className="font-medium text-white text-right text-xs sm:text-sm">
+                              {event.venue}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                              Date
+                            </span>
+                            <span className="font-bold text-[#FED853] text-xs sm:text-sm">
+                              {event.date}
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                      <p>VENUE: {event.venue}</p>
-                      <h4>DATE: {event.date}</h4>
-                    </div>
-                  </div>
+                    }
+                  />
                 </div>
               ))}
             </div>
@@ -290,21 +335,54 @@ function Eventspage() {
             </h1>
             <div className="flex flex-wrap justify-center gap-6 mt-6">
               {eventsImage2.map((event, index) => (
-                <div key={index} className="event-card-container">
-                  <div className="event-card">
-                    <img
-                      src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419204/${event.publicId}.png`}
-                      alt={event.alt}
-                      className="event-image"
-                    />
-                    <div className="event-details">
-                      <div className="event-header">
-                        <h2>{event.title}</h2>
+                <div key={index} className="flex justify-center items-center mb-5">
+                  <FlipCard
+                    ariaLabel={`${event.title} event details`}
+                    axis="y"
+                    width={260}
+                    height={360}
+                    radius={20}
+                    background="#18181b"
+                    color="#ffffff"
+                    front={
+                      <img
+                        src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419204/${event.publicId}.png`}
+                        alt={event.alt || event.title}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                    }
+                    back={
+                      <div className="flex h-full w-full flex-col justify-between p-6 bg-gradient-to-br from-zinc-950 via-sky-950/40 to-zinc-900 text-white border border-sky-500/20 rounded-[20px] text-center">
+                        <div className="flex flex-col items-center gap-2">
+                          <span className="text-[11px] uppercase tracking-widest text-sky-300 font-semibold px-3 py-1 bg-sky-500/20 border border-sky-500/30 rounded-full">
+                            Semi-Formal Event
+                          </span>
+                          <h2 className="text-xl font-bold leading-snug mt-3 text-white">
+                            {event.title}
+                          </h2>
+                        </div>
+                        <div className="flex flex-col gap-2.5 pt-4 border-t border-white/10 text-sm text-left">
+                          <div className="flex items-start justify-between gap-2">
+                            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                              Venue
+                            </span>
+                            <span className="font-medium text-white text-right text-xs sm:text-sm">
+                              {event.venue}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                              Date
+                            </span>
+                            <span className="font-bold text-[#FED853] text-xs sm:text-sm">
+                              {event.date}
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                      <p>VENUE: {event.venue}</p>
-                      <h4>DATE: {event.date}</h4>
-                    </div>
-                  </div>
+                    }
+                  />
                 </div>
               ))}
             </div>
@@ -322,21 +400,54 @@ function Eventspage() {
             <h1 className="font-bold text-[32px] uppercase">Informal Events</h1>
             <div className="flex flex-wrap justify-center gap-6 mt-6">
               {eventsImage3.map((event, index) => (
-                <div key={index} className="event-card-container">
-                  <div className="event-card">
-                    <img
-                      src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419631/${event.publicId}.png`}
-                      alt={event.alt}
-                      className="event-image"
-                    />
-                    <div className="event-details">
-                      <div className="event-header">
-                        <h2>{event.title}</h2>
+                <div key={index} className="flex justify-center items-center mb-5">
+                  <FlipCard
+                    ariaLabel={`${event.title} event details`}
+                    axis="y"
+                    width={260}
+                    height={360}
+                    radius={20}
+                    background="#18181b"
+                    color="#ffffff"
+                    front={
+                      <img
+                        src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419631/${event.publicId}.png`}
+                        alt={event.alt || event.title}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                    }
+                    back={
+                      <div className="flex h-full w-full flex-col justify-between p-6 bg-gradient-to-br from-zinc-950 via-amber-950/30 to-zinc-900 text-white border border-amber-500/20 rounded-[20px] text-center">
+                        <div className="flex flex-col items-center gap-2">
+                          <span className="text-[11px] uppercase tracking-widest text-amber-300 font-semibold px-3 py-1 bg-amber-500/20 border border-amber-500/30 rounded-full">
+                            Informal Event
+                          </span>
+                          <h2 className="text-xl font-bold leading-snug mt-3 text-white">
+                            {event.title}
+                          </h2>
+                        </div>
+                        <div className="flex flex-col gap-2.5 pt-4 border-t border-white/10 text-sm text-left">
+                          <div className="flex items-start justify-between gap-2">
+                            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                              Venue
+                            </span>
+                            <span className="font-medium text-white text-right text-xs sm:text-sm">
+                              {event.venue}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                              Date
+                            </span>
+                            <span className="font-bold text-[#FED853] text-xs sm:text-sm">
+                              {event.date}
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                      <p>VENUE: {event.venue}</p>
-                      <h4>DATE: {event.date}</h4>
-                    </div>
-                  </div>
+                    }
+                  />
                 </div>
               ))}
             </div>
