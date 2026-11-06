@@ -273,26 +273,23 @@ function Eventspage() {
                   <FlipCard
                     ariaLabel={`${event.title} event details`}
                     axis="y"
-                    width={260}
-                    height={360}
-                    radius={20}
+                    width={270}
+                    height={340}
+                    radius={16}
                     background="#18181b"
                     color="#ffffff"
                     front={
                       <img
                         src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419389/${event.publicId}.png`}
                         alt={event.alt || event.title}
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-fill"
                         loading="lazy"
                       />
                     }
                     back={
-                      <div className="flex h-full w-full flex-col justify-between p-6 bg-gradient-to-br from-zinc-950 via-purple-950/40 to-zinc-900 text-white border border-purple-500/20 rounded-[20px] text-center">
-                        <div className="flex flex-col items-center gap-2">
-                          <span className="text-[11px] uppercase tracking-widest text-purple-300 font-semibold px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full">
-                            Formal Event
-                          </span>
-                          <h2 className="text-xl font-bold leading-snug mt-3 text-white">
+                      <div className="flex h-full w-full flex-col justify-between p-5 bg-gradient-to-br from-zinc-950 via-purple-950/40 to-zinc-900 text-white border border-purple-500/20 rounded-[16px] text-center">
+                        <div className="flex flex-col items-center justify-center flex-1">
+                          <h2 className="text-xl font-bold leading-snug text-white">
                             {event.title}
                           </h2>
                         </div>
@@ -339,26 +336,23 @@ function Eventspage() {
                   <FlipCard
                     ariaLabel={`${event.title} event details`}
                     axis="y"
-                    width={260}
-                    height={360}
-                    radius={20}
+                    width={270}
+                    height={340}
+                    radius={16}
                     background="#18181b"
                     color="#ffffff"
                     front={
                       <img
                         src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419204/${event.publicId}.png`}
                         alt={event.alt || event.title}
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-fill"
                         loading="lazy"
                       />
                     }
                     back={
-                      <div className="flex h-full w-full flex-col justify-between p-6 bg-gradient-to-br from-zinc-950 via-sky-950/40 to-zinc-900 text-white border border-sky-500/20 rounded-[20px] text-center">
-                        <div className="flex flex-col items-center gap-2">
-                          <span className="text-[11px] uppercase tracking-widest text-sky-300 font-semibold px-3 py-1 bg-sky-500/20 border border-sky-500/30 rounded-full">
-                            Semi-Formal Event
-                          </span>
-                          <h2 className="text-xl font-bold leading-snug mt-3 text-white">
+                      <div className="flex h-full w-full flex-col justify-between p-5 bg-gradient-to-br from-zinc-950 via-sky-950/40 to-zinc-900 text-white border border-sky-500/20 rounded-[16px] text-center">
+                        <div className="flex flex-col items-center justify-center flex-1">
+                          <h2 className="text-xl font-bold leading-snug text-white">
                             {event.title}
                           </h2>
                         </div>
@@ -404,26 +398,23 @@ function Eventspage() {
                   <FlipCard
                     ariaLabel={`${event.title} event details`}
                     axis="y"
-                    width={260}
-                    height={360}
-                    radius={20}
+                    width={270}
+                    height={340}
+                    radius={16}
                     background="#18181b"
                     color="#ffffff"
                     front={
                       <img
                         src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419631/${event.publicId}.png`}
                         alt={event.alt || event.title}
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-fill"
                         loading="lazy"
                       />
                     }
                     back={
-                      <div className="flex h-full w-full flex-col justify-between p-6 bg-gradient-to-br from-zinc-950 via-amber-950/30 to-zinc-900 text-white border border-amber-500/20 rounded-[20px] text-center">
-                        <div className="flex flex-col items-center gap-2">
-                          <span className="text-[11px] uppercase tracking-widest text-amber-300 font-semibold px-3 py-1 bg-amber-500/20 border border-amber-500/30 rounded-full">
-                            Informal Event
-                          </span>
-                          <h2 className="text-xl font-bold leading-snug mt-3 text-white">
+                      <div className="flex h-full w-full flex-col justify-between p-5 bg-gradient-to-br from-zinc-950 via-amber-950/30 to-zinc-900 text-white border border-amber-500/20 rounded-[16px] text-center">
+                        <div className="flex flex-col items-center justify-center flex-1">
+                          <h2 className="text-xl font-bold leading-snug text-white">
                             {event.title}
                           </h2>
                         </div>
