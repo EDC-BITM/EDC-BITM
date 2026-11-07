@@ -189,15 +189,44 @@ function Eventspage() {
         <img src={blob} className="blob2" />
         <img src={blobR} className="blob3" />
 
-        <div className="m-4 font-semibold text-gray-700 p-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="m-4 font-semibold text-gray-700 p-8"
+        >
           <p className="sm:text-[35px] text-[20px]  text-center font-poppins mt-10">
             Broad Spectrum of Events we offer!
           </p>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-6 mt-6">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+            },
+          }}
+          className="flex flex-wrap justify-center gap-8 md:gap-10 mt-8 mb-6"
+        >
           {AllEvents.map((event, index) => (
-            <div key={index} className="flex justify-center items-center mb-5">
+            <motion.div
+              key={index}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.5, ease: "easeOut" },
+                },
+              }}
+              className="flex justify-center items-center"
+            >
               <TiltCard
                 width={300}
                 height={375}
@@ -239,11 +268,17 @@ function Eventspage() {
                   </div>
                 </div>
               </TiltCard>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="bg-white/30 w-screen overflow-hidden backdrop-blur-md">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="bg-white/30 w-screen overflow-hidden backdrop-blur-md"
+        >
           <div className="flex lg:flex-row bg-white/30  text-center justify-center backdrop-blur-md items-center">
             <img src={leaf1} alt="" className="sm:h-56 h-28 mt-10" />
             <p className="sm:text-[25px] text-[15px] mt-6">
@@ -254,22 +289,55 @@ function Eventspage() {
             </p>
             <img src={leaf2} alt="" className="md:h-56 h-28" />
           </div>
-        </div>
+        </motion.div>
         {/* </div> */}
       </div>
 
       <div id="events-1">
         <div className="md:m-20 m-4 mt-20">
-          <div
-            className="flex flex-col justify-center items-center lg:m-4 p-4 md:p-2 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
-            data-aos="fade-up"
-            data-aos-mirror="true"
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="flex flex-col justify-center items-center lg:m-4 p-6 md:p-8 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
           >
-            <h1 className="font-bold text-[32px] uppercase  ">Formal Events</h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              className="font-bold text-[32px] uppercase"
+            >
+              Formal Events
+            </motion.h1>
 
-            <div className="flex flex-wrap justify-center gap-6 mt-6">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.08, delayChildren: 0.15 },
+                },
+              }}
+              className="flex flex-wrap justify-center gap-8 md:gap-10 lg:gap-12 mt-8 mb-6"
+            >
               {eventsImage.map((event, index) => (
-                <div key={index} className="flex justify-center items-center mb-5">
+                <motion.div
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    show: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.5, ease: "easeOut" },
+                    },
+                  }}
+                  className="flex justify-center items-center"
+                >
                   <FlipCard
                     ariaLabel={`${event.title} event details`}
                     axis="y"
@@ -319,25 +387,56 @@ function Eventspage() {
                       </div>
                     }
                   />
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
       <div id="events-2">
         <div className="md:m-20 m-4 mt-20">
-          <div
-            className="flex flex-col justify-center items-center lg:m-4 p-4 md:p-2 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
-            data-aos="fade-up"
-            data-aos-mirror="true"
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="flex flex-col justify-center items-center lg:m-4 p-6 md:p-8 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
           >
-            <h1 className="font-bold text-[32px] uppercase">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              className="font-bold text-[32px] uppercase"
+            >
               Semi-Formal Events
-            </h1>
-            <div className="flex flex-wrap justify-center gap-6 mt-6">
+            </motion.h1>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.08, delayChildren: 0.15 },
+                },
+              }}
+              className="flex flex-wrap justify-center gap-8 md:gap-10 lg:gap-12 mt-8 mb-6"
+            >
               {eventsImage2.map((event, index) => (
-                <div key={index} className="flex justify-center items-center mb-5">
+                <motion.div
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    show: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.5, ease: "easeOut" },
+                    },
+                  }}
+                  className="flex justify-center items-center"
+                >
                   <FlipCard
                     ariaLabel={`${event.title} event details`}
                     axis="y"
@@ -387,24 +486,57 @@ function Eventspage() {
                       </div>
                     }
                   />
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
       <div id="events-3">
         <div className="md:m-20 m-4 mt-20">
-          <div
-            className="flex flex-col justify-center items-center lg:m-4 p-4 md:p-2 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
-            data-aos="fade-up"
-            data-aos-mirror="true"
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="flex flex-col justify-center items-center lg:m-4 p-6 md:p-8 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
           >
-            <h1 className="font-bold text-[32px] uppercase">Informal Events</h1>
-            <div className="flex flex-wrap justify-center gap-6 mt-6">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              className="font-bold text-[32px] uppercase"
+            >
+              Informal Events
+            </motion.h1>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.08, delayChildren: 0.15 },
+                },
+              }}
+              className="flex flex-wrap justify-center gap-8 md:gap-10 lg:gap-12 mt-8 mb-6"
+            >
               {eventsImage3.map((event, index) => (
-                <div key={index} className="flex justify-center items-center mb-5">
+                <motion.div
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    show: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.5, ease: "easeOut" },
+                    },
+                  }}
+                  className="flex justify-center items-center"
+                >
                   <FlipCard
                     ariaLabel={`${event.title} event details`}
                     axis="y"
@@ -454,13 +586,20 @@ function Eventspage() {
                       </div>
                     }
                   />
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
-      <Socials />
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <Socials />
+      </motion.div>
     </>
   );
 }
