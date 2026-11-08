@@ -250,7 +250,7 @@ function Eventspage() {
                   >
                     {event.caption}
                   </h3>
-                  <div className="absolute left-0 right-0 top-[155px] flex justify-center z-20">
+                  <div className="absolute left-0 right-0 top-[132px] flex justify-center z-20">
                     <Link
                       to={`events-${index + 1}`}
                       smooth={true}
