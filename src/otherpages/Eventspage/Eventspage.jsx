@@ -82,19 +82,22 @@ function Eventspage() {
     <>
       <div className="h-auto w-full">
         <a>
-          <div className="relative h-screen w-full">
+          <div className="relative h-screen w-full bg-black">
             {/* Background Image */}
-            <CldImage
-              src={heroImage.publicId}
-              alt={heroImage.alt}
-              height={heroImage.height}
-              width={heroImage.width}
-              loading="eager"
-              className="w-full h-full"
-            />
+            <div className="absolute inset-0">
+              <CldImage
+                src={heroImage.publicId}
+                alt={heroImage.alt}
+                height={heroImage.height}
+                width={heroImage.width}
+                loading="eager"
+                className="w-full h-full"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6))]"></div>
+            </div>
 
             {/* Overlay Text on Image */}
-            <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center px-4">
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
               <div className="w-full flex items-center justify-center text-6xl font-black px-4 sm:px-[50px] pt-[20px] mb-6">
                 <HoverTextTranslateEffect
                   firstLine="Celebrating Moments"
@@ -110,25 +113,6 @@ function Eventspage() {
               >
                 Through events that inspire, connect, and lead
               </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute bottom-8"
-              >
-                <motion.div
-                  animate={{ y: [0, 8, 0] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center pt-2"
-                >
-                  <div className="w-1 h-2 bg-white/80 rounded-full" />
-                </motion.div>
-              </motion.div>
             </div>
           </div>
         </a>
