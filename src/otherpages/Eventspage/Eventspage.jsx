@@ -22,10 +22,13 @@ import card5 from "../Eventspage/card5.png";
 import card6 from "../Eventspage/card6.png";
 import cardimg1 from "../Eventspage/cardimg1.png";
 import { text } from "@fortawesome/fontawesome-svg-core";
-import { Link } from "react-scroll";
+import { Link, scroller } from "react-scroll";
 import { useState } from "react";
 import header_bg from "../Eventspage/header_bg.png";
 import { motion } from "framer-motion";
+import HoverTextTranslateEffect from "@/components/Animations/HoverTextTranslate";
+import FlipCard from "@/components/Home/Eventsection/FlipCard.jsx";
+import TiltCard from "@/components/Animations/TiltCard.jsx";
 
 function Eventspage() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -79,29 +82,28 @@ function Eventspage() {
     <>
       <div className="h-auto w-full">
         <a>
-          <div className="relative h-screen w-full">
+          <div className="relative h-screen w-full bg-black">
             {/* Background Image */}
-            <CldImage
-              src={heroImage.publicId}
-              alt={heroImage.alt}
-              height={heroImage.height}
-              width={heroImage.width}
-              loading="eager"
-              className="w-full h-full"
-            />
+            <div className="absolute inset-0">
+              <CldImage
+                src={heroImage.publicId}
+                alt={heroImage.alt}
+                height={heroImage.height}
+                width={heroImage.width}
+                loading="eager"
+                className="w-full h-full"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6))]"></div>
+            </div>
 
             {/* Overlay Text on Image */}
-            <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center px-4">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-              >
-                Celebrating Moments
-                <br />
-                That Sparked Change
-              </motion.h1>
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+              <div className="w-full flex items-center justify-center text-6xl font-black px-4 sm:px-[50px] pt-[20px] mb-6">
+                <HoverTextTranslateEffect
+                  firstLine="Celebrating Moments"
+                  secondLine="That Sparked Change"
+                />
+              </div>
 
               <motion.p
                 initial={{ opacity: 0 }}
@@ -111,25 +113,6 @@ function Eventspage() {
               >
                 Through events that inspire, connect, and lead
               </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute bottom-8"
-              >
-                <motion.div
-                  animate={{ y: [0, 8, 0] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center pt-2"
-                >
-                  <div className="w-1 h-2 bg-white/80 rounded-full" />
-                </motion.div>
-              </motion.div>
             </div>
           </div>
         </a>
@@ -190,51 +173,96 @@ function Eventspage() {
         <img src={blob} className="blob2" />
         <img src={blobR} className="blob3" />
 
-        <div className="m-4 font-semibold text-gray-700 p-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="m-4 font-semibold text-gray-700 p-8"
+        >
           <p className="sm:text-[35px] text-[20px]  text-center font-poppins mt-10">
             Broad Spectrum of Events we offer!
           </p>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-6 mt-6">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+            },
+          }}
+          className="flex flex-wrap justify-center gap-8 md:gap-10 mt-8 mb-6"
+        >
           {AllEvents.map((event, index) => (
-            <div key={index} className="event-card-container relative">
-              <div className="event-card relative">
-                <img src={event.image} alt="Event" className="event-image" />
-                <h2
-                  className={`font-semibold  text-[25px]  absolute top-6 text-center m-4 w-[265px]  ${event.textcolour}`}
-                >
-                  {event.title}
-                </h2>
-                <h3
-                  className={`text-center text-[13px] absolute top-20 w-[300px] ${event.textcolour}`}
-                >
-                  {event.caption}
-                </h3>
-
-                <Link
-                  to={`events-${index + 1}`}
-                  smooth={true}
-                  duration={500}
-                  offset={-70}
-                  onClick={() => setHoveredIndex(index)}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  <button
-                    className={`absolute left-[70px] right-[97px] top-[155px] transition ease-in-out ${
-                      hoveredIndex === index ? "scale-105" : ""
-                    } w-[160px] h-[45px] rounded-full bg-[#ffffff] font-bold`}
+            <motion.div
+              key={index}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.5, ease: "easeOut" },
+                },
+              }}
+              className="flex justify-center items-center"
+            >
+              <TiltCard
+                width={300}
+                height={375}
+                radius={24}
+                tiltMax={12}
+                hoverScale={1.03}
+              >
+                <div className="relative w-full h-full">
+                  <img
+                    src={event.image}
+                    alt={event.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <h2
+                    className={`font-semibold text-[25px] absolute top-6 text-center left-0 right-0 px-4 ${event.textcolour}`}
                   >
-                    Explore More
-                  </button>
-                </Link>
-              </div>
-            </div>
+                    {event.title}
+                  </h2>
+                  <h3
+                    className={`text-center text-[13px] absolute top-20 left-0 right-0 px-4 ${event.textcolour}`}
+                  >
+                    {event.caption}
+                  </h3>
+                  <div className="absolute left-0 right-0 top-[132px] flex justify-center z-20">
+                    <Link
+                      to={`events-${index + 1}`}
+                      smooth={true}
+                      duration={500}
+                      offset={-70}
+                      className="cursor-pointer"
+                    >
+                      <button
+                        type="button"
+                        className="w-[160px] h-[45px] rounded-full bg-white font-bold text-black text-sm shadow-md transition-transform duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+                      >
+                        Explore More
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </TiltCard>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="bg-white/30 w-screen overflow-hidden backdrop-blur-md">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="bg-white/30 w-screen overflow-hidden backdrop-blur-md"
+        >
           <div className="flex lg:flex-row bg-white/30  text-center justify-center backdrop-blur-md items-center">
             <img src={leaf1} alt="" className="sm:h-56 h-28 mt-10" />
             <p className="sm:text-[25px] text-[15px] mt-6">
@@ -245,108 +273,317 @@ function Eventspage() {
             </p>
             <img src={leaf2} alt="" className="md:h-56 h-28" />
           </div>
-        </div>
+        </motion.div>
         {/* </div> */}
       </div>
 
       <div id="events-1">
         <div className="md:m-20 m-4 mt-20">
-          <div
-            className="flex flex-col justify-center items-center lg:m-4 p-4 md:p-2 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
-            data-aos="fade-up"
-            data-aos-mirror="true"
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="flex flex-col justify-center items-center lg:m-4 p-6 md:p-8 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
           >
-            <h1 className="font-bold text-[32px] uppercase  ">Formal Events</h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              className="font-bold text-[32px] uppercase"
+            >
+              Formal Events
+            </motion.h1>
 
-            <div className="flex flex-wrap justify-center gap-6 mt-6">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.08, delayChildren: 0.15 },
+                },
+              }}
+              className="flex flex-wrap justify-center gap-8 md:gap-10 lg:gap-12 mt-8 mb-6"
+            >
               {eventsImage.map((event, index) => (
-                <div key={index} className="event-card-container">
-                  <div className="event-card">
-                    <img
-                      src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419389/${event.publicId}.png`}
-                      alt={event.alt}
-                      className="event-image"
-                    />
-                    <div className="event-details">
-                      <div className="event-header">
-                        <h2>{event.title}</h2>
+                <motion.div
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    show: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.5, ease: "easeOut" },
+                    },
+                  }}
+                  className="flex justify-center items-center"
+                >
+                  <FlipCard
+                    ariaLabel={`${event.title} event details`}
+                    axis="y"
+                    width={270}
+                    height={340}
+                    radius={16}
+                    background="#18181b"
+                    color="#ffffff"
+                    front={
+                      <img
+                        src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419389/${event.publicId}.png`}
+                        alt={event.alt || event.title}
+                        className="h-full w-full object-fill"
+                        loading="lazy"
+                      />
+                    }
+                    back={
+                      <div className="flex h-full w-full flex-col justify-between p-5 bg-gradient-to-br from-zinc-950 via-purple-950/40 to-zinc-900 text-white border border-purple-500/20 rounded-[16px] text-center">
+                        <div className="flex flex-col items-center justify-center flex-1 px-1">
+                          <h2 className="text-lg font-bold leading-snug text-white">
+                            {event.title}
+                          </h2>
+                          {event.description && (
+                            <p className="text-xs text-zinc-300 leading-relaxed text-center mt-2.5">
+                              {event.description}
+                            </p>
+                          )}
+                        </div>
+                        <div className="flex flex-col gap-2.5 pt-4 border-t border-white/10 text-sm text-left">
+                          <div className="flex items-start justify-between gap-2">
+                            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                              Venue
+                            </span>
+                            <span className="font-medium text-white text-right text-xs sm:text-sm">
+                              {event.venue}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                              Date
+                            </span>
+                            <span className="font-bold text-[#FED853] text-xs sm:text-sm">
+                              {event.date}
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                      <p>VENUE: {event.venue}</p>
-                      <h4>DATE: {event.date}</h4>
-                    </div>
-                  </div>
-                </div>
+                    }
+                  />
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
       <div id="events-2">
         <div className="md:m-20 m-4 mt-20">
-          <div
-            className="flex flex-col justify-center items-center lg:m-4 p-4 md:p-2 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
-            data-aos="fade-up"
-            data-aos-mirror="true"
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="flex flex-col justify-center items-center lg:m-4 p-6 md:p-8 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
           >
-            <h1 className="font-bold text-[32px] uppercase">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              className="font-bold text-[32px] uppercase"
+            >
               Semi-Formal Events
-            </h1>
-            <div className="flex flex-wrap justify-center gap-6 mt-6">
+            </motion.h1>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.08, delayChildren: 0.15 },
+                },
+              }}
+              className="flex flex-wrap justify-center gap-8 md:gap-10 lg:gap-12 mt-8 mb-6"
+            >
               {eventsImage2.map((event, index) => (
-                <div key={index} className="event-card-container">
-                  <div className="event-card">
-                    <img
-                      src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419204/${event.publicId}.png`}
-                      alt={event.alt}
-                      className="event-image"
-                    />
-                    <div className="event-details">
-                      <div className="event-header">
-                        <h2>{event.title}</h2>
+                <motion.div
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    show: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.5, ease: "easeOut" },
+                    },
+                  }}
+                  className="flex justify-center items-center"
+                >
+                  <FlipCard
+                    ariaLabel={`${event.title} event details`}
+                    axis="y"
+                    width={270}
+                    height={340}
+                    radius={16}
+                    background="#18181b"
+                    color="#ffffff"
+                    front={
+                      <img
+                        src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419204/${event.publicId}.png`}
+                        alt={event.alt || event.title}
+                        className="h-full w-full object-fill"
+                        loading="lazy"
+                      />
+                    }
+                    back={
+                      <div className="flex h-full w-full flex-col justify-between p-5 bg-gradient-to-br from-zinc-950 via-sky-950/40 to-zinc-900 text-white border border-sky-500/20 rounded-[16px] text-center">
+                        <div className="flex flex-col items-center justify-center flex-1 px-1">
+                          <h2 className="text-lg font-bold leading-snug text-white">
+                            {event.title}
+                          </h2>
+                          {event.description && (
+                            <p className="text-xs text-zinc-300 leading-relaxed text-center mt-2.5">
+                              {event.description}
+                            </p>
+                          )}
+                        </div>
+                        <div className="flex flex-col gap-2.5 pt-4 border-t border-white/10 text-sm text-left">
+                          <div className="flex items-start justify-between gap-2">
+                            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                              Venue
+                            </span>
+                            <span className="font-medium text-white text-right text-xs sm:text-sm">
+                              {event.venue}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                              Date
+                            </span>
+                            <span className="font-bold text-[#FED853] text-xs sm:text-sm">
+                              {event.date}
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                      <p>VENUE: {event.venue}</p>
-                      <h4>DATE: {event.date}</h4>
-                    </div>
-                  </div>
-                </div>
+                    }
+                  />
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
       <div id="events-3">
         <div className="md:m-20 m-4 mt-20">
-          <div
-            className="flex flex-col justify-center items-center lg:m-4 p-4 md:p-2 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
-            data-aos="fade-up"
-            data-aos-mirror="true"
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="flex flex-col justify-center items-center lg:m-4 p-6 md:p-8 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
           >
-            <h1 className="font-bold text-[32px] uppercase">Informal Events</h1>
-            <div className="flex flex-wrap justify-center gap-6 mt-6">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              className="font-bold text-[32px] uppercase"
+            >
+              Informal Events
+            </motion.h1>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.08, delayChildren: 0.15 },
+                },
+              }}
+              className="flex flex-wrap justify-center gap-8 md:gap-10 lg:gap-12 mt-8 mb-6"
+            >
               {eventsImage3.map((event, index) => (
-                <div key={index} className="event-card-container">
-                  <div className="event-card">
-                    <img
-                      src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419631/${event.publicId}.png`}
-                      alt={event.alt}
-                      className="event-image"
-                    />
-                    <div className="event-details">
-                      <div className="event-header">
-                        <h2>{event.title}</h2>
+                <motion.div
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    show: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.5, ease: "easeOut" },
+                    },
+                  }}
+                  className="flex justify-center items-center"
+                >
+                  <FlipCard
+                    ariaLabel={`${event.title} event details`}
+                    axis="y"
+                    width={270}
+                    height={340}
+                    radius={16}
+                    background="#18181b"
+                    color="#ffffff"
+                    front={
+                      <img
+                        src={`https://res.cloudinary.com/dmjoxb8pe/image/upload/v1752419631/${event.publicId}.png`}
+                        alt={event.alt || event.title}
+                        className="h-full w-full object-fill"
+                        loading="lazy"
+                      />
+                    }
+                    back={
+                      <div className="flex h-full w-full flex-col justify-between p-5 bg-gradient-to-br from-zinc-950 via-amber-950/30 to-zinc-900 text-white border border-amber-500/20 rounded-[16px] text-center">
+                        <div className="flex flex-col items-center justify-center flex-1 px-1">
+                          <h2 className="text-lg font-bold leading-snug text-white">
+                            {event.title}
+                          </h2>
+                          {event.description && (
+                            <p className="text-xs text-zinc-300 leading-relaxed text-center mt-2.5">
+                              {event.description}
+                            </p>
+                          )}
+                        </div>
+                        <div className="flex flex-col gap-2.5 pt-4 border-t border-white/10 text-sm text-left">
+                          <div className="flex items-start justify-between gap-2">
+                            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                              Venue
+                            </span>
+                            <span className="font-medium text-white text-right text-xs sm:text-sm">
+                              {event.venue}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                              Date
+                            </span>
+                            <span className="font-bold text-[#FED853] text-xs sm:text-sm">
+                              {event.date}
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                      <p>VENUE: {event.venue}</p>
-                      <h4>DATE: {event.date}</h4>
-                    </div>
-                  </div>
-                </div>
+                    }
+                  />
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
-      <Socials />
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <Socials />
+      </motion.div>
     </>
   );
 }
