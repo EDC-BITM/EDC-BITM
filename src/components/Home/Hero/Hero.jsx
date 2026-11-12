@@ -7,6 +7,7 @@ import HoverTextTranslateEffect from "@/components/Animations/HoverTextTranslate
 import IATLogo from "../../../otherpages/IAT/assets/horizontalLogo.svg";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 const IATLink = () => {
   return (
@@ -167,33 +168,46 @@ function Hero() {
           </div>
         </div> */}
 
-        {/* Submission Button */}
-        <div className="mt-32 md:mt-40 relative">
-          <motion.div
-            className="relative"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 260,
-              damping: 20,
-              delay: 0.3,
-            }}
+        <div className="relative mt-20 flex flex-col items-center gap-5 sm:mt-24 sm:flex-row">
+          <NavLink
+            to="/recruitment"
+            className="group inline-flex min-h-14 items-center gap-3 rounded-full border border-[#FED853]/60 bg-black/35 px-7 text-sm font-bold text-[#FED853] backdrop-blur-md transition hover:border-[#FED853] hover:bg-[#FED853] hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FED853]"
           >
-            {/* Notification Dot - Pulse effect for 'New' */}
-            <motion.div
-              className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-orange-500 rounded-full z-30"
-              initial={{ scale: 0 }}
-              animate={{ scale: [1, 1.3, 1] }}
-              transition={{
-                delay: 1,
-                repeat: Infinity,
-                repeatType: "reverse",
-                duration: 1.5,
-              }}
+            Join the EDC team
+            <ArrowUpRight
+              size={18}
+              aria-hidden="true"
+              className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             />
-            <SubmissionButton />
-          </motion.div>
+          </NavLink>
+
+          {/* Submission Button */}
+          <div className="relative">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: 0.3,
+              }}
+            >
+              {/* Notification Dot - Pulse effect for 'New' */}
+              <motion.div
+                className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-orange-500 rounded-full z-30"
+                initial={{ scale: 0 }}
+                animate={{ scale: [1, 1.3, 1] }}
+                transition={{
+                  delay: 1,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  duration: 1.5,
+                }}
+              />
+              <SubmissionButton />
+            </motion.div>
+          </div>
         </div>
 
         {/* // IAT Redirect */}

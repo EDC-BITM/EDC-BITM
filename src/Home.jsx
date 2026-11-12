@@ -8,6 +8,7 @@ import Socials from "./components/Home/socials/socials.jsx";
 import Stats from "./components/Home/Stats/Stats.jsx";
 import Hero from "./components/Home/Hero/Hero.jsx";
 import About_us from "./components/Home/AboutUs/AboutUs.jsx";
+import Startup from "./components/Home/Startup/Startup.jsx";
 
 function Home() {
   return (
@@ -17,12 +18,14 @@ function Home() {
 
       <Stats />
       <Slidermain />
+      <Startup />
       <Eventsection />
       <Speakers />
+      <Testimonial />
       <Sponser />
       <Wave />
       <Socials />
-      <Testimonial />
+      
     </div>
   );
 }
