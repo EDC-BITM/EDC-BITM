@@ -21,11 +21,11 @@ function Home() {
       <Startup />
       <Eventsection />
       <Speakers />
-      
+      <Testimonial />
       <Sponser />
       <Wave />
       <Socials />
-      <Testimonial />
+      
     </div>
   );
 }

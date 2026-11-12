@@ -15,7 +15,8 @@ import Eventspage from "./otherpages/Eventspage/Eventspage.jsx";
 import Teamspage from "./otherpages/Teamspage/team.jsx";
 import Startups from "./otherpages/Startupspage/Startups.jsx";
 import IATPage from "./otherpages/IAT/IATPage.jsx";
-import RecruitmentPage from "./otherpages/Recruitment/RecruitmentPage.jsx";
+import RecruitmentPage from "./otherpages/Recruitment/frontend/RecruitmentPage.jsx";
+import RecruitmentSuccess from "./otherpages/Recruitment/frontend/RecruitmentSuccess.jsx";
 import AuthPage from "./otherpages/admin/auth/authPage.jsx";
 import Dashboard from "./otherpages/admin/dashboard/index.jsx";
 import EditorPage from "./otherpages/admin/EditorPage.jsx";
@@ -108,6 +109,10 @@ const router = createBrowserRouter([
   {
     path: "/recruitment",
     element: <RecruitmentPage />,
+  },
+  {
+    path: "/recruitment/success",
+    element: <RecruitmentSuccess />,
   },
   {
     path: "/announcement",
