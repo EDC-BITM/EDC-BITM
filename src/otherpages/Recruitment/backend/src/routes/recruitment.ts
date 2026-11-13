@@ -46,8 +46,8 @@ const recruitmentSchema = z.object({
     .string({ required_error: "WhatsApp number is required" })
     .transform(cleanPhoneNumber)
     .refine(
-      (val) => /^[6-9]\d{9}$/.test(val),
-      "Must be a valid 10-digit Indian phone number"
+      (val) => /^\d{10}$/.test(val),
+      "WhatsApp number must be a valid 10-digit phone number"
     ),
   callingNumber: z
     .string()
@@ -58,9 +58,9 @@ const recruitmentSchema = z.object({
       (val) => {
         if (!val) return true;
         const cleaned = cleanPhoneNumber(val);
-        return /^[6-9]\d{9}$/.test(cleaned);
+        return /^\d{10}$/.test(cleaned);
       },
-      "Calling number must be a valid 10-digit Indian phone number if provided"
+      "Calling number must be a valid 10-digit phone number if provided"
     )
     .transform((val) => (val ? cleanPhoneNumber(val) : null)),
   whyJoin: z.string().optional().nullable().transform(sanitizeOptionalString),
@@ -104,9 +104,11 @@ export const recruitmentRoutes: FastifyPluginAsync = async (fastify) => {
 
     if (!parseResult.success) {
       const fieldErrors = parseResult.error.flatten().fieldErrors;
+      const firstErrorMessage =
+        Object.values(fieldErrors).flat()[0] || "Validation failed";
       return reply.status(400).send({
         success: false,
-        message: "Validation failed",
+        message: firstErrorMessage,
         errors: fieldErrors,
       });
     }

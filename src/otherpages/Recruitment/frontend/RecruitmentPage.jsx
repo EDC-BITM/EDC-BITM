@@ -157,9 +157,16 @@ export default function RecruitmentPage() {
       const result = await response.json().catch(() => null);
 
       if (!response.ok) {
-        throw new Error(
-          result?.message || "Failed to submit application. Please try again."
-        );
+        let msg = result?.message || "Failed to submit application. Please try again.";
+        if (result?.errors && typeof result.errors === "object") {
+          const details = Object.entries(result.errors)
+            .map(([field, errs]) => `${field}: ${Array.isArray(errs) ? errs.join(", ") : errs}`)
+            .join(" | ");
+          if (details && (!result?.message || result.message === "Validation failed")) {
+            msg = `Validation failed: ${details}`;
+          }
+        }
+        throw new Error(msg);
       }
 
       // Submission successful
