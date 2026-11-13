@@ -44,10 +44,10 @@ const recruitmentSchema = z.object({
     .max(50, "Roll number is too long"),
   whatsappNumber: z
     .string({ required_error: "WhatsApp number is required" })
-    .transform(cleanPhoneNumber)
+    .trim()
     .refine(
-      (val) => /^\d{10}$/.test(val),
-      "WhatsApp number must be a valid 10-digit phone number"
+      (val) => /^[0-9]{10}$/.test(val),
+      "WhatsApp number must contain exactly 10 digits with no letters or special characters"
     ),
   callingNumber: z
     .string()
@@ -57,20 +57,30 @@ const recruitmentSchema = z.object({
     .refine(
       (val) => {
         if (!val) return true;
-        const cleaned = cleanPhoneNumber(val);
-        return /^\d{10}$/.test(cleaned);
+        return /^[0-9]{10}$/.test(val);
       },
-      "Calling number must be a valid 10-digit phone number if provided"
-    )
-    .transform((val) => (val ? cleanPhoneNumber(val) : null)),
-  whyJoin: z.string().optional().nullable().transform(sanitizeOptionalString),
-  experience: z.string().optional().nullable().transform(sanitizeOptionalString),
+      "Calling number must contain exactly 10 digits with no letters or special characters if provided"
+    ),
+  whyJoin: z
+    .string({ required_error: "Why join EDC question is required" })
+    .trim()
+    .min(10, "Please provide a response for why you want to join EDC (at least 10 characters)")
+    .max(3000, "Response is too long"),
+  experience: z
+    .string({ required_error: "Past experience / PORs question is required" })
+    .trim()
+    .min(5, "Please describe your past experiences or PORs (at least 5 characters)")
+    .max(3000, "Response is too long"),
   otherSocieties: z
     .string()
     .optional()
     .nullable()
     .transform(sanitizeOptionalString),
-  commitment: z.string().optional().nullable().transform(sanitizeOptionalString),
+  commitment: z
+    .string({ required_error: "Commitment question is required" })
+    .trim()
+    .min(10, "Please describe how you will manage your commitments (at least 10 characters)")
+    .max(3000, "Response is too long"),
   subTeams: z
     .array(z.string().trim().min(1), {
       required_error: "At least one sub-team must be selected",
@@ -92,7 +102,11 @@ const recruitmentSchema = z.object({
     .optional()
     .nullable()
     .transform(sanitizeOptionalString),
-  campusIdeas: z.string().optional().nullable().transform(sanitizeOptionalString),
+  campusIdeas: z
+    .string({ required_error: "Campus inefficiencies and solutions question is required" })
+    .trim()
+    .min(10, "Please provide your campus ideas and observations (at least 10 characters)")
+    .max(3000, "Response is too long"),
   // Honeypot field for bot spam detection
   _hp: z.string().optional().nullable(),
 });

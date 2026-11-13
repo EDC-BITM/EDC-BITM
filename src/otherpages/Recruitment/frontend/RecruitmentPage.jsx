@@ -352,8 +352,15 @@ export default function RecruitmentPage() {
                   name="whatsappNumber"
                   type="tel"
                   autoComplete="tel"
-                  placeholder="Enter your 10-digit WhatsApp number"
+                  inputMode="numeric"
+                  pattern="[0-9]{10}"
+                  maxLength={10}
+                  title="WhatsApp number must be exactly 10 digits with no letters, spaces, or special characters"
+                  placeholder="10-digit WhatsApp number (numbers only)"
                   defaultValue={draft.whatsappNumber || ""}
+                  onInput={(e) => {
+                    e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, "").slice(0, 10);
+                  }}
                   required
                 />
                 <Field
@@ -361,23 +368,32 @@ export default function RecruitmentPage() {
                   name="callingNumber"
                   type="tel"
                   autoComplete="tel"
-                  placeholder="Enter a different calling number"
+                  inputMode="numeric"
+                  pattern="[0-9]{10}"
+                  maxLength={10}
+                  title="Calling number must be exactly 10 digits with no letters, spaces, or special characters"
+                  placeholder="10-digit calling number if different (numbers only)"
                   defaultValue={draft.callingNumber || ""}
+                  onInput={(e) => {
+                    e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, "").slice(0, 10);
+                  }}
                 />
                 <p className="text-xs leading-5 text-white/50">
-                  Mention both numbers if your WhatsApp and calling numbers are different.
+                  Mention both numbers if your WhatsApp and calling numbers are different. Enter digits only (no spaces, dashes, or +91).
                 </p>
               </div>
             </div>
 
             <label className={labelClassName}>
               6. Why Join EDC, and What Makes It the Perfect Place to Turn
-              Your Ideas into Impact?
+              Your Ideas into Impact? *
               <textarea
                 className={`${inputClassName} min-h-32 resize-y`}
                 name="whyJoin"
-                placeholder="Share what motivates you to join EDC"
+                placeholder="Share what motivates you to join EDC * (Required)"
                 defaultValue={draft.whyJoin || ""}
+                minLength={10}
+                required
               />
             </label>
 
@@ -385,12 +401,14 @@ export default function RecruitmentPage() {
               7. Share your previous experiences, leadership roles, or
               Positions of Responsibility (PORs) held at school, college, or
               any other organisation. Briefly describe your role and key
-              contributions in bullet points.
+              contributions in bullet points. *
               <textarea
                 className={`${inputClassName} min-h-32 resize-y`}
                 name="experience"
-                placeholder={"• Role or position\n• Key contribution"}
+                placeholder={"• Role or position\n• Key contribution * (Required)"}
                 defaultValue={draft.experience || ""}
+                minLength={5}
+                required
               />
             </label>
 
@@ -409,12 +427,14 @@ export default function RecruitmentPage() {
               9. Great ideas demand greater commitment. If selected, how
               would you balance your responsibilities across different
               campus organisations while ensuring meaningful contributions
-              to EDC?
+              to EDC? *
               <textarea
                 className={`${inputClassName} min-h-32 resize-y`}
                 name="commitment"
-                placeholder="Tell us how you would manage your commitments"
+                placeholder="Tell us how you would manage your commitments * (Required)"
                 defaultValue={draft.commitment || ""}
+                minLength={10}
+                required
               />
             </label>
 
@@ -572,12 +592,14 @@ export default function RecruitmentPage() {
               <label className={labelClassName}>
                 14. Having spent two months at BIT Mesra, 
                 what inefficiencies or overlooked problems have you noticed in campus life? 
-                If given the chance, how would you solve them with practical, creative ideas?
+                If given the chance, how would you solve them with practical, creative ideas? *
                 <textarea
                   className={`${inputClassName} min-h-36 resize-y`}
                   name="campusIdeas"
-                  placeholder="Share an observation and how you would address it"
+                  placeholder="Share an observation and how you would address it * (Required)"
                   defaultValue={draft.campusIdeas || ""}
+                  minLength={10}
+                  required
                   onFocus={(event) => {
                     const textarea = event.currentTarget;
                     const viewport = window.visualViewport;

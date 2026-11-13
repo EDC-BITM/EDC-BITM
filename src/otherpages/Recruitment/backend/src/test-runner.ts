@@ -98,17 +98,17 @@ async function runTests() {
         branch: "MCA",
         email: testEmail1,
         rollNumber: nonBtechRoll,
-        whatsappNumber: "+91 9876543210",
-        callingNumber: "09876543210",
-        whyJoin: "Passionate about tech operations and building tools.",
-        experience: "Ex-freelance fullstack dev.",
+        whatsappNumber: "9876543210",
+        callingNumber: "9876543210",
+        whyJoin: "Passionate about tech operations and building tools for EDC.",
+        experience: "Ex-freelance fullstack developer.",
         otherSocieties: "None",
-        commitment: "Can dedicate 15 hours a week.",
+        commitment: "Can dedicate 15 hours a week across all events.",
         subTeams: ["Tech", "Design"],
         discoverySource: "Instagram/LinkedIn Pages",
         portfolioLink: "https://github.com/example",
         resumeLink: "https://drive.google.com/resume",
-        campusIdeas: "Improve digital notice board accessibility.",
+        campusIdeas: "Improve digital notice board accessibility for campus.",
       },
     });
 
@@ -122,31 +122,62 @@ async function runTests() {
     }
   });
 
-  // Test 5: Optional fields can be empty/omitted
-  const testEmail2 = `minimal_${timestamp}@bitmesra.ac.in`;
-  const minimalRoll = `BTECH/88888/${timestamp.toString().slice(-2)}`;
-
-  await test("POST /api/recruitment succeeds with only required fields", async () => {
+  // Test 5: Reject special characters/letters in whatsappNumber
+  await test("POST /api/recruitment rejects special characters/letters in whatsappNumber", async () => {
     const res = await app.inject({
       method: "POST",
       url: "/api/recruitment",
       payload: {
-        fullName: "Minimalist Applicant",
+        fullName: "Special Char Phone",
         branch: "ECE",
-        email: testEmail2,
-        rollNumber: minimalRoll,
-        whatsappNumber: "9123456780",
+        email: `special_${timestamp}@bitmesra.ac.in`,
+        rollNumber: `BTECH/99999/${timestamp.toString().slice(-2)}`,
+        whatsappNumber: "+91-98765-43210", // contains + and -
+        whyJoin: "Passionate about tech operations and building tools for EDC.",
+        experience: "Ex-freelance fullstack developer.",
+        commitment: "Can dedicate 15 hours a week across all events.",
+        campusIdeas: "Improve digital notice board accessibility for campus.",
         subTeams: ["Outreach"],
         discoverySource: "Through Events (Innovate-A-Thon / E-Summit)",
       },
     });
 
-    if (res.statusCode !== 201) {
-      throw new Error(`Expected 201 Created, got ${res.statusCode}: ${res.body}`);
+    if (res.statusCode !== 400) {
+      throw new Error(`Expected 400 Bad Request, got ${res.statusCode}: ${res.body}`);
+    }
+    const json = JSON.parse(res.body);
+    if (!json.errors?.whatsappNumber) {
+      throw new Error(`Expected whatsappNumber error: ${res.body}`);
     }
   });
 
-  // Test 6: Duplicate submission handling (same email / roll number)
+  // Test 6: Subjective questions are required
+  await test("POST /api/recruitment rejects empty subjective questions", async () => {
+    const res = await app.inject({
+      method: "POST",
+      url: "/api/recruitment",
+      payload: {
+        fullName: "Missing Subjective",
+        branch: "ECE",
+        email: `subjective_${timestamp}@bitmesra.ac.in`,
+        rollNumber: `BTECH/77777/${timestamp.toString().slice(-2)}`,
+        whatsappNumber: "9123456780",
+        subTeams: ["Outreach"],
+        discoverySource: "Through Events (Innovate-A-Thon / E-Summit)",
+        // missing whyJoin, experience, commitment, campusIdeas
+      },
+    });
+
+    if (res.statusCode !== 400) {
+      throw new Error(`Expected 400 Bad Request, got ${res.statusCode}: ${res.body}`);
+    }
+    const json = JSON.parse(res.body);
+    if (!json.errors?.whyJoin || !json.errors?.experience || !json.errors?.commitment || !json.errors?.campusIdeas) {
+      throw new Error(`Expected errors for subjective fields: ${res.body}`);
+    }
+  });
+
+  // Test 7: Duplicate submission handling (same email / roll number)
   await test("POST /api/recruitment rejects duplicate roll number with 409", async () => {
     const res = await app.inject({
       method: "POST",
@@ -157,6 +188,10 @@ async function runTests() {
         email: `another_${timestamp}@bitmesra.ac.in`,
         rollNumber: nonBtechRoll, // already submitted in Test 4
         whatsappNumber: "9876543211",
+        whyJoin: "Passionate about tech operations and building tools for EDC.",
+        experience: "Ex-freelance fullstack developer.",
+        commitment: "Can dedicate 15 hours a week across all events.",
+        campusIdeas: "Improve digital notice board accessibility for campus.",
         subTeams: ["Tech"],
         discoverySource: "Seniors",
       },
