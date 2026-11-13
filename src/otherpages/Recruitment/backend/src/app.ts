@@ -58,6 +58,16 @@ export function buildApp() {
   });
 
   // 3. Register Routes
+  app.get("/", async () => {
+    return {
+      status: "ok",
+      name: "EDC BIT Mesra Recruitment Backend",
+      version: "1.0.0",
+      healthCheck: "/health",
+      api: "/api/recruitment",
+    };
+  });
+
   app.register(healthRoutes);
   app.register(recruitmentRoutes);
 
