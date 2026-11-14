@@ -5,7 +5,8 @@ function Collage() {
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 to-black overflow-hidden">
       <CldImage
-        src="teambg_kziltz"
+        src="group"
+        cloudName="bfg0uwix"
         alt="Background"
         width={1920}
         height={1080}
