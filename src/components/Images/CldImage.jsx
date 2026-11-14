@@ -30,16 +30,22 @@ const CldImage = ({
   sizes = [1200, 1100],
   loading = "lazy",
   className = "",
+  cloudName = "dmjoxb8pe",
   ...props
 }) => {
   const cld = new Cloudinary({
     cloud: {
       cloudName: "dmjoxb8pe",
     },
-  });
-
-  const image = cld
-    .image(src)
+  })
+    const myCld = new Cloudinary({
+  cloud: {
+    cloudName: "bfg0uwix",
+  },
+});
+  const selectedCld = cloudName === "bfg0uwix" ? myCld : cld;
+  const image = selectedCld
+  .image(src)
     .resize(fill().width(width).height(height))
     .format("auto");
 

@@ -9,6 +9,11 @@ import { motion } from "framer-motion";
 
 const presidents = [
   {
+    name: "Pranav Raj Srivastav",
+    tenure: "2025-2026",
+    image: "https://res.cloudinary.com/bfg0uwix/image/upload/v1794330686/Pranav.png",
+  },
+  {
     name: "Ujjwal Aman",
     tenure: "2024-2025",
     image: ujjwal.src,
