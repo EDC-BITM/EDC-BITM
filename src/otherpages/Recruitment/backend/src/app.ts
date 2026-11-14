@@ -21,12 +21,27 @@ export function buildApp() {
     "http://localhost:5173",
     "http://localhost:3000",
     "http://localhost:5174",
+    "http://localhost:5175",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5174",
+    "http://127.0.0.1:5175",
   ].filter(Boolean) as string[];
 
   app.register(cors, {
     origin: (origin, cb) => {
       // Allow requests with no origin (like mobile apps, curl, or same-origin)
       if (!origin) {
+        return cb(null, true);
+      }
+
+      // Allow local development origins (localhost or 127.0.0.1 on any port)
+      if (
+        origin.startsWith("http://localhost:") ||
+        origin.startsWith("http://127.0.0.1:") ||
+        origin.startsWith("https://localhost:") ||
+        origin.startsWith("https://127.0.0.1:")
+      ) {
         return cb(null, true);
       }
 

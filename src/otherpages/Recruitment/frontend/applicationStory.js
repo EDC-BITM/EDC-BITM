@@ -1,92 +1,121 @@
-export function createApplicationStory({ name, subTeams }) {
+import storyTemplateSrc from "../../../assets/story-template.png";
+
+let cachedTemplateImg = null;
+
+function loadTemplateImage() {
+  if (
+    cachedTemplateImg &&
+    cachedTemplateImg.complete &&
+    cachedTemplateImg.naturalWidth > 0
+  ) {
+    return Promise.resolve(cachedTemplateImg);
+  }
+
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.src = storyTemplateSrc;
+    img.onload = () => {
+      cachedTemplateImg = img;
+      resolve(img);
+    };
+    img.onerror = () => {
+      resolve(null);
+    };
+  });
+}
+
+// Preload template when in browser
+if (typeof window !== "undefined") {
+  loadTemplateImage();
+}
+
+export async function createApplicationStory({ name, subTeams } = {}) {
   const canvas = document.createElement("canvas");
   canvas.width = 1080;
   canvas.height = 1920;
   const context = canvas.getContext("2d");
   if (!context) throw new Error("Unable to create the application story image.");
 
-  const background = context.createLinearGradient(0, 0, 1080, 1920);
-  background.addColorStop(0, "#17130b");
-  background.addColorStop(0.52, "#090909");
-  background.addColorStop(1, "#17130b");
-  context.fillStyle = background;
-  context.fillRect(0, 0, canvas.width, canvas.height);
+  const bgImg = await loadTemplateImage();
+  if (bgImg) {
+    context.drawImage(bgImg, 0, 0, 1080, 1920);
+  } else {
+    // Fallback gradient if background image fails
+    const background = context.createLinearGradient(0, 0, 1080, 1920);
+    background.addColorStop(0, "#17130b");
+    background.addColorStop(0.52, "#090909");
+    background.addColorStop(1, "#17130b");
+    context.fillStyle = background;
+    context.fillRect(0, 0, canvas.width, canvas.height);
 
-  const glow = context.createRadialGradient(840, 530, 20, 840, 530, 720);
-  glow.addColorStop(0, "rgba(254,216,83,0.2)");
-  glow.addColorStop(1, "rgba(254,216,83,0)");
-  context.fillStyle = glow;
-  context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = "#FED853";
+    context.font = "700 30px Sora, sans-serif";
+    context.fillText("EDC · BIT MESRA", 120, 180);
 
-  context.strokeStyle = "rgba(254,216,83,0.35)";
-  context.lineWidth = 2;
-  context.strokeRect(56, 56, 968, 1808);
-  context.strokeStyle = "rgba(255,255,255,0.1)";
-  context.beginPath();
-  context.moveTo(112, 250);
-  context.lineTo(968, 250);
-  context.stroke();
+    context.fillStyle = "#FFFFFF";
+    context.font = "800 98px Sora, sans-serif";
+    context.fillText("BIG IDEAS", 120, 500);
+    context.fillStyle = "#FED853";
+    context.fillText("START HERE.", 120, 615);
 
-  context.textAlign = "left";
-  context.fillStyle = "#FED853";
-  context.font = "700 30px Sora, sans-serif";
-  context.fillText("EDC  ·  BIT MESRA", 112, 180);
+    context.fillStyle = "rgba(255,255,255,0.62)";
+    context.font = "500 28px Sora, sans-serif";
+    context.fillText("THE NEXT CHAPTER BELONGS TO", 120, 960);
+  }
 
-  context.fillStyle = "rgba(255,255,255,0.62)";
-  context.font = "600 24px Sora, sans-serif";
-  context.fillText("RECRUITMENT", 112, 360);
-
-  context.fillStyle = "#FFFFFF";
-  context.font = "800 98px Sora, sans-serif";
-  context.fillText("BIG IDEAS", 108, 500);
-  context.fillStyle = "#FED853";
-  context.fillText("START HERE.", 108, 615);
-
-  context.fillStyle = "rgba(255,255,255,0.62)";
-  context.font = "500 28px Sora, sans-serif";
-  context.fillText("The next chapter belongs to", 112, 820);
-
-  const displayName = name.trim() || "A future innovator";
-  let nameFontSize = 76;
+  // Draw Candidate Name under "THE NEXT CHAPTER BELONGS TO"
+  const displayName = (name || "").trim() || "A future innovator";
+  let nameFontSize = 74;
   context.font = `700 ${nameFontSize}px Sora, sans-serif`;
-  while (context.measureText(displayName).width > 850 && nameFontSize > 42) {
+  while (context.measureText(displayName).width > 840 && nameFontSize > 36) {
     nameFontSize -= 2;
     context.font = `700 ${nameFontSize}px Sora, sans-serif`;
   }
   context.fillStyle = "#FFFFFF";
-  context.fillText(displayName, 108, 940);
+  context.textAlign = "left";
+  context.textBaseline = "middle";
+  context.fillText(displayName, 120, 1045);
 
-  context.fillStyle = "rgba(255,255,255,0.62)";
-  context.font = "500 26px Sora, sans-serif";
-  context.fillText("READY TO BUILD WITH", 112, 1120);
+  // Draw Sub-team Pills under "READY TO BUILD WITH"
+  const teams =
+    Array.isArray(subTeams) && subTeams.length ? subTeams : ["EDC BIT Mesra"];
+  context.font = "700 28px Sora, sans-serif";
+  let curX = 120;
+  let curY = 1295;
+  const pillHeight = 56;
+  const pillRadius = 28;
+  const pillPaddingX = 26;
 
-  const teams = subTeams.length ? subTeams : ["EDC BIT Mesra"];
-  context.font = "600 28px Sora, sans-serif";
-  teams.forEach((team, index) => {
-    const y = 1200 + index * 92;
-    const pillWidth = Math.min(context.measureText(team).width + 56, 800);
-    context.fillStyle = "rgba(254,216,83,0.12)";
+  teams.forEach((team) => {
+    const textWidth = context.measureText(team).width;
+    const pillWidth = Math.min(textWidth + pillPaddingX * 2, 800);
+
+    // If second pill would wrap or overflow row, place on next row
+    if (curX + pillWidth > 960 && curX > 120) {
+      curX = 120;
+      curY += 68;
+    }
+
     context.beginPath();
-    context.roundRect(108, y - 44, pillWidth, 64, 32);
+    if (context.roundRect) {
+      context.roundRect(curX, curY, pillWidth, pillHeight, pillRadius);
+    } else {
+      context.rect(curX, curY, pillWidth, pillHeight);
+    }
+    context.fillStyle = "rgba(254, 216, 83, 0.14)";
     context.fill();
-    context.strokeStyle = "rgba(254,216,83,0.4)";
+    context.strokeStyle = "rgba(254, 216, 83, 0.75)";
+    context.lineWidth = 2;
     context.stroke();
-    context.fillStyle = "#FED853";
-    context.fillText(team, 136, y);
-  });
 
-  context.strokeStyle = "rgba(255,255,255,0.1)";
-  context.beginPath();
-  context.moveTo(112, 1660);
-  context.lineTo(968, 1660);
-  context.stroke();
-  context.fillStyle = "#FFFFFF";
-  context.font = "600 28px Sora, sans-serif";
-  context.fillText("Curiosity turns into impact.", 112, 1730);
-  context.fillStyle = "rgba(255,255,255,0.5)";
-  context.font = "500 22px Sora, sans-serif";
-  context.fillText("ENTREPRENEURSHIP DEVELOPMENT CELL", 112, 1790);
-  context.fillText("BIRLA INSTITUTE OF TECHNOLOGY, MESRA", 112, 1830);
+    context.fillStyle = "#FED853";
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillText(team, curX + pillWidth / 2, curY + pillHeight / 2);
+
+    curX += pillWidth + 18;
+  });
 
   return canvas.toDataURL("image/png");
 }

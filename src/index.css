@@ -25,10 +25,15 @@
     U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-html,
+html {
+  font-family: "Sora", sans-serif;
+  overflow-x: clip;
+}
+
 body {
   font-family: "Sora", sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
+  min-height: 100vh;
 }
 
 @layer utilities {
@@ -61,9 +66,6 @@ body {
   }
 }
 
-body {
-  overflow-x: hidden;
-}
 
 ::-webkit-scrollbar {
   width: 10px;
