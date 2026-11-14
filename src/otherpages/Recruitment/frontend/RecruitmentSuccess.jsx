@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   CheckCircle2,
   Copy,
@@ -11,6 +11,9 @@ import {
 } from "lucide-react";
 import { Navigate, useLocation } from "react-router-dom";
 import { createApplicationStory } from "./applicationStory.js";
+import { downloadApplicationLetter } from "./applicationLetter.js";
+import edcLetterhead from "../../../assets/EDC_LOGO.png";
+import storyTemplateSrc from "../../../assets/story-template.png";
 import {
   isRecruitmentSubmission,
   readRecruitmentSubmission,
@@ -21,31 +24,71 @@ export default function RecruitmentSuccess() {
   const [submission] = useState(() =>
     isRecruitmentSubmission(state) ? state : readRecruitmentSubmission(),
   );
-  const [storyImage] = useState(() =>
-    submission ? createApplicationStory(submission) : "",
-  );
+  const [storyImage, setStoryImage] = useState("");
+  const [isDownloadingLetter, setIsDownloadingLetter] = useState(false);
   const [shareMessage, setShareMessage] = useState("");
   const selectedRoles = submission?.subTeams.join(", ");
-  const firstName = submission?.name.trim().split(/\s+/)[0];
+  const firstName =
+    submission?.firstName ||
+    submission?.name?.trim().split(/\s+/)[0] ||
+    "Applicant";
   const recruitmentUrl = `${window.location.origin}/recruitment`;
   const whatsappShareUrl = `https://wa.me/?text=${encodeURIComponent(
     `Know someone who'd fit in at EDC? Apply here: ${recruitmentUrl}`,
   )}`;
+
+  useEffect(() => {
+    let isMounted = true;
+    if (submission) {
+      createApplicationStory(submission)
+        .then((dataUrl) => {
+          if (isMounted && dataUrl) {
+            setStoryImage(dataUrl);
+          }
+        })
+        .catch((err) => {
+          console.error("Failed to generate application story:", err);
+        });
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, [submission]);
 
   if (!submission) {
     return <Navigate to="/recruitment" replace />;
   }
 
   async function handleShareStory() {
+    let imageToShare = storyImage;
+    if (!imageToShare) {
+      try {
+        imageToShare = await createApplicationStory(submission);
+        setStoryImage(imageToShare);
+      } catch (err) {
+        console.error("Could not generate story image for sharing:", err);
+      }
+    }
+
+    if (!imageToShare) {
+      setShareMessage("Generating story image, please try again in a second.");
+      return;
+    }
+
     if (!navigator.share || !navigator.canShare) {
+      // Direct download fallback
+      const link = document.createElement("a");
+      link.href = imageToShare;
+      link.download = `edc-application-story-${firstName}.png`;
+      link.click();
       setShareMessage(
-        "Image sharing isn’t supported here. Download the story image, then add it to your Instagram Story or WhatsApp Status.",
+        "Story image downloaded! Share it on your Instagram Story or WhatsApp Status.",
       );
       return;
     }
 
     try {
-      const base64 = storyImage.split(",")[1];
+      const base64 = imageToShare.split(",")[1];
       const bytes = Uint8Array.from(atob(base64), (character) =>
         character.charCodeAt(0),
       );
@@ -54,8 +97,12 @@ export default function RecruitmentSuccess() {
       });
 
       if (!navigator.canShare({ files: [file] })) {
+        const link = document.createElement("a");
+        link.href = imageToShare;
+        link.download = `edc-application-story-${firstName}.png`;
+        link.click();
         setShareMessage(
-          "Image sharing isn’t supported here. Download the story image, then add it to your Instagram Story or WhatsApp Status.",
+          "Story image downloaded! Share it on your Instagram Story or WhatsApp Status.",
         );
         return;
       }
@@ -69,8 +116,12 @@ export default function RecruitmentSuccess() {
     } catch (error) {
       if (error.name !== "AbortError") {
         setShareMessage(
-          "Could not open the share menu. Download the image to share it manually.",
+          "Could not open the share menu. Image downloaded to share manually.",
         );
+        const link = document.createElement("a");
+        link.href = imageToShare;
+        link.download = `edc-application-story-${firstName}.png`;
+        link.click();
       }
     }
   }
@@ -87,29 +138,22 @@ export default function RecruitmentSuccess() {
     }
   }
 
-  function handleDownloadLetter() {
-    const letter = [
-      `You're in, ${firstName}!`,
-      "Your application has reached the EDC team.",
-      "",
-      "Application ID: EDC-K26-0142",
-      "Save it for the next rounds.",
-      "",
-      `Role/Domain: ${selectedRoles}`,
-      "",
-      "What's next",
-      "Shortlisted candidates will hear from us on WhatsApp and email.",
-      "",
-      "Keep building. - Team EDC",
-    ].join("\n");
-    const file = new Blob([letter], { type: "text/plain;charset=utf-8" });
-    const fileUrl = URL.createObjectURL(file);
-    const downloadLink = document.createElement("a");
-    downloadLink.href = fileUrl;
-    downloadLink.download = "EDC-application-letter-EDC-K26-0142.txt";
-    downloadLink.click();
-    window.setTimeout(() => URL.revokeObjectURL(fileUrl), 1000);
+  async function handleDownloadLetter() {
+    try {
+      setIsDownloadingLetter(true);
+      setShareMessage("");
+      await downloadApplicationLetter(submission, edcLetterhead);
+    } catch (error) {
+      console.error("Failed to generate application acknowledgement letter:", error);
+      setShareMessage(
+        "Could not generate letter right now. Please try again.",
+      );
+    } finally {
+      setIsDownloadingLetter(false);
+    }
   }
+
+  const previewImage = storyImage || storyTemplateSrc;
 
   return (
     <main className="relative isolate flex min-h-[100dvh] items-center justify-center overflow-x-hidden bg-[#090909] px-4 py-5 text-white sm:px-5 sm:py-4">
@@ -120,7 +164,7 @@ export default function RecruitmentSuccess() {
       >
         <div className="flex min-h-[calc(100dvh-4.25rem)] flex-col sm:min-h-0 sm:grid sm:grid-cols-[140px_minmax(0,1fr)] sm:gap-5 lg:grid-cols-[minmax(230px,0.38fr)_minmax(0,1fr)] lg:items-center lg:gap-10 lg:rounded-[inherit] lg:bg-[#121217] lg:px-10 lg:py-8">
           <img
-            src={storyImage}
+            src={previewImage}
             alt="EDC application story letter preview"
             className="hidden w-full self-center rounded-xl border border-white/10 shadow-2xl sm:mt-1 sm:block lg:mt-0"
           />
@@ -145,7 +189,7 @@ export default function RecruitmentSuccess() {
             <section className="border-b border-white/10 py-3 sm:py-4 lg:col-span-2 lg:rounded-xl lg:border-0 lg:bg-[#1d1d24] lg:p-4">
               <div className="flex items-start gap-2.5 rounded-xl bg-[#1d1d24] p-2.5 sm:hidden">
                 <img
-                  src={storyImage}
+                  src={previewImage}
                   alt="EDC application story preview"
                   className="w-9 shrink-0 rounded-md border border-white/10"
                 />
@@ -167,17 +211,18 @@ export default function RecruitmentSuccess() {
                 <button
                   type="button"
                   onClick={handleDownloadLetter}
-                  className="inline-flex min-h-10 items-center gap-1.5 rounded-full bg-[#FED853] px-3 text-base font-semibold text-black transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FED853] sm:min-h-9 sm:text-xs lg:text-sm"
+                  disabled={isDownloadingLetter}
+                  className="inline-flex min-h-10 items-center gap-1.5 rounded-full bg-[#FED853] px-3.5 text-base font-semibold text-black transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FED853] disabled:opacity-60 sm:min-h-9 sm:text-xs lg:text-sm"
                 >
-                  <Download size={12} aria-hidden="true" />
-                  Download Letter
+                  <Download size={14} aria-hidden="true" />
+                  {isDownloadingLetter ? "Generating PDF..." : "Download Letter"}
                 </button>
                 <button
                   type="button"
                   onClick={handleShareStory}
-                  className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-white/20 px-3 text-base font-semibold text-white transition hover:border-[#FED853] hover:text-[#FED853] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FED853] sm:min-h-9 sm:text-xs lg:text-sm"
+                  className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-white/20 px-3.5 text-base font-semibold text-white transition hover:border-[#FED853] hover:text-[#FED853] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FED853] sm:min-h-9 sm:text-xs lg:text-sm"
                 >
-                  <Share2 size={12} aria-hidden="true" />
+                  <Share2 size={14} aria-hidden="true" />
                   Share to Story
                 </button>
               </div>
