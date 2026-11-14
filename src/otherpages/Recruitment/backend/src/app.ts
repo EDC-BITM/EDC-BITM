@@ -6,6 +6,7 @@ import { recruitmentRoutes } from "./routes/recruitment.js";
 
 export function buildApp() {
   const app = fastify({
+    trustProxy: true,
     logger: {
       level: process.env.LOG_LEVEL || "info",
     },
