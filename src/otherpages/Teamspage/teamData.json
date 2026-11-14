@@ -12,8 +12,8 @@
       "id": "vishalshah",
       "name": "Dr. Vishal H. Shah",
       "title": "Faculty Advisor",
-      "image": "/VShah.png",
-      "publicId": "VShah_dzabjg",
+      "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794379739/vishal.jpg",
+      "publicId": "vishal",
       "socials": {
         "linkedin": "https://www.linkedin.com/in/vishal-hshah/",
         "facebook": "https://www.facebook.com/vishal.h.shah.7/",
@@ -24,187 +24,29 @@
   "leadershipBody": {
     "presidency": [
       {
-        "id": "pranav",
-        "name": "Pranav Raj Srivastav",
+        "id": "aditya",
+        "name": "Aditya Vishwakarma",
         "title": "President",
-        "image": "/pranav.png",
-        "publicId": "pranav_mxnnec",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336813/aditya.jpg",
+        "publicId": "aditya",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/pranav-raj-srivastav-891633240/",
-          "instagram": "https://www.instagram.com/pranav_raj_srivastav_03/",
-          "email": "btech10947.22@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "yogesh",
-        "name": "Yogesh Kumar",
-        "title": "Joint President",
-        "image": "/yogesh.png",
-        "publicId": "yogesh_qy26wh",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/yogeshkr7/",
-          "instagram": "https://www.instagram.com/yogex.7/",
-          "email": "btech10259.22@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/adivish2818/",
+          "instagram": "https://www.instagram.com/adi._.vish/",
+          "email": "btech10857.23@bitmesra.ac.in"
         }
       }
     ],
     "vicePresidents": [
       {
-        "id": "anshuman",
-        "name": "Anshuman Tomar",
-        "title": "Vice President (Entrepreneurship)",
-        "image": "/anshuman.png",
-        "publicId": "anshuman_dmw4h5",
+        "id": "adityag",
+        "name": "Aditya Ghosh",
+        "title": "Vice President",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336812/adityag.jpg",
+        "publicId": "adityag",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/anshuman-tomar-3354a01b6/",
-          "instagram": "https://www.instagram.com/papabizz_/",
-          "email": "btech10731.22@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "debjyoti",
-        "name": "Debjyoti Dey",
-        "title": "Vice President (Events)",
-        "image": "/debjyoti.png",
-        "publicId": "debjyoti_ih7mbq",
-        "socials": {
-          "linkedin": "http://linkedin.com/in/debjyoti-dey-876b18270",
-          "instagram": "https://www.instagram.com/debjyoti_3333/",
-          "email": "btech10908.22@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "varunk",
-        "name": "Varun Sharma",
-        "title": "Vice President (Finance)",
-        "image": "/varunk.png",
-        "publicId": "varunk_g8dopp",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/varun0510/",
-          "instagram": "https://www.instagram.com/varunsharmaaaaaa/",
-          "email": "btech10916.22@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "shivam",
-        "name": "Shivam Chaubey",
-        "title": "Vice President (Resources)",
-        "image": "/shivam.png",
-        "publicId": "shivam_ggpvro",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/shivam-chaubey-16a45b260/",
-          "instagram": null,
-          "email": "btech10209.22@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "shubham",
-        "name": "Shubham Kumar",
-        "title": "Vice President (Events)",
-        "image": "/shubham.png",
-        "publicId": "shubham_svk32r",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/shubhamk1608/",
-          "instagram": "https://www.instagram.com/kumar_shubham16/",
-          "email": "btech10073.22@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "aman",
-        "name": "Aman Pratik",
-        "title": "Vice President (Finance)",
-        "image": "/amanp.png",
-        "publicId": "amanp_gupydu",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/aman-pratik-04ba3235b/",
-          "instagram": "https://www.instagram.com/amanpratik7/",
-          "email": "btech10642.22@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "sanchit",
-        "name": "Sanchit Jain",
-        "title": "Vice President (Design)",
-        "image": "/sanchit.png",
-        "publicId": "sanchit_qauopa",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/sanchit-jain-2a1374258/",
-          "instagram": "https://www.instagram.com/sanchit_1107/",
-          "email": "btech10029.22@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "savit",
-        "name": "Savit Raj",
-        "title": "Vice President (Technical)",
-        "image": "/savit.png",
-        "publicId": "savit_lrc7fu",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/savit-raj/",
-          "instagram": "https://www.instagram.com/hades_81597/",
-          "email": "btech10303.22@bitmesra.ac.in"
-        }
-      }
-    ],
-    "directors": [
-      {
-        "id": "adarsh",
-        "name": "Adarsh Raj",
-        "title": "Director (Resources)",
-        "image": "/adarsh.png",
-        "publicId": "adarsh_vljytl",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/iadarshraj/",
-          "instagram": "https://www.instagram.com/adarsh_raj18/",
-          "email": "btech10816.22@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "yashwant",
-        "name": "Yashwant Bhise",
-        "title": "Director (Resources)",
-        "image": "/yashwant.png",
-        "publicId": "yashwant_kjpbs9",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/yashwantbbhise/",
-          "instagram": "https://www.instagram.com/ig_yashwantbhise/",
-          "email": "btech10800.22@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "varung",
-        "name": "Varun Gupta",
-        "title": "Director (Design)",
-        "image": "/varung.png",
-        "publicId": "varung_oafeo8",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/ivarung/",
-          "instagram": null,
-          "email": "btech10029.22@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "nikhil",
-        "name": "Nikhil Kumar",
-        "title": "Director (Technical)",
-        "image": "/nikhil.png",
-        "publicId": "nikhil_egn6m0",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/nikhilkr16/",
-          "instagram": "https://www.instagram.com/nikhil_kr16/",
-          "email": "btech10883.22@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "sumit",
-        "name": "Sumit Kumar",
-        "title": "Director (Media)",
-        "image": "/sumit.png",
-        "publicId": "sumit_zvvuvu",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/sumit-kumar-95b52925a/",
-          "instagram": null,
-          "email": "btech10706.22@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/aditya-ghosh-783801343/",
+          "instagram": "https://www.instagram.com/_aditya_ghosh___/",
+          "email": "btech10196.24@bitmesra.ac.in"
         }
       }
     ]
@@ -212,365 +54,267 @@
   "executiveBody": {
     "genSecTreasurer": [
       {
-        "id": "abhinav",
-        "name": "Abhinav Kumar Choudhary",
+        "id": "tushita",
+        "name": "Tushita Singh",
         "title": "General Secretary",
-        "image": "/abhinav.png",
-        "publicId": "abhinav_cgowme",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336832/tushita.jpg",
+        "publicId": "tushita",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/akc12/",
-          "instagram": "https://www.instagram.com/poetry_aficionado/",
-          "email": "btech10139.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/tushita-singh17/",
+          "instagram": "https://www.instagram.com/tushitasinghh/",
+          "email": "btech10048.24@bitmesra.ac.in"
         }
       },
       {
-        "id": "naveen",
-        "name": "Naveen Modi",
-        "title": "General Secretary",
-        "image": "/naveen.png",
-        "publicId": "naveen_lvsfn1",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/navinco/",
-          "instagram": "https://www.instagram.com/naveenmodii/",
-          "email": "btech11011.23@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "mehul",
-        "name": "Mehul Mundhra",
+        "id": "atharva",
+        "name": "Atharva Shrivastava",
         "title": "Treasurer",
-        "image": "/mehul.png",
-        "publicId": "mehul_bfvc1a",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336815/atharva.jpg",
+        "publicId": "atharva",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/mehul-mundhra/",
-          "instagram": "https://www.instagram.com/mehul_mundhra/",
-          "email": "btech10809.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/atha90719a19a/",
+          "instagram": "https://www.instagram.com/atharva_shrii/",
+          "email": "btech11031.24@bitmesra.ac.in"
         }
       }
     ],
     "jointSecTreasurers": [
       {
-        "id": "aditya",
-        "name": "Aditya Vishwakarma",
+        "id": "siddharth",
+        "name": "Siddharth Raj",
         "title": "Joint Secretary",
-        "image": "/aditya.png",
-        "publicId": "aditya_nrqknv",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794337656/siddharth.heic",
+        "publicId": "siddharth",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/adivish2831/",
-          "instagram": "https://www.instagram.com/adi._.vish/",
-          "email": "btech10857.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/siddharth-raj-b88680343/",
+          "instagram": "https://www.instagram.com/siddharthraj_8/",
+          "email": "btech10026.24@bitmesra.ac.in"
         }
       },
       {
-        "id": "rahul",
-        "name": "Rahul Kumar Mishra",
-        "title": "Joint Treasurer",
-        "image": "/rahul.png",
-        "publicId": "rahul_ojeexn",
+        "id": "harshit",
+        "name": "Harshit Singh",
+        "title": "Joint Secretary",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794379289/copy_of_harshit.heic",
+        "publicId": "copy_of_harshit",
         "socials": {
-          "linkedin": null,
-          "instagram": "https://www.instagram.com/oye.ee_rahul/",
-          "email": "btech10539.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/harshitsinghshubh",
+          "instagram": "https://www.instagram.com/harshit._.shubh/",
+          "email": "imh10012.24@bitmesra.ac.in"
         }
       },
       {
-        "id": "shreyanshu",
-        "name": "Shreyanshu Raj",
+        "id": "aisha",
+        "name": "Aisha Jamal",
         "title": "Joint Treasurer",
-        "image": "/shreyanshu.png",
-        "publicId": "shreyanshu_fnyo7j",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336814/aisha.jpg",
+        "publicId": "aisha",
         "socials": {
-          "linkedin": "hhttps://www.linkedin.com/in/shreyanshu-raj/",
-          "instagram": "https://www.instagram.com/heyy.sshreyanshu_raj/",
-          "email": "btech10559.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/aisha-jamal-208504366",
+          "instagram": "https://www.instagram.com/aisha_jamal29/",
+          "email": "btech10565.24@bitmesra.ac.in"
         }
       }
     ],
     "associateDirectors": [
       {
-        "id": "lavanya",
-        "name": "Kumar Lavanya",
+        "id": "anurag",
+        "name": "Anurag Mitti",
         "title": "Associate Director",
-        "image": "/lavanya.png",
-        "publicId": "lavanya_ezwyc0",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336813/anurag.jpg",
+        "publicId": "anurag",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/kumarlavanya07/",
-          "instagram": "https://www.instagram.com/kumarlavanya07/",
-          "email": "btech11012.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/anurag-mitti/",
+          "instagram": "https://www.instagram.com/anurag_mitti/",
+          "email": "btech10113.24@bitmesra.ac.in"
         }
       },
       {
-        "id": "asra",
-        "name": "Asra Jamal",
+        "id": "abhinav",
+        "name": "Abhinav Singh",
         "title": "Associate Director",
-        "image": "/asra.png",
-        "publicId": "asra_zmzcqb",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336814/abhinav.jpg",
+        "publicId": "abhinav",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/asra-jamal-b5b221276/",
-          "instagram": "https://www.instagram.com/asra._.jml/",
-          "email": "btech10818.23@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "aakanchha",
-        "name": "Aakanchha Choudhary",
-        "title": "Associate Director",
-        "image": "/aakanchha.png",
-        "publicId": "aakanchha_jatkc4",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/aakanchha-choudhary-656146282/",
-          "instagram": "https://www.instagram.com/muski_muskan1234/",
-          "email": "imh10055.23@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "pranshu",
-        "name": "Pranshu Pranjal",
-        "title": "Associate Director",
-        "image": "/pranshu.png",
-        "publicId": "pranshu_octul1",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/pranshu-pranjal-1a827428a/",
-          "instagram": "https://www.instagram.com/_pranshu1512/",
-          "email": "btech10598.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/abhinav5singh/",
+          "instagram": null,
+          "email": "btech10791.24@bitmesra.ac.in"
         }
       }
     ],
     "eventsDesignHeads": [
       {
-        "id": "sangmesh",
-        "name": "Sangmesh Biradar",
+        "id": "aakarsh",
+        "name": "Aakarsh Agarwal",
         "title": "Events Head",
-        "image": "/sangmesh.png",
-        "publicId": "sangmesh_iuvn8x",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336814/aakarsh.jpg",
+        "publicId": "aakarsh",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/sangmesh-biradar-274aaa354/",
-          "instagram": "https://www.instagram.com/sangmesh_03/",
-          "email": "btech10798.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/aakarsh-agarwal-7579061a8",
+          "instagram": "https://www.instagram.com/aakarshgonecase/",
+          "email": "btech11021.24@bitmesra.ac.in"
         }
       },
       {
-        "id": "vaibhav",
-        "name": "Vaibhav Bahal",
+        "id": "maryam",
+        "name": "Maryam",
         "title": "Events Head",
-        "image": "/vaibhav.png",
-        "publicId": "vaibhav_fvxpau",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336814/maryam.jpg",
+        "publicId": "maryam",
         "socials": {
-          "linkedin": "hhttps://www.linkedin.com/in/vaibhav-bahal-24031b32b/",
+          "linkedin": "https://www.linkedin.com/in/maryam-hasan-9baa64366/",
+          "instagram": "https://www.instagram.com/maryam.hasan257/",
+          "email": "btech10007.24@bitmesra.ac.in"
+        }
+      },
+      {
+        "id": "shruti",
+        "name": "Shruti Priya",
+        "title": "Events Head",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336831/shruti.jpg",
+        "publicId": "shruti",
+        "socials": {
+          "linkedin": "https://www.linkedin.com/in/shrutipriya1375/",
           "instagram": null,
-          "email": "btech11009.23@bitmesra.ac.in"
+          "email": "btech10326.24@bitmesra.ac.in"
         }
       },
       {
-        "id": "rajiv",
-        "name": "Rajiv Kumar",
-        "title": "Design Head",
-        "image": "/rajiv.png",
-        "publicId": "rajiv_zqdpei",
+        "id": "pari",
+        "name": "Pari Gautam",
+        "title": "Events Head",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336813/pari.jpg",
+        "publicId": "pari",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/rajiv-kumar-893851196/",
-          "instagram": "https://www.instagram.com/zazrajiv/",
-          "email": "btech10309.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/pari-gautam-676783323/",
+          "instagram": "https://www.instagram.com/parigautam1001/",
+          "email": "btech10625.24@bitmesra.ac.in"
         }
       },
       {
-        "id": "sudhanshu",
-        "name": "Sudhanshu Kumar",
-        "title": "Design Head",
-        "image": "/sudhanshu.png",
-        "publicId": "sudhanshu_u8hjvr",
+        "id": "lakshmi",
+        "name": "Lakshmi Koraganji",
+        "title": "Events Head",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336813/lakshmi.jpg",
+        "publicId": "lakshmi",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/sudhanshu-kumar-1211011b4/",
-          "instagram": "https://www.instagram.com/_.sudhanshu._27/",
-          "email": "btech10808.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/lakshmi-venkata-govardhan-koraganji-858608427/",
+          "instagram": null,
+          "email": null
+        }
+      },
+      {
+        "id": "tanisha",
+        "name": "Tanisha Choudhary",
+        "title": "Design Head",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336813/tanisha.jpg",
+        "publicId": "tanisha",
+        "socials": {
+          "linkedin": "https://www.linkedin.com/in/tanisha303/",
+          "instagram": "https://www.instagram.com/_tani_sha._/",
+          "email": "btech10483.24@bitmesra.ac.in"
+        }
+      },
+      {
+        "id": "abd",
+        "name": "Abdullah Saif",
+        "title": "Design Head",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336813/abd.jpg",
+        "publicId": "abd",
+        "socials": {
+          "linkedin": "https://www.linkedin.com/in/the-abdullah-saif/",
+          "instagram": "https://www.instagram.com/abd_saif01/",
+          "email": "btech10871.24@bitmesra.ac.in"
+        }
+      },
+      {
+        "id": "sucharita",
+        "name": "Sucharita Chakraborty",
+        "title": "Design Head",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336812/sucharita.jpg",
+        "publicId": "sucharita",
+        "socials": {
+          "linkedin": "https://www.linkedin.com/in/sucharita-chakraborty-899b16366/",
+          "instagram": "https://www.instagram.com/sunsets_to_shine/",
+          "email": "btech10050.24@bitmesra.ac.in"
         }
       }
     ],
     "techHeads": [
       {
-        "id": "anuj",
-        "name": "Anuj Nayak",
-        "title": "Tech Head",
-        "image": "/anuj.png",
-        "publicId": "anuj_kgbn9n",
+        "id": "faraz",
+        "name": "Faraz Akhtar",
+        "title": "Techical Head",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336815/faraz.jpg",
+        "publicId": "faraz",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/anuj-nayak-189a83233/",
-          "instagram": "https://www.instagram.com/__anuj__nayak/",
-          "email": "imh10062.23@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "rishi",
-        "name": "Rishi Agarwal",
-        "title": "Tech Head",
-        "image": "/rishi.png",
-        "publicId": "rishi_xp4uma",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/rsagbansal/",
+          "linkedin": "https://www.linkedin.com/in/faraz-akhtar-288764365/",
           "instagram": null,
-          "email": "btech10991.23@bitmesra.ac.in"
+          "email": "btech10857.24@bitmesra.ac.in"
         }
       },
       {
-        "id": "ashish",
-        "name": "Ashish Kumar",
-        "title": "Tech Head",
-        "image": "/ashish.png",
-        "publicId": "ashish_pnavwg",
+        "id": "salil",
+        "name": "Salil Lakra",
+        "title": "Techical Head",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336814/salil.jpg",
+        "publicId": "salil",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/ashish-kumar-997039217/",
-          "instagram": "https://www.instagram.com/empty_silhouette_/",
-          "email": "btech10851.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/salillakra/",
+          "instagram": "https://www.instagram.com/officialsalillakra/",
+          "email": "btech10268.24@bitmesra.ac.in"
         }
       }
     ],
     "socialMediaPrHeads": [
       {
-        "id": "aman",
-        "name": "Aman Goyal",
+        "id": "sahil",
+        "name": "Sahil Agrawal",
         "title": "Social Media Head",
-        "image": "/amang.png",
-        "publicId": "amang_eacfnv",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336812/sahil.jpg",
+        "publicId": "sahil",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/aman-goyal-16026a278/",
-          "instagram": "https://www.instagram.com/_aman.goyal_._/",
-          "email": "btech10940.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/sahil-agrawal-8974a9228/",
+          "instagram": "https://www.instagram.com/sahil._agrawal/",
+          "email": "btech10559.24@bitmesra.ac.in"
         }
       },
       {
-        "id": "aayush",
-        "name": "Aayush Sagar",
-        "title": "Social Media Head",
-        "image": "/aayush.png",
-        "publicId": "aayush_iipvpd",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/aayush-sagar-8978a5281/",
-          "instagram": "https://www.instagram.com/s_a_g_ar12/",
-          "email": "btech10476.23@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "satyam",
-        "name": "Satyam Raj",
+        "id": "palak",
+        "name": "Palak Agrawala",
         "title": "Public Relations Head",
-        "image": "/satyam.png",
-        "publicId": "satyam_ebvfq3",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336813/palak.jpg",
+        "publicId": "palak",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/satyam-raj-153ba82b8/",
-          "instagram": null,
-          "email": "btech11014.23@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "mayank",
-        "name": "Mayank Krishna",
-        "title": "Public Relations Head",
-        "image": "/mayank.png",
-        "publicId": "mayank_wyuxzq",
-        "socials": {
-          "linkedin": null,
-          "instagram": "https://www.instagram.com/krishna.mayank29/",
-          "email": "btech10443.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/palakagarwala/",
+          "instagram": "https://www.instagram.com/palak.agarwala_/",
+          "email": "btech10956.24@bitmesra.ac.in"
         }
       }
     ],
     "contentLogisticsResourceHeads": [
       {
-        "id": "roy",
-        "name": "Aditya Roy",
+        "id": "aozz",
+        "name": "Aozz Bhrahmshiv Jha",
         "title": "Content Head",
-        "image": "/roy.png",
-        "publicId": "roy_w8lh0d",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336811/aozz.jpg",
+        "publicId": "aozz",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/adityyaroy//",
-          "instagram": "https://www.instagram.com/adityya.roy/",
-          "email": "btech10706.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/aozz/",
+          "instagram": "https://www.instagram.com/notaozz/",
+          "email": "btech10794.24@bitmesra.ac.in"
         }
       },
       {
-        "id": "aditi",
-        "name": "Aditi Singh",
-        "title": "Content Head",
-        "image": "/aditi.png",
-        "publicId": "aditi_u59eju",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/aditi-singh-441826243/",
-          "instagram": "https://www.instagram.com/__aditi.03/",
-          "email": "btech10016.23@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "amar",
-        "name": "Amar Kumar",
+        "id": "naman",
+        "name": "Naman Gupta",
         "title": "Logistics & Resources Head",
-        "image": "/amar.png",
-        "publicId": "amar_jqkxeb",
+        "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1794336831/naman.jpg",
+        "publicId": "naman",
         "socials": {
-          "linkedin": "https://www.linkedin.com/in/amar-kumar11/",
-          "instagram": "https://www.instagram.com/___amar2505___/",
-          "email": "btech10868.23@bitmesra.ac.in"
-        }
-      }
-    ],
-    "seniorExecutiveMembers": [
-      {
-        "id": "yash",
-        "name": "Yash Goyal",
-        "title": "Senior Executive Member",
-        "image": "/yash.png",
-        "publicId": "yash_hg0nps",
-        "socials": {
-          "linkedin": null,
-          "instagram": null,
-          "email": "imh10048.23@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "hera",
-        "name": "Hera Siddique",
-        "title": "Senior Executive Member",
-        "image": "/hera.png",
-        "publicId": "hera_kikqth",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/hera-siddique-9aa67b274/",
-          "instagram": "https://www.instagram.com/_.eraaaheyy._/",
-          "email": "btech10004.23@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "koushik",
-        "name": "Koushik Nakka",
-        "title": "Senior Executive Member",
-        "image": "/koushik.png",
-        "publicId": "koushik_d7bqwt",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/kiran-siva-koushik-nakka-8b866928b/",
-          "instagram": null,
-          "email": "btech10927.23@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "gautam",
-        "name": "Abhinav Gautam",
-        "title": "Senior Executive Member",
-        "image": "/gautam.png",
-        "publicId": "gautam_hzeert",
-        "socials": {
-          "linkedin": "hhttps://www.linkedin.com/in/abhinavgautam2024/",
-          "instagram": null,
-          "email": "btech10433.23@bitmesra.ac.in"
-        }
-      },
-      {
-        "id": "harsh",
-        "name": "Harsh Paswan",
-        "title": "Senior Executive Member",
-        "image": "/harsh.png",
-        "publicId": "harsh_ljcj3k",
-        "socials": {
-          "linkedin": "https://www.linkedin.com/in/harsh-paswan-6229a6276/",
-          "instagram": null,
-          "email": "btech10912.23@bitmesra.ac.in"
+          "linkedin": "https://www.linkedin.com/in/naman-gupta21/",
+          "instagram": "https://www.instagram.com/_naman2136/",
+          "email": "btech10887.24@bitmesra.ac.in"
         }
       }
     ]

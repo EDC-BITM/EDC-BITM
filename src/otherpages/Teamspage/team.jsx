@@ -24,6 +24,7 @@ const MemberCard = ({ member }) => {
       ) : (
         <CldImage
           src={member.publicId}
+          cloudName="bfg0uwix"
           alt={member.name}
           width={200}
           height={200}
@@ -137,8 +138,6 @@ function Teamspage() {
           leadershipBody.vicePresidents.slice(4, 8),
           "vice-presidents-line2",
         )}
-        {renderMemberRow(leadershipBody.directors.slice(0, 2), "dir-line1")}
-        {renderMemberRow(leadershipBody.directors.slice(2, 5), "dir-line2")}
       </section>
 
       <section className="px-4">
@@ -155,15 +154,7 @@ function Teamspage() {
           executiveBody.contentLogisticsResourceHeads,
           "content-logistics",
         )}
-        {renderMemberRow(
-          executiveBody.seniorExecutiveMembers.slice(0, 2),
-          "sem-line1",
-        )}
-        {executiveBody.seniorExecutiveMembers.length > 2 &&
-          renderMemberRow(
-            executiveBody.seniorExecutiveMembers.slice(2, 5),
-            "sem-line2",
-          )}
+        
       </section>
 
       <Timeline />
