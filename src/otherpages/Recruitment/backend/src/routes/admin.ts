@@ -1,5 +1,6 @@
 import type { FastifyPluginAsync } from "fastify";
 import { z } from "zod";
+import { sql } from "../db/index.js";
 import {
   COOKIE_NAME,
   createSessionToken,
@@ -13,6 +14,35 @@ const loginSchema = z.object({
   username: z.string().trim().min(1, "Username is required"),
   password: z.string().min(1, "Password is required"),
 });
+
+const getApplicationsQuerySchema = z.object({
+  search: z.string().optional(),
+  branch: z.string().optional(),
+  subTeam: z.string().optional(),
+});
+
+function formatApplicationRow(row: any) {
+  return {
+    id: row.id,
+    fullName: row.full_name,
+    branch: row.branch,
+    email: row.email,
+    rollNumber: row.roll_number,
+    whatsappNumber: row.whatsapp_number,
+    callingNumber: row.calling_number,
+    whyJoin: row.why_join,
+    experience: row.experience,
+    otherSocieties: row.other_societies,
+    commitment: row.commitment,
+    subTeams: Array.isArray(row.sub_teams) ? row.sub_teams : [],
+    discoverySource: row.discovery_source,
+    portfolioLink: row.portfolio_link,
+    resumeLink: row.resume_link,
+    campusIdeas: row.campus_ideas,
+    status: row.status,
+    createdAt: row.created_at,
+  };
+}
 
 export const adminRoutes: FastifyPluginAsync = async (fastify) => {
   // 1. Admin Login
@@ -80,6 +110,75 @@ export const adminRoutes: FastifyPluginAsync = async (fastify) => {
           username: request.admin?.username,
         },
       });
+    }
+  );
+
+  // 4. Get All Recruitment Applications with Search and Filter
+  fastify.get(
+    "/api/recruitment/admin/applications",
+    { preHandler: [requireRecruitmentAdmin] },
+    async (request, reply) => {
+      const queryResult = getApplicationsQuerySchema.safeParse(request.query);
+      const query = queryResult.success ? queryResult.data : {};
+
+      const searchParam = query.search?.trim();
+      const searchPattern = searchParam && searchParam.length > 0 ? `%${searchParam}%` : null;
+
+      const branchParam = query.branch?.trim();
+      const branchFilter = branchParam && branchParam.toLowerCase() !== "all" ? branchParam : null;
+
+      const subTeamParam = query.subTeam?.trim();
+      const subTeamFilter = subTeamParam && subTeamParam.toLowerCase() !== "all" ? subTeamParam : null;
+
+      try {
+        // Query total applications count
+        const countResult = await sql`SELECT count(*)::int as total FROM recruitment_applications;`;
+        const totalCount = countResult[0]?.total ?? 0;
+
+        // Query applications with optional search and filters
+        const rows = await sql`
+          SELECT
+            id,
+            full_name,
+            branch,
+            email,
+            roll_number,
+            whatsapp_number,
+            calling_number,
+            why_join,
+            experience,
+            other_societies,
+            commitment,
+            sub_teams,
+            discovery_source,
+            portfolio_link,
+            resume_link,
+            campus_ideas,
+            status,
+            created_at
+          FROM recruitment_applications
+          WHERE
+            (${searchPattern} IS NULL OR full_name ILIKE ${searchPattern} OR email ILIKE ${searchPattern} OR roll_number ILIKE ${searchPattern})
+            AND (${branchFilter} IS NULL OR branch = ${branchFilter})
+            AND (${subTeamFilter} IS NULL OR ${subTeamFilter} = ANY(sub_teams))
+          ORDER BY created_at DESC;
+        `;
+
+        const applications = rows.map(formatApplicationRow);
+
+        return reply.status(200).send({
+          success: true,
+          totalCount,
+          filteredCount: applications.length,
+          applications,
+        });
+      } catch (error) {
+        fastify.log.error(error, "Failed to fetch recruitment applications");
+        return reply.status(500).send({
+          success: false,
+          message: "Failed to load recruitment applications. Please try again.",
+        });
+      }
     }
   );
 };
