@@ -17,6 +17,9 @@ import Startups from "./otherpages/Startupspage/Startups.jsx";
 import IATPage from "./otherpages/IAT/IATPage.jsx";
 import RecruitmentPage from "./otherpages/Recruitment/frontend/RecruitmentPage.jsx";
 import RecruitmentSuccess from "./otherpages/Recruitment/frontend/RecruitmentSuccess.jsx";
+import RecruitmentAdminLogin from "./otherpages/Recruitment/frontend/admin/RecruitmentAdminLogin.jsx";
+import RecruitmentAdminRoute from "./otherpages/Recruitment/frontend/admin/RecruitmentAdminRoute.jsx";
+import RecruitmentAdminDashboard from "./otherpages/Recruitment/frontend/admin/RecruitmentAdminDashboard.jsx";
 import AuthPage from "./otherpages/admin/auth/authPage.jsx";
 import Dashboard from "./otherpages/admin/dashboard/index.jsx";
 import EditorPage from "./otherpages/admin/EditorPage.jsx";
@@ -113,6 +116,18 @@ const router = createBrowserRouter([
   {
     path: "/recruitment/success",
     element: <RecruitmentSuccess />,
+  },
+  {
+    path: "/recruitment/admin",
+    element: (
+      <RecruitmentAdminRoute>
+        {(user) => <RecruitmentAdminDashboard user={user} />}
+      </RecruitmentAdminRoute>
+    ),
+  },
+  {
+    path: "/recruitment/admin/login",
+    element: <RecruitmentAdminLogin />,
   },
   {
     path: "/announcement",

@@ -3,6 +3,7 @@ import cors from "@fastify/cors";
 import rateLimit from "@fastify/rate-limit";
 import { healthRoutes } from "./routes/health.js";
 import { recruitmentRoutes } from "./routes/recruitment.js";
+import { adminRoutes } from "./routes/admin.js";
 
 export function buildApp() {
   const app = fastify({
@@ -59,8 +60,9 @@ export function buildApp() {
         cb(new Error("Not allowed by CORS"), false);
       }
     },
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+    methods: ["GET", "POST", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "Cookie"],
   });
 
   // 2. Basic Rate Limiting (Prevents flood and spam)
@@ -86,6 +88,7 @@ export function buildApp() {
 
   app.register(healthRoutes);
   app.register(recruitmentRoutes);
+  app.register(adminRoutes);
 
   // 4. Default 404 Handler
   app.setNotFoundHandler((request, reply) => {

@@ -87,7 +87,7 @@ async function runTests() {
   // Test 4: Different roll number formats (MCA, BTECH, MBA, etc.)
   const timestamp = Date.now();
   const testEmail1 = `applicant_${timestamp}@bitmesra.ac.in`;
-  const nonBtechRoll = `MCA/10052/${timestamp.toString().slice(-2)}`;
+  const nonBtechRoll = `MCA/10052/${timestamp.toString().slice(-5)}`;
 
   await test("POST /api/recruitment accepts non-B.Tech roll number format (e.g. MCA)", async () => {
     const res = await app.inject({
@@ -237,6 +237,255 @@ async function runTests() {
     const allowOrigin = res.headers["access-control-allow-origin"];
     if (allowOrigin !== "http://localhost:5173") {
       throw new Error(`Expected Access-Control-Allow-Origin: http://localhost:5173, got: ${allowOrigin}`);
+    }
+  });
+
+  // Admin Route Tests
+  let adminCookie = "";
+
+  await test("POST /api/recruitment/admin/login rejects missing or invalid credentials", async () => {
+    const res = await app.inject({
+      method: "POST",
+      url: "/api/recruitment/admin/login",
+      payload: {},
+    });
+
+    if (res.statusCode !== 401) {
+      throw new Error(`Expected 401, got ${res.statusCode}: ${res.body}`);
+    }
+  });
+
+  await test("POST /api/recruitment/admin/login rejects wrong credentials", async () => {
+    const res = await app.inject({
+      method: "POST",
+      url: "/api/recruitment/admin/login",
+      payload: {
+        username: "wrong_user",
+        password: "wrong_password",
+      },
+    });
+
+    if (res.statusCode !== 401) {
+      throw new Error(`Expected 401, got ${res.statusCode}: ${res.body}`);
+    }
+  });
+
+  await test("POST /api/recruitment/admin/login succeeds with correct credentials and returns session cookie", async () => {
+    const res = await app.inject({
+      method: "POST",
+      url: "/api/recruitment/admin/login",
+      payload: {
+        username: process.env.RECRUITMENT_ADMIN_USERNAME || "edc>180dc",
+        password: process.env.RECRUITMENT_ADMIN_PASSWORD || "ReferralPLease!!",
+      },
+    });
+
+    if (res.statusCode !== 200) {
+      throw new Error(`Expected 200, got ${res.statusCode}: ${res.body}`);
+    }
+
+    const setCookie = res.headers["set-cookie"];
+    const cookieStr = Array.isArray(setCookie) ? setCookie.join("; ") : String(setCookie || "");
+    if (!cookieStr.includes("edc_recruitment_session=")) {
+      throw new Error(`Expected Set-Cookie with edc_recruitment_session, got: ${setCookie}`);
+    }
+
+    // Extract cookie value for subsequent authenticated calls
+    const match = cookieStr.match(/edc_recruitment_session=[^;]+/);
+    if (!match) {
+      throw new Error(`Could not parse session cookie from: ${setCookie}`);
+    }
+    adminCookie = match[0];
+  });
+
+  await test("GET /api/recruitment/admin/me rejects unauthenticated request with 401", async () => {
+    const res = await app.inject({
+      method: "GET",
+      url: "/api/recruitment/admin/me",
+    });
+
+    if (res.statusCode !== 401) {
+      throw new Error(`Expected 401, got ${res.statusCode}: ${res.body}`);
+    }
+  });
+
+  await test("GET /api/recruitment/admin/me succeeds with valid admin session cookie", async () => {
+    const res = await app.inject({
+      method: "GET",
+      url: "/api/recruitment/admin/me",
+      headers: {
+        cookie: adminCookie,
+      },
+    });
+
+    if (res.statusCode !== 200) {
+      throw new Error(`Expected 200, got ${res.statusCode}: ${res.body}`);
+    }
+
+    const json = JSON.parse(res.body);
+    if (!json.authenticated || !json.user?.username) {
+      throw new Error(`Expected authenticated admin user, got: ${res.body}`);
+    }
+  });
+
+  await test("GET /api/recruitment/admin/me succeeds with Bearer auth token header", async () => {
+    const res = await app.inject({
+      method: "GET",
+      url: "/api/recruitment/admin/me",
+      headers: {
+        authorization: "Bearer edc_admin_auth_authenticated",
+      },
+    });
+
+    if (res.statusCode !== 200) {
+      throw new Error(`Expected 200, got ${res.statusCode}: ${res.body}`);
+    }
+
+    const json = JSON.parse(res.body);
+    if (!json.authenticated || !json.user?.username) {
+      throw new Error(`Expected authenticated admin user, got: ${res.body}`);
+    }
+  });
+
+  await test("GET /api/recruitment/admin/applications returns applications list and counts", async () => {
+    const res = await app.inject({
+      method: "GET",
+      url: "/api/recruitment/admin/applications",
+      headers: {
+        cookie: adminCookie,
+      },
+    });
+
+    if (res.statusCode !== 200) {
+      throw new Error(`Expected 200, got ${res.statusCode}: ${res.body}`);
+    }
+
+    const json = JSON.parse(res.body);
+    if (typeof json.totalCount !== "number" || !Array.isArray(json.applications)) {
+      throw new Error(`Expected totalCount and applications array, got: ${res.body}`);
+    }
+  });
+
+  await test("GET /api/recruitment/admin/applications filters by search and branch", async () => {
+    const res = await app.inject({
+      method: "GET",
+      url: "/api/recruitment/admin/applications?branch=CSE",
+      headers: {
+        cookie: adminCookie,
+      },
+    });
+
+    if (res.statusCode !== 200) {
+      throw new Error(`Expected 200, got ${res.statusCode}: ${res.body}`);
+    }
+
+    const json = JSON.parse(res.body);
+    if (!Array.isArray(json.applications)) {
+      throw new Error(`Expected applications array, got: ${res.body}`);
+    }
+
+    for (const appItem of json.applications) {
+      if (appItem.branch !== "CSE") {
+        throw new Error(`Expected branch to be CSE, got ${appItem.branch}`);
+      }
+    }
+  });
+
+  let testApplicationId: number | null = null;
+
+  await test("Admin can inspect and delete an application permanently", async () => {
+    // 1. Submit a temporary applicant for deletion test
+    const timestamp = Date.now();
+    const createRes = await app.inject({
+      method: "POST",
+      url: "/api/recruitment",
+      payload: {
+        fullName: "Admin Test Applicant",
+        branch: "MECH",
+        email: `admintest_${timestamp}@bitmesra.ac.in`,
+        rollNumber: `BTECH/88888/${timestamp % 10000}`,
+        whatsappNumber: "9123456789",
+        whyJoin: "Testing admin delete capability thoroughly.",
+        experience: "Admin verification testing experience.",
+        commitment: "Full commitment to automated test suite.",
+        subTeams: ["Tech"],
+        discoverySource: "Friends",
+        campusIdeas: "Streamlining recruitment management with a dedicated dashboard.",
+      },
+    });
+
+    if (createRes.statusCode !== 201) {
+      throw new Error(`Failed to create test application: ${createRes.body}`);
+    }
+
+    const createdJson = JSON.parse(createRes.body);
+    testApplicationId = createdJson.applicationId;
+
+    if (!testApplicationId) {
+      throw new Error("No applicationId returned");
+    }
+
+    // 2. Fetch single application
+    const getRes = await app.inject({
+      method: "GET",
+      url: `/api/recruitment/admin/applications/${testApplicationId}`,
+      headers: {
+        cookie: adminCookie,
+      },
+    });
+
+    if (getRes.statusCode !== 200) {
+      throw new Error(`Failed to get single application: ${getRes.body}`);
+    }
+
+    const singleJson = JSON.parse(getRes.body);
+    if (singleJson.application.fullName !== "Admin Test Applicant") {
+      throw new Error(`Unexpected applicant name: ${singleJson.application.fullName}`);
+    }
+
+    // 3. Delete application
+    const deleteRes = await app.inject({
+      method: "DELETE",
+      url: `/api/recruitment/admin/applications/${testApplicationId}`,
+      headers: {
+        cookie: adminCookie,
+      },
+    });
+
+    if (deleteRes.statusCode !== 200) {
+      throw new Error(`Failed to delete application: ${deleteRes.body}`);
+    }
+
+    // 4. Verify it no longer exists
+    const verifyRes = await app.inject({
+      method: "GET",
+      url: `/api/recruitment/admin/applications/${testApplicationId}`,
+      headers: {
+        cookie: adminCookie,
+      },
+    });
+
+    if (verifyRes.statusCode !== 404) {
+      throw new Error(`Expected 404 after deletion, got ${verifyRes.statusCode}: ${verifyRes.body}`);
+    }
+  });
+
+  await test("POST /api/recruitment/admin/logout clears session cookie", async () => {
+    const res = await app.inject({
+      method: "POST",
+      url: "/api/recruitment/admin/logout",
+      headers: {
+        cookie: adminCookie,
+      },
+    });
+
+    if (res.statusCode !== 200) {
+      throw new Error(`Expected 200, got ${res.statusCode}: ${res.body}`);
+    }
+
+    const setCookie = res.headers["set-cookie"];
+    if (!setCookie || !setCookie.includes("Max-Age=0")) {
+      throw new Error(`Expected Set-Cookie with Max-Age=0, got: ${setCookie}`);
     }
   });
 
