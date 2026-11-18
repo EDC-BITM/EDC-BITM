@@ -158,9 +158,9 @@ export const adminRoutes: FastifyPluginAsync = async (fastify) => {
             created_at
           FROM recruitment_applications
           WHERE
-            (${searchPattern} IS NULL OR full_name ILIKE ${searchPattern} OR email ILIKE ${searchPattern} OR roll_number ILIKE ${searchPattern})
-            AND (${branchFilter} IS NULL OR branch = ${branchFilter})
-            AND (${subTeamFilter} IS NULL OR ${subTeamFilter} = ANY(sub_teams))
+            (${searchPattern}::text IS NULL OR full_name ILIKE ${searchPattern}::text OR email ILIKE ${searchPattern}::text OR roll_number ILIKE ${searchPattern}::text)
+            AND (${branchFilter}::text IS NULL OR branch = ${branchFilter}::text)
+            AND (${subTeamFilter}::text IS NULL OR ${subTeamFilter}::text = ANY(sub_teams))
           ORDER BY created_at DESC;
         `;
 
