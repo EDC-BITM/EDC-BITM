@@ -226,7 +226,7 @@ export default function RecruitmentAdminDashboard({ user }) {
           {/* Brand */}
           <div className="flex items-center gap-3">
             <img
-              src={EDCLogo}
+              src={EDCLogo?.src || EDCLogo}
               alt="EDC BIT Mesra"
               className="w-9 h-9 object-contain"
             />

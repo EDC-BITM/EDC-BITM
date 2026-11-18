@@ -54,7 +54,7 @@ export default function RecruitmentAdminLogin() {
         <div className="flex flex-col items-center text-center mb-8">
           <div className="relative mb-3">
             <img
-              src={EDCLogo}
+              src={EDCLogo?.src || EDCLogo}
               alt="EDC BIT Mesra"
               className="w-16 h-16 object-contain drop-shadow-md"
             />

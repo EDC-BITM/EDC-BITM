@@ -50,7 +50,7 @@ export default function RecruitmentAdminRoute({ children }) {
         <div className="flex flex-col items-center gap-4 text-center">
           <div className="relative">
             <img
-              src={EDCLogo}
+              src={EDCLogo?.src || EDCLogo}
               alt="EDC BIT Mesra"
               className="w-14 h-14 object-contain animate-pulse-slow drop-shadow-lg"
             />
