@@ -275,8 +275,8 @@ async function runTests() {
       method: "POST",
       url: "/api/recruitment/admin/login",
       payload: {
-        username: "admin",
-        password: "edc_recruitment_2026!",
+        username: process.env.RECRUITMENT_ADMIN_USERNAME || "edc>180dc",
+        password: process.env.RECRUITMENT_ADMIN_PASSWORD || "ReferralPLease!!",
       },
     });
 

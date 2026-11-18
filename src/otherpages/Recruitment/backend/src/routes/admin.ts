@@ -2,8 +2,8 @@ import type { FastifyPluginAsync, FastifyReply, FastifyRequest } from "fastify";
 import { sql } from "../db/index.js";
 
 // Fixed hardcoded admin credentials for recruitment coordinators
-const ADMIN_USERNAME = "admin";
-const VALID_PASSWORDS = ["1234", "admin", "edc_recruitment_2026!"];
+const ADMIN_USERNAME = process.env.RECRUITMENT_ADMIN_USERNAME || "edc>180dc";
+const ADMIN_PASSWORD = process.env.RECRUITMENT_ADMIN_PASSWORD || "ReferralPLease!!";
 const AUTH_TOKEN = "edc_admin_auth_authenticated";
 
 const AUTH_COOKIE =
@@ -58,9 +58,10 @@ export const adminRoutes: FastifyPluginAsync = async (fastify) => {
   fastify.post("/api/recruitment/admin/login", async (request, reply) => {
     const { username, password } = (request.body as any) || {};
 
-    const isValidPassword = VALID_PASSWORDS.includes(String(password || "").trim());
+    const user = String(username || "").trim();
+    const pass = String(password || "").trim();
 
-    if (username === ADMIN_USERNAME && isValidPassword) {
+    if (user === ADMIN_USERNAME && pass === ADMIN_PASSWORD) {
       reply.header("Set-Cookie", AUTH_COOKIE);
       return reply.status(200).send({
         success: true,

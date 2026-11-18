@@ -12,6 +12,7 @@ const candidateUrls = [
 
 let cachedWorkingBaseUrl = null;
 const TOKEN_KEY = "edc_recruitment_admin_token";
+const USER_KEY = "edc_recruitment_admin_user";
 
 export function getAdminToken() {
   try {
@@ -25,10 +26,25 @@ export function getAdminToken() {
   }
 }
 
-export function setAdminToken(token) {
+export function getStoredUser() {
+  try {
+    const username =
+      sessionStorage.getItem(USER_KEY) ||
+      localStorage.getItem(USER_KEY);
+    return username ? { username } : null;
+  } catch {
+    return null;
+  }
+}
+
+export function setAdminToken(token, username) {
   try {
     sessionStorage.setItem(TOKEN_KEY, token);
     localStorage.setItem(TOKEN_KEY, token);
+    if (username) {
+      sessionStorage.setItem(USER_KEY, username);
+      localStorage.setItem(USER_KEY, username);
+    }
   } catch {
     // Ignore storage quota errors
   }
@@ -38,6 +54,8 @@ export function clearAdminToken() {
   try {
     sessionStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(TOKEN_KEY);
+    sessionStorage.removeItem(USER_KEY);
+    localStorage.removeItem(USER_KEY);
   } catch {
     // Ignore storage errors
   }
@@ -121,11 +139,11 @@ export async function adminLogin(username, password) {
     throw new Error(res.data?.message || "Invalid username or password");
   }
 
+  const userObj = res.data?.user;
   if (res.data?.token) {
-    setAdminToken(res.data.token);
+    setAdminToken(res.data.token, userObj?.username);
   } else {
-    // Fallback marker
-    setAdminToken("edc_admin_auth_authenticated");
+    setAdminToken("edc_admin_auth_authenticated", userObj?.username);
   }
 
   return res.data;
@@ -161,6 +179,9 @@ export async function checkAdminAuth() {
     });
 
     if (res.ok && res.data?.authenticated) {
+      if (res.data.user?.username) {
+        setAdminToken(token, res.data.user.username);
+      }
       return { authenticated: true, user: res.data.user };
     }
 
@@ -169,11 +190,15 @@ export async function checkAdminAuth() {
       return { authenticated: false, user: null };
     }
 
-    // Default optimistic keep-alive on transient server hiccups
-    return { authenticated: true, user: { username: "admin" } };
+    return {
+      authenticated: true,
+      user: getStoredUser() || { username: "Admin" },
+    };
   } catch {
-    // Keep local session on network failures
-    return { authenticated: true, user: { username: "admin" } };
+    return {
+      authenticated: true,
+      user: getStoredUser() || { username: "Admin" },
+    };
   }
 }
 

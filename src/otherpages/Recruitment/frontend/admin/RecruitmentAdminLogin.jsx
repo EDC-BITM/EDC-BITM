@@ -5,7 +5,7 @@ import EDCLogo from "@assets/edclogo3d.png?url&w=100&format=webp&quality=90&as=m
 import { adminLogin } from "./adminApi.js";
 
 export default function RecruitmentAdminLogin() {
-  const [username, setUsername] = useState("admin");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

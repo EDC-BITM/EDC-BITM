@@ -3,7 +3,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Loader2 } from "lucide-react";
 import EDCLogo from "@assets/edclogo3d.png?url&w=100&format=webp&quality=90&as=meta";
-import { checkAdminAuth, getAdminToken } from "./adminApi.js";
+import { checkAdminAuth, getAdminToken, getStoredUser } from "./adminApi.js";
 
 export default function RecruitmentAdminRoute({ children }) {
   const [authState, setAuthState] = useState(() => {
@@ -11,7 +11,7 @@ export default function RecruitmentAdminRoute({ children }) {
     return {
       isLoading: !existingToken,
       isAuthenticated: Boolean(existingToken),
-      user: existingToken ? { username: "admin" } : null,
+      user: getStoredUser() || (existingToken ? { username: "Admin" } : null),
     };
   });
 
