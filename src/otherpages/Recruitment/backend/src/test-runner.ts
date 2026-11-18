@@ -328,6 +328,25 @@ async function runTests() {
     }
   });
 
+  await test("GET /api/recruitment/admin/me succeeds with Bearer auth token header", async () => {
+    const res = await app.inject({
+      method: "GET",
+      url: "/api/recruitment/admin/me",
+      headers: {
+        authorization: "Bearer edc_admin_auth_authenticated",
+      },
+    });
+
+    if (res.statusCode !== 200) {
+      throw new Error(`Expected 200, got ${res.statusCode}: ${res.body}`);
+    }
+
+    const json = JSON.parse(res.body);
+    if (!json.authenticated || !json.user?.username) {
+      throw new Error(`Expected authenticated admin user, got: ${res.body}`);
+    }
+  });
+
   await test("GET /api/recruitment/admin/applications returns applications list and counts", async () => {
     const res = await app.inject({
       method: "GET",

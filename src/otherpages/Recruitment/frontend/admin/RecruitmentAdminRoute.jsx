@@ -3,14 +3,18 @@ import { Navigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Loader2 } from "lucide-react";
 import EDCLogo from "@assets/edclogo3d.png?url&w=100&format=webp&quality=90&as=meta";
-import { checkAdminAuth } from "./adminApi.js";
+import { checkAdminAuth, getAdminToken } from "./adminApi.js";
 
 export default function RecruitmentAdminRoute({ children }) {
-  const [authState, setAuthState] = useState({
-    isLoading: true,
-    isAuthenticated: false,
-    user: null,
+  const [authState, setAuthState] = useState(() => {
+    const existingToken = getAdminToken();
+    return {
+      isLoading: !existingToken,
+      isAuthenticated: Boolean(existingToken),
+      user: existingToken ? { username: "admin" } : null,
+    };
   });
+
   const location = useLocation();
 
   useEffect(() => {
@@ -23,15 +27,17 @@ export default function RecruitmentAdminRoute({ children }) {
           setAuthState({
             isLoading: false,
             isAuthenticated: result.authenticated,
-            user: result.user,
+            user: result.user || { username: "admin" },
           });
         }
       } catch {
         if (isMounted) {
+          // If token exists, stay authenticated
+          const hasToken = Boolean(getAdminToken());
           setAuthState({
             isLoading: false,
-            isAuthenticated: false,
-            user: null,
+            isAuthenticated: hasToken,
+            user: hasToken ? { username: "admin" } : null,
           });
         }
       }
