@@ -1,25 +1,27 @@
-import type { FastifyPluginAsync } from "fastify";
-import { z } from "zod";
+import type { FastifyPluginAsync, FastifyReply, FastifyRequest } from "fastify";
 import { sql } from "../db/index.js";
-import {
-  COOKIE_NAME,
-  createSessionToken,
-  requireRecruitmentAdmin,
-  serializeCookie,
-  serializeExpiredCookie,
-  validateAdminCredentials,
-} from "../auth/session.js";
 
-const loginSchema = z.object({
-  username: z.string().trim().min(1, "Username is required"),
-  password: z.string().min(1, "Password is required"),
-});
+// Fixed hardcoded admin credentials for recruitment coordinators
+const ADMIN_USERNAME = "admin";
+const ADMIN_PASSWORD = "edc_recruitment_2026!";
 
-const getApplicationsQuerySchema = z.object({
-  search: z.string().optional(),
-  branch: z.string().optional(),
-  subTeam: z.string().optional(),
-});
+const AUTH_COOKIE =
+  "edc_recruitment_session=authenticated; Path=/; HttpOnly; SameSite=Lax";
+const LOGOUT_COOKIE =
+  "edc_recruitment_session=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:00 GMT";
+
+/**
+ * Lightweight middleware: checks for recruitment admin session cookie
+ */
+async function requireAdmin(request: FastifyRequest, reply: FastifyReply) {
+  const cookieHeader = request.headers.cookie || "";
+  if (!cookieHeader.includes("edc_recruitment_session=authenticated")) {
+    return reply.status(401).send({
+      success: false,
+      message: "Unauthorized: Admin login required",
+    });
+  }
+}
 
 function formatApplicationRow(row: any) {
   return {
@@ -45,53 +47,28 @@ function formatApplicationRow(row: any) {
 }
 
 export const adminRoutes: FastifyPluginAsync = async (fastify) => {
-  // 1. Admin Login
+  // 1. Admin Login (Simple if-else credential check)
   fastify.post("/api/recruitment/admin/login", async (request, reply) => {
-    const parseResult = loginSchema.safeParse(request.body);
-    if (!parseResult.success) {
-      const fieldErrors = parseResult.error.flatten().fieldErrors;
-      const firstErrorMessage =
-        Object.values(fieldErrors).flat()[0] || "Validation failed";
-      return reply.status(400).send({
-        success: false,
-        message: firstErrorMessage,
+    const { username, password } = (request.body as any) || {};
+
+    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+      reply.header("Set-Cookie", AUTH_COOKIE);
+      return reply.status(200).send({
+        success: true,
+        message: "Admin authentication successful",
+        user: { username: ADMIN_USERNAME },
       });
-    }
-
-    const { username, password } = parseResult.data;
-    const isValid = validateAdminCredentials(username, password);
-
-    if (!isValid) {
-      fastify.log.warn({ username }, "Failed admin login attempt");
+    } else {
       return reply.status(401).send({
         success: false,
         message: "Invalid credentials. Please verify username and password.",
       });
     }
-
-    // 7 days session
-    const token = createSessionToken(username, 7 * 24 * 60 * 60 * 1000);
-    const cookieHeader = serializeCookie(COOKIE_NAME, token, {
-      maxAgeSeconds: 7 * 24 * 60 * 60,
-      httpOnly: true,
-      sameSite: "Lax",
-      path: "/",
-    });
-
-    reply.header("Set-Cookie", cookieHeader);
-    return reply.status(200).send({
-      success: true,
-      message: "Admin authentication successful",
-      user: {
-        username,
-      },
-    });
   });
 
   // 2. Admin Logout
   fastify.post("/api/recruitment/admin/logout", async (_request, reply) => {
-    const expiredCookie = serializeExpiredCookie(COOKIE_NAME, "/");
-    reply.header("Set-Cookie", expiredCookie);
+    reply.header("Set-Cookie", LOGOUT_COOKIE);
     return reply.status(200).send({
       success: true,
       message: "Logged out successfully",
@@ -101,14 +78,12 @@ export const adminRoutes: FastifyPluginAsync = async (fastify) => {
   // 3. Verify Admin Session
   fastify.get(
     "/api/recruitment/admin/me",
-    { preHandler: [requireRecruitmentAdmin] },
-    async (request, reply) => {
+    { preHandler: [requireAdmin] },
+    async (_request, reply) => {
       return reply.status(200).send({
         success: true,
         authenticated: true,
-        user: {
-          username: request.admin?.username,
-        },
+        user: { username: ADMIN_USERNAME },
       });
     }
   );
@@ -116,26 +91,23 @@ export const adminRoutes: FastifyPluginAsync = async (fastify) => {
   // 4. Get All Recruitment Applications with Search and Filter
   fastify.get(
     "/api/recruitment/admin/applications",
-    { preHandler: [requireRecruitmentAdmin] },
+    { preHandler: [requireAdmin] },
     async (request, reply) => {
-      const queryResult = getApplicationsQuerySchema.safeParse(request.query);
-      const query = queryResult.success ? queryResult.data : {};
+      const query = (request.query as any) || {};
 
-      const searchParam = query.search?.trim();
-      const searchPattern = searchParam && searchParam.length > 0 ? `%${searchParam}%` : null;
+      const searchParam = typeof query.search === "string" ? query.search.trim() : "";
+      const searchPattern = searchParam.length > 0 ? `%${searchParam}%` : null;
 
-      const branchParam = query.branch?.trim();
+      const branchParam = typeof query.branch === "string" ? query.branch.trim() : "";
       const branchFilter = branchParam && branchParam.toLowerCase() !== "all" ? branchParam : null;
 
-      const subTeamParam = query.subTeam?.trim();
+      const subTeamParam = typeof query.subTeam === "string" ? query.subTeam.trim() : "";
       const subTeamFilter = subTeamParam && subTeamParam.toLowerCase() !== "all" ? subTeamParam : null;
 
       try {
-        // Query total applications count
         const countResult = await sql`SELECT count(*)::int as total FROM recruitment_applications;`;
         const totalCount = countResult[0]?.total ?? 0;
 
-        // Query applications with optional search and filters
         const rows = await sql`
           SELECT
             id,
@@ -185,7 +157,7 @@ export const adminRoutes: FastifyPluginAsync = async (fastify) => {
   // 5. Get Single Recruitment Application Details
   fastify.get(
     "/api/recruitment/admin/applications/:id",
-    { preHandler: [requireRecruitmentAdmin] },
+    { preHandler: [requireAdmin] },
     async (request, reply) => {
       const { id } = request.params as { id: string };
       const applicationId = parseInt(id, 10);
@@ -247,7 +219,7 @@ export const adminRoutes: FastifyPluginAsync = async (fastify) => {
   // 6. Delete Recruitment Application Permanently
   fastify.delete(
     "/api/recruitment/admin/applications/:id",
-    { preHandler: [requireRecruitmentAdmin] },
+    { preHandler: [requireAdmin] },
     async (request, reply) => {
       const { id } = request.params as { id: string };
       const applicationId = parseInt(id, 10);
@@ -275,7 +247,7 @@ export const adminRoutes: FastifyPluginAsync = async (fastify) => {
 
         const deleted = result[0];
         fastify.log.info(
-          { applicationId, admin: request.admin?.username },
+          { applicationId },
           "Recruitment application permanently deleted"
         );
 

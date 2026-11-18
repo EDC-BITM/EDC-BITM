@@ -243,19 +243,19 @@ async function runTests() {
   // Admin Route Tests
   let adminCookie = "";
 
-  await test("POST /api/recruitment/admin/login rejects missing credentials", async () => {
+  await test("POST /api/recruitment/admin/login rejects missing or invalid credentials", async () => {
     const res = await app.inject({
       method: "POST",
       url: "/api/recruitment/admin/login",
       payload: {},
     });
 
-    if (res.statusCode !== 400) {
-      throw new Error(`Expected 400, got ${res.statusCode}: ${res.body}`);
+    if (res.statusCode !== 401) {
+      throw new Error(`Expected 401, got ${res.statusCode}: ${res.body}`);
     }
   });
 
-  await test("POST /api/recruitment/admin/login rejects invalid credentials", async () => {
+  await test("POST /api/recruitment/admin/login rejects wrong credentials", async () => {
     const res = await app.inject({
       method: "POST",
       url: "/api/recruitment/admin/login",
@@ -275,8 +275,8 @@ async function runTests() {
       method: "POST",
       url: "/api/recruitment/admin/login",
       payload: {
-        username: process.env.RECRUITMENT_ADMIN_USERNAME || "edc_admin",
-        password: process.env.RECRUITMENT_ADMIN_PASSWORD || "edc_recruitment_2026!",
+        username: "admin",
+        password: "edc_recruitment_2026!",
       },
     });
 
@@ -285,12 +285,13 @@ async function runTests() {
     }
 
     const setCookie = res.headers["set-cookie"];
-    if (!setCookie || !setCookie.includes("edc_recruitment_session=")) {
+    const cookieStr = Array.isArray(setCookie) ? setCookie.join("; ") : String(setCookie || "");
+    if (!cookieStr.includes("edc_recruitment_session=")) {
       throw new Error(`Expected Set-Cookie with edc_recruitment_session, got: ${setCookie}`);
     }
 
     // Extract cookie value for subsequent authenticated calls
-    const match = setCookie.match(/edc_recruitment_session=[^;]+/);
+    const match = cookieStr.match(/edc_recruitment_session=[^;]+/);
     if (!match) {
       throw new Error(`Could not parse session cookie from: ${setCookie}`);
     }
