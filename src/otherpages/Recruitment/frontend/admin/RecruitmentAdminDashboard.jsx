@@ -76,6 +76,28 @@ export default function RecruitmentAdminDashboard({ user }) {
   const [deletingApp, setDeletingApp] = useState(null);
   const [isDeleting, setIsDeleting] = useState(false);
 
+  // Prevent search engine indexing of admin portal
+  useEffect(() => {
+    let meta = document.querySelector('meta[name="robots"]');
+    let created = false;
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.name = "robots";
+      document.head.appendChild(meta);
+      created = true;
+    }
+    const previous = meta.content;
+    meta.content = "noindex, nofollow";
+
+    return () => {
+      if (created) {
+        meta.remove();
+      } else {
+        meta.content = previous;
+      }
+    };
+  }, []);
+
   // Load applications
   const loadApplications = useCallback(
     async (showRefreshIndicator = false) => {

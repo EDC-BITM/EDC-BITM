@@ -1,0 +1,9 @@
+# Block search engines from crawling or indexing admin routes
+User-agent: *
+Disallow: /recruitment/admin
+Disallow: /recruitment/admin/*
+Disallow: /admin
+Disallow: /admin/*
+
+# Allow public pages
+Allow: /
