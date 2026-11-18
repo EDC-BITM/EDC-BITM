@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Lock, User, AlertCircle, ArrowLeft, Loader2, Eye, EyeOff } from "lucide-react";
 import EDCLogo from "@assets/edclogo3d.png?url&w=100&format=webp&quality=90&as=meta";
@@ -11,6 +11,28 @@ export default function RecruitmentAdminLogin() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+
+  // Prevent search engine indexing of admin portal
+  useEffect(() => {
+    let meta = document.querySelector('meta[name="robots"]');
+    let created = false;
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.name = "robots";
+      document.head.appendChild(meta);
+      created = true;
+    }
+    const previous = meta.content;
+    meta.content = "noindex, nofollow";
+
+    return () => {
+      if (created) {
+        meta.remove();
+      } else {
+        meta.content = previous;
+      }
+    };
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
