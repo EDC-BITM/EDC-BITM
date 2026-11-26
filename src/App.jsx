@@ -1,5 +1,6 @@
 import {
   createBrowserRouter,
+  Navigate,
   RouterProvider,
   useLocation,
 } from "react-router-dom";
@@ -15,7 +16,7 @@ import Eventspage from "./otherpages/Eventspage/Eventspage.jsx";
 import Teamspage from "./otherpages/Teamspage/team.jsx";
 import Startups from "./otherpages/Startupspage/Startups.jsx";
 import IATPage from "./otherpages/IAT/IATPage.jsx";
-import RecruitmentPage from "./otherpages/Recruitment/frontend/RecruitmentPage.jsx";
+import RecruitmentClosed from "./otherpages/Recruitment/frontend/RecruitmentClosed.jsx";
 import RecruitmentSuccess from "./otherpages/Recruitment/frontend/RecruitmentSuccess.jsx";
 import RecruitmentAdminLogin from "./otherpages/Recruitment/frontend/admin/RecruitmentAdminLogin.jsx";
 import RecruitmentAdminRoute from "./otherpages/Recruitment/frontend/admin/RecruitmentAdminRoute.jsx";
@@ -111,7 +112,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/recruitment",
-    element: <RecruitmentPage />,
+    element: <Navigate to="/recruitment/closed" replace />,
+  },
+  {
+    path: "/recruitment/closed",
+    element: <RecruitmentClosed />,
+  },
+  {
+    path: "/registration-closed",
+    element: <Navigate to="/recruitment/closed" replace />,
   },
   {
     path: "/recruitment/success",
