@@ -268,11 +268,11 @@ export default function RecruitmentAdminDashboard({ user }) {
           {/* Right Actions */}
           <div className="flex items-center gap-3">
             <Link
-              to="/recruitment"
+              to="/recruitment/closed"
               target="_blank"
               className="hidden md:inline-flex items-center gap-1.5 text-xs text-white/70 hover:text-[#FED853] px-3 py-1.5 rounded-lg border border-white/10 hover:border-[#FED853]/40 transition"
             >
-              <span>View Form</span>
+              <span>Recruitment Status</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </Link>
 

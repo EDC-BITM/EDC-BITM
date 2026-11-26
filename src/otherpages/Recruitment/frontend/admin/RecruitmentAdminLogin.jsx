@@ -62,11 +62,11 @@ export default function RecruitmentAdminLogin() {
       {/* Back Link */}
       <div className="w-full max-w-md mb-6 z-10">
         <Link
-          to="/recruitment"
+          to="/"
           className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-[#FED853] transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>Back to Recruitment Form</span>
+          <span>Back to Home</span>
         </Link>
       </div>
 

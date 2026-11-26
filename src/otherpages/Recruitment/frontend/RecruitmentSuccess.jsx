@@ -56,7 +56,7 @@ export default function RecruitmentSuccess() {
   }, [submission]);
 
   if (!submission) {
-    return <Navigate to="/recruitment" replace />;
+    return <Navigate to="/recruitment/closed" replace />;
   }
 
   async function handleShareStory() {
