@@ -19,6 +19,16 @@
         "facebook": "https://www.facebook.com/vishal.h.shah.7/",
         "email": "vishalhshah@bitmesra.ac.in"
       }
+    },
+    {
+      "id": "dilipkumar",
+      "name": "Dr. Dilip Kumar Singh",
+      "title": "Faculty Advisor",
+      "image": "https://res.cloudinary.com/bfg0uwix/image/upload/v1795647273/prof.jpg",
+      "publicId": "prof",
+      "socials": { 
+      "linkedin": "https://www.linkedin.com/in/dilip-k-singh-92a6a015/",  
+      "email": "dilipsinghnano1@gmail.com" }
     }
   ],
   "leadershipBody": {

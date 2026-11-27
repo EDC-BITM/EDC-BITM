@@ -461,11 +461,11 @@ export default function RecruitmentPage() {
                 </select>
               </div>
               <Field
-                label="3. Institute E-Mail ID *"
+                label="3. E-Mail ID *"
                 name="email"
                 type="email"
                 autoComplete="email"
-                placeholder="you@bitmesra.ac.in"
+                placeholder="name@example.com"
                 defaultValue={draft.email || ""}
                 required
               />
